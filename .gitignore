@@ -1,0 +1,32 @@
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+!.env.*.example
+.vercel/
+.codex/config.toml
+.auth/
+playwright/.auth/
+*.pem
+*.key
+
+# Dependencies and build output
+node_modules/
+.next/
+dist/
+out/
+*.tsbuildinfo
+
+# Test output and temporary data
+coverage/
+test-results/
+playwright-report/
+artifacts/raw/
+artifacts/private/
+tmp/
+.tmp/
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
