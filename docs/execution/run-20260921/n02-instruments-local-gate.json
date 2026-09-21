@@ -1,0 +1,98 @@
+{
+  "phase": "quality-preparation",
+  "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+  "context_manifest": "docs/execution/run-20260921/context-n02-v6.json",
+  "started_at": "2026-09-21T10:27:54.634272+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "N02 UX measurement and release-evidence tooling. I01 app behavior remains covered by existing unit/integration evidence. Actual baseline/candidate/holdout, live UX comparison, G5 and G6 are pending.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 142,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 23,
+        "tests/ux-benchmark": 7,
+        "tests/release": 44
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

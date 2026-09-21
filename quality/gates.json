@@ -1,6 +1,6 @@
 {
-  "phase": "application-integration",
-  "scope": "I01 domain/SQLite and customer/merchant UI integration with E02 evaluation runner. Formal NL baseline/holdout and final G5/G6 remain pending.",
+  "phase": "quality-preparation",
+  "scope": "N02 UX measurement and release-evidence tooling. I01 app behavior remains covered by existing unit/integration evidence. Actual baseline/candidate/holdout, live UX comparison, G5 and G6 are pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -61,7 +61,11 @@
     "docs/execution/run-20260921/context-app-v5.json",
     "scripts/*.mts",
     "tests/integration/*.mjs",
-    "tests/**/*.html"
+    "tests/**/*.html",
+    "tests/ux-benchmark/*.mjs",
+    "tests/ux-benchmark/*.py",
+    "tests/release/*.py",
+    "docs/execution/run-20260921/context-n02-v6.json"
   ],
   "checks": [
     {
@@ -111,6 +115,18 @@
       "counts_file": "artifacts/raw/domain-ui-tests.json"
     },
     {
+      "id": "ux-instrument-tests",
+      "command": [
+        "python3",
+        "scripts/run_node_tests.py",
+        "ux-instrument-tests",
+        "tests/ux-benchmark/*.test.mts",
+        "tests/ux-benchmark/*.test.mjs"
+      ],
+      "tests": true,
+      "counts_file": "artifacts/raw/ux-instrument-tests.json"
+    },
+    {
       "id": "typecheck",
       "command": [
         "npm",
@@ -129,81 +145,34 @@
   ],
   "tasks": [
     {
-      "id": "I01-DOMAIN",
-      "implementers": [
-        "preflight_builder"
-      ],
-      "requirements": [
-        "CORE-04",
-        "CORE-06",
-        "CORE-07",
-        "CORE-08",
-        "CORE-09",
-        "CORE-10",
-        "CORE-11",
-        "CORE-13",
-        "CORE-14",
-        "CORE-20",
-        "CORE-25",
-        "CORE-26"
-      ]
-    },
-    {
-      "id": "I01-CUSTOMER",
-      "implementers": [
-        "research"
-      ],
-      "requirements": [
-        "CORE-01",
-        "CORE-02",
-        "CORE-03",
-        "CORE-04",
-        "CORE-09",
-        "CORE-10",
-        "CORE-24",
-        "CORE-25"
-      ]
-    },
-    {
-      "id": "I01-MERCHANT",
-      "implementers": [
-        "root"
-      ],
-      "requirements": [
-        "CORE-05",
-        "CORE-06",
-        "CORE-07",
-        "CORE-08",
-        "CORE-24",
-        "CORE-25",
-        "CORE-26"
-      ]
-    },
-    {
-      "id": "I01-SHELL",
+      "id": "N02-UX-INSTRUMENT",
       "implementers": [
         "preflight_builder",
         "root"
       ],
       "requirements": [
-        "CORE-12",
-        "CORE-14",
-        "CORE-24"
+        "CORE-17",
+        "CORE-18",
+        "CORE-21",
+        "CORE-25"
       ]
     },
     {
-      "id": "E02",
+      "id": "N02-RELEASE-INSTRUMENT",
       "implementers": [
-        "method_auditor",
+        "preflight_builder",
         "root"
       ],
       "requirements": [
+        "CORE-13",
         "CORE-15",
+        "CORE-16",
+        "CORE-17",
         "CORE-18",
         "CORE-21",
         "CORE-23"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-app-v5.json"
+  "context_manifest": "docs/execution/run-20260921/context-n02-v6.json"
 }

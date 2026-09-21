@@ -70,16 +70,17 @@
   ],
   "observations_scope": "initial preflight observations; current state is recorded separately and in PROGRESS",
   "current": {
-    "rootBranch": "codex/i01-app",
-    "integrationSha": "e612cd950c30fa54df277a7befc385552df4bb9a",
+    "rootBranch": "codex/n02-quality",
+    "integrationSha": "5f2e5d22082e0d685a393ee38da6110a9f99d9fa",
     "mainSha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
     "mainAndIntegrationProtection": "gate required, strict, enforce_admins, no force or delete",
     "productPrs": [
       "https://github.com/Woo-Dong/wanna-gs/pull/2",
-      "https://github.com/Woo-Dong/wanna-gs/pull/3"
+      "https://github.com/Woo-Dong/wanna-gs/pull/3",
+      "https://github.com/Woo-Dong/wanna-gs/pull/4"
     ],
-    "currentPreview": "dpl_9uR4KbjNDJ97zehtRvUwNsLvLaPW",
-    "currentPreviewSource": "371f380c854e14a46c9d313ddcd0d26fca386a78",
+    "currentPreview": "dpl_73afciHs7CadEfeNSzpzz86sRmXz",
+    "currentPreviewSource": "10c00723d0b64ea47a06dcbd00e2b671e7c62daf",
     "currentPreviewTarget": null,
     "productionSecret": "configured, not deployed or live verified",
     "deploymentRecovery": "deployment-recovery.md; retain canceled dpl_5vQB6DEZ2pADmhiuypMLRoQesczP and active Preview to avoid new-project first-deployment reset",
@@ -88,7 +89,9 @@
       "/Users/gsr/Desktop/workspace/2026-ralphton-domain",
       "/Users/gsr/Desktop/workspace/2026-ralphton-customer",
       "/Users/gsr/Desktop/workspace/2026-ralphton-merchant",
-      "/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921"
-    ]
+      "/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-nl-candidate"
+    ],
+    "qualityPreparationFingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c"
   }
 }

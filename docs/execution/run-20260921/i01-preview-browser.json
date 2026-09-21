@@ -1,0 +1,123 @@
+{
+  "role": "root deployed I01 smoke",
+  "deploymentId": "dpl_73afciHs7CadEfeNSzpzz86sRmXz",
+  "sourceSha": "10c00723d0b64ea47a06dcbd00e2b671e7c62daf",
+  "origin": "https://wanna-78p6z3gj1-beatrain-4635s-projects.vercel.app",
+  "liveCalls": 2,
+  "errors": [],
+  "model": {
+    "ok": true,
+    "data": {
+      "sessionId": "DEMO-SESSION-001",
+      "generation": 1,
+      "actorId": "DEMO-CUSTOMER-001",
+      "roleEpoch": 0,
+      "requestId": "e326ebe3-fb21-46b3-a3d2-5791a53babae",
+      "conversationId": "663111d4-6955-4ad8-8080-746b928df53a",
+      "inputRevision": 2,
+      "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+      "mode": "live",
+      "model": "gpt-5-mini-2025-08-07",
+      "promptVersion": "baseline-v1",
+      "catalogVersion": "catalog-248-v1",
+      "result": {
+        "action": "show_candidates",
+        "candidates": [
+          {
+            "id": "DEMO-00BDFF29BB32",
+            "kind": "exact",
+            "sharedEvidence": [
+              "name: 짜슐랭 145g",
+              "brand: 오뚜기",
+              "category: 라면·면류",
+              "size: 145g"
+            ],
+            "differences": [],
+            "unknownConditions": []
+          }
+        ],
+        "question": null,
+        "reason": "요청한 제품명이 카탈로그의 '짜슐랭 145g'와 정확히 일치합니다. 확인해 드릴까요?",
+        "confirmationRequired": true
+      },
+      "usage": {
+        "inputTokens": 16627,
+        "outputTokens": 140,
+        "totalTokens": 16767,
+        "estimatedCostUsd": 0.00443675
+      },
+      "latencyMs": 2451
+    }
+  },
+  "merchantModel": {
+    "ok": true,
+    "data": {
+      "sessionId": "DEMO-SESSION-001",
+      "generation": 1,
+      "actorId": "DEMO-MERCHANT-STORE-PUBLIC-35087",
+      "roleEpoch": 1,
+      "requestId": "a584e4dc-ad9b-4182-8bf0-210163062f9b",
+      "conversationId": "b9323199-ed80-43a9-a42a-ada9306dedfa",
+      "inputRevision": 3,
+      "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+      "mode": "live",
+      "model": "gpt-5-mini-2025-08-07",
+      "promptVersion": "baseline-v1",
+      "catalogVersion": "catalog-248-v1",
+      "result": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 50000,
+          "excludeCategories": [],
+          "excludeProductIds": [],
+          "maxQuantity": null,
+          "restorePrevious": false
+        },
+        "question": null,
+        "reason": "사용자가 이번 검토안 예산을 5만원으로 지정함"
+      },
+      "usage": {
+        "inputTokens": 16805,
+        "outputTokens": 86,
+        "totalTokens": 16891,
+        "estimatedCostUsd": 0.00437325
+      },
+      "latencyMs": 2099
+    }
+  },
+  "finalText": "한 PC 모의 시연 · 실제 거래 없음\n\n시연 고객 1\n\n경영주 화면으로 전환\n합성 고객·시연 점포 선택\n원하GS\n‘원하지쓰’라고 읽어요.\n알림 2\n\n고객 · 시연 고객 1\n모의 GS 데이터 · 실제 청구 없음 · 한 PC 데모\n\n내 픽업\n\n확보·결제·입고·픽업은 각각 다른 단계예요.\n\n여기 있GS · 픽업 가능\n짜슐랭 145g\n\n1개 · GS25광진파크\n\n점포 경영주에게 아래 모의 예약번호를 보여주세요.\n\n1,500원 · 모의 결제\n\n상세 접기\n접수 순번\n1번\n점포 주소\n서울특별시 광진구 동일로30길 28\n동의한 단가\n1,500원\n구매 동의 시각\n2026년 9월 21일 19:09 (KST)\n구매 동의 유효기한\n2026년 9월 28일 19:09 (KST)\n미결제 건에 적용되는 7일 기한\n마지막 갱신\n2026년 9월 21일 19:09 (KST)\n요청 접수 · 2026년 9월 21일 19:09 (KST)\n발주 연결 이력 있음\n공급 배정 이력 있음\n모의 결제 성공\n입고 후 픽업 안내 생성\n모의 예약번호 RES-6e471b07-579f-47db-ad0f-8be120befcec\n\n픽업 마감 2026년 9월 23일 19:09 (KST)\n\n48시간 0분 남음 · 픽업 알림부터 48시간\n\n⌂\n원하기\n▤\n내 요청\n▱\n픽업\n시연 도구\n모의 조건·시간 조절",
+  "refreshPreserved": true,
+  "health": {
+    "app": "wanna-gs",
+    "phase": "demo",
+    "transactions": "browser-local-simulated",
+    "storage": "browser-sqlite-single-tab",
+    "versions": {
+      "schema": "schema-v2",
+      "seed": "seed-248-v2",
+      "catalog": "catalog-248-v1",
+      "policy": "ADR002+004+005",
+      "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+      "seedHash": "4cb10e899c9706bb0a9278b458bd7b70d3c34bf28f649b62ffae0894794a2b45",
+      "productCount": 248,
+      "storeCount": 9
+    },
+    "model": {
+      "provider": "openai",
+      "mode": "live",
+      "configured": true,
+      "verification": "requires-actual-call"
+    }
+  },
+  "status": "PASS",
+  "scope": "I01 deployed smoke only, not formal NL evaluation or G5/G6",
+  "previous_attempt": {
+    "status": "harness_failure",
+    "reason": "scope expectation once differed from valid contract current_proposal",
+    "actualCalls": 2,
+    "artifact": "artifacts/private/run-20260921/i01-preview-browser-harness-failure1.json",
+    "appChanged": false
+  },
+  "totalSmokeActualCalls": 4
+}

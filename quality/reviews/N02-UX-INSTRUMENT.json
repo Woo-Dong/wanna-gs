@@ -1,0 +1,24 @@
+{
+  "task": "N02-UX-INSTRUMENT",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+  "context_manifest": "docs/execution/run-20260921/context-n02-v6.json",
+  "consumed_context_hash": "0555063cc1bca9224124b2522d9371bf8ec8178ada49083c9bd306ae0d738a3b",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-25"
+  ],
+  "evidence": [
+    "docs/execution/run-20260921/ux-benchmark-independent.md: independent frozen v2 Python7 + Node10 + separate actual-result counterexample5 PASS, actual Chromium/Worker/sql.js/IndexedDB fixture24/24 PASS on eight adopted workloads x three unique repetitions",
+    "Original independent failures for duplicate repetitions, missing comparison workload denominator, UI response delivery time misclassification and seed-engine/source mismatch were fixed by owner and independently regressed; model0/outbound0/real-ledger writes0",
+    "Integrated root copy compared byte-for-byte against reviewed domain worktree, including all UX implementation and test files; context-v6 and all29 input hashes independently verified; source fingerprint89a5ff23... recomputed",
+    "CI collection read and independently collected: six mandatory Python suites142 tests including UX7/release44, two UX .test.mts files plus one .test.mjs file; zero or missing suite is rejected. noEmit and allowImportingTsExtensions retain typecheck/build paths",
+    "Actual fixture result source15/harness5 hashes were checked at completion. Live baseline/best comparison remains not_run; fixtures are not live provider-quality or G5/G6 evidence"
+  ],
+  "scope": "N02 quality-preparation instrumentation only. Independent review of builder/root tooling, not independent review of customer UI authored by research. Actual final NL selection/holdout, live UX baseline/best, G5 and G6 remain pending. Source hashes and unsigned JSON establish attributable consistency, not cryptographic reviewer identity or proof of execution.",
+  "checked_at": "2026-09-21T10:27:43.266323+00:00"
+}

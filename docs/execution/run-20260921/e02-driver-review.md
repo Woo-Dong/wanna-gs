@@ -32,3 +32,10 @@
 작성자가 ROOT 기준 경로 고정, 대소문자 무관 holdout 파일 사전 차단, 명시적 int+50 검사, 일반 오류의 정적 STOPPED 변환 및 모든 출력의 ROOT/artifacts/private 제한을 반영했다. 수정 후 합성 stub6개를 실행했고 기본미실행·사전읽기0·다른cwd(/tmp)의 동일ledger/출력·최적화(-O 상당)에서도prior0차단·50.0차단·일반오류코드가 모두 기대대로였다. 마지막 출력 보완은 dev+execute의 artifacts/raw 및 private/../raw가 Budget/Transport/Runner 생성 전에 exit2, 정당한private 경로는 mock run까지 도달함을3개추가probe로확인했다. 실제 모델·보호본문 접근·goal ledger 쓰기는 계속0이다.
 
 prior50은 여전히 보수 예약이며 실측이 아니다.2400회/$15 상한은 기존 Budget 그대로다. 최종 driver hash를 baseline source_files에 등록하고 같은 config/ledger로 실행하는 것은 조정자의 후속 작업이며, 정식 baseline·validation·holdout 실행 성공을 이 검토가 대신하지 않는다.
+
+## 공개 실행기 경로 편입 delta
+
+- `scripts/run_goal_eval.py` SHA `7b4d52598a127272d0a382409683fc2bb76f141b8eedc59bd38844a13e188795`. 이전 private driver SHA `e0d2162c04cabada3212f13eec54685082da6384a06c063b846e1129db371444`는 그대로 보존됐다.
+- 직접 diff 및 정확문자열 비교에서 유일한 차이는 run_nl_eval import 경로가 기존 parents[3]/scripts에서 새 파일의 parent(scripts)로 바뀐 한 줄이다. 실행 정책/argparse/check_inputs/holdout guard/private output/prior50/Budget/실행 기본off 로직은 동일 바이트다. py_compile PASS.
+- baseline은 기존 sourcehash를 유지하고 다음 candidate/best source_files는 공개 script 경로를 사용할 수 있다. private 경로 금지 G5 규칙을 완화할 필요가 없다. 새 실제 모델/holdout/장부 접근0. 기존9개 mock 검토의 로직 동일성에 대한 좁은 경로 delta 승인이다.
+- 확인시각 2026-09-21T10:25:17.069786+00:00
