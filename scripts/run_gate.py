@@ -18,7 +18,7 @@ report = {
 output_dir = ROOT / 'artifacts/raw'
 output_dir.mkdir(parents=True, exist_ok=True)
 for check in config['checks']:
-    counts_file = output_dir / 'python-tests.json'
+    counts_file = ROOT / check.get('counts_file', 'artifacts/raw/python-tests.json')
     if check.get('tests'):
         counts_file.unlink(missing_ok=True)
     process = subprocess.run(check['command'], cwd=ROOT, text=True)

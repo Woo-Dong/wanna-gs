@@ -1,0 +1,76 @@
+{
+  "input": 425,
+  "output": 414,
+  "excluded": [
+    {
+      "name": "청담미역 가자미미역국(냉동) 500g",
+      "source_url": "https://www.otokimall.com/front/product/2066",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "렌지에돌려먹는 고등어구이 70g",
+      "source_url": "https://www.otokimall.com/front/product/889",
+      "reason": "equivalent_name_and_size_spacing_duplicate"
+    },
+    {
+      "name": "저온숙성자연산 장어구이 (데리야끼맛) 140g",
+      "source_url": "https://www.otokimall.com/front/product/3917",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "로이앤메이 사천마파두부 250g",
+      "source_url": "https://www.otokimall.com/front/product/3920",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "LIGHT&JOY 저염 사골곰탕 500g",
+      "source_url": "https://www.otokimall.com/front/product/5336",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "청담미역 소갈비미역국(냉동) 500g",
+      "source_url": "https://www.otokimall.com/front/product/3735",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "리얼 프렌치 크로크무슈 베이컨치즈 130g",
+      "source_url": "https://www.otokimall.com/front/product/963",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "저온숙성자연산 장어구이 (매콤한맛) 140g",
+      "source_url": "https://www.otokimall.com/front/product/3918",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "죽장연 빠개장 된장국 500g",
+      "source_url": "https://www.otokimall.com/front/product/3870",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "리얼 프렌치 크로크무슈 오리지널 130g",
+      "source_url": "https://www.otokimall.com/front/product/961",
+      "reason": "partner_brand_requires_individual_verification"
+    },
+    {
+      "name": "뿌셔뿌셔 불고기맛팝콘 45g",
+      "source_url": "https://www.otokimall.com/front/product/6010",
+      "reason": "equivalent_name_and_size_spacing_duplicate"
+    }
+  ],
+  "categories": {
+    "밥·죽·누룽지": 19,
+    "라면·면류": 36,
+    "간편조리·냉동식": 226,
+    "스낵·과자·초콜릿": 29,
+    "디저트·아이스크림": 36,
+    "샌드위치·버거·빵": 19,
+    "커피·우유·요거트": 26,
+    "음료·생수·차": 23
+  },
+  "brand": {
+    "오뚜기": 321,
+    "빙그레": 93
+  },
+  "status": "raw_candidate_preparation_only_independent_review_pending"
+}

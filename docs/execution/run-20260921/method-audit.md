@@ -118,3 +118,11 @@ Actions 35579375086: same head exact, completed/success
 이는 복구 후의 준비 판정이다. 두 번의 Production 오분류/일시 배포가 있었다는 실패 이력은 그대로 남고 “Production 변경0”으로 고쳐 쓰지 않는다. 검증된 target 생략→Preview 경로, probe Git 자동배포 비활성화, 해당 리소스 제거로 알려진 잔여 실행 위험을 닫은 것이다. `production_execution_verified=false`, 제품 G0~G6 및 전체 seed/NL/독립 UX QA 미실행 상태는 유지된다. 제출 main 보호/실제 Production 접근·G6는 릴리스 단계에 별도로 검증한다.
 
 원장 일부에 남은 “independent pending”, “merge CI 후속”, “독립 집계 대기” 표현은 위 exact SHA 결과로 갱신할 수 있다. 해당 문구 정리는 이미 실행된 증거를 갱신하는 작업이며 새로운 검증 게이트가 아니다.
+
+### 새 실제 배포 반례에 대한 제한 재감사
+
+B01 배포에서 모든 preflight deployment 제거 뒤 다시 Production target이 반환된 사건을 coordinator가 통지해 해당 항목만 재검토했다. 설치된 Vercel CLI59.23.2의 `chunk-FZH7RIRX.js`에서 실제응답target이production이고 requestBody.target이없을 때 첫배포 자동Production 안내를 출력하는 코드를 독립 확인했다. [Vercel 공식 Environments 문서](https://vercel.com/docs/deployments/environments)의 First deployment 절도 새프로젝트 첫배포는 non-production branch/no-prod 여부와 무관하게Production이며 이후에일반Preview규칙이 적용됨을 명시한다(2026-09-21 열람).
+
+따라서 이전의 “target생략이면Preview” 결론은 첫배포 경계를 빠뜨린 불충분한 일반화였다. 전체삭제 후 첫배포상태로 돌아간다는 세부 동작 자체는 공식문서에서 직접 확인한 것이 아니라 실행관측에 근거한 추론이다. canceled 첫배포기록을 남긴 뒤 bootstrap-preview.json의 source5cf1ed0282c2c6cc75408d920a0dc52ce6e777e9에target=null이 나온 후속관측은 그 가설을 지지한다. 아직INITIALIZING인 기록을READY·브라우저검증으로 승격하지 않는다.
+
+운영 처분: 최초레코드/반환target/source를 실제 검사하는 기존guard를 유지하고, 예상밖Production이면즉시취소·정확ID기록·추가배포중단/복구한다. 성공Preview가나온 뒤에도 생성요청target문구만으로안전을추정하지 않는다. 이교정은 기존G5전제품Production완료금지나main릴리스게이트를완화하지 않는다. 모델호출·원격삭제를이감사자가추가실행하지않았다. 배포복구의최종READY/alias상태는coordinatorledger와후속실제QA로확인한다.

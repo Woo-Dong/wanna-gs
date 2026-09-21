@@ -1,15 +1,15 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- task: B01 로컬 게이트·독립 검증 PASS, 첫 제품 기반 PR 준비. branch `codex/bootstrap`, base `3ef1ee3`. 전체 목표는 진행 중이다.
-- **P00–P11 및 PLAN-READY PASS**: 독립 감사와 실제 GitHub PR/CI/임시 기반 merge·Preview SQLite/모델 시험 완료. [preflight](execution/run-20260921/preflight-report.md) · [감사](execution/run-20260921/method-audit.md).
-- 마지막 외부 체크포인트: [PR #1](https://github.com/Woo-Dong/wanna-gs/pull/1) 임시 base에만 merge `33b7c7f`, exact merge CI `35579564243` SUCCESS. 제품 main은 변경하지 않았다.
-- Production 자동 오분류 2건은 [복구 기록](execution/run-20260921/deployment-recovery.md)에 보존. 생성한 probe 배포 3개만 제거해 현재 Vercel 배포 목록 0개. 제품 Production/G6는 미실행이다.
-- B01 로컬 전체 gate 및 독립 검증 PASS: Python 33개·별도 반례 33개·contracts/type/build. 누락 counts·문자열 false·공백 증거·bool count·중복 리뷰 fail-open 수정 및 재검증 완료. main에 GitHub required check `gate` strict/enforce_admins 보호를 등록했고 원격 실제 CI는 다음 단계다.
-- ADR-002 거래 정책과 ADR-003 평가·UX 경계는 서로 다른 두 검토 후 **채택**, 제품 실행 검증은 남아 있다. [실제 DAG](execution/run-20260921/plan.md), [현재 context v3](execution/run-20260921/context-app-v3.json).
-- 병행: D01 공식 상품 자료/실점포 좌표 수집·정제, E01 독립 평가 schema/scorer와 dev/validation/보호 holdout 준비. 제품 요청·발주·픽업 및 G1~G6는 아직 구현/검증 전이다.
-- 환경: 실제 OpenAI Responses local/Preview 성공, 서버 Preview key 등록, Node22/gh/Vercel 실제 사용 확인. 계정 정확 잔액은 unknown, ADR003 호출·비용 reserve 적용. 자동 QA bypass는 private 보관하며 심사자 공개 접근과 구분한다.
-- 보존: 시작 시 사용자 문서 4개 변경을 유지하고 private patch 저장. root 작업 공간, probe worktree `/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921`, Git branches, 로그를 보존한다. 키/토큰은 출력·커밋하지 않는다.
-- 다음: B01 독립 PASS→bootstrap PR/CI/Preview→통합 branch, D02 schema/domain 계약을 고정하고 고객·경영주·모델 구현을 분담한다.
+- task: B01 통합 완료, D02 SQLite·N01 모델 API·C01 고객 화면 구현 중. root branch `codex/n01-assistant`, 통합 `codex/integration` HEAD `04a2a3f`. 최종 목표 완료 아님.
+- [PR #2](https://github.com/Woo-Dong/wanna-gs/pull/2): exact head `5cf1ed0` CI 두 건 성공·독립 검사 PASS·Preview 브라우저 PASS 후 squash merge. 통합 결과 CI `35580893982` exact04a2a3f SUCCESS. main은 기존3ef1ee3 유지.
+- `main`/`codex/integration` 모두 GitHub required `gate`, strict/enforce_admins 보호가 실제 등록되어 있다. B01 로컬 Python33+독립반례33+contracts/type/build PASS는 기반 범위이며 제품 거래 게이트가 아니다.
+- 현재 실제 Preview `dpl_9fTvCGkZoNcB8SYDD456g9iZ1euv` source5cf1ed0 target=null. [환경 복구](execution/run-20260921/deployment-recovery.md)·[브라우저 증거](execution/run-20260921/bootstrap-browser.json). 첫 배포 자동Production 원인을 확인했으며 취소 기록과 활성 Preview를 보존한다. 제품 Production/G6는 미실행.
+- D01 실제 후보414+최근 GS 직접 보도자료28·위치 참고9점포, D03 fullseed선택248/9 및 생성 중. 현재GS취급·가격·재고·영업은 모의/미검증을 구분한다.
+- E01 공개 dev252+validation84 / 보호 holdout84, full248 catalog hash f2696abe…343b1e. 평가장치32tests/독립반례회복 PASS, 실제품질평가/holdout호출0.
+- N01 서버실제 Responses 2역할 smoke 성공, 첫 incomplete1호출과 telemetry보강을 [기록](execution/run-20260921/n01-recovery.md). 자체9tests/typePASS, 독립검토 진행.
+- ADR002/003/004는 각 두 독립 검토 후 위임 채택. D02가 실제 SQL/Worker/저장·거래경계를 구현하고 C01은 고객UI를 구현한다. M01경영주/전체G3~G6는 남아 있다.
+- 보존 root `/Users/gsr/Desktop/workspace/2026-ralphton`, probe `2026-ralphton-preflight-20260921`, 도메인 `2026-ralphton-domain`, 고객 `2026-ralphton-customer`. 사용자 기존 문서변경과 private초기patch·로그 유지, 키/토큰 Git제외.
+- 다음: 각 단위검사·독립검토→기능PR/CI→실제SQLite로두역할통합→336baseline/개선/보호84→릴리스G5/ProductionG6.
 
 ---
 

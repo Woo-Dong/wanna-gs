@@ -1,0 +1,126 @@
+{
+  "sources": [
+    {
+      "source_id": "SRC-3cdc5fb3e182",
+      "url": "https://sav.purpleo.kr/article/39204",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "7ab5e6cb8b82134eed7a101538b3f3f3560102ebec00894d8534a077d09f35cf",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-9606502f1bb6",
+      "url": "https://sav.purpleo.kr/article/42515",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "40779de475ffaf6e1180ef971032c04a495fdc90e71f4836e63f5a71e4bedda4",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-0dea9ca904d1",
+      "url": "https://sav.purpleo.kr/article/40245",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "c0e911abcc87147cf974694bef2853276cbbb05c5efeb8a5ebe56f30041817ac",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-3ecc84de11be",
+      "url": "https://sav.purpleo.kr/article/39933",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "cb092d7394d342956365126fd3440eb7162f14106132c7c3b6315f6a91ea62a2",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-c441a8c3c2c3",
+      "url": "https://sav.purpleo.kr/article/38353",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "832b26ab04230cc8b46ece55948f26c6f56a120272eb0d7893ec645f773a33a0",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-185f0dede03e",
+      "url": "https://sav.purpleo.kr/article/40859",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "22876d859efc339c48eeaeff00e7e100a399c28792e757725e067809d270cd9a",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-93b785bc73a8",
+      "url": "https://sav.purpleo.kr/article/39927",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "66f3350b39726adfca2104efbc949a35e9d959bead7b73cdcf004d83b1e9aa96",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-f4e6734832b7",
+      "url": "https://sav.purpleo.kr/article/40708",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "81cde2eebb45d8466ea5c2326f22c4f2e2f7185990e3bc59b12bc13f71698593",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-c9edc5c010b6",
+      "url": "https://sav.purpleo.kr/article/35087",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "037d1963a2cb7265495eb9f3a9454815fb31c7dc78e446bb1039a8f2ca8d7e40",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-317711751ce1",
+      "url": "https://sav.purpleo.kr/article/36859",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "b2bc41c603c550d010bcc620a8acd78b1ee2d5c3d7edb0c6ecf10db6e58e616a",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    },
+    {
+      "source_id": "SRC-75c15967406e",
+      "url": "https://sav.purpleo.kr/article/42464",
+      "method": "GET",
+      "parameters": null,
+      "checked_at": "2026-09-21",
+      "response_sha256": "245daadbf889e384fca1016dbc175f26cf99c8f229c3fee009ccf4eb62b11859",
+      "stored": "normalized_facts_only",
+      "raw_cache": "local /tmp only; not deployed"
+    }
+  ],
+  "excluded": [
+    {
+      "url": "https://sav.purpleo.kr/article/40859",
+      "reason": "duplicate_address_or_missing_coordinate"
+    },
+    {
+      "url": "https://sav.purpleo.kr/article/42464",
+      "reason": "duplicate_address_or_missing_coordinate"
+    }
+  ],
+  "public_pages_requested": 11,
+  "remaining_observed_links": []
+}

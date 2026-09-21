@@ -1,0 +1,263 @@
+[
+  {
+    "id": "STORE-PUBLIC-39204",
+    "name": "GS25군자",
+    "address": "서울특별시 광진구 동일로34길 17",
+    "lat": 37.5499659981206,
+    "lng": 127.069573880996,
+    "coordinateSource": "https://sav.purpleo.kr/article/39204",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-3cdc5fb3e182"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/39204"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-42515",
+    "name": "GS25군자조이점",
+    "address": "서울특별시 광진구 동일로34길 8",
+    "lat": 37.5500114131049,
+    "lng": 127.068951515061,
+    "coordinateSource": "https://sav.purpleo.kr/article/42515",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-9606502f1bb6"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/42515"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-40245",
+    "name": "쥐에스25",
+    "address": "서울특별시 성동구 광나루로11길 28",
+    "lat": 37.5502467159791,
+    "lng": 127.067141084233,
+    "coordinateSource": "https://sav.purpleo.kr/article/40245",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-0dea9ca904d1"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/40245"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-39933",
+    "name": "지에스25군자원룸점",
+    "address": "서울특별시 광진구 군자로10길 26",
+    "lat": 37.5489553458952,
+    "lng": 127.072130437169,
+    "coordinateSource": "https://sav.purpleo.kr/article/39933",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-3ecc84de11be"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/39933"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-38353",
+    "name": "GS25광진캠퍼스점",
+    "address": "서울특별시 광진구 동일로 178",
+    "lat": 37.5478136333565,
+    "lng": 127.067817872634,
+    "coordinateSource": "https://sav.purpleo.kr/article/38353",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-c441a8c3c2c3"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/38353"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-39927",
+    "name": "지에스25화양",
+    "address": "서울특별시 광진구 광나루로17길 10",
+    "lat": 37.5481169731445,
+    "lng": 127.072853867718,
+    "coordinateSource": "https://sav.purpleo.kr/article/39927",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-93b785bc73a8"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/39927"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-40708",
+    "name": "지에스25화양",
+    "address": "서울특별시 광진구 능동로19길 40",
+    "lat": 37.5473969223766,
+    "lng": 127.071631026368,
+    "coordinateSource": "https://sav.purpleo.kr/article/40708",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-f4e6734832b7"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/40708"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-35087",
+    "name": "GS25광진파크",
+    "address": "서울특별시 광진구 동일로30길 28",
+    "lat": 37.5474886780856,
+    "lng": 127.068847346107,
+    "coordinateSource": "https://sav.purpleo.kr/article/35087",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-c9edc5c010b6"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/35087"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  },
+  {
+    "id": "STORE-PUBLIC-36859",
+    "name": "GS25S어린이대공원역점",
+    "address": "서울특별시 광진구 능동로 210",
+    "lat": 37.5478726441874,
+    "lng": 127.074551058147,
+    "coordinateSource": "https://sav.purpleo.kr/article/36859",
+    "coordinateAccuracy": "reported_public_coordinates_not_field_surveyed",
+    "operatingStatus": "unverified",
+    "sourceOrigin": {
+      "kind": "reference_verified",
+      "sourceIds": [
+        "SRC-317711751ce1"
+      ],
+      "sourceUrls": [
+        "https://sav.purpleo.kr/article/36859"
+      ],
+      "checkedAt": "2026-09-21",
+      "publishedAt": "2025-04-27",
+      "productConfidence": "public_data_redistributor",
+      "trendConfidence": "unverified",
+      "fieldOrigin": {
+        "location": "public_data_redistributor"
+      },
+      "researchCaseIds": [
+        "RC-06"
+      ]
+    }
+  }
+]

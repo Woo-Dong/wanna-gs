@@ -1,0 +1,13 @@
+{
+  "id": "dpl_9fTvCGkZoNcB8SYDD456g9iZ1euv",
+  "url": "wanna-gxlue3muk-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/bootstrap",
+    "sha": "5cf1ed0282c2c6cc75408d920a0dc52ce6e777e9"
+  },
+  "aliasAssigned": true
+}

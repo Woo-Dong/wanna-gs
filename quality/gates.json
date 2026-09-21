@@ -1,6 +1,6 @@
 {
-  "phase": "bootstrap",
-  "scope": "B01 only. Product G3–G6, domain, live product eval and release remain not_run.",
+  "phase": "assistant-foundation",
+  "scope": "N01 technical foundation + catalog and eval tooling only. Formal NL, domain and browser product gates remain pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -27,7 +27,23 @@
     "docs/decisions/ADR-003-evaluation-and-demo-boundaries.md",
     "docs/execution/run-20260921/plan.md",
     "docs/execution/run-20260921/research.md",
-    "docs/execution/run-20260921/context-app-v3.json"
+    "docs/execution/run-20260921/context-app-v3.json",
+    "docs/decisions/ADR-004-supplier-capacity.md",
+    "docs/execution/run-20260921/domain-contract.md",
+    "src/contracts/domain.ts",
+    "src/contracts/assistant.ts",
+    "data/seed/config.json",
+    "data/seed/products.json",
+    "data/seed/stores.json",
+    "evals/manifest.json",
+    "docs/execution/run-20260921/context-app-v4.json",
+    "data/research/*.json",
+    "data/research/*.py",
+    "evals/*.py",
+    "evals/tests/*.py",
+    "tests/server/*.test.ts",
+    "evals/*.json",
+    "evals/*.jsonl"
   ],
   "checks": [
     {
@@ -38,12 +54,30 @@
       ]
     },
     {
+      "id": "catalog-source",
+      "command": [
+        "python3",
+        "data/research/validate-candidates.py"
+      ]
+    },
+    {
       "id": "gate-and-env-tests",
       "command": [
         "python3",
         "scripts/test_runner.py"
       ],
       "tests": true
+    },
+    {
+      "id": "server-tests",
+      "command": [
+        "python3",
+        "scripts/run_node_tests.py",
+        "server-tests",
+        "tests/server/*.test.ts"
+      ],
+      "tests": true,
+      "counts_file": "artifacts/raw/server-tests.json"
     },
     {
       "id": "typecheck",
@@ -64,17 +98,20 @@
   ],
   "tasks": [
     {
-      "id": "B01",
+      "id": "N01",
       "implementers": [
         "root"
       ],
       "requirements": [
-        "CORE-16",
-        "CORE-17",
-        "CORE-18",
-        "CORE-22"
+        "CORE-03",
+        "CORE-05",
+        "CORE-11",
+        "CORE-15",
+        "CORE-21",
+        "CORE-23",
+        "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-app-v3.json"
+  "context_manifest": "docs/execution/run-20260921/context-app-v4.json"
 }

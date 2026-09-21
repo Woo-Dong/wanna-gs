@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "bootstrap only",
+  "deployment": "dpl_9fTvCGkZoNcB8SYDD456g9iZ1euv",
+  "sha": "5cf1ed0282c2c6cc75408d920a0dc52ce6e777e9",
+  "target": null,
+  "viewports": [
+    "390x844",
+    "1440x1000"
+  ],
+  "mobile": {
+    "scroll": 390,
+    "width": 390
+  },
+  "pageErrors": [],
+  "health": {
+    "app": "wanna-gs",
+    "phase": "bootstrap",
+    "transactions": "not_implemented",
+    "model": "not_checked",
+    "storage": "browser-sqlite-single-tab"
+  }
+}
