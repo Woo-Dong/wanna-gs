@@ -1,0 +1,30 @@
+{
+  "name": "wanna-gs-preflight-20260921",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "seed": "node scripts/build-seed.mjs",
+    "dev": "npm run seed && next dev",
+    "build": "npm run seed && next build --webpack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run seed && node --test tests/*.test.mjs",
+    "check": "npm run test && npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "openai": "7.20.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sql.js": "1.14.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0"
+  }
+}
