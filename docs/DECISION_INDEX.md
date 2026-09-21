@@ -65,3 +65,7 @@ D-45: 앱 LLM은 OpenAI API 직접 호출이다. 사용자 키를 루트 `.env.l
 ## ADR-006 — UX 중단 측정의 출처 보존 복구
 
 [ADR-006](decisions/ADR-006-ux-baseline-recovery.md)은 N02 B0 UX 전체24의 사전 지정 재측정 한 번만 위임 채택했다. 최초 실패/미실행 분모와 누적48을 보존하며 기존 UX/자연어/출시 기준은 불변이다. 제품·상태 두 독립 검토 후 추가 재측정도11PASS/1FAIL/12미실행으로 중단했다. [원본·누적 분모](execution/run-20260921/ux-baseline-recovery-results.md)를 보존하며 전체 비교 NOT_READY다. 추가 자동 실행은 허용하지 않는다.
+
+## D-46 — 사용자 승인에 따른 평가 재개
+
+사용자가 API 추정비용 상한$20과 실패기록/최종제품품질기준을 유지하는 UX 비교 절차의 두 독립 재설계를 직접 승인했다. 채택된 변경은 goal 비용상한과 ADR007 새 비교 절차이며 호출2400·과거장부·최소품질·G5/G6는 불변이다. [ADR-007](decisions/ADR-007-ux-comparison-recovery.md)은 두 독립 검토 후 위임 채택했다. 새 8×7 양 arm·baseline workload별 정상≥3·best56/56·모든 실패분모·STOP 우선과 조건부 편의성 비교를 적용한다. 실행기 독립 검증 전 실제 실행하지 않는다. ADR006의 두 실패와 과거 비교 NOT_READY는 남긴다.

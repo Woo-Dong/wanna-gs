@@ -1,14 +1,16 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- 현재: C4는 dev30/30 및 첫 validation84/84 통과 후 두 번째83/84로 출시 최소 미달. best 선정·holdout·G5/G6 미완료. C5 stale 상태의 구조화 응답 제한을 비유료 기술 검증 중이다.
-- 작업 공간: root `codex/n05-evaluation`, 후보 worktree `codex/n06-stale-candidate`; source/실행 원본·실패 로그와 모든 작업 폴더를 보존한다. [작업 공간](execution/run-20260921/README.md).
-- 최신 통합 `ab3e17e28fd4b2b61f586bd18bc781c79c81e908`, main `3ef1ee3447ab3943527c4685949da4116bcf0566` 유지. PR #10 CI35593245608/35593270928 및 merge CI35593411158 PASS. 기술 통합을 최종 제품 품질 통과로 표현하지 않는다.
+- 현재: C4는 dev30/30 및 첫 validation84/84 통과 후 두 번째83/84로 출시 최소 미달. best 선정·holdout·G5/G6 미완료. C5 stale 상태의 구조화 응답 제한은 기술 검증·PR/CI·Preview 완료, 실제 모델 미검증이다.
+- 작업 공간: root `codex/n06-resume-records`, 후보 worktree `codex/n06-stale-candidate`; source/실행 원본·실패 로그와 모든 작업 폴더를 보존한다. [작업 공간](execution/run-20260921/README.md).
+- 최신 통합 `560706f6796c1ff84fa2ebd1ad06f373f7d2a9ae`, main `3ef1ee3447ab3943527c4685949da4116bcf0566` 유지. PR #10 CI35593245608/35593270928 및 merge CI35593411158 PASS. 기술 통합을 최종 제품 품질 통과로 표현하지 않는다.
 - C4 Preview [배포 증거](execution/run-20260921/c4-preview.json): source48bdb4f, dpl_4MmYgaDCps4s6ECYsCA5cYLPMfe9, READY. `gpt-4.1-mini-2025-04-14`/packed-refs-v5. 기본 Preview/Production 환경의 모델은 변경하지 않았다.
 - [C4 개발 평가](execution/run-20260921/n05-c4-dev-evaluation.md): 30/30 PASS,34회/$0.1618284,B0 개선13/회귀0. [동일 설정 두 검증 평가](execution/run-20260921/n05-c4-validation-evaluation.md):84/84와83/84,각92호출,두 번째 경영주 불확실8/9=88.89%<90%. stale 제안에 restore가 나온 실패를 보존한다. 두 회 합산·추가 repeat로 통과를 찾지 않는다. 보호 holdout0.
 - [C5 비용 감사](execution/run-20260921/n06-c5-budget-audit.md): 장부 upper753/$5.7195333, 알려진703호출/$3.2195333에 prior50/$2.50 보수 예약을 포함한다. 새 후보의 필수 후속960×$.0105=$10.08와 다음 unknown$.05를 더하면$15.8495333이므로 기존$15 soft stop에 걸린다. 실제 계정 hard cap/청구액과 구분한다. 다음 paid 호출0, 임의 한도 상향0.
 - [UX 기준선 두 실패](execution/run-20260921/ux-baseline-recovery-results.md): 원본2PASS/1FAIL/21미실행, ADR006 허용 재측정11PASS/1FAIL/12미실행. 누적48 중13PASS/2FAIL/33미실행. 전체 비교 NOT_READY·추가 자동 실행 금지 유지. 비용과 별개인 출시 차단이다.
 - C5는 클라이언트가 전달한 stale=true 또는 명시된 두 제안 버전 불일치에서 모델 출력 schema를 clarify/빈 변경으로 제한한다. 실제 응답을 뒤에서 성공으로 바꾸지 않으며 일반 fresh/undo/카테고리/고객 동작은 유지한다. 실제 모델 검증 전 후보이며 새 사업정책이 아니다.
-- 다음: C5 제한 수정·독립 리뷰·기술 PR/CI/Preview까지 완료하고, 현재 계약상 live 평가·UX 비교의 미충족과 재개 조건을 구체적으로 기록한다. G5 전 main/Production 릴리스는 하지 않는다.
+- [PR #11](https://github.com/Woo-Dong/wanna-gs/pull/11): C5 source4fc3e1e, CI35595153529/35595175849 PASS, merge560706f. Python149+Node83/type/build·독립 상태60조합/SDK mock10 PASS. [C5 Preview](execution/run-20260921/c5-preview.json) READY, 실제 C5 호출0.
+- D46 후속: 예산20 구현 독립9경계+37회귀 PASS. ADR007 최종 초안7334ff76에 제품/상태 두 동의 후 채택. UX-v3는 구현 전이며 비교 NOT_READY 유지. 새 v13 컨텍스트에서 기술 게이트·정확한 C5 Preview/평가를 준비한다. PR11 merge CI35595322276 PASS.
+- 다음: [재개 체크포인트](execution/run-20260921/resume-checkpoint.md)의 현재 제한을 확인한다. D-46으로 사용자가 API 예상비용 상한20과 실패기록·최종품질기준을 유지한 UX 비교 절차의 두 독립 재설계를 명시 승인했다. 비용 실행기 변경·독립 검토와 ADR007 초안을 진행하며 새 고정 설정 전 실제 호출은 하지 않는다. G5 전 main/Production 릴리스는 하지 않는다.
 
 ## 이전 구현·실험 체크포인트
 

@@ -1,6 +1,6 @@
 {
   "phase": "nl-candidate",
-  "scope": "C5 enforces existing stale proposal clarification policy in model generation schema while retaining fresh edits, undo and usage/error evidence. Paid evaluation blocked by unchanged budget reservation; UX comparison NOT_READY; G5/G6 pending.",
+  "scope": "D46-approved goal API soft cap20 with unchanged2400/prior/unknown/future reservations; ADR007 independently adopted new UX study, instrumentation pending. C5 server unchanged from independently reviewed PR11; paid evaluation and G5/G6 pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -73,7 +73,9 @@
     "docs/execution/run-20260921/context-n04-v10.json",
     "quality/release/evidence/baseline/*",
     "docs/execution/run-20260921/context-n05-v11.json",
-    "docs/execution/run-20260921/context-n06-v12.json"
+    "docs/execution/run-20260921/context-n06-v12.json",
+    "docs/execution/run-20260921/context-n06-v13.json",
+    "docs/decisions/ADR-007-ux-comparison-recovery.md"
   ],
   "checks": [
     {
@@ -153,13 +155,11 @@
   ],
   "tasks": [
     {
-      "id": "N06-C5-SERVER",
+      "id": "N06-BUDGET20",
       "implementers": [
-        "root"
+        "preflight_builder"
       ],
       "requirements": [
-        "CORE-05",
-        "CORE-06",
         "CORE-17",
         "CORE-21",
         "CORE-23",
@@ -167,5 +167,5 @@
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n06-v12.json"
+  "context_manifest": "docs/execution/run-20260921/context-n06-v13.json"
 }

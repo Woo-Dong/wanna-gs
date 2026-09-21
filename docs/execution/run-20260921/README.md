@@ -15,3 +15,9 @@
 ## 현재 실행 환경
 
 Node22와 Python3.10 이상이 필요하다. 이 Mac의 system Python3.9는 glob의 root_dir 미지원으로 검증기 실행이 실패하므로 bundled Python을 사용한다. 실제 C1 복구 로그는 private c1-local-gate-python313.log에 보존한다. 별도 `2026-ralphton-nl-candidate` 워크트리는 기준선 앱을 변경하지 않고 개선안을 검토·CI·Preview로 만들기 위해 남겨두었다. root 작업 브랜치와 실제 최신 source는 PROGRESS 및 Git 원격으로 확인한다.
+
+## 재개 지점
+
+현재 후보·예산·미완료 게이트·서버 종료와 보존 경로는 [재개 체크포인트](resume-checkpoint.md)를 따른다. Preview READY 및 기술 CI는 실제 모델/최종 제출 통과가 아니다.
+
+D46 후속: budget20 독립 검증 및 ADR007 두 관점 채택 완료. `context-n06-v13.json`이 현재 설정이다. 새 원본 B0 앱 worktree `../2026-ralphton-ux-baseline-v3`를 보존하며 v3 실행기는 별도 폴더에서 구현한다. 실제 새 UX와 C5 모델 검증은 아직 미실행이다.
