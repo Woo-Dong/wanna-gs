@@ -85,3 +85,7 @@ Preview `dpl_73afciHs7CadEfeNSzpzz86sRmXz`, exact commit `10c00723d0b64ea47a06dc
 root 승인 후 parse_attempt에 INVALID_MODEL_RESPONSE의 고정rule ID 11개만 보존하도록 보강했다. 임의진단문자열·개행·객체·배열·다른오류코드는 기록하지 않는다. 원문/키는복사하지않고usage/분모/호출/중단/holdout행동은변경하지않는다. runner SHA5ee03bb164e0610511c25d2934b6e7b6b234ef95a96c2770bf6b7dae08f51d7d, 자체26tests PASS, builder 독립검토대기. B0원본config와보고서/출력은소급수정0.
 
 C1 사전진단공개dev30(고객각범주2개,경영주각1개+M01/M03/M09추가1개;ID정렬첫사례) 및34발화를실제C1호출전에동결했다. dataset hash0d394d463679189b082390219e74725e7a310f5173a5613d0bd87b5af85d26c7. 이는full dev252나release분모가아니다. 이후validation84/92턴은기존frozen전부사용한다. private n02-c1-execution-plan.json에는exactPreview/source미정/명시GO대기/actual0/holdout0을명시했다. 미래reserve1032/$8.256운영추정과공유Budget50을유지하며,UX실측증가를실행직전장부에서확인한다.
+
+## C1 dev30 실제실행완료
+
+exact3984a85 C1 Preview에서사전선정30사례/계획34턴 중실제33calls로전체30결과기록. 22/30PASS(B0동일사례17/30),개선12/회귀7,응답미완료6,mandatory0. 601671tokens/$0.1744575/P95 15560ms. source/config/proof/사용량/실패원문은private n02-c1-*에동결. C1채택불가·validation권고보류이며실제validation0/holdout0. 상세는n02-c1-evaluation.md. 새실패를성공으로덮는재호출0,기존B0관측재사용비교만실시했다.

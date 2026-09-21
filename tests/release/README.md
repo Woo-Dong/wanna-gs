@@ -12,7 +12,7 @@ Top-level manifest contract:
 
 - `version: G5-evidence-v1`, `scope: G5`, `g6_status: pending`.
 - `versions`: nonempty strings for research, catalog, scenario, eval, seed, policy, prompt, model, context. These identify the applied docs09 execution context; they do not change policies.
-- `runtime: {files: {relativePath: sha256}, sha256}`. The aggregate is canonical JSON SHA256 (UTF8, sorted keys, compact separators, no ASCII escaping). File set includes all files in app/src/public/data/seed/data/schema and existing package/lock/tsconfig/next.config/vercel config. Required app routes, role views, domain/Worker/contracts/provider/prompts/catalog, seed/WASM/catalog/manifest and config anchors must exist independently of the declared set. Runtime excludes evidence/QA/config files that do not run in the app, avoiding self-referential release hashes.
+- `runtime: {files: {relativePath: sha256}, sha256}`. The aggregate is canonical JSON SHA256 (UTF8, sorted keys, compact separators, no ASCII escaping). File set includes all files in app/src/public/data/seed/data/schema and existing package/lock/tsconfig/next.config/vercel config. Next default configuration without a next.config file is valid; when any supported next.config file exists, its addition/modification/deletion remains part of the exact runtime file set. Required app routes, role views, domain/Worker/contracts/provider/prompts/catalog, seed/WASM/catalog/manifest and config anchors must exist independently of the declared set. Runtime excludes evidence/QA/config files that do not run in the app, avoiding self-referential release hashes.
 - `candidate: {id, model, promptVersion, promptHash, catalogHash, sourceSha, runtimeHash, frozenAt}`. sourceSha is40hex, file/aggregate hashes64hex, frozenAt zoned ISO time. Prompt hash and compact catalog JSON hash are compared to current sources.
 - `datasets: {baseline, validation, holdout}`. Each is `{hash,cases,counts}` matching public `evals/baseline-coverage.json`, `evals/validation-coverage.json`, or `evals/manifest.json.splits.holdout`. Counts are the existing role/split/category distribution, not a newly generated split. No holdout JSONL is opened.
 - `nl: {baseline, validation: [first,second], holdout}` bundles below.
@@ -60,3 +60,7 @@ No real release manifest is created by this task. Default execution against curr
 - Own temporary protocol tests44 PASS (including reviewer-reported unknown usage/cost, impossible network waits, ambiguous99questions and adjacent legal NL retry history with unknown usage/provider counts).
 - Real repository invocation returns NOT_READY_MANIFEST_MISSING/exit1 as expected. No fake actual release record, model request or budget mutation.
 - Independent review is a separate pending step; own tests do not claim independent acceptance or G5 readiness.
+
+### Optional Next configuration correction
+
+The real app uses Next defaults without a next.config file. Removed only the erroneous existence requirement; runtime inclusion of present config files and all other required anchors is unchanged. New regressions cover absent-config success plus added/modified/deleted config rejection against a frozen fingerprint. This is an evidence-tool correction, not a release criterion waiver.

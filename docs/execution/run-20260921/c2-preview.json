@@ -1,0 +1,14 @@
+{
+  "id": "dpl_ASemeiWS9zk1ks44qcizKBhxQ8He",
+  "url": "wanna-7i0nrj2kc-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n03-packed-candidate",
+    "sha": "e056fce800bd1ea225baf9a0d70e85b0a2d0edf3"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

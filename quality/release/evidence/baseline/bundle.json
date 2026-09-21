@@ -1,0 +1,14 @@
+{
+  "report": {
+    "path": "quality/release/evidence/baseline/report.json",
+    "sha256": "dcb9485f6c70292148575463d35a245d08f72195fb7518e8f9f35f336c9ca272"
+  },
+  "execution": {
+    "path": "quality/release/evidence/baseline/execution.json",
+    "sha256": "4609589d0a06107efad6f5eafaabbb85e18a5de6cd659c924c942eb956fef0cb"
+  },
+  "binding": {
+    "path": "quality/release/evidence/baseline/binding.json",
+    "sha256": "1817a4d2692c7c72e27624ce7620406b953d875aef3d0c89a69cf63953421300"
+  }
+}

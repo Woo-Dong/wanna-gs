@@ -4,9 +4,9 @@
 
 이 문서 묶음은 최초 구현의 현재 기준이다. 별도의 문서 릴리스 번호를 붙이지 않고 Git 이력과 결정 기록으로 변경을 추적한다.
 
-현재 `/goal`을 실행 중이다. 실제 GitHub·Vercel·OpenAI·브라우저 SQLite 사전 시험을 통과했고, Next.js 앱 기반과 단계별 검증 게이트를 구축하고 있다. 제품 거래 기능과 최종 제출 검증은 진행 중이며, 실제 증거와 다음 작업은 [진행 기록](docs/PROGRESS.md)에서 확인한다.
+현재 `/goal`을 실행 중이다. 실제 GitHub·Vercel·OpenAI·브라우저 SQLite 사전 시험을 통과했고, Next.js 고객/경영주 앱, SQLite 거래 흐름과 단계별 검증 게이트를 구현했다. 실제 모델 품질 개선과 최종 제출 검증은 진행 중이며, 실제 증거와 다음 작업은 [진행 기록](docs/PROGRESS.md)에서 확인한다.
 
-Node.js 22에서 `npm ci`, `npm run dev`로 시작한다. `npm run gate`는 현재 단계의 실제 검사와 독립 리뷰의 코드·계약 일치를 검증한다.
+Node.js 22와 Python 3.10 이상에서 `npm ci`, `npm run dev`로 시작한다. `npm run gate`는 현재 단계의 실제 검사와 독립 리뷰의 코드·계약 일치를 검증한다.
 
 ## 이 goal의 목적과 차별점
 
