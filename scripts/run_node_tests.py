@@ -19,8 +19,12 @@ if __name__=='__main__':
     if len(sys.argv)<3: raise SystemExit('usage: run_node_tests.py output-name tests-glob [tests-glob]')
     name=sys.argv[1]
     if not re.fullmatch(r'[a-z0-9-]+',name): raise SystemExit('invalid output name')
-    files=sorted(set(f for pattern in sys.argv[2:] for f in glob.glob(pattern,root_dir=ROOT)))
-    if not files: raise SystemExit('zero collected test files')
+    destination=ROOT/'artifacts/raw';destination.mkdir(parents=True,exist_ok=True)
+    (destination/(name+'.json')).unlink(missing_ok=True)
+    collected={pattern:[f for f in glob.glob(pattern,root_dir=ROOT) if (ROOT/f).is_file()] for pattern in sys.argv[2:]}
+    missing=[pattern for pattern,files in collected.items() if not files]
+    if missing: raise SystemExit('zero collected files for required patterns: '+', '.join(missing))
+    files=sorted(set(f for files in collected.values() for f in files))
     process=subprocess.run(['npx','--no-install','tsx','--test','--test-reporter=tap',*files],cwd=ROOT,capture_output=True,text=True)
     destination=ROOT/'artifacts/raw';destination.mkdir(parents=True,exist_ok=True)
     (destination/(name+'.tap')).write_text(process.stdout+process.stderr)

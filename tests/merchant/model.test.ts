@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {proposalChange,toModelConstraints} from '../../src/components/merchant/model';
+import type {ProposalView} from '../../src/contracts/domain';
+const p:ProposalView={id:'p',storeId:'s',version:1,status:'draft',sourceFingerprint:'v',constraints:{scope:'once',budgetCapKrw:90000,excludeSkus:['a']},lines:[{sku:'b',quantity:6,purchaseCostKrw:1000,salePriceKrw:1500,conditionVersion:1,totalKrw:6000}],deferred:[],totalKrw:6000,orderId:null};
+test('model keys explicitly map to domain keys while prior constraints survive',()=>{const c=proposalChange(p,{budgetLimitKrw:50000,excludeCategories:['bread'],excludeProductIds:['c'],maxQuantity:3,restorePrevious:false});assert.deepEqual(c,{scope:'once',budgetCapKrw:50000,excludeSkus:['a','c'],excludeCategories:['bread'],maxQuantities:{b:3}});assert(!('budgetLimitKrw'in c));assert.deepEqual(p.constraints,{scope:'once',budgetCapKrw:90000,excludeSkus:['a']})});
+test('quantity cap never increases an existing line and nullable fields preserve prior proposal',()=>{const c=proposalChange(p,{budgetLimitKrw:null,excludeCategories:[],excludeProductIds:[],maxQuantity:10,restorePrevious:false});assert.equal(c.maxQuantities?.b,6);assert.equal(c.budgetCapKrw,90000)});
+test('a missing proposal is not invented as a previous command',()=>{assert.equal(toModelConstraints(null),null);assert.equal(toModelConstraints(p)?.budgetLimitKrw,90000)});

@@ -11,7 +11,7 @@ report = {
     'phase': config['phase'], 'fingerprint': source, 'context_manifest': config['context_manifest'],
     'started_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
     'purpose': 'Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.',
-    'normal_case': 'Valid bootstrap reports pass; actual product journey remains not_run.',
+    'normal_case': config.get('scope', 'Scope must be read with the executed checks.'),
     'adjacent_regressions': ['OpenAI configuration parsing', 'Next production build', 'source freshness and child coverage'],
     'checks': [],
 }

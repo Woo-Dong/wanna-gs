@@ -1,0 +1,28 @@
+{
+  "task": "I01-MERCHANT",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+  "context_manifest": "docs/execution/run-20260921/context-app-v5.json",
+  "consumed_context_hash": "10701ed7619c86fe94cec16a31b6ac8b02a1afa9f2843ffdcce4ec446e952234",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-05",
+    "CORE-06",
+    "CORE-07",
+    "CORE-08",
+    "CORE-24",
+    "CORE-25",
+    "CORE-26"
+  ],
+  "evidence": [
+    "docs/execution/run-20260921/i01-merchant-browser.md: independent actual Chromium/Worker/SQLite/IndexedDB merchant UI checks, final 12/12 PASS and pageerror0; 10SKU group approval, scoped customer detail, store switching, budget/coverage, supply/payment/arrival/pickup, refresh and reset tied to SQL bytes/events",
+    "Independent live merchant two-turn budget modification and undo PASS after owner fix; two agent_runs retain token/cost usage. First failing two calls preserved; total4 live calls, no further model calls for this review",
+    "Initial actual estimatedCostUsd logging rejection reproduced independently; domain/owner fixes verified with normal live success and HTTP fixture record rejection retaining input/no proposal. Model-fixture responses are distinguished from actual SQLite/browser mutations",
+    "docs/execution/run-20260921/merchant-independent.md: initial three UI fixture counterexamples fixed by owner; 17/17 independent fixture regression PASS; subsequent I01 actual SQL coverage documented separately",
+    "Fresh SHA256 comparison: every eight product/runtime/seed source in final I01 merchant run e96835c6-a4e6-474b-ab52-56aa0b5e8bf7 equals frozen source; MerchantView1352bf1e..., engineb9ea21cd..., seed4cb10e89...; current aggregate gate fingerprint and context manifest independently recomputed",
+    "Whitespace-only delta ACK: customer CSS staged/worktree/reviewed bytes are identical after trailing whitespace normalization; current aggregate fingerprint independently recomputed 6ab487de...; prior scoped evidence retained."
+  ],
+  "scope": "I01 application-integration merchant task boundary only. Current merchant/domain/shell bytes match independently exercised build; subsequent customer-only delta has separate method_auditor review. Model fixtures, actual live calls and actual browser SQLite evidence are separate. Full NL evaluation, 8-workload repeated UX benchmark, exact millisecond browser pickup boundary, native browser/OS text accessibility, Preview/G5/G6/submitted Vercel validation remain outside this PASS. No goal completion claim. Unsigned JSON records review provenance but is not cryptographic reviewer authentication.",
+  "checked_at": "2026-09-21T10:00:48.739145+00:00"
+}

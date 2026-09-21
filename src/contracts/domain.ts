@@ -17,7 +17,7 @@ export interface ReservationView { id: Id; code: string; status: ReservationStat
 export interface RequestDetail { id: Id; actorId: Id; displayName: string; sku: Id; storeId: Id; quantity: number; acceptedPriceKrw: number; sequence: number; status: RequestStatus; isActive: boolean; pendingReason: string|null; consent: ConsentView; createdAt: number; updatedAt: number; version: number; paymentCycle: number; links: { orderId: Id; lineId: Id; quantity: number; active: boolean; releasedReason: string|null }[]; allocations: AllocationView[]; payments: PaymentView[]; reservation: ReservationView|null; quantitySummary: { validPending: number; activeLinked: number; allocatedHeld: number; paid: number; collected: number; pickupExpired: number } }
 export interface OrderLineView { id: Id; sku: Id; orderedQty: number; confirmedQty: number|null; receivedQty: number|null; salePriceKrw: number; purchaseCostKrw: number; conditionVersion: number; supplyConfirmedAt: number|null; receivedAt: number|null }
 export interface OrderView { id: Id; storeId: Id; status: 'submitted'|'supply_confirmed'|'received'; approvalType: 'manual'|'policy'; policyVersion: number; budgetDay: string; createdAt: number; lines: OrderLineView[] }
-export interface PolicyView { id: Id; storeId: Id; enabled: boolean; skuScope: Id[]; categoryScope: string[]; dailyBudgetKrw: number; version: number; approvedBy: Id|null; approvedAt: number|null }
+export interface PolicyView { id: Id; storeId: Id; enabled: boolean; skuScope: Id[]; categoryScope: string[]; dailyBudgetKrw: number; maxQuantityPerReview: number|null; version: number; approvedBy: Id|null; approvedAt: number|null }
 export interface BudgetView { storeId: Id; budgetDay: string; reservedKrw: number; securedKrw: number; usedKrw: number; limitKrw: number }
 export interface PoolView { sourceLineId: Id; storeId: Id; sku: Id; salePriceKrw: number; confirmedQty: number; unallocatedQty: number; heldQty: number; paidQty: number; receivedAt: number|null }
 export interface DemandRow { sku: Id; storeId: Id; requestedQty: number; validPendingQty: number; activeLinkedQty: number; pendingOrderCoverageQty: number; unallocatedPoolQty: number; newOrderNeedQty: number; allocatedHeldQty: number; paidQty: number; deferredReasons: string[]; customerDetailAvailable: boolean }
@@ -44,7 +44,7 @@ export type DemoCommand =
  | {type:'proposal.revise';proposalId:Id;expectedProposalVersion:number;change:ProposalChange}
  | {type:'proposal.undo';proposalId:Id;expectedProposalVersion:number}
  | {type:'proposal.approve';proposalId:Id;expectedProposalVersion:number;confirmed:true}
- | {type:'policy.update';storeId:Id;expectedPolicyVersion:number;enabled:boolean;skuScope:Id[];categoryScope:string[];dailyBudgetKrw:number;confirmed:true}
+ | {type:'policy.update';storeId:Id;expectedPolicyVersion:number;enabled:boolean;skuScope:Id[];categoryScope:string[];dailyBudgetKrw:number;maxQuantityPerReview?:number|null;confirmed:true}
  | {type:'autoOrder.run';storeId:Id}
  | {type:'demo.confirmSupply';lineId:Id;confirmedQty:number}
  | {type:'demo.receive';lineId:Id;receivedQty:number}
@@ -56,6 +56,6 @@ export type DemoCommand =
  | {type:'demo.advanceTime';deltaMs:number}
  | {type:'demo.reconcile';reason:'reopen'|'manual'}
  | {type:'demo.reset';confirmed:true}
- | {type:'agent.record';requestId:Id;mode:'live'|'fixture';model:string;promptVersion:string;catalogHash:string;usage:{inputTokens:number;outputTokens:number;totalTokens:number};latencyMs:number;status:'ok'|'lookup_error'};
+ | {type:'agent.record';requestId:Id;mode:'live'|'fixture';model:string;promptVersion:string;catalogHash:string;usage:{inputTokens:number;outputTokens:number;totalTokens:number;estimatedCostUsd?:number|null}|null;providerCalled:boolean;latencyMs:number;status:'ok'|'lookup_error'};
 export type DemoQuery = {type:'requests.list'|'merchant.demand'|'notifications.list'|'needs.list'} | {type:'requests.detail'|'merchant.requestDetail';requestId:Id} | {type:'merchant.productRequests'|'catalog.storeOptions';sku:Id} | {type:'recommendations.list';needId:Id} | {type:'commands.result';commandId:Id};
 export interface DemoClient { initialize(): Promise<Result<DemoSnapshot>>; snapshot(scope:Scope):Promise<Result<DemoSnapshot>>; dispatch(command:DemoCommand,context:CommandContext):Promise<Result<CommandReceipt>>; query(query:DemoQuery,scope:Scope):Promise<Result<unknown>>; switchRole(targetActorId:Id,scope:Scope):Promise<Result<DemoSnapshot>>; subscribe(listener:(snapshot:DemoSnapshot)=>void):()=>void }

@@ -42,6 +42,11 @@
       "resource": "branch Preview PROBE_TOKEN",
       "action": "created for codex/preflight-20260921-probe only",
       "state": "registered after remote branch existed"
+    },
+    {
+      "resource": "Production OPENAI_API_KEY",
+      "action": "existing local key registered as secret via stdin before release; no deployment triggered",
+      "secret_value_logged": false
     }
   ],
   "observations": {
@@ -62,5 +67,28 @@
     "product G0-G6",
     "Production judge access",
     "account exact remaining quota"
-  ]
+  ],
+  "observations_scope": "initial preflight observations; current state is recorded separately and in PROGRESS",
+  "current": {
+    "rootBranch": "codex/i01-app",
+    "integrationSha": "e612cd950c30fa54df277a7befc385552df4bb9a",
+    "mainSha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
+    "mainAndIntegrationProtection": "gate required, strict, enforce_admins, no force or delete",
+    "productPrs": [
+      "https://github.com/Woo-Dong/wanna-gs/pull/2",
+      "https://github.com/Woo-Dong/wanna-gs/pull/3"
+    ],
+    "currentPreview": "dpl_9uR4KbjNDJ97zehtRvUwNsLvLaPW",
+    "currentPreviewSource": "371f380c854e14a46c9d313ddcd0d26fca386a78",
+    "currentPreviewTarget": null,
+    "productionSecret": "configured, not deployed or live verified",
+    "deploymentRecovery": "deployment-recovery.md; retain canceled dpl_5vQB6DEZ2pADmhiuypMLRoQesczP and active Preview to avoid new-project first-deployment reset",
+    "worktrees": [
+      "/Users/gsr/Desktop/workspace/2026-ralphton",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-domain",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-customer",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-merchant",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921"
+    ]
+  }
 }

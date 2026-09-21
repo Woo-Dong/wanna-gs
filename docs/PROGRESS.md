@@ -1,15 +1,15 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- task: B01 통합 완료, D02 SQLite·N01 모델 API·C01 고객 화면 구현 중. root branch `codex/n01-assistant`, 통합 `codex/integration` HEAD `04a2a3f`. 최종 목표 완료 아님.
-- [PR #2](https://github.com/Woo-Dong/wanna-gs/pull/2): exact head `5cf1ed0` CI 두 건 성공·독립 검사 PASS·Preview 브라우저 PASS 후 squash merge. 통합 결과 CI `35580893982` exact04a2a3f SUCCESS. main은 기존3ef1ee3 유지.
-- `main`/`codex/integration` 모두 GitHub required `gate`, strict/enforce_admins 보호가 실제 등록되어 있다. B01 로컬 Python33+독립반례33+contracts/type/build PASS는 기반 범위이며 제품 거래 게이트가 아니다.
-- 현재 실제 Preview `dpl_9fTvCGkZoNcB8SYDD456g9iZ1euv` source5cf1ed0 target=null. [환경 복구](execution/run-20260921/deployment-recovery.md)·[브라우저 증거](execution/run-20260921/bootstrap-browser.json). 첫 배포 자동Production 원인을 확인했으며 취소 기록과 활성 Preview를 보존한다. 제품 Production/G6는 미실행.
-- D01 실제 후보414+최근 GS 직접 보도자료28·위치 참고9점포, D03 fullseed선택248/9 및 생성 중. 현재GS취급·가격·재고·영업은 모의/미검증을 구분한다.
-- E01 공개 dev252+validation84 / 보호 holdout84, full248 catalog hash f2696abe…343b1e. 평가장치32tests/독립반례회복 PASS, 실제품질평가/holdout호출0.
-- N01 서버실제 Responses 2역할 smoke 성공, 첫 incomplete1호출과 telemetry보강을 [기록](execution/run-20260921/n01-recovery.md). 자체9tests/typePASS, 독립검토 진행.
-- ADR002/003/004는 각 두 독립 검토 후 위임 채택. D02가 실제 SQL/Worker/저장·거래경계를 구현하고 C01은 고객UI를 구현한다. M01경영주/전체G3~G6는 남아 있다.
-- 보존 root `/Users/gsr/Desktop/workspace/2026-ralphton`, probe `2026-ralphton-preflight-20260921`, 도메인 `2026-ralphton-domain`, 고객 `2026-ralphton-customer`. 사용자 기존 문서변경과 private초기patch·로그 유지, 키/토큰 Git제외.
-- 다음: 각 단위검사·독립검토→기능PR/CI→실제SQLite로두역할통합→336baseline/개선/보호84→릴리스G5/ProductionG6.
+- task: B01/N01 통합 완료, D02+C01+M01→I01 실제 SQLite 화면 연결 및 독립 검증 PASS, I01 게시 중. root `codex/i01-app`, 통합 `e612cd9`. 최종 목표/G5/G6 완료 아님.
+- [PR #3](https://github.com/Woo-Dong/wanna-gs/pull/3): exact371f380 CI35582300476/35582500506 PASS, 독립 기술 검토 PASS, Preview 실제 모델 두 역할 HTTP smoke PASS 후 squash merge. 통합 e612cd9 CI35583417853 SUCCESS.
+- 현재 API Preview `dpl_9uR4KbjNDJ97zehtRvUwNsLvLaPW`, source371f380 target=null READY. [호출 증거](execution/run-20260921/n01-preview-smoke.json). UI는 아직 기반 화면이며 최종 제품 시연 URL이 아니다.
+- D02 실제 SQL36검사 + C01 상태5 + M01 매핑3 + 서버9 = 통합 단위53/53 PASS. Python91/91도 PASS. 전체 src 타입검사 오류 수정 및 독립 delta 확인 완료. 전체 gate fingerprint `6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3` PASS. [D02](execution/run-20260921/d02-independent.md)·[248상품/9점포 검토](execution/run-20260921/data-independent.md).
+- C01 실제 Chromium fixture14 PASS는 자체 검사다. M01 독립 fixture에서 카탈로그·역할 epoch의 오래된 제안 및 기존 정책 범위 보존 3결함을 찾아 수정 후 독립 fixture17 PASS. 실제 SQLite 경영주12항목·live복구2회 PASS; 고객 독립 정상5/5·경계12/12 PASS, 대화맥락/실제 200%글씨 델타 회귀 PASS.
+- ADR002~005 각 두 관점 검토로 위임 채택. ADR005는 SKU별 검토 1회 수량 상한이며 하루 누적 제한과 구별하고 자동발주 이중 호출을 수정한다. 스키마v2/seed248v2, cataloghash f2696abe…343b1e.
+- E01 공개 dev252+validation84 / 보호 holdout84. E02 실제 HTTP 평가 실행기·복구 journal은 독립11반례 PASS. 기준선 전 prior50호출·$2.50을 보수적으로 예약하며 실측 과거사용량과 구분한다. 정식 baseline/holdout 호출0, 이전 smoke와 비용은 별도 기록한다.
+- main/integration required gate+strict+enforce_admins 실제 보호 유지. main3ef1ee3, 제품 Production/G6 미실행. Production 서버 비밀 환경변수는 등록했고 배포/실호출은 아직 하지 않았다. [이전 배포 사건·복구](execution/run-20260921/deployment-recovery.md)와 취소/Preview 기록 유지.
+- 보존 root `/Users/gsr/Desktop/workspace/2026-ralphton`, `2026-ralphton-preflight-20260921`, `2026-ralphton-domain`, `2026-ralphton-customer`, `2026-ralphton-merchant`. 초기 사용자 변경 patch·비공개 실행 로그 유지, 키/토큰 Git 제외.
+- 다음: I01 PR·CI·Preview→336 baseline와 제한 개선·보호84→G5 정책감사→main/G6 제출 검증.
 
 ---
 

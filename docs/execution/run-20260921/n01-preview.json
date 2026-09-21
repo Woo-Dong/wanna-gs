@@ -1,0 +1,14 @@
+{
+  "id": "dpl_9uR4KbjNDJ97zehtRvUwNsLvLaPW",
+  "url": "wanna-aeplv6001-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n01-assistant",
+    "sha": "371f380c854e14a46c9d313ddcd0d26fca386a78"
+  },
+  "integration_sha": "e612cd950c30fa54df277a7befc385552df4bb9a",
+  "merge_ci": 35583417853
+}

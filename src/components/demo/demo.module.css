@@ -1,0 +1,25 @@
+.panel { color:#172b3a; background:#fff; border:1px solid #b9ccd8; border-radius:16px; margin:24px 0; overflow:hidden; font-size:16px; line-height:1.5; }
+.panel summary { padding:16px 20px; cursor:pointer; font-weight:700; min-height:48px; background:#e3f7fc; }
+.panel summary span { font-weight:400; font-size:14px; margin-left:8px; color:#526575; }
+.body { padding:20px; display:grid; gap:16px; min-width:0; }
+.body p { margin:0; overflow-wrap:anywhere; }
+.intro { max-width:70ch; }
+.meta { font-size:14px; color:#526575; }
+.section { margin:0; padding:16px; border:1px solid #b9ccd8; border-radius:12px; display:grid; gap:12px; min-width:0; }
+.section legend { padding:0 6px; font-weight:700; }
+.section label { display:grid; gap:6px; min-width:0; }
+.section input,.section select { font:inherit; color:#172b3a; width:100%; max-width:100%; min-width:0; box-sizing:border-box; border:1px solid #738d9b; border-radius:8px; min-height:44px; padding:10px; background:#fff; }
+.section .check { display:flex; gap:10px; align-items:flex-start; }
+.check input { width:22px; min-width:22px; min-height:22px; height:22px; margin-top:2px; accent-color:#007a9e; }
+.body button { width:fit-content; max-width:100%; min-height:44px; padding:10px 16px; border:1px solid #007a9e; border-radius:8px; background:#007a9e; color:#fff; font:inherit; font-weight:600; cursor:pointer; overflow-wrap:anywhere; }
+.body button:disabled { cursor:not-allowed; background:#e5edf2; border-color:#b9ccd8; color:#526575; }
+.body input:disabled,.body select:disabled { background:#f1f5f8; color:#526575; }
+.body button:focus-visible,.body input:focus-visible,.body select:focus-visible,.panel summary:focus-visible { outline:3px solid #123344; outline-offset:3px; }
+.body .reset { background:#fff; color:#b42318; border-color:#b42318; }
+.body .reset:disabled { color:#526575; border-color:#b9ccd8; }
+.buttons { display:flex; flex-wrap:wrap; gap:8px; }
+.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.error { color:#b42318; background:#fff0ee; padding:12px; border-radius:8px; }
+.notice { color:#123344; background:#e3f7fc; padding:12px; border-radius:8px; }
+.hint { color:#704000; background:#fff3df; padding:12px; border-radius:8px; display:grid; gap:8px; }
+@media(max-width:540px) { .body {padding:12px;} .section {padding:12px;} .grid {grid-template-columns:1fr;} .panel summary span {display:block; margin-left:0;} .body button {width:100%;} .buttons button {width:auto; flex:1;} }
