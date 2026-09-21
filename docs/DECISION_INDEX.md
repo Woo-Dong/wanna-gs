@@ -8,7 +8,7 @@
 |---|---|---|---|---|---|---|---|
 | [ADR-001](decisions/ADR-001-minimal-seed-development.md) | user-delegated 운영 | adopted, seed/통합 실행됨 | 2026-09-21 설계·후속 구현 | CORE-14/17/18/22, D-21/25/26/28/30 | 기존 D02→D03·D05→F00 대체, 최종 요구 유지 | [실행 DAG](execution/run-20260921/plan.md)·PR2~8; 최종 G5/G6 미완료 | 조정자·DBA |
 | [ADR-002](decisions/ADR-002-demo-domain-policies.md) | user-delegated 제품 | adopted, I01 SQL/브라우저 검증 | 최초 앱 구현 후보에만 한정 | CORE-01~26, D-21/41~45 | 기존 제안 O/R의 구체화; 확정 요구 대체 없음 | [독립 SQL](execution/run-20260921/d02-independent.md)·I01 역할 QA, 최종 G5/G6 미완료 | coordinator |
-| [ADR-003](decisions/ADR-003-evaluation-and-demo-boundaries.md) | user-delegated 평가/시연 | adopted, 측정 실행/미달 보존 | 최초 제품 후보 | CORE-14/17~26, D-21/27/29 | 결과 전 기준 고정 | [B0 NL 실패](execution/run-20260921/n02-baseline-report.md)·[UX 미완료](execution/run-20260921/ux-baseline-recovery-results.md), C1/C2 기각, C3 개발 평가 중 | coordinator |
+| [ADR-003](decisions/ADR-003-evaluation-and-demo-boundaries.md) | user-delegated 평가/시연 | adopted, 측정 실행/미달 보존 | 최초 제품 후보 | CORE-14/17~26, D-21/27/29 | 결과 전 기준 고정 | [B0 NL 실패](execution/run-20260921/n02-baseline-report.md)·[UX 미완료](execution/run-20260921/ux-baseline-recovery-results.md), C1/C2/C3 기각, C4 검증 반복 미달·C5 기술 복구 중 | coordinator |
 
 실행 중 위 표에 실제 항목을 추가한다. 빈 양식은 검토·채택 증거가 아니다. 사용자 결정 D-01~최신 항목은 [02번](02-decisions-and-open-questions.md)에서 읽고, 새 위임 ADR을 이 표에 연결한다.
 
