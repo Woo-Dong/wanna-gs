@@ -1,0 +1,100 @@
+{
+  "phase": "merchant-cap-repair",
+  "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+  "context_manifest": "docs/execution/run-20260921/context-merchant-cap-v17.json",
+  "started_at": "2026-09-21T13:23:53.232610+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "Separate correction of existing UI-to-domain explicit per-SKU quantity cap loss for deferred items. C7 customer NL candidate, model/schema/search/catalog/domain policies unchanged. Actual final quality remains pending.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 198,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 30,
+        "tests/ux-benchmark": 7,
+        "tests/ux-benchmark/v3": 12,
+        "tests/release": 81
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 41,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "review_joined_at": "2026-09-21T13:26:37.515382+00:00"
+}

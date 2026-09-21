@@ -1,0 +1,14 @@
+{
+  "id": "dpl_3LzAGaofVNX7DSMUQ1E7KwKe1WH8",
+  "url": "wanna-hznkak3p7-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n08-customer-recovery",
+    "sha": "63614f9663a607373e0c7e9d43cb7e4616406b34"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

@@ -1,13 +1,14 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- **C6 dev29/30 FAIL 보존. D47 사용자 승인으로 고객 전용 C7 한 번 준비, 출시 적격 best 없음.** 고객 불확실6/7=85.71%<90%이며 B0/C1~5 정상 사례1개가 회귀했다. 미등록 상품을 다른 실존 SKU의 exact 후보로 제시한 의미 오류다. incomplete0·mandatory0으로 이 실패를 상쇄하지 않는다. [독립 평가](execution/run-20260921/n07-c6-dev-evaluation.md).
-- C6 마지막 후보(source8397048) 이후 validation/새 holdout/UX/C7 실제 실행0. C5의 최종 holdout82/84 FAIL과 모든 이전 실패를 보존한다. 새 보호셋 revision03은 데이터 독립 검토 PASS·모델 평가 NOT_RUN이다. 필수 최소기준·분모·후보 한도를 임의 변경하지 않는다.
-- [PR14](https://github.com/Woo-Dong/wanna-gs/pull/14) head8397048, CI35602359880/35602363057 및 merge311b934/CI35602562869 PASS. Python198+Node104/type/build와 서버·데이터 독립 검토 PASS는 기술 게이트다. 실제 자연어 선별 실패와 제품 출시 상태를 구분한다.
-- [C6 Preview](execution/run-20260921/c6-preview.json): dpl_6nYrqPgj3Y9Rj161ZHQkPdLkN8Ro, target=null READY. gpt-4.1-mini-2025-04-14 / grounded-boundaries-v6 / source8397048 / runtime47 hash8cb057d7. 보호된 검증 환경이며 최종 제출 URL이 아니다.
-- C6 실제34호출/$0.1607252, retry0·unknown0. 누적 장부 upper1098회/$7.3603041 = 알려진1048회/$4.8103041 + prior50/$2.50 + 이전unknownusage$.05. 실제 계정 청구액이 아닌 보수 추정이다. D46 승인 $20/2400회·구매/자동충전 없음 유지.
-- ADR007 UX-v3 기구는 독립 검증 PASS, 실제 새 양 arm112회는0이다. 옛48분모(13PASS/2FAIL/33미실행)와 실패를 유지한다. 최신 후보 고객/경영주 실제 QA·정책/운영 최종 감사·G5·main 제품 릴리스·Production G6는 미완료다.
-- root codex/n08-customer-recovery, 통합311b934, main3ef1ee3. 모든 worktree와 private/raw 원본·실패·실행 로그 보존. C6 runtime 별도 build PASS·서버 미시작. [자원 장부](execution/run-20260921/resource-ledger.json)·[재개 포인터](execution/run-20260921/resume-checkpoint.md).
-- D47 실제 답변 ‘고객 후보 1개 추가 승인’에 따라 고객7/경영주6·총13, $20/2400·모든 최소기준/실패/최종게이트를 유지한다. [작업 계약](execution/run-20260921/c7-customer-contract.md)·context-n08-v16을 사용한다. builder 고객 prompt 최소 수정 및 research 독립 서버41/SDK mock2 검토 PASS. 전체 Python198/Node104/type/build 기술 게이트 PASS(fp15e1ede8...). 다음 PR/CI/Preview→method 고정dev→validation2회→신규holdout1회. 이후 필수 미달 시 자동 추가하지 않는다. 최종 제품 완료는 여전히 아니다.
+- **C7 선별 dev30/30 PASS·회귀0. 출시 적격 best는 아직 없음.** D47 사용자 승인에 따른 고객7/경영주6·총13의 마지막 추가 후보이며 prompt만 수정했다. [독립 실제 평가](execution/run-20260921/n08-c7-dev-evaluation.md): source63614f9, 실제34calls/$0.1634884, retry/새unknown0. 전체 validation/새 holdout/UX/G5/G6 미실행.
+- **기존 merchant adapter P1 별도 복구 중.** 보류상품에 예산+상한2를 수정해도 상한이 누락돼5개발주되는 [독립 반례](execution/run-20260921/c7-policy-state-audit.md)를 재현했다. 원래 GOAL/AGENTS 필수결함복구권한과 ADR005에 따라 격리 worktree에서 수정하며 D47을 경영주 추가 NL후보 권한으로 쓰지 않는다. 모델/프롬프트/공통서버/평가 source32는 C7과 불변이다.
+- 수리 자체검사: 원본 승인5≠2 FAIL을 보존하고 같은 기대2 PASS, domain+merchant46/typecheck PASS. 독립 재검증·전체 gate·별도 PR/CI를 거친 뒤 새 runtime/source/Preview에서 동일 validation84 두 번을 실행한다. 원래 C7 dev결과를 새runtime 결과로 바꿔쓰지 않는다.
+- [PR15](https://github.com/Woo-Dong/wanna-gs/pull/15) source63614f9, CI35604047000/35604067120 PASS, merge73a3648/CI35604306456 PASS. 기술게이트 Python198+Node104/type/build·독립서버41/SDKmock2 PASS. [Preview](execution/run-20260921/c7-preview.json) dpl_3LzAGaofVNX7DSMUQ1E7KwKe1WH8 READY, targetnull. gpt-4.1-mini-2025-04-14/customer-identity-v7, runtime47 2f296cac...c5d94f. 보호 검증 환경이며 최종 제출 URL이 아니다.
+- 과거 C5 holdout82/84 FAIL 및 C6 dev29/30·고객불확실6/7·정상회귀1 FAIL을 보존한다. 기존 protected84 재호출 금지, 신규 독립84 데이터 revision03 PASS/모델NOT_RUN. 합격선·분모·실패/비용을 변경하지 않는다.
+- 공유 장부 upper1132회/$7.5237925 = known1082/$4.9737925 + prior50/$2.50 + 과거unknownusage$.05. 보수 추정이며 청구 확정값이 아니다. D46 $20/2400과 필수예약/STOP·구매/자동충전없음 유지. D47 추가후보 실패시 자동추가0.
+- ADR007 UX-v3 장치 독립PASS, 새8×7 양arm 실제0. 옛48분모(13PASS/2FAIL/33미실행) 유지. 고객 QA 준비장치의 독립모의검사 PASS는 실제고객QA가 아니다. 최신두역할QA·정책/운영 최종감사·G5·main/Production/G6 미완료.
+- root codex/n08-results, 별도수리 codex/merchant-cap-repair, 통합73a3648, main3ef1ee3. 모든 worktree/private/raw/원본/실패/세션로그 보존. C6/C7 runtime build는 준비만했으며 실제새UX서버미시작. [자원 장부](execution/run-20260921/resource-ledger.json).
+- 다음: 상한수리 독립검증→별도PR/CI/Preview→같은validation84×2→freeze/신규holdout최초1→UX/역할QA→두관점최종정책·운영/G5→main/Production→익명제출URL G6. 완료조건을 낮추지 않는다.
 
 ## 이전 구현·실험 체크포인트
 

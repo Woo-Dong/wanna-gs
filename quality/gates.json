@@ -1,6 +1,6 @@
 {
-  "phase": "c7-customer-identity",
-  "scope": "D47 one extra customer-only prompt candidate; merchant/model/catalog/retrieval/domain unchanged. C6 quality failure retained. Technical tests are separate from pending live dev/validation/holdout/UX/G5/G6.",
+  "phase": "merchant-cap-repair",
+  "scope": "Separate correction of existing UI-to-domain explicit per-SKU quantity cap loss for deferred items. C7 customer NL candidate, model/schema/search/catalog/domain policies unchanged. Actual final quality remains pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -88,7 +88,10 @@
     "docs/execution/run-20260921/c6-recovery-plan.md",
     "docs/execution/run-20260921/holdout-v2-independent.json",
     "docs/execution/run-20260921/context-n08-v16.json",
-    "docs/execution/run-20260921/c7-customer-contract.md"
+    "docs/execution/run-20260921/c7-customer-contract.md",
+    "docs/execution/run-20260921/context-merchant-cap-v17.json",
+    "docs/execution/run-20260921/merchant-cap-repair-contract.md",
+    "docs/execution/run-20260921/c7-policy-state-audit.md"
   ],
   "checks": [
     {
@@ -170,22 +173,19 @@
   ],
   "tasks": [
     {
-      "id": "C7-TECH",
+      "id": "MERCHANT-CAP-REPAIR",
       "implementers": [
         "preflight_builder",
         "root"
       ],
       "requirements": [
-        "CORE-02",
-        "CORE-03",
         "CORE-05",
-        "CORE-11",
+        "CORE-06",
+        "CORE-07",
         "CORE-17",
-        "CORE-18",
-        "CORE-21",
         "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n08-v16.json"
+  "context_manifest": "docs/execution/run-20260921/context-merchant-cap-v17.json"
 }
