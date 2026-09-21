@@ -167,7 +167,7 @@ flowchart TD
 | WP-XR-F | 기반/DB | 현재 framework/runtime/DB 마이그레이션·transaction/clock/session/reset 공식 계약은 무엇인가 | 선택 API와 버전, 실패/복구, DB/clock test assertion 매핑 |
 | WP-XR-S | 상품 식별/NL | 실제 고객 표현·상품 속성/별칭/모호성, Gateway structured output/tool error/fallback은 무엇인가 | utterance family, 후보/질문/미식별 계약, schema/eval cases |
 | WP-XR-C | 고객 요청 | 상품 확인·점포·수량·가격·자동 구매 동의를 이해하고 오류에서 회복하는 최소 UX는 무엇인가 | 화면/API/state/error copy와 unit/DB/browser tests |
-| WP-XR-M | 경영주 | 묶음 수요·미식별·이번만/지속 정책·stale 제안을 적은 업무로 처리하는 흐름은 무엇인가 | intent/scope fields, dashboard states, eval/UX tests |
+| WP-XR-M | 경영주 | 상품별 묶음에서 고객별 요청 상세로 내려가기, 미식별·이번만/지속 정책·stale 제안을 적은 업무로 처리하는 흐름은 무엇인가 | intent/scope fields, product→customer dashboard states, detail permissions, eval/UX tests |
 | WP-XR-O | 발주 | 수요·예산·최소량·중복/동시 실행을 보수적으로 제한할 transaction/locking 방식은 무엇인가 | domain/DB constraint, concurrency/retry tests |
 | WP-XR-R | 이행 | 공급/입고/배정/모의 결제/예약/48시간에서 시간·재전송·부분 실패를 어떻게 구분할 것인가 | state/event contract, clock boundary/idempotency tests |
 | WP-XR-U | 역할 UX/지도 | 모바일/데스크톱·접근성·지도 장애·loading/empty/error/recovery를 현재 도구로 어떻게 검증할 것인가 | responsive/a11y/map fallback/browser 시나리오 mapping |
@@ -182,7 +182,7 @@ flowchart TD
 | WP-F00 | domain-owner+dba | 세션/역할/시계/seed/reset/공통 event·검증 기반 | P04, D04A(SEED-MIN-READY), XR-F | unit 불변식, 실제 DB 권한·격리·시간 경계, reset 반복성 |
 | WP-FS | nl-implementation | 검색/별칭/속성/후보/질문/정정/미식별/structured output | F00, XR-S | 상품 목록 검증 범위, 정답/모호/없음, schema/tool failure, live/fixture 구분 |
 | WP-FC | customer-be/fe/ux | 상품 확인 뒤 동의·요청·조회·지원되는 변경/취소 | F00, FS contract, XR-C | 권한/재전송/조건 변경/경합 unit+DB, 핵심 UI states |
-| WP-FM | merchant-be/fe/ux | 묶음/미식별/자연어 수정/이번만·지속/수동 승인 | F00, FC contract, XR-M | intent/scope, stale/version, 권한·업무 부담 unit+DB |
+| WP-FM | merchant-be/fe/ux | 상품별 묶음·고객별 요청 상세/미식별/자연어 수정/이번만·지속/수동 승인 | F00, FC contract, XR-M | 상품 합계↔고객 행 정합성, detail read permission, intent/scope, stale/version, 권한·업무 부담 unit+DB |
 | WP-FO | domain-owner+merchant-be | 수요 연결 발주·예산·최소량·중복·동시 자동/수동 실행 | F00, FC/FM contracts, XR-O | 수요 초과 0, 동시 예산/중복/rollback 실제 DB |
 | WP-FR | domain-owner+merchant-be | 공급/FIFO/모의 결제/예약/입고/알림/48시간 수령 | F00, FC/FO contracts, XR-R | 수량 보존, 동시 배정, 결제 실패, 정확히 직전/정각/직후, idempotency |
 
@@ -193,11 +193,11 @@ flowchart TD
 | ID | 범위 | 선행 | 완료 증거 |
 |---|---|---|---|
 | WP-I01 | 식별↔확인↔동의↔요청 | FS, FC | 후보 수정/미식별/늦은 응답/중복 제출에서 UI/API/DB/event 일치 G3 |
-| WP-I02 | 요청↔묶음/정책↔발주↔공급↔FIFO↔결제↔예약↔입고/수령 | FC, FM, FO, FR | 성공/실패/재전송/stale/경합의 수량·금액·권한·상태 보존 G3 |
+| WP-I02 | 요청↔상품/고객 수요 상세↔묶음/정책↔발주↔공급↔FIFO↔결제↔예약↔입고/수령 | FC, FM, FO, FR | 성공/실패/재전송/stale/경합에서 상품 합계·고객별 수량·금액·동의·순번·발주 연결·이행 상태·권한 보존 G3 |
 | WP-U01 | 고객 모바일 수직 흐름 | I01, I02, XR-U | 실제 브라우저에서 입력→질문/확인→점포→동의→상태→알림→48시간/회복 실행 증거(G4-ready; 독립 QA 전 PASS 아님) |
-| WP-U02 | 경영주 데스크톱 수직 흐름 | I02, XR-U | 묶음/미식별→자연어 수정→수동/정책→결과→입고/수령/예외 실행 증거(G4-ready; 독립 QA 전 PASS 아님) |
+| WP-U02 | 경영주 데스크톱 수직 흐름 | I02, XR-U | 상품별 묶음→고객별 요청 상세→미식별→자연어 수정→수동/정책→결과→입고/수령/예외 실행 증거(G4-ready; 독립 QA 전 PASS 아님) |
 | WP-Q01 | 독립 customer-qa | U01, D05, XR-Q | 구현자와 다른 agent/profile의 목적 기반 탐색, 화면+network/trace+DB/event 증거와 고객 G4 독립 판정 |
-| WP-Q02 | 독립 merchant-qa | U02, D05, XR-Q | Q01과 다른 agent/profile, 업무 부담·stale/부분 실패/동시 실행과 경영주 G4 독립 판정 포함 |
+| WP-Q02 | 독립 merchant-qa | U02, D05, XR-Q | Q01과 다른 agent/profile, 상품→고객 상세 5개 정보·합계/상태 정합성·권한, 업무 부담·stale/부분 실패/동시 실행과 경영주 G4 독립 판정 포함 |
 
 U01/U02는 독립 QA가 평가할 실행 가능한 흐름을 준비한다. Q01/Q02가 각각 독립 판정을 마친 후 두 결과와 교차 상태 증거를 모아 통합 담당이 G4를 최종 판정한다. N01의 기준선 측정은 흐름 준비 뒤 QA와 병행할 수 있으나 G4 PASS를 대신하지 않는다. 두 QA는 같은 데모 session의 교차 상태를 대조하되 독립 보고서를 합치지 않는다. fixture 브라우저와 Preview live/model 결과를 별도로 표시한다.
 
@@ -304,7 +304,7 @@ D-35·CORE-24·AC-30과 [26번](26-design-and-brand-guide.md)을 기존 작업�
 
 ## 서비스 가치의 완료 조건
 
-D-36/37/38을 기존 작업에 포함한다. [26번](26-design-and-brand-guide.md)의 최신 조사 기반 입력 예시·시안/블루·원하지쓰·보조 캐릭터를 CORE-24/AC-30으로 확인한다. [27번](27-service-values-and-guardrails.md)의 SKU/니즈/대체 확인 계약은 데이터·FS/FC, 묶음/예외·보수적 자동발주는 FM에 반영한다. N01~N03은 분류·추천 및 정상 경로 회귀, U01/U02·Q01/Q02는 편의성 비교와 VAL-01~08, G5/G6는 CORE-25·AC-31의 유효 증거를 확인한다. 인근 수요 기반 제안은 선택 부가 기능이며 본부 화면은 제외다. 문서 규칙을 만든 현재 상태를 앱 테스트 PASS로 보고하지 않는다.
+D-36/37/38/43을 기존 작업에 포함한다. [26번](26-design-and-brand-guide.md)의 최신 조사 기반 입력 예시·시안/블루·원하지쓰·보조 캐릭터를 CORE-24/AC-30으로 확인한다. [27번](27-service-values-and-guardrails.md)의 SKU/니즈/대체 확인 계약은 데이터·FS/FC, 묶음/예외·보수적 자동발주는 FM에 반영한다. 상품별 수요 묶음에서 고객별 요청 상세로 내려가는 조회는 CORE-26/AC-32로 FM·FO·FR·U02·Q02에 연결한다. N01~N03은 분류·추천 및 정상 경로 회귀, U01/U02·Q01/Q02는 편의성 비교와 VAL-01~08, G5/G6는 CORE-25·CORE-26·AC-31·AC-32의 유효 증거를 확인한다. 인근 수요 기반 제안은 선택 부가 기능이며 본부 화면은 제외다. 문서 규칙을 만든 현재 상태를 앱 테스트 PASS로 보고하지 않는다.
 
 ## 이미지 기반 화면 구현의 산출물
 
