@@ -1,0 +1,28 @@
+{
+  "task": "C7-TECH",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "15e1ede83a81eb3e21fbbf2a5a7572f58344d3ab6be3ebb0d9185d37ae019c97",
+  "context_manifest": "docs/execution/run-20260921/context-n08-v16.json",
+  "consumed_context_hash": "a9048d25ecce920ba8d9e2c38d9fc262381abf10c5612d1b02d64a6b00111bc6",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-05",
+    "CORE-11",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-25"
+  ],
+  "evidence": [
+    "D47/customer7-merchant6-total13 and c7-customer-contract directly checked. Final v16 all59 input hashes ACK; initial and final contexts kept distinct.",
+    "Prompt SHA02334ef1e86a4707db47280e607194ccde0de91b817b480c2b5672db4f7d1be4 independent semantic review preserves exact/alias/typo/attribute/ambiguous/correction/same-product unknown conditions/explicit substitution refusal and alternative consent boundaries without case hardcoding.",
+    "Prechange binding proves12 common server/domain/catalog files byte-identical and MERCHANT_PROMPT runtime literal unchanged SHA f15910056c822eb7480fa86214f773de853c7d3c6479164fc90713a1958085f9. Shared promptVersion metadata updates only.",
+    "Independent direct server unit41 PASS, fail/skip/cancel0; separate actual SDK pathway mocked fetch2 PASS checks unchanged merchant instructions, customer prompt delivery, original text, real SKU mapping and confirmation plus provider configuration. Actual model/network/browser/goal ledger writes0.",
+    "check_contracts.py PASS; aggregate fingerprint independently recalculated; source collector paths verified. docs/execution/run-20260921/c7-customer-independent.md and private c7-independent evidence preserved."
+  ],
+  "scope": "C7 customer-only prompt technical and purpose-preservation review. Actual NL quality, dev/validation/fresh holdout, customer role QA, UX/G5/G6 not assessed. No protected examples/generator read. Mock provider responses are not model performance evidence. Reviewer customer UI authorship is not counted as independent customer QA. Unsigned JSON is not cryptographic identity proof.",
+  "checked_at": "2026-09-21T13:11:23.142741+00:00"
+}
