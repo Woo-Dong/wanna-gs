@@ -1,0 +1,20 @@
+{
+  "role": "holdout_evaluator",
+  "status": "FAIL",
+  "reviewer": "method_auditor",
+  "implementers": [
+    "root"
+  ],
+  "run_id": "b0035322-1025-4574-bfcb-5100006b604d",
+  "candidate_id": "C5",
+  "runtime_hash": "7b24123e8067c4e83d3accce4197992d059f1705b4f56274fb4287e11d37aa5a",
+  "protected_content_not_published": true,
+  "candidate_frozen_before_execution": true,
+  "single_holdout_run": true,
+  "no_holdout_driven_tuning": true,
+  "error_categories": {
+    "customer/C08": 1,
+    "merchant/M03": 1
+  },
+  "scope": "Independent live frozen holdout evaluation; no final product pass implied. Evaluator-authored scorer/runner are supported by separate research/builder reviews, not self-independent claims."
+}

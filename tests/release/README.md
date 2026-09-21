@@ -64,3 +64,11 @@ No real release manifest is created by this task. Default execution against curr
 ### Optional Next configuration correction
 
 The real app uses Next defaults without a next.config file. Removed only the erroneous existence requirement; runtime inclusion of present config files and all other required anchors is unchanged. New regressions cover absent-config success plus added/modified/deleted config rejection against a frozen fingerprint. This is an evidence-tool correction, not a release criterion waiver.
+
+## Adopted ADR007 UX v3
+
+The original v2 branch remains supported unchanged. A manifest selecting `ux.version: UX-BENCHMARK-v3` instead supplies baseline/best refs, two `history` refs, and `plannedTotals: {historicalBaseline:48,newBaseline:56,newBest:56,total:160}`. See [the v3 protocol](../ux-benchmark/v3/README.md) for fixed study/run IDs, exact raw fields, historical hashes and the unapproved draft generator. The old two failed executions remain failed; sanitized history exports preserve their original SHA256 and 13 PASS/2 FAIL/33 NOT_RUN aggregate.
+
+V3 requires every one of 56 trials per arm actually attempted in the fixed 8×7 order, no study STOP, no pending attempt, and no trial-level NOT_RUN. Known, accounted baseline model/UI/SQL failures remain in the full denominator; each workload needs at least three successful trials. Best requires all 56 PASS. All successful trials determine maximum decisions/transitions and median non-model time; no first-three or fastest-subset selection. Existing absolute criteria and <=110% comparison remain. Unknown usage/provider/cost is not an accounted failure. Per-trial planned model steps, skipped steps after failure, outbound observations, source/harness hashes, seed engine binding and current goal budget sources are checked. A true cached summary cannot bypass these checks.
+
+These branches test the adopted measurement protocol using synthetic temporary records. They neither authorize the one actual study nor establish G5 readiness. All NL, role QA, policy, CORE, independent evidence review and G6-pending requirements still apply.

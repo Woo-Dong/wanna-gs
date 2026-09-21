@@ -53,7 +53,8 @@
       "branches": [
         "codex/n04-model-candidate",
         "codex/n05-scope-candidate",
-        "codex/n06-stale-candidate"
+        "codex/n06-stale-candidate",
+        "codex/n06-resume-records"
       ],
       "value": "gpt-4.1-mini-2025-04-14",
       "production_or_global_changed": false
@@ -80,8 +81,8 @@
   ],
   "observations_scope": "initial preflight observations; current state is recorded separately and in PROGRESS",
   "current": {
-    "rootBranch": "codex/n06-resume-records",
-    "integrationSha": "560706f6796c1ff84fa2ebd1ad06f373f7d2a9ae",
+    "rootBranch": "codex/n06-results",
+    "integrationSha": "adcbd220f95609687ae55b289e961b0913d80b03",
     "mainSha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
     "mainAndIntegrationProtection": "gate required, strict, enforce_admins, no force or delete",
     "productPrs": [
@@ -94,10 +95,11 @@
       "https://github.com/Woo-Dong/wanna-gs/pull/8",
       "https://github.com/Woo-Dong/wanna-gs/pull/9",
       "https://github.com/Woo-Dong/wanna-gs/pull/10",
-      "https://github.com/Woo-Dong/wanna-gs/pull/11"
+      "https://github.com/Woo-Dong/wanna-gs/pull/11",
+      "https://github.com/Woo-Dong/wanna-gs/pull/12"
     ],
-    "currentPreview": "dpl_Hs5h9zTibohSAfLtxzChBdEHTe8o",
-    "currentPreviewSource": "4fc3e1e4e4f55c76b68eb34ba9b89991ab69fbd3",
+    "currentPreview": "dpl_8YECM1r2msmSCtjLKGNSPvVYqKKV",
+    "currentPreviewSource": "f6a34def5dd6cc6287c3dedba805824974d67db8",
     "currentPreviewTarget": null,
     "productionSecret": "configured, not deployed or live verified",
     "deploymentRecovery": "deployment-recovery.md; retain canceled dpl_5vQB6DEZ2pADmhiuypMLRoQesczP and active Preview to avoid new-project first-deployment reset",
@@ -108,26 +110,35 @@
       "/Users/gsr/Desktop/workspace/2026-ralphton-merchant",
       "/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921",
       "/Users/gsr/Desktop/workspace/2026-ralphton-nl-candidate",
-      "/Users/gsr/Desktop/workspace/2026-ralphton-ux-baseline-v3"
+      "/Users/gsr/Desktop/workspace/2026-ralphton-ux-baseline-v3",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-ux-v3-instrument",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-c5-runtime"
     ],
-    "qualityPreparationFingerprint": "a15cacf8908aed8c52561bd2205a7c3ee209d5b0e9a218b20cfc65a30ee0849a",
-    "currentPreviewUrl": "https://wanna-6wu2ij16y-beatrain-4635s-projects.vercel.app",
-    "currentPreviewStatus": "READY; C5 actual model not_run",
+    "qualityPreparationFingerprint": "fafda917e36bfe30a16a42046e69f907420663107a37b565e71c09d237c6b5bd",
+    "currentPreviewUrl": "https://wanna-qcrmzotip-beatrain-4635s-projects.vercel.app",
+    "currentPreviewStatus": "READY; C5 holdout FAIL, release blocked",
     "goalCompletion": "ACTIVE: user-authorized budget20 and two-review UX redesign, mandatory final gates remain",
-    "localTestServers": "Old B0 session19063 and C4 preparation session41491 stopped; files and logs retained",
+    "localTestServers": "B0 3270 PID25573 and C5 3271 PID25585 prepared only; isolated UX fixture3231 independently checked; all files/logs retained",
     "apiBudget": {
-      "accountedCallUpper": 753,
-      "knownCalls": 703,
-      "knownEstimatedUsd": 3.2195333,
+      "accountedCallUpper": 1064,
+      "knownCalls": 1014,
+      "knownEstimatedUsd": 4.6495789,
       "priorCallReserve": 50,
       "priorEstimatedUsd": 2.5,
-      "upperEstimatedUsd": 5.7195333,
+      "upperEstimatedUsd": 7.1995789,
       "currentSoftCapUsd": 20,
-      "nextCandidateStartIncludingMandatoryReserveUsd": 16.1015333,
       "userApprovedSoftCapUsd": 20,
       "approval": "D-46: user explicitly approved both changes and continued execution",
-      "implementation": "independent PASS: 9 counterexamples + 30 eval + 7 UX tests; ledger unchanged"
+      "implementation": "D46 budget20; historical timeout unknown reserve preserved; C5 holdout FAIL",
+      "unknownUsageReserveUsd": 0.05,
+      "unknownUsageCalls": 1,
+      "observationScope": "Snapshot after C5 holdout completion; no new UX/role QA/G6 calls.",
+      "historicalC5DevStartIncludingReserveUsd": 16.1015333,
+      "validation02FutureReserve": {
+        "calls": 708,
+        "estimatedUsd": 7.434
+      }
     },
-    "checkedAt": "2026-09-21T11:43:05.174010+00:00"
+    "checkedAt": "2026-09-21T12:25:25.837367+00:00"
   }
 }

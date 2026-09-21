@@ -1,0 +1,24 @@
+{
+  "task": "UX-V3-INSTRUMENT",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "fafda917e36bfe30a16a42046e69f907420663107a37b565e71c09d237c6b5bd",
+  "context_manifest": "docs/execution/run-20260921/context-ux-v14.json",
+  "consumed_context_hash": "3a75d272e19803bcf168bb7576860dea798f0ae3fd5a40f291c48239a0f038e3",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-25"
+  ],
+  "evidence": [
+    "ADR007/D46 and v14 all55 input hashes independently verified; final inventory e434dae83ef83021c7bf9956276f1e02cfb5a5520f0a72bd06ac9d84bf4f5736 all16 files match isolated and integrated copies.",
+    "Independent actual execution: bridge12, release72, Node9 tests and typecheck PASS; separate7 release counterexamples and2 temporary-budget boundary cases PASS. F-V3-01 providerfalse success fail-open reproduced and corrected; known failed baseline providerfalse remains distinct.",
+    "Independent actual Chrome/sql.js/IndexedDB fixture56/56 PASS on isolated3231 buildyt7fn88eKbcYV9lXwjcLF. Result184c7316a7f2af62dbda2dbffbfa727b95b940415995049e11186dfdd02699ee; actual models0/goal-ledger writes0. Fixture is not live UX success.",
+    "Root collector wiring preserves v2 and requires v3 Python nonzero suite plus both Node globs; observed integrated counts189 Python/19 UX Node have no skips/missing/failures. Independent contracts CLI PASS and aggregate fingerprint recalculated.",
+    "docs/execution/run-20260921/ux-v3-independent.md; isolated private ux-v3-independent-probes and ux-v3-independent-fixture-01 evidence preserved."
+  ],
+  "scope": "Instrumentation preparation only. Old48/new112/160 history, STOP priority, baseline>=3 per workload, best56/56 and all-success conditional metrics preserved. Actual study/final role QA/G5/G6 not assessed. Customer UI implementation is not counted as independent customer QA. No actual model calls, goal-ledger writes or protected holdout access. Unsigned JSON is not cryptographic identity attestation.",
+  "checked_at": "2026-09-21T12:20:56.157745+00:00"
+}

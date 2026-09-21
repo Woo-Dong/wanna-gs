@@ -1,0 +1,25 @@
+{
+  "id": "C5",
+  "sourceSha": "f6a34def5dd6cc6287c3dedba805824974d67db8",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "promptVersion": "packed-refs-v5",
+  "promptHash": "eb1db993100b35785434fef31be7350a11b2849aad5bf0d2fb19e7a4917dbe83",
+  "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "runtimeHash": "7b24123e8067c4e83d3accce4197992d059f1705b4f56274fb4287e11d37aa5a",
+  "frozenAt": "2026-09-21T12:15:02.537642+00:00",
+  "validationRunIds": [
+    "9080bbf2-82a6-44a9-a8bc-938d389e9efc",
+    "c504135a-b5e0-459d-8158-12ca73d99697"
+  ],
+  "validationBothStageReady": true,
+  "validationPassedCases": [
+    84,
+    83
+  ],
+  "validationCasesEach": 84,
+  "validation01TimeoutAttempts": 1,
+  "validation01UnknownUsageAttempts": 1,
+  "validation02SemanticErrors": 1,
+  "mandatoryErrors": 0,
+  "scope": "Selected best candidate for once-only protected evaluation; no holdout/UX/G5/G6 claim"
+}

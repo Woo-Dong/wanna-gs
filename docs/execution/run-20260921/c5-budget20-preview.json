@@ -1,0 +1,14 @@
+{
+  "id": "dpl_8YECM1r2msmSCtjLKGNSPvVYqKKV",
+  "url": "wanna-qcrmzotip-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n06-resume-records",
+    "sha": "f6a34def5dd6cc6287c3dedba805824974d67db8"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

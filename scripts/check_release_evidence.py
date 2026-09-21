@@ -194,6 +194,75 @@ class Checker:
             require(all(name in source for name in required),'UX_REQUIRED_SOURCE_MISSING')
             require(all(name in self.files and value==self.files[name] for name,value in source.items()),'STALE_UX_SOURCE')
         return v,result
+    def ux_v3(self,ref,best,candidate):
+        v=self.artifact(ref);stage='best' if best else 'baseline'
+        require(v.get('version')=='UX-BENCHMARK-v3' and v.get('mode')=='live' and v.get('studyId')=='ux-study-v3-01' and v.get('stage')==stage and v.get('runId')==('ux-best-v3-01' if best else 'ux-baseline-b0-v3-01'),'V3_IDENTITY')
+        require(v.get('planHash')=='515a97609bc51b3ebb463bd5e7b5bd3814b6241b99ad50750741a7ea1a1da386','V3_PLAN_HASH')
+        require(v.get('stopCode') is None and v.get('pendingAttempts')==0 and v.get('unknownProviderCalls')==0 and v.get('complete') is True,'V3_STUDY_STOP_OR_PENDING')
+        require(v.get('clock')==1789959600000 and all(sha(v.get(k)) for k in ('seedHash','workloadHash','authorizationHash','budgetRunnerHash')),'V3_BINDING')
+        require(v['budgetRunnerHash']==digest(relative(self.root,'scripts/run_nl_eval.py').read_bytes()),'V3_BUDGET_SOURCE_STALE')
+        bs=v.get('budgetSourceFiles');require(isinstance(bs,dict) and set(bs)=={'scripts/run_nl_eval.py','evals/adapter.py','evals/scorer.py'} and all(value==digest(relative(self.root,name).read_bytes()) for name,value in bs.items()),'V3_BUDGET_DEPENDENCY_STALE')
+        hh=v.get('harnessHashes',{});required=('run.mts','plan.mjs','metrics.mjs','binding.mjs','live.mts','budget_bridge.py','seed.mts','v2-metrics.mjs')
+        require(set(hh)==set(required),'V3_HARNESS_SET')
+        for name in required:
+            source='tests/ux-benchmark/'+('seed.mts' if name=='seed.mts' else 'metrics.mjs' if name=='v2-metrics.mjs' else 'v3/'+name)
+            require(sha(hh[name]) and hh[name]==digest(relative(self.root,source).read_bytes()),'V3_HARNESS_STALE')
+        ws=v.get('workloads');require(isinstance(ws,list) and len(ws)==8 and [w.get('id') for w in ws]==list(WORKLOADS),'V3_WORKLOAD_ORDER')
+        for i,w in enumerate(ws):require(w.get('viewport')==({'width':390,'height':844} if i<5 else {'width':1440,'height':900}),'V3_VIEWPORT')
+        rows=v.get('runs');require(isinstance(rows,list) and len(rows)==56,'V3_TRIAL_DENOMINATOR')
+        usage=v.get('liveUsage');require(isinstance(usage,list) and integer(v.get('outboundAttempts')) and len(usage)==v['outboundAttempts']<=42,'V3_PROVIDER_DENOMINATOR')
+        require(len({u.get('attemptId') for u in usage})==len(usage) and all(u.get('attemptId') for u in usage),'V3_DUPLICATE_ATTEMPT')
+        require(v.get('modelCalls')==sum(u.get('provider_called') is True for u in usage),'V3_PROVIDER_COUNT')
+        for item in usage:
+            u=item.get('usage');require(type(item.get('provider_called')) is bool and item.get('status') in ('ok','failed') and isinstance(u,dict) and all(integer(u.get(k)) for k in ('input_tokens','output_tokens','total_tokens')) and u['total_tokens']==u['input_tokens']+u['output_tokens'] and finite(item.get('cost_usd')),'V3_UNKNOWN_USAGE')
+            require(item['status']!='ok' or item['provider_called'] is True,'V3_SUCCESS_REQUIRES_LIVE_PROVIDER')
+        byid={u['attemptId']:u for u in usage};all_network=[];result={}
+        for wi,w in enumerate(WORKLOADS):
+            group=rows[wi*7:(wi+1)*7];success=[];planned=2 if w=='ambiguous' else 1 if w.startswith('clear-') or w=='auto-normal' else 0
+            for n,row in enumerate(group,1):
+                require(row.get('workload')==w and row.get('repetition')==n and row.get('attempted') is True and row.get('status') in ('PASS','FAIL'),'V3_ORDER_OR_UNATTEMPTED')
+                network=row.get('network',[]);steps=row.get('modelSteps');require(row.get('plannedModelCalls')==planned and isinstance(steps,list) and len(steps)==planned and len(network)<=planned,'V3_MODEL_STEP_DENOMINATOR')
+                for si,step in enumerate(steps):
+                    require(step.get('status') in ('PASS','FAIL','NOT_RUN'),'V3_MODEL_STEP_STATUS')
+                    if si<len(network):
+                        aid=network[si].get('attemptId');require(aid in byid and step.get('attemptId')==aid and step['status']==('PASS' if byid[aid]['status']=='ok' else 'FAIL'),'V3_MODEL_STEP_BINDING')
+                    else:require(step['status']=='NOT_RUN' and step.get('attemptId') is None,'V3_MODEL_STEP_NOT_RUN')
+                all_network.extend(network)
+                if row['status']=='FAIL':
+                    require(not best and isinstance(row.get('error'),str) and row['error'],'V3_BEST_FAILURE');continue
+                success.append(row)
+                require(len(network)==planned and all(byid[x['attemptId']]['status']=='ok' and byid[x['attemptId']]['provider_called'] is True for x in network),'V3_PASS_WITH_FAILED_MODEL')
+                require(not row.get('setupFailed') and not row.get('pageErrors') and sha(row.get('durableHash')) and row.get('observedClock')==v['clock'],'V3_SQL_CORRECTNESS')
+                for key in ('activations','screenTransitions','questions','merchantPerOrderApprovals'):require(integer(row.get(key)),'V3_ACTIONS')
+                for key in ('elapsedMs','modelNetworkMs','nonModelMs','budgetInstrumentationMs'):require(finite(row.get(key)),'V3_TIMING')
+                require(row['modelNetworkMs']+row['budgetInstrumentationMs']<=row['elapsedMs']+.001 and abs(row['nonModelMs']-(row['elapsedMs']-row['modelNetworkMs']-row['budgetInstrumentationMs']))<.001,'V3_TIME_ACCOUNTING')
+                require(abs(interval_union(network)-row['modelNetworkMs'])<.001 and abs(sum(x['budgetInstrumentationMs'] for x in network)-row['budgetInstrumentationMs'])<.001,'V3_NETWORK_TIME')
+                require(row['questions']<=2,'V3_QUESTIONS')
+                if w.startswith('clear-'):require(row['activations']-1<=7,'V3_CUSTOMER_ACTIONS')
+                if w=='batch-10':require(row['screenTransitions']==0 and row['merchantPerOrderApprovals']==1,'V3_BATCH_APPROVAL')
+                if w=='auto-normal':require(row['merchantPerOrderApprovals']==0 and str(row.get('unchangedReviewCheck','')).startswith('PASS'),'V3_AUTO_DUPLICATE')
+            require(len(success)>=(7 if best else 3),'V3_INSUFFICIENT_SUCCESS')
+            result[w]={'planned':7,'attempted':7,'passed':len(success),'failed':7-len(success),'actions':max(r['activations'] for r in success),'screens':max(r['screenTransitions'] for r in success),'median':statistics.median(r['nonModelMs'] for r in success)}
+        require(len(all_network)==len(usage) and len({x.get('attemptId') for x in all_network})==len(usage) and {x.get('attemptId') for x in all_network}==set(byid),'V3_NETWORK_PROVIDER_BINDING')
+        for n in all_network:require(n.get('mode')=='live' and n.get('observation')=={k:byid[n['attemptId']][k] for k in ('status','provider_called','usage','cost_usd')},'V3_NETWORK_OBSERVATION')
+        source=v.get('sourceFiles');require(isinstance(source,dict) and all(sha(x) for x in source.values()) and v.get('runtimeHash')==fingerprint(source),'V3_RUNTIME_BINDING')
+        for name in ANCHORS:require(name in source,'V3_REQUIRED_SOURCE')
+        for name in ('src/domain/engine.ts','src/contracts/domain.ts'):require(v.get('seedEngineBinding',{}).get(name)==source[name],'V3_SEED_ENGINE')
+        if best:
+            require(source==self.files and v['runtimeHash']==self.runtime_hash and v.get('candidateId')==candidate['id'] and v.get('sourceSha')==candidate['sourceSha'] and v.get('model')==candidate['model'] and v.get('promptVersion')==candidate['promptVersion'] and v.get('catalogHash')==candidate['catalogHash'],'V3_CURRENT_CANDIDATE')
+        else:require(v.get('sourceSha')=='10c00723d0b64ea47a06dcbd00e2b671e7c62daf' and v.get('model')=='gpt-5-mini-2025-08-07' and v.get('promptVersion')=='baseline-v1','V3_B0_SOURCE')
+        return v,result
+    def ux_v3_history(self,refs):
+        require(isinstance(refs,list) and len(refs)==2,'V3_HISTORY_REQUIRED');summaries=[]
+        bindings=[('ux-baseline-b0-v2-01','4989b1053468134ff8a3099b951493ba483687f57fb14de49db48ea4e87b4209',3,2,1,21),('ux-baseline-b0-v2-recovery-01','2b9839efff2d118b48751642e7382b41d6e41fa49b837ccb4beff56fd1433c4b',12,11,1,12)]
+        for ref,(rid,sha256,attempted,passed,failed,missing) in zip(refs,bindings):
+            old=self.artifact(ref);require(old.get('runId')==rid and old.get('originalSha256')==sha256 and old.get('mode')=='live' and old.get('complete') is False,'V3_HISTORY_SOURCE')
+            rows=old.get('runs');require(isinstance(rows,list) and len(rows)==attempted,'V3_HISTORY_ROWS')
+            require([(r.get('workload'),r.get('repetition')) for r in rows]==[(w,n) for w in WORKLOADS for n in (1,2,3)][:attempted],'V3_HISTORY_ORDER')
+            require([r.get('status') for r in rows]==['PASS']*passed+['FAIL'],'V3_HISTORY_FAILURES')
+            summary=dict(runId=rid,originalSha256=sha256,planned=24,attempted=attempted,passed=passed,failed=failed,notRun=missing)
+            require(all(old.get(k)==v for k,v in summary.items()),'V3_HISTORY_DENOMINATOR');summaries.append(summary)
+        return summaries
     def qa(self,ref,candidate):
         q=self.artifact(ref);require(q.get('scope')=='G5' and q.get('provider')=='openai' and isinstance(q.get('coverage'),list) and q['coverage'] and set(q['coverage'])<=CORES,'QA_SCOPE_MISSING')
         require(q.get('status')=='PASS' and q.get('mode')=='live' and q.get('actual_browser') is True and q.get('actual_sql') is True and integer(q.get('provider_calls'),1),'QA_NOT_LIVE_BROWSER_SQL')
@@ -236,7 +305,13 @@ class Checker:
         require(timestamp(he['started_at'])>=max(freeze,timestamp(e1['finished_at']),timestamp(e2['finished_at'])),'HOLDOUT_BEFORE_BEST_FROZEN')
         ha=self.artifact(h['independent_report']);require(ha.get('role')=='holdout_evaluator' and ha.get('status')=='PASS' and ha.get('run_id')==hold['run_id'] and ha.get('candidate_id')==candidate['id'] and ha.get('runtime_hash')==self.runtime_hash and ha.get('protected_content_not_published') is True,'HOLDOUT_INDEPENDENT_ATTESTATION')
         require(ha.get('reviewer') and isinstance(ha.get('implementers'),list) and ha['implementers'] and ha['reviewer'] not in ha['implementers'],'HOLDOUT_NOT_INDEPENDENT')
-        ub,bs=self.ux(m['ux']['baseline'],False,candidate);uv,vs=self.ux(m['ux']['best'],True,candidate)
+        if m['ux'].get('version')=='UX-BENCHMARK-v3':
+            history=self.ux_v3_history(m['ux'].get('history'))
+            ub,bs=self.ux_v3(m['ux']['baseline'],False,candidate);uv,vs=self.ux_v3(m['ux']['best'],True,candidate)
+            require(ub.get('history')==history and uv.get('history')==history,'V3_HISTORY_BINDING')
+            require(m['ux'].get('plannedTotals')=={'historicalBaseline':48,'newBaseline':56,'newBest':56,'total':160},'V3_TOTAL_PLANNED')
+        else:
+            ub,bs=self.ux(m['ux']['baseline'],False,candidate);uv,vs=self.ux(m['ux']['best'],True,candidate)
         require(ub['runId']!=uv['runId'] and all(ub.get(k)==uv.get(k) for k in ('workloadHash','seedHash','clock','workloads','harnessHashes')),'UX_COMPARISON_MISMATCH')
         require(all(vs[w]['actions']<=bs[w]['actions'] and vs[w]['screens']<=bs[w]['screens'] and vs[w]['median']<=bs[w]['median']*1.1 for w in WORKLOADS),'UX_REGRESSION')
         qs=[self.qa(r,candidate) for r in m['role_qa']]
