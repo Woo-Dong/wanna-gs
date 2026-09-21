@@ -52,3 +52,20 @@ scorer는 네트워크나 모델을 호출하지 않는다. 보고서의 `nl_min
 독립 검토자가 발견한 fail-open 반례를 실행 전에 수정했다: 빈 이전턴 응답, timeout-only provider 성공위장, 동일실행/config다른repeat, clear oracle의 candidate pool누락, 부분입력셋의 출시완료 오인. 이전턴에는 transport/schema/provider시도와 독립정답을 요구하고, live는 성공 provider attempt를 요구한다. 보고서에 run_id/config를 보존하며 repeat는 다른실행·같은설정·frozen coverage가 필요하다. partial metric과 `stage_ready`를 분리하고 CLI는 고정coverage가 없는 통과를 거절한다. 후속 정상회귀인 모호질문→명확대답도 이전턴label을 분리해 복구했다. 수정은 기준완화가 아니라 실제 증거/정상흐름 보존이다.
 
 현재 상태: **E01 산출물 작성·자체검사 완료, 독립 공개dataset/scorer 최종검토 진행. 실제 모델 baseline/후보/holdout/G5/G6 not_run.**
+
+
+## E02 bounded HTTP 실행기 자체 증거
+
+`scripts/run_nl_eval.py`와 `tests/eval-runner/test_nl_transport.py`를 작성했다. 로컬 fake HTTP/selftests 23개 PASS, 실제 OpenAI 모델 호출0이다. 실제 공개 baseline plan-only는336사례/368user turns를 읽었고 future reserve744(그 안의 G5/G6 48은 계획값), prior reserve20/실제 과거호출수 unknown으로 출력했다. 실행 권한이나 제품 품질 PASS를 의미하지 않는다.
+
+독립 builder가 발견한 두 연결 공백을 수정했다: validation 보고서가 frozen best 모델/소스와 연결되지 않은 경우, runner/scorer 소스가 source_files에서 빠져도 진행하는 경우. 필수 source 집합을 강제하고 validation config/state artifacts로 run fingerprint를 재계산하며 frozen validation dataset·model/source/prompt/catalog/API 지문을 현재 후보와 대조한다. 현재 수정본의 독립 재검토가 진행 중이며, 실제 baseline/후보/holdout은 아직 not_run이다.
+
+E02 수정본 runner ae3450d3009f59cf344cdaac10f1ca42999f6daaacdb488bd61837a9ad2f008d에 대해 builder 독립11/11 PASS 수신·보고서 확인. e02-independent.md의 최초 FAIL2건 및 재검증 기록을 유지한다. 상태 생성기96개도 별도 독립 검토되었다. 이 PASS는 전송/상태 경계에 한정하며 실제 모델 품질은 아직 not_run이다.
+
+## N02 기준선 실행 준비 (실제 실행 전)
+
+2026-09-21 I01 소스지문8d94bcb2… 동결 후 evaluator가 공개 baseline336/368user turns와96개경영주상태,248SKU 바인딩 및frozen coverage를독립재확인했다. baseline canonical dataset hash `316ad33b9d6f47e217a96246e81990b8fae0e11fd162dd31385715247ab4cb02`. driver `e0d2162c04cabada3212f13eec54685082da6384a06c063b846e1129db371444`, state `d1a0845a4f45f44af9698963c700e9dfa24d13bb3a4b8b729b9b15e8a15278e1` 일치.
+
+추가smoke를보수적으로덮는prior50은실제50회주장이아니다. future reserve best validation552(전체2repeat의3attempt상한)+holdout276+UX144+G5G6 60=1032, baseline최대1104와prior50합계2186≤2400이다. 필수호출최악치예약후214여유만남는다고해석하며유료한도확장이아니다. priorcost planning$2.50+futurecostplanning$10.32+다음unknownattempt$0.05를제외하면현재stage실지출여유$2.13이다. 건강한기존smoke와유사한단가라면baseline약$1.6~1.7로예상되지만이를미래사용량실측이나hardcap보장으로표시하지않는다.
+
+준비결과는private n02-preparation.json, 공개실패분석용analyze-public-run.py에보존했다. 분석기는기존독립검토scorer를호출하여baseline/dev/validation의동일run_id 보고서와실패분류를만들며, 이3보고서를서로다른repeat로세지않는다. 실제평가분모를부분성공으로바꾸지않고실패/미응답도유지한다. 보호holdout은읽지않았다. 정확I01Preview READY/source증거와명시실행GO 수신전actualbaseline호출0으로유지한다.

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "exact configured OpenAI key absent from current built static files and public assets",
+  "scannedFiles": 29,
+  "keyPrinted": false,
+  "keyStoredInEvidence": false,
+  "buildId": "bxh_JHrpTuQF-CXQSB0CW"
+}

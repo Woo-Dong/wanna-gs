@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "scope": "deployed N01 API smoke, not formal eval or product E2E",
+  "sourceSha": "371f380c854e14a46c9d313ddcd0d26fca386a78",
+  "deploymentId": "dpl_9uR4KbjNDJ97zehtRvUwNsLvLaPW",
+  "target": null,
+  "origin": "https://wanna-aeplv6001-beatrain-4635s-projects.vercel.app",
+  "actualCalls": 2,
+  "results": [
+    {
+      "route": "product-assistant",
+      "httpStatus": 200,
+      "elapsedMs": 6560,
+      "result": {
+        "ok": true,
+        "data": {
+          "sessionId": "N01-PREVIEW",
+          "generation": 1,
+          "actorId": "SMOKE-CUSTOMER",
+          "roleEpoch": 1,
+          "requestId": "PREVIEW-C",
+          "conversationId": "N01-PREVIEW",
+          "inputRevision": 1,
+          "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+          "mode": "live",
+          "model": "gpt-5-mini-2025-08-07",
+          "promptVersion": "baseline-v1",
+          "catalogVersion": "catalog-248-v1",
+          "result": {
+            "action": "show_candidates",
+            "candidates": [
+              {
+                "id": "DEMO-9C30B1DB55A9",
+                "kind": "exact",
+                "sharedEvidence": [
+                  "바나나맛우유 240ml",
+                  "brand: 빙그레",
+                  "size: 240ml",
+                  "flavor: 바나나맛"
+                ],
+                "differences": [],
+                "unknownConditions": []
+              }
+            ],
+            "question": null,
+            "reason": "요청한 이름과 용량이 카탈로그의 '바나나맛우유 240ml (빙그레)'와 정확히 일치합니다. 확인해 주세요.",
+            "confirmationRequired": true
+          },
+          "usage": {
+            "inputTokens": 16589,
+            "outputTokens": 146,
+            "totalTokens": 16735,
+            "estimatedCostUsd": 0.00443925
+          },
+          "latencyMs": 5157
+        }
+      }
+    },
+    {
+      "route": "merchant-assistant",
+      "httpStatus": 200,
+      "elapsedMs": 2596,
+      "result": {
+        "ok": true,
+        "data": {
+          "sessionId": "N01-PREVIEW",
+          "generation": 1,
+          "actorId": "SMOKE-MERCHANT",
+          "roleEpoch": 1,
+          "requestId": "PREVIEW-M",
+          "conversationId": "N01-PREVIEW",
+          "inputRevision": 1,
+          "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+          "mode": "live",
+          "model": "gpt-5-mini-2025-08-07",
+          "promptVersion": "baseline-v1",
+          "catalogVersion": "catalog-248-v1",
+          "result": {
+            "intent": "modify",
+            "scope": "policy",
+            "constraints": {
+              "budgetLimitKrw": 50000,
+              "excludeCategories": [],
+              "excludeProductIds": [
+                "DEMO-9C30B1DB55A9"
+              ],
+              "maxQuantity": null,
+              "restorePrevious": false
+            },
+            "question": null,
+            "reason": "사용자가 '앞으로'라고 명시해 정책 변경 요청함: 바나나맛우유(240ml) 제외 및 하루 예산 50,000원으로 고정 요청."
+          },
+          "usage": {
+            "inputTokens": 16684,
+            "outputTokens": 122,
+            "totalTokens": 16806,
+            "estimatedCostUsd": 0.004415
+          },
+          "latencyMs": 1999
+        }
+      }
+    }
+  ]
+}

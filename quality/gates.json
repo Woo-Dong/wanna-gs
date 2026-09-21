@@ -1,6 +1,6 @@
 {
-  "phase": "assistant-foundation",
-  "scope": "N01 technical foundation + catalog and eval tooling only. Formal NL, domain and browser product gates remain pending.",
+  "phase": "application-integration",
+  "scope": "I01 domain/SQLite and customer/merchant UI integration with E02 evaluation runner. Formal NL baseline/holdout and final G5/G6 remain pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -43,7 +43,25 @@
     "evals/tests/*.py",
     "tests/server/*.test.ts",
     "evals/*.json",
-    "evals/*.jsonl"
+    "evals/*.jsonl",
+    "src/**/*.css",
+    "tests/**/*.mts",
+    "tests/customer/*.tsx",
+    "tests/customer/*.ts",
+    "tests/merchant/*.tsx",
+    "tests/merchant/*.ts",
+    "tests/merchant/*.cjs",
+    "tests/customer/*.cjs",
+    "tests/eval-runner/*.py",
+    "scripts/*.mjs",
+    "data/schema/*.sql",
+    "public/demo/*",
+    "next.config.*",
+    "docs/decisions/ADR-005-persistent-quantity-cap.md",
+    "docs/execution/run-20260921/context-app-v5.json",
+    "scripts/*.mts",
+    "tests/integration/*.mjs",
+    "tests/**/*.html"
   ],
   "checks": [
     {
@@ -80,6 +98,19 @@
       "counts_file": "artifacts/raw/server-tests.json"
     },
     {
+      "id": "domain-ui-tests",
+      "command": [
+        "python3",
+        "scripts/run_node_tests.py",
+        "domain-ui-tests",
+        "tests/domain/*.mts",
+        "tests/customer/*.test.ts",
+        "tests/merchant/*.test.ts"
+      ],
+      "tests": true,
+      "counts_file": "artifacts/raw/domain-ui-tests.json"
+    },
+    {
       "id": "typecheck",
       "command": [
         "npm",
@@ -98,20 +129,81 @@
   ],
   "tasks": [
     {
-      "id": "N01",
+      "id": "I01-DOMAIN",
+      "implementers": [
+        "preflight_builder"
+      ],
+      "requirements": [
+        "CORE-04",
+        "CORE-06",
+        "CORE-07",
+        "CORE-08",
+        "CORE-09",
+        "CORE-10",
+        "CORE-11",
+        "CORE-13",
+        "CORE-14",
+        "CORE-20",
+        "CORE-25",
+        "CORE-26"
+      ]
+    },
+    {
+      "id": "I01-CUSTOMER",
+      "implementers": [
+        "research"
+      ],
+      "requirements": [
+        "CORE-01",
+        "CORE-02",
+        "CORE-03",
+        "CORE-04",
+        "CORE-09",
+        "CORE-10",
+        "CORE-24",
+        "CORE-25"
+      ]
+    },
+    {
+      "id": "I01-MERCHANT",
       "implementers": [
         "root"
       ],
       "requirements": [
-        "CORE-03",
         "CORE-05",
-        "CORE-11",
+        "CORE-06",
+        "CORE-07",
+        "CORE-08",
+        "CORE-24",
+        "CORE-25",
+        "CORE-26"
+      ]
+    },
+    {
+      "id": "I01-SHELL",
+      "implementers": [
+        "preflight_builder",
+        "root"
+      ],
+      "requirements": [
+        "CORE-12",
+        "CORE-14",
+        "CORE-24"
+      ]
+    },
+    {
+      "id": "E02",
+      "implementers": [
+        "method_auditor",
+        "root"
+      ],
+      "requirements": [
         "CORE-15",
+        "CORE-18",
         "CORE-21",
-        "CORE-23",
-        "CORE-25"
+        "CORE-23"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-app-v4.json"
+  "context_manifest": "docs/execution/run-20260921/context-app-v5.json"
 }

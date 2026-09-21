@@ -1,0 +1,85 @@
+{
+  "phase": "application-integration",
+  "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+  "context_manifest": "docs/execution/run-20260921/context-app-v5.json",
+  "started_at": "2026-09-21T10:07:04.007941+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "I01 domain/SQLite and customer/merchant UI integration with E02 evaluation runner. Formal NL baseline/holdout and final G5/G6 remain pending.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 91,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 23
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

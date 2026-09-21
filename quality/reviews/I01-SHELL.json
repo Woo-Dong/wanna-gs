@@ -1,0 +1,22 @@
+{
+  "task": "I01-SHELL",
+  "reviewer": "method_auditor",
+  "status": "PASS",
+  "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+  "context_manifest": "docs/execution/run-20260921/context-app-v5.json",
+  "consumed_context_hash": "10701ed7619c86fe94cec16a31b6ac8b02a1afa9f2843ffdcce4ec446e952234",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-12",
+    "CORE-14",
+    "CORE-24"
+  ],
+  "evidence": [
+    "docs/execution/run-20260921/i01-customer-browser.md: same-tab role handoff, own customer isolation, fresh-context reset generation and refresh restoration, actual corrupted SQLite explicit recovery UI PASS",
+    "Actual browser IndexedDB write abort restores no request/need then normal UI retry creates one durable request; separate domain worker8 tests preserved",
+    "Visible brand/pronunciation/mock markers, 390/360px and computed-text200% nav regression PASS on current build; health states configured requires actual call and exposes no key value",
+    "Independent staged-index vs working-tree byte comparison: exactly one trailing ASCII space removed from customer CSS. Reconstructing prior gate fingerprint with indexed CSS exactly matches8d94bcb2; current6ab487de. Semantics unchanged; prior actual browser/SQL evidence retained, no model/browser rerun."
+  ],
+  "scope": "application-integration I01 task boundary only. Actual source/SQLite/UI evidence distinguished from HTTP fixtures. Formal NL baseline/best/holdout, full UX workload metrics, G5/G6 and submitted Vercel URL remain not_run; no goal completion claim.",
+  "checked_at": "2026-09-21T10:05:45.918988+00:00"
+}

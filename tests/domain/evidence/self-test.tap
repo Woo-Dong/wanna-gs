@@ -1,0 +1,214 @@
+TAP version 13
+# Subtest: 248 public SKU / 9 stores / SQLite FK and export-import preserve facts
+ok 1 - 248 public SKU / 9 stores / SQLite FK and export-import preserve facts
+  ---
+  duration_ms: 69.672584
+  type: 'test'
+  ...
+# Subtest: normal request → manual batch → supply/payment → receive → merchant collection
+ok 2 - normal request → manual batch → supply/payment → receive → merchant collection
+  ---
+  duration_ms: 146.2375
+  type: 'test'
+  ...
+# Subtest: same command replays; different payload conflicts and customer cannot approve
+ok 3 - same command replays; different payload conflicts and customer cannot approve
+  ---
+  duration_ms: 51.001375
+  type: 'test'
+  ...
+# Subtest: MOQ is not intake cap; 13 requests and multiple6 produce12 then1 pending
+ok 4 - MOQ is not intake cap; 13 requests and multiple6 produce12 then1 pending
+  ---
+  duration_ms: 413.227
+  type: 'test'
+  ...
+# Subtest: strict whole FIFO accumulates sources, does not bypass leading3 for trailing1
+ok 5 - strict whole FIFO accumulates sources, does not bypass leading3 for trailing1
+  ---
+  duration_ms: 155.866625
+  type: 'test'
+  ...
+# Subtest: cancel keeps submitted coverage; shortage releases links but does not replenish capacity
+ok 6 - cancel keeps submitted coverage; shortage releases links but does not replenish capacity
+  ---
+  duration_ms: 126.349209
+  type: 'test'
+  ...
+# Subtest: stale approval is atomic and capacity/budget unchanged
+ok 7 - stale approval is atomic and capacity/budget unchanged
+  ---
+  duration_ms: 56.91725
+  type: 'test'
+  ...
+# Subtest: price change blocks payment and explicit reconsent gets new FIFO position
+ok 8 - price change blocks payment and explicit reconsent gets new FIFO position
+  ---
+  duration_ms: 107.101833
+  type: 'test'
+  ...
+# Subtest: valid decrease keeps consent times/sequence; increase gets new sequence
+ok 9 - valid decrease keeps consent times/sequence; increase gets new sequence
+  ---
+  duration_ms: 74.185209
+  type: 'test'
+  ...
+# Subtest: consent expires exactly at7days; paid waiting reservation does not expire
+ok 10 - consent expires exactly at7days; paid waiting reservation does not expire
+  ---
+  duration_ms: 132.943291
+  type: 'test'
+  ...
+# Subtest: payment known failure explicit retry success; secondfailure releases exactly once
+ok 11 - payment known failure explicit retry success; secondfailure releases exactly once
+  ---
+  duration_ms: 206.436375
+  type: 'test'
+  ...
+# Subtest: 10minute hold and exact48hour pickup enforce direct clock boundary
+ok 12 - 10minute hold and exact48hour pickup enforce direct clock boundary
+  ---
+  duration_ms: 169.684334
+  type: 'test'
+  ...
+# Subtest: budget settlement stays on approval day and original cost
+ok 13 - budget settlement stays on approval day and original cost
+  ---
+  duration_ms: 74.388083
+  type: 'test'
+  ...
+# Subtest: approved auto policy runs without per-order approval; disabled policy stops new orders
+ok 14 - approved auto policy runs without per-order approval; disabled policy stops new orders
+  ---
+  duration_ms: 76.551375
+  type: 'test'
+  ...
+# Subtest: needs and agent error logs never count as purchase demand; public detail hides original text
+ok 15 - needs and agent error logs never count as purchase demand; public detail hides original text
+  ---
+  duration_ms: 66.526458
+  type: 'test'
+  ...
+# Subtest: reset invalidates old generation and other session is untouched
+ok 16 - reset invalidates old generation and other session is untouched
+  ---
+  duration_ms: 72.604375
+  type: 'test'
+  ...
+# Subtest: real SQL transaction rolls back replacement when new consent fails
+ok 17 - real SQL transaction rolls back replacement when new consent fails
+  ---
+  duration_ms: 41.828834
+  type: 'test'
+  ...
+# Subtest: durable snapshot failure rolls back successful SQL command and replay can succeed
+ok 18 - durable snapshot failure rolls back successful SQL command and replay can succeed
+  ---
+  duration_ms: 69.310875
+  type: 'test'
+  ...
+# Subtest: not-listed label does not block known-price supply-capable request
+ok 19 - not-listed label does not block known-price supply-capable request
+  ---
+  duration_ms: 90.660041
+  type: 'test'
+  ...
+# Subtest: budget proposal revision and undo retain explicit restriction and one batch
+ok 20 - budget proposal revision and undo retain explicit restriction and one batch
+  ---
+  duration_ms: 80.8185
+  type: 'test'
+  ...
+# Subtest: other customer and other merchant cannot read request details
+ok 21 - other customer and other merchant cannot read request details
+  ---
+  duration_ms: 70.40975
+  type: 'test'
+  ...
+# Subtest: receipt replay never extends deadline and late already-received pool becomes pickup ready
+ok 22 - receipt replay never extends deadline and late already-received pool becomes pickup ready
+  ---
+  duration_ms: 124.986541
+  type: 'test'
+  ...
+# Subtest: STRICT SQLite rejects fractional quantity and FK rejects crossed actor session
+ok 23 - STRICT SQLite rejects fractional quantity and FK rejects crossed actor session
+  ---
+  duration_ms: 42.735
+  type: 'test'
+  ...
+# Subtest: incompatible snapshot needs explicit recovery, ready client recovery cannot bypass merchant role
+ok 24 - incompatible snapshot needs explicit recovery, ready client recovery cannot bypass merchant role
+  ---
+  duration_ms: 46.634083
+  type: 'test'
+  ...
+# Subtest: permanent supply end moves unpaid request to review but does not cancel demand record
+ok 25 - permanent supply end moves unpaid request to review but does not cancel demand record
+  ---
+  duration_ms: 51.166708
+  type: 'test'
+  ...
+# Subtest: reconsent empty or whitespace terms cannot replace valid consent or queue position
+ok 26 - reconsent empty or whitespace terms cannot replace valid consent or queue position
+  ---
+  duration_ms: 59.379208
+  type: 'test'
+  ...
+# Subtest: proposal change rejects unknown fields/SKUs/categories and preserves original executable draft
+ok 27 - proposal change rejects unknown fields/SKUs/categories and preserves original executable draft
+  ---
+  duration_ms: 80.251333
+  type: 'test'
+  ...
+# Subtest: ADR005 one event orders at most cap3; replay adds0, next event adds3, demand10 preserved
+ok 28 - ADR005 one event orders at most cap3; replay adds0, next event adds3, demand10 preserved
+  ---
+  duration_ms: 65.346125
+  type: 'test'
+  ...
+# Subtest: ADR005 cap3 belowMOQ6 defers; omitted keeps3, disabling preserves3, explicitnull removes
+ok 29 - ADR005 cap3 belowMOQ6 defers; omitted keeps3, disabling preserves3, explicitnull removes
+  ---
+  duration_ms: 81.28375
+  type: 'test'
+  ...
+# Subtest: ADR005 current proposal and active policy use smaller cap; manual approval does not trigger extra auto
+ok 30 - ADR005 current proposal and active policy use smaller cap; manual approval does not trigger extra auto
+  ---
+  duration_ms: 75.4105
+  type: 'test'
+  ...
+# Subtest: ADR005 invalid cap and unknown policy field roll back all fields
+ok 31 - ADR005 invalid cap and unknown policy field roll back all fields
+  ---
+  duration_ms: 30.100083
+  type: 'test'
+  ...
+# Subtest: unknown model usage is null with provider-attempt distinction and does not create demand
+ok 32 - unknown model usage is null with provider-attempt distinction and does not create demand
+  ---
+  duration_ms: 41.72475
+  type: 'test'
+  ...
+# Subtest: ADR005 capacity and budget below cap are preserved as tighter bounds
+ok 33 - ADR005 capacity and budget below cap are preserved as tighter bounds
+  ---
+  duration_ms: 64.331083
+  type: 'test'
+  ...
+# Subtest: ADR005 snapshot save failure restores policy cap, budget, capacity and resulting auto order
+ok 34 - ADR005 snapshot save failure restores policy cap, budget, capacity and resulting auto order
+  ---
+  duration_ms: 66.388459
+  type: 'test'
+  ...
+1..34
+# tests 34
+# suites 0
+# pass 34
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3401.291917

@@ -1,6 +1,17 @@
 # 실행 Workplan
 
-상태: 2026-09-21 실행 시작, preflight와 초기 조사 진행 중. [현재 실행 포인터](PROGRESS.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[context](execution/run-20260921/context.json)를 우선 확인한다. 아래 DAG는 구현 계획 기준선이다. 이 파일은 상세 task DAG와 증거 계약을 정의한다. preflight, 조사, Preview, PLAN-READY, SEED-READY, G0~G6 중 어느 것도 아직 실행·통과하지 않았다. 실행 시 관측한 저장소·도구·외부 근거에 맞춰 task를 구체화하되 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 사용자 결정, [14번 게이트](14-agent-development-loop.md)의 권위를 바꾸지 않는다.
+상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-app-v5.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
+
+| 실행 묶음 | 상태 | 실제 증거·남은 의존성 |
+|---|---|---|
+| P01~P04·초기 조사 | 완료 | preflight-independent.md, method-audit.md, PR #2/CI, Preview shell; 배포 사고와 복구는 deployment-recovery.md에 보존 |
+| D01~D05·자료/seed/eval | 완료 | 248상품·9점포·실제 SQLite, data-independent.md 및 eval-independent.md; 보호84 내용은 평가자만 보유 |
+| F00/FS·모델 서버 | 통합 완료 | PR #3, 통합 e612cd9 CI PASS, n01-preview-smoke.json 실제 두 역할 호출 |
+| FC/FM/FO/FR·I01/I02·U01/U02 | 로컬 통합 검증 완료, PR 대기 | d02-independent.md, i01-customer-browser.md, i01-merchant-browser.md, i01-local-gate.json; 아직 해당 제품 Preview 검증 전 |
+| N01~N03·편의성 비교 | 준비 | 공개336 baseline·독립 개선평가·보호84 및 실제 UX baseline/best 비교 미실행 |
+| G5·L01~L03 | 미실행 | 자연어/UX 기준 충족→두 관점 최종 정책 검토→릴리스 PR/CI→Production/G6 순서 유지 |
+
+실행 묶음 식별자 B01/N01/I01은 위 WP 세부 작업을 묶은 실제 계약 이름이다. 모델 서버 작업 N01과 계획의 WP-N01 자연어 baseline은 구분한다. 앱 단위/로컬 실제 SQLite·브라우저 PASS가 전체 자연어 평가나 G5/G6 완료를 대신하지 않는다.
 
 ## 목표와 종료 상태
 

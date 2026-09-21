@@ -126,3 +126,48 @@ B01 배포에서 모든 preflight deployment 제거 뒤 다시 Production target
 따라서 이전의 “target생략이면Preview” 결론은 첫배포 경계를 빠뜨린 불충분한 일반화였다. 전체삭제 후 첫배포상태로 돌아간다는 세부 동작 자체는 공식문서에서 직접 확인한 것이 아니라 실행관측에 근거한 추론이다. canceled 첫배포기록을 남긴 뒤 bootstrap-preview.json의 source5cf1ed0282c2c6cc75408d920a0dc52ce6e777e9에target=null이 나온 후속관측은 그 가설을 지지한다. 아직INITIALIZING인 기록을READY·브라우저검증으로 승격하지 않는다.
 
 운영 처분: 최초레코드/반환target/source를 실제 검사하는 기존guard를 유지하고, 예상밖Production이면즉시취소·정확ID기록·추가배포중단/복구한다. 성공Preview가나온 뒤에도 생성요청target문구만으로안전을추정하지 않는다. 이교정은 기존G5전제품Production완료금지나main릴리스게이트를완화하지 않는다. 모델호출·원격삭제를이감사자가추가실행하지않았다. 배포복구의최종READY/alias상태는coordinatorledger와후속실제QA로확인한다.
+
+## 첫 G3/G4 통합 체크포인트 — 한정 운영 감사
+
+2026-09-21, method_auditor. CTX-APP-v5 `10701ed7619c86fe94cec16a31b6ac8b02a1afa9f2843ffdcce4ec446e952234`와23개입력hash를독립확인했다. 현재quality.phase는application-integration, scope는I01-domain/customer/merchant/shell+E02이며정식NL·G5/G6미완료를직접명시한다. 새에이전트/재귀감사자를생성하지않고기존4슬롯역할을사용했다.
+
+**운영 처분: 현행 소유·독립검증 구조 유지. I01 완료 판정은 현재 미완료2건의 delta 검증까지 보류하며, 이 감사가 제품 검증을 대체하지 않는다.** 새로운 정책/완료기준 완화는 제안하지 않는다.
+
+### 역할·소유·인계
+
+- domain/schema/Worker/seed 작성 builder→비구현자method 독립검증; customer 작성research→method QA; merchant 작성root→research QA; shell 작성builder/root→method QA로분리되어있다.
+- E02 runner는root 예정에서method로명시이관했고실제독립검토는builder가수행했다. root 상태fixture생성기도builder가별도로검증했다. quality.tasks E02 implementers가method/root 두명으로선언되어둘이E02독립PASS를쓰지못하게했다.
+- E01 scorer의독립검토는research, 보호holdout은method만소유하고정확본문/정답을root/기능구현자에게전달하지않았다. method는서버prompt/search 후보를작성하지않는다. E02전송기구현을모델후보개발로혼동하지않는다.
+- plan.md의이전N01행에는root eval runner소유문구가남아있지만최신명시이관·context-v5·quality.tasks가현재계약을표시한다. 실제동시파일편집증거는없었다. 다음통합기록에서과거소유표현을현재계약으로정리할수있다.
+- root가idle research에게send_message만보내수정착수가안된운영오류를직접발견하고followup_task로정정했다고알렸다. 신규관리계층추가없이, 실제후속수정의시작/종료통보를기존도구에맞추는것으로처리한다. 처리속도개선의수치효과를측정한것은아니다.
+
+### 실제 실패와 기준 유지
+
+독립반례가정상경로를살리는수정으로연결됐다. domain빈약관/unknown제약거절과ADR005한이벤트상한을복구했고, 실제live ModelUsage4필드저장실패는cost optional계약으로해소후독립36SQL·정상고객live저장으로대조했다. domain초기tsconfig가src/.mts를누락한자체PASS범위는별도보고서에서정정했으며전체포함타입검사를실행했다. 과거PASS를소급해전체범위PASS로고치지않았다.
+
+E02의다른후보validation재사용과필수sourcehash누락은독립FAIL2→수정→독립11PASS로기록됐다. 고객QA의버튼locator/초기역할/저장완료동기화오류는검사기오류로분리하고실제모델을무조건재호출하지않았다. 화면/SQL이정상인증거와검사기실패를함께보존했다.
+
+현재 **CQA-01 후보SKU/순서/차이history손실**, **CQA-02 글자200%nav겹침**은독립실제HTTP/DOMRange반례가있는미완료다. 앞선정상수직/저장예외PASS로상쇄하지않는다. 제품소스수정이들어오면해당화면/후속대화결과는stale로표시하고동일반례+인접정상검사를같은새build에서재실행한다. 아직수정안만들었다는메시지로완료하지않는다.
+
+### 게이트의 범위와 실제 거절 확인
+
+quality/gates.json은상세source_patterns에src CSS,새도메인.mts,평가runner/tests,상태generator.mts,실제integration.browser.mjs,seed/SQL/context-v5를포함한다. 따라서고객수정뿐아니라검증스크립트변경도최종게이트지문을바꾸며, 소스동결후review/evidence를새지문에맞춰기록해야한다. 지금까지의B01/N01review를I01로재사용하면안된다.
+
+읽기중심실행기계약probe를1회실행했다: 실제check를실행하지않은합성PASS구조를gate_contract.validate에넣고현재기존B01/N01reviews만제공하자I01-DOMAIN/CUSTOMER/MERCHANT/SHELL/E02 **5개누락독립검토를모두거절**했다. private method-i01-checkpoint.json에application_test_claim=false로보존했다. 이검사는게이트거절증거이지앱7checks나CI를실행한PASS가아니다. 현재quality/reviews에I01/E02완료레코드가없으므로, 알려진고객결함을숨긴I01자동통과상태는관측하지않았다.
+
+현재G1/G2·두역할실제브라우저의한정증거와정식NL출시최소평가를분리한다. application-integration게이트에는아직live NL 최소기준/UX48회/G5/G6실행강제가들어있지않다. scope상정상이나, 이phasePASS만으로GOAL완료/최종배포승인을내려서는안된다. 이후release phase에서독립실제평가·최소기준·최종URL/정확SHA/CI와전체AC를결속해야한다.
+
+### 실험 예산·보호·종료
+
+초기prior20은실제과거호출수를안다는뜻이아니다. 이후허용된prebaseline smoke가늘어root는기존Budget클래스의지원인자인prior_reserve50/$2.50 planning reserve를동일goal ledger에사용하기로했다. 이것은실측50회/$2.50지출주장이아니며2400/$15한도를늘리지않는다. private driver/설정hash를source_files에연결하고, 이후validation/holdout도같은50/같은ledger를사용한다. CLIdefault20로이미50인ledger를열면BUDGET_RESERVE_CONFIG_CHANGED로중단하는것이정상이다. 실제E02모델baseline호출은감사시점0이다.
+
+보호holdout진입에는평가자명시flag·frozen best 모델/소스/프롬프트/catalog·정확validation집합에대한서로다른2run의동일후보PASS증거가필요하다. 다른후보보고서나동일run재사용은허용하지않는다. 잠정best가없거나출시최소가실패하면holdout/최종릴리스의필수기준을완화할수없다. 추가후보/최적화종료규칙은ADR003대로유지한다.
+
+사용자가요구한root/worktree/정제로그/private증거는보존한다. 과거Vercel첫배포Production오분류기록을지우지않고이후에도실제target/source검사를유지한다. 이번감사는원격배포·모델호출·리소스삭제를수행하지않았다. 남은필수작업은고객2delta→최종I01독립review/CI/통합, 정식baseline/개선·best repeats/holdout/UX수치, G5 exactPreview와최종두정책관점감사, G6제출URL실제두역할검증이다. 이목록을optional개선으로바꾸지않는다.
+
+새로운운영모순을반복해찾는무한감사는종료한다. 다음method checkpoint는현재두delta의완료여부를I01에연결하는것과G5직전이며, 새실패나계약변경이없으면같은의견을재개하지않는다.
+
+
+### 첫 G3/G4 체크포인트 후속 닫기
+
+CQA-01/02 소유자수정→root통합→새build Ob3v4bKR3BUZlzGBamRYO에서method가정상5/경계12와기존고객unit5를독립재실행했다. 전체result history와별도사람용dialogue보존,200%nav실제겹침해소를확인해두미완료를닫았다. 초기독립FAIL/소유자자체검사/독립delta를구분하고이전artifact도보존한다. I01고객/shell/domain의범위내독립review를현재source지문에기록할수있다. 운영판정은현행구조유지로종료하며정식NL/UX workload/G5/G6미완료는변경없다.
