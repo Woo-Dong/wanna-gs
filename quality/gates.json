@@ -1,6 +1,6 @@
 {
-  "phase": "ux-instrumentation-v3",
-  "scope": "Implement adopted ADR007 fixed 8x7 UX comparison and fail-closed release evidence; preserve original v2 failures. Fixture/technical checks only, independent actual study/role QA/G5/G6 remain pending. C5 app and frozen NL source files unchanged.",
+  "phase": "c6-grounding-and-eval-revision",
+  "scope": "C6 narrow input-grounded generation constraints and frozen replacement evaluation metadata. Independent technical/data checks only; original C5 holdout failure retained and actual C6 quality/G5/G6 pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -83,7 +83,10 @@
     "docs/execution/run-20260921/context-ux-v14.json",
     "quality/release/evidence/c5-validation-01/*",
     "quality/release/evidence/c5-validation-02/*",
-    "quality/release/evidence/c5-freeze.json"
+    "quality/release/evidence/c5-freeze.json",
+    "docs/execution/run-20260921/context-n07-v15.json",
+    "docs/execution/run-20260921/c6-recovery-plan.md",
+    "docs/execution/run-20260921/holdout-v2-independent.json"
   ],
   "checks": [
     {
@@ -165,18 +168,32 @@
   ],
   "tasks": [
     {
-      "id": "UX-V3-INSTRUMENT",
+      "id": "C6-TECH",
       "implementers": [
-        "preflight_builder",
-        "root"
+        "root",
+        "preflight_builder"
+      ],
+      "requirements": [
+        "CORE-02",
+        "CORE-03",
+        "CORE-05",
+        "CORE-12",
+        "CORE-17",
+        "CORE-18",
+        "CORE-21"
+      ]
+    },
+    {
+      "id": "EVAL-HOLDOUT-V2",
+      "implementers": [
+        "method_auditor"
       ],
       "requirements": [
         "CORE-17",
         "CORE-18",
-        "CORE-21",
-        "CORE-25"
+        "CORE-21"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-ux-v14.json"
+  "context_manifest": "docs/execution/run-20260921/context-n07-v15.json"
 }

@@ -2,6 +2,9 @@ import type { z } from 'zod';
 import { customerInputSchema,customerOutputSchema,merchantInputSchema,merchantOutputSchema,modelOutputSchema } from './schemas';
 import { catalogContext,catalogHash,catalogVersion,categories,productById } from './catalog';
 import { retrieveCatalog } from './retrieval';
+import { explicitExternalOperation } from './customer-boundary';
+import { certifySkuOnlyExclusions } from './merchant-grounding';
+import stores from '../../data/seed/stores.json';
 import { packCatalog,packContext,packHistory,packIds,unpackResult,literalSkuReferences } from './packing';
 import { CUSTOMER_PROMPT,MERCHANT_PROMPT,PROMPT_VERSION } from './prompts';
 import { AssistantError,liveProvider,type ModelProvider } from './provider';
@@ -42,7 +45,8 @@ export async function interpret(role:'customer'|'merchant',body:unknown,provider
  const matchingHints=role==='customer'?retrieved.matchingHints:{...retrieved.matchingHints,scope:'complete-catalog-ranked'};
  const input=JSON.stringify({catalog:packCatalog(suppliedCatalog),literalSkuReferences:literalSkuReferences(text,history),categories,matchingHints:{...matchingHints,exactNameIds:packIds(matchingHints.exactNameIds)},context:packContext(context),history:packHistory(history),text});
  const staleMerchant='state' in request&&(request.state.stale===true||(request.state.proposalVersion!==null&&request.state.currentProposalVersion!=null&&request.state.proposalVersion!==request.state.currentProposalVersion));
- const outputSchema=modelOutputSchema(role,packIds(suppliedCatalog.map(product=>product.id)),categories,staleMerchant);
+ const grounding=role==='customer'?{customerScopeBoundary:explicitExternalOperation(text,catalogContext,stores.map(store=>store.name)),clarificationCount:'clarificationCount' in request?request.clarificationCount:0}:{skuOnlyExclusions:certifySkuOnlyExclusions(text,catalogContext,stores.map(store=>store.name))!==null};
+ const outputSchema=modelOutputSchema(role,packIds(suppliedCatalog.map(product=>product.id)),categories,staleMerchant,grounding);
  const response=await provider(role==='customer'?CUSTOMER_PROMPT:MERCHANT_PROMPT,input,outputSchema,role+'_interpretation');
  let result:CustomerInterpretation|MerchantInterpretation;
  try{

@@ -1,0 +1,60 @@
+{
+  "reviewer": "/root/holdout_revision_review",
+  "implementers": [
+    "method_auditor"
+  ],
+  "status": "FAIL",
+  "review_revision": "revision-02",
+  "dataset_hash": "a036b8b1a8bc0846dbf1716b91decb5aeca1200c6791ca2fec3d2c556ed19b66",
+  "previous_dataset_hash": "1f9f938a7eba167ece4dd78f6c1d66a35d419c98a23af20ad4fad2d8b2474323",
+  "semantic_family_overlap": 2,
+  "semantic_family_overlap_count_kind": "confirmed_lower_bound_not_complete_total",
+  "difficulty_equivalent": false,
+  "thresholds_unchanged": true,
+  "protected_content_not_published": true,
+  "case_count": 84,
+  "role_counts": {
+    "customer": 60,
+    "merchant": 24
+  },
+  "clear_counts": {
+    "customer": 40,
+    "merchant": 15
+  },
+  "uncertain_counts": {
+    "customer": 20,
+    "merchant": 9
+  },
+  "category_count": 18,
+  "single_turn_cases": 76,
+  "multi_turn_cases": 8,
+  "user_turns": 92,
+  "catalog_size": 248,
+  "data_structure_counts_pass": true,
+  "oracle_review_complete": false,
+  "failures": [
+    "confirmed_template_substitution_semantic_overlap",
+    "remaining_paraphrase_or_padding_families",
+    "uncertain_allowed_action_oracle_requires_review",
+    "difficulty_equivalence_not_demonstrated"
+  ],
+  "evidence": {
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-02/input.jsonl": "50b94fe21c22a8ddcc3e775098aa3122202d948a600d70ff91ca1f3952176966",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-02/static-result.json": "37b5d67a0fb8bbc5be884a44a2c3eb45379cd465d6666f5868822f8e7363895e",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-02/findings.md": "cd7394b8e4795fd8e6b675e55ea87908d2ae2826cc0831c47039e6e42329ef58",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-02/lineage.json": "5e3d8d79600dc745beba63319d87b443cbc7590f0c2d4371bef072b92a88e752",
+    "artifacts/private/run-20260921/holdout-v2-independent/context-ack.json": "25e4af1b05df48c011ffb81905a060a1e6c6d323fd33c40828918f154fb97a6e"
+  },
+  "model_calls": 0,
+  "product_quality": "NOT_ASSESSED",
+  "runner_compatibility": "NOT_ASSESSED",
+  "consumed_context_hash": "65069bac2aa60176028eb833adbe351956a0fee857bde24b53a2a7abb66ab7e4",
+  "strict_jsonschema_pass": true,
+  "all_case_texts_read": true,
+  "merchant_constraint_count_distribution": {
+    "1": 6,
+    "2": 4,
+    "3": 5
+  },
+  "prior_review": "holdout-v2-independent.revision-01.json"
+}

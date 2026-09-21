@@ -1,0 +1,23 @@
+{
+  "task": "EVAL-HOLDOUT-V2",
+  "reviewer": "holdout_revision_review",
+  "status": "PASS",
+  "fingerprint": "84eb39dc193a82caf4b9ea04558d246cb1b891f40ffd4160610a974476bb75d1",
+  "context_manifest": "docs/execution/run-20260921/context-n07-v15.json",
+  "consumed_context_hash": "2be3757da9a1d1d35f47e77c314402854f87ca8220f22e95201f1000dfc5454b",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-17",
+    "CORE-18",
+    "CORE-21"
+  ],
+  "evidence": [
+    "최종 independent data PASS의 dataset/bytes hash와 manifest-v2의84사례·92발화·18범주·role/label분모·family hash를 실제 보호 입력에서 재계산해 일치 확인.",
+    "dev252/validation84 metadata는 predecessor와 완전 동일. retired84의 원본hash·FAIL·실행근거hash·replay_authorized=false를 유지.",
+    "manifest-v2 SHA3670b985b0189b4e7609af0acbce7bba792a4263a31ac62a246ad64e7d32ab60, independent-data metadata SHAcfb44b7a0a74411a658a2ed467b9ca6faaec3faf850a95bd3c4ef8e55d29a41c 직접 대조.",
+    "context-n07-v15와 source fingerprint를 독립 재계산했고 context 파일 hash 전부 현재 bytes와 일치. 이는 context 결속 확인이며 앱 코드 리뷰를 뜻하지 않음.",
+    "docs/execution/run-20260921/holdout-v2-independent.md와 revision01/02 FAIL 및 revision03 PASS 이력 보존. private 근거 artifacts/private/run-20260921/holdout-v2-independent/revision-03/."
+  ],
+  "scope": "독립 보호 평가 데이터 PASS의 통합 manifest/context 결속만 확인. 앱 코드·runner 동작·실제 모델 품질·G5/G6는 검토하지 않았고 이 PASS로 대체하지 않는다. 모델 호출0, 장부 수정0, 원문/정답/SKU/사례ID 공개0. 데이터 동결은 C6 품질통과 또는 실제평가 실행승인이 아니다.",
+  "checked_at": "2026-09-21T12:54:11.344619+00:00"
+}
