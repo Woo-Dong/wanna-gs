@@ -1,6 +1,6 @@
 {
   "phase": "nl-candidate",
-  "scope": "C4 one-factor merchant prompt correction preserves explicit SKU/category/mixed exclusions and referential policy copy. C3 dev29/30 insufficient; actual candidate evaluation and final G5/G6 pending.",
+  "scope": "C5 enforces existing stale proposal clarification policy in model generation schema while retaining fresh edits, undo and usage/error evidence. Paid evaluation blocked by unchanged budget reservation; UX comparison NOT_READY; G5/G6 pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -72,7 +72,8 @@
     "docs/decisions/ADR-006-ux-baseline-recovery.md",
     "docs/execution/run-20260921/context-n04-v10.json",
     "quality/release/evidence/baseline/*",
-    "docs/execution/run-20260921/context-n05-v11.json"
+    "docs/execution/run-20260921/context-n05-v11.json",
+    "docs/execution/run-20260921/context-n06-v12.json"
   ],
   "checks": [
     {
@@ -152,18 +153,19 @@
   ],
   "tasks": [
     {
-      "id": "N05-C4-SERVER",
+      "id": "N06-C5-SERVER",
       "implementers": [
         "root"
       ],
       "requirements": [
         "CORE-05",
         "CORE-06",
+        "CORE-17",
         "CORE-21",
         "CORE-23",
         "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n05-v11.json"
+  "context_manifest": "docs/execution/run-20260921/context-n06-v12.json"
 }

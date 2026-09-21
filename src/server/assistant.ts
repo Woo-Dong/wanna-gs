@@ -41,7 +41,8 @@ export async function interpret(role:'customer'|'merchant',body:unknown,provider
  const suppliedCatalog=role==='customer'?retrieved.catalog:retrieved.fullCatalog;
  const matchingHints=role==='customer'?retrieved.matchingHints:{...retrieved.matchingHints,scope:'complete-catalog-ranked'};
  const input=JSON.stringify({catalog:packCatalog(suppliedCatalog),literalSkuReferences:literalSkuReferences(text,history),categories,matchingHints:{...matchingHints,exactNameIds:packIds(matchingHints.exactNameIds)},context:packContext(context),history:packHistory(history),text});
- const outputSchema=modelOutputSchema(role,packIds(suppliedCatalog.map(product=>product.id)),categories);
+ const staleMerchant='state' in request&&(request.state.stale===true||(request.state.proposalVersion!==null&&request.state.currentProposalVersion!=null&&request.state.proposalVersion!==request.state.currentProposalVersion));
+ const outputSchema=modelOutputSchema(role,packIds(suppliedCatalog.map(product=>product.id)),categories,staleMerchant);
  const response=await provider(role==='customer'?CUSTOMER_PROMPT:MERCHANT_PROMPT,input,outputSchema,role+'_interpretation');
  let result:CustomerInterpretation|MerchantInterpretation;
  try{
