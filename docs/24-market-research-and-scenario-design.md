@@ -20,7 +20,7 @@ PLAN-READY 전에 실제 자료를 읽어 여러 조사 사례·brief와 근거�
 | 재고·요청·대기 | 앱/현장 정보 차이, 여러 점포 탐색, 품절·입고 시각, 대기 중 기대가 어떻게 어긋나는가 | 실제 점포+simulated availability, 상태/오류 카피, 통합·UX 시나리오 |
 | 동의·결제·픽업 | 상품/점포/가격 확인, 확보 후 결제, 알림·48시간 수령에서 필요한 설명은 무엇인가 | 동의/상태 불변식, 시간 경계, 고객 E2E |
 | 경영주 집계·발주 | 요청을 어떻게 묶고 예산·최소수량·공급 제한을 판단하는가 | 묶음/자연어 수정/수동·자동 정책, merchant eval |
-| 경영주 예외 | stale 제안, 부분 실패, 재입고·중복 실행·미수령을 어떻게 이해해야 하는가 | 실패/복구 시나리오, 동시성·멱등 통합 검사, merchant UX |
+| 경영주 예외 | stale 제안, 부분 실패, 재입고·중복 실행·미수령을 어떻게 이해해야 하는가 | 실패/복구 시나리오, 단일 탭 중복 명령·순차 처리 통합 검사, merchant UX |
 | 시장·트렌드 | 어떤 상품이 언제·어떤 근거로 관심을 받았고, 상품 사실과 인기 주장을 구분할 수 있는가 | trend tag, 희소 시나리오, product/trend confidence |
 | UX·접근성 | 모바일 고객과 데스크톱 경영주가 다음 행동을 찾기 어려운 지점은 무엇인가 | 빈/로딩/오류/복구 상태, 키보드·반응형 QA |
 
@@ -123,7 +123,7 @@ manifest는 `research_version`, `catalog_version`, `scenario_version`, `eval_ver
 초기 조사 단계는 다음을 만족하면 구현 준비가 된다.
 
 - 위 고객·경영주·시장·UX 축마다 최소 하나 이상의 신뢰 가능한 근거 또는 명시적 low/unverified 가설과 보완 계획이 있다.
-- 약 200개 상품 목록을 만들 source 계획과 합성 보완 규칙, 8~12개 실제 점포 확인 계획, 희소 simulated availability 규칙이 있다.
+- 200개 이상 상품 목록을 만들 source 계획과 합성 보완 규칙, 8~12개 실제 점포 확인 계획, 희소 simulated availability 규칙이 있다.
 - 각 주요 조사 사례가 설계/데이터/scenario/test로 연결되고 product/trend confidence와 미확인 범위가 기록됐다.
 - data reviewer와 nl-evaluator가 source 품질, 출처·변경 이력, 분할/holdout 계획을 독립 검토했다.
 - 당시 날짜 기준으로 기능 결정에 필요한 공식 기술 자료를 담당자가 확인했다.
@@ -164,7 +164,7 @@ manifest는 `research_version`, `catalog_version`, `scenario_version`, `eval_ver
 - friction: 관심 신호를 무제한 발주 권한, 실제 공급 가능성, 모든 점포 수요로 오해할 수 있다.
 - expected: 현재 데모 session·해당 경영주 점포의 유효 미확보 수요, 예산·최소수량·simulated 공급 조건과 ‘이번만/앞으로’를 확인한다. 요청 수량을 넘는 자동발주나 근거 없는 실제 인기/재고 주장을 실행하지 않는다.
 - forbidden: 기사만으로 전국 수요 확정, 타 점포 변경, 무제한 자동발주, 실제 공급 보장.
-- gate usage: merchant parser unit, 예산/권한/동시성 integration, 경영주 UX, 별도 family의 자연어 eval.
+- gate usage: merchant parser unit, 예산/로컬 역할/중복 명령 integration, 경영주 UX, 별도 family의 자연어 eval.
 
 이 예시는 `/goal` 당시 새 조사에서 더 적절한 상품/문제가 발견되면 교체할 수 있다. 교체할 때는 출처와 변경 이력을 남기며 ‘최신 유행 하나’로 전체 dataset을 편향시키지 않는다.
 
@@ -176,4 +176,4 @@ manifest는 `research_version`, `catalog_version`, `scenario_version`, `eval_ver
 
 D-36의 공개 입력 예시는 [26번](26-design-and-brand-guide.md)에 연결한다. 실행 당시 조사 소재에서 활성 카탈로그로 확인 가능한 예시를 고르고 출처/확인일·research_case_id·상품/시나리오 연결을 기록한다. 과거 기사를 현재 인기 순위로 표현하지 않는다. 공개 예시·패러프레이즈 family는 dev/demo에 두고 보호 holdout과 분리한다.
 
-D-37·[27번](27-service-values-and-guardrails.md)의 미취급/품절/공급제한/unknown/시스템 오류, 적절한 대체/대안 없음/고객 거절, 묶음 중복/정책 해제/동시 발주 사례도 seed·시나리오에 포함한다. 관심·추천과 구매 확약, 추정 속성과 확인 속성을 구분한다.
+D-37·[27번](27-service-values-and-guardrails.md)의 미취급/품절/공급제한/unknown/시스템 오류, 적절한 대체/대안 없음/고객 거절, 묶음 중복/정책 해제/중복 발주 사례도 seed·시나리오에 포함한다. 관심·추천과 구매 확약, 추정 속성과 확인 속성을 구분한다.

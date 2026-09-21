@@ -8,7 +8,7 @@
 
 개발 조정자와 서브 에이전트는 현재 Codex 목표 안에서 동작한다. GitHub Actions는 결정적 테스트와 배포 검사를 실행한다. Actions 안에서 Codex/LLM 개발 에이전트를 새 API로 호스팅하는 것을 필수로 만들지 않는다.
 
-시작 확인은 repo/remote, 현재 branch와 사용자 변경, 인증된 대상, PR/merge/Actions 권한, 보호 규칙, Vercel Production branch, Preview/Production DB·모델 접근이다. 비밀값은 출력하지 않는다. 같은 대상의 기존 Git/Vercel 상태와 유효 preflight 증거가 있으면 재사용하고, 불일치·만료·관련 변경만 갱신한다. 저장소가 있다는 이유로 새 repo나 orphan 이력을 만들지 않는다. 설정 완료 가정이 실제 실패하면 환경 블로커로 기록하고 독립 작업을 계속한다.
+시작 확인은 repo/remote, 현재 branch와 사용자 변경, 인증된 대상, PR/merge/Actions 권한, 보호 규칙, Vercel Production branch, Preview/Production SQLite 자산·브라우저 저장·모델 접근이다. 비밀값은 출력하지 않는다. 같은 대상의 기존 Git/Vercel 상태와 유효 preflight 증거가 있으면 재사용하고, 불일치·만료·관련 변경만 갱신한다. 저장소가 있다는 이유로 새 repo나 orphan 이력을 만들지 않는다. 설정 완료 가정이 실제 실패하면 환경 블로커로 기록하고 독립 작업을 계속한다.
 
 문서 초기 커밋 이후 첫 앱 작업은 최소 shell과 기본 검사로 실제 Preview를 만든다. deployment ID/source SHA와 브라우저 기본 동작 검사를 관측한 다음 [WORKPLAN](WORKPLAN.md)의 DAG를 실제 branch/check/deployment 조건에 맞춰 `PLAN-READY`로 고정한다. Preview Ready는 제품 기능, G5, Production 또는 G6 통과가 아니다.
 
@@ -22,7 +22,7 @@
 
 이름은 예시다. 실제 기본/Production 브랜치를 탐지해 역할을 매핑하고 기존 브랜치를 임의로 이름 변경하거나 덮어쓰지 않는다. 별도 develop/release/hotfix 계층을 상시 만들지 않는다. 최종 릴리스는 통합→제출 PR로 표현한다.
 
-동시 구현자는 각자 격리 worktree와 작업 브랜치를 사용하고 통합 담당자만 누적 브랜치에 변경을 합친다. 격리 작업 트리 생성 권한이 없으면 파일 소유권으로 순차 작업하며 같은 checkout에서 동시에 branch 전환하지 않는다. 공통 schema/migration/lockfile/CI에는 단일 작성자를 유지한다. DB 공유도 별도 통제한다.
+동시 구현자는 각자 격리 worktree와 작업 브랜치를 사용하고 통합 담당자만 누적 브랜치에 변경을 합친다. 격리 작업 트리 생성 권한이 없으면 파일 소유권으로 순차 작업하며 같은 checkout에서 동시에 branch 전환하지 않는다. 공통 schema/migration/lockfile/CI에는 단일 작성자를 유지한다. SQLite 테스트 파일과 브라우저 namespace도 작업별로 분리한다.
 
 작업→통합 PR은 저장소가 허용하면 squash merge로 한 논리 단위를 정리할 수 있다. 통합→`main` 릴리스는 검증한 누적 이력과 ancestry를 보존하는 merge commit 또는 fast-forward를 사용한다. 실제 repo 정책이 다른 허용 방식을 강제하면 그 방식을 기록하고 exact tree/SHA를 검증한다. 릴리스 뒤 `main` 결과를 통합 branch에 fast-forward/back-merge하고 같은 ancestry 및 필수 checks를 확인해 다음 작업이 병합 전 기반으로 갈라지지 않게 한다.
 
@@ -51,7 +51,7 @@ GATE-BOOTSTRAP의 첫 작업에서 lockfile/runtime, 단위/통합 실행기, �
 |---|---|---|
 | docs/contracts | 관련 PR | 링크·결정 추적·API/상태/정책 일치 |
 | quality | 코드 PR | 타입·정적 검사·build·적용 단위 검사 |
-| db-integration | 거래/DB/권한 변경 PR | 실제 격리 PostgreSQL·마이그레이션·seed·경합 |
+| db-integration | 거래/DB/권한 변경 PR | 실제 격리 sql.js SQLite·마이그레이션·seed·순차 상태 변경 |
 | boundary/e2e-fixture | 영향 경계 PR와 통합 결과 | 해당 연결과 브라우저 상태 검증 |
 | preview/live | 필요한 AI/배포 변경, 릴리스 후보 | 정확한 deployment+SHA의 실제 연결·eval/E2E 증거 |
 | release | 통합→제출 PR | G5, 최종 정책 감사, 관련 모든 필수 증거 |
@@ -90,7 +90,7 @@ GitHub Actions에서 실제 모델 인증이 불가능하면 승인된 Codex 실
 
 검증된 PR을 병합한 뒤 실제 `main` HEAD/merge SHA를 기록하고 Vercel Production deployment의 `source SHA == main merge SHA`를 확인한다. 저장소 merge 방식 때문에 사전 candidate와 merge SHA가 달라지면 동일 tree 확인과 main용 필수 결정적 검사를 수행하되, Production G6를 생략하지 않는다. 배포가 다른 SHA를 가리키면 G6를 시작하지 않는다.
 
-Preview/Test가 제출 DB를 초기화하지 않도록 환경을 분리한다. DB 마이그레이션은 지정 담당자가 순서와 호환성을 확인해 직렬 실행하고 build/function 시작마다 실행하지 않는다. Production 앱 복구와 DB 복구는 별도로 판단한다. 실패 시 이미 작동하는 배포를 보존하면서 수정/호환 복구를 수행하고 다시 G6를 검증한다.
+Preview/Test 파일·브라우저 namespace와 제출 origin을 분리한다. 로컬 seed builder의 마이그레이션과 배포 자산 생성을 단일 담당자가 관리한다. 기존 브라우저 snapshot의 호환성은 로드 시 확인하며 서버 함수가 DB migration을 실행하지 않는다. 앱 복구와 브라우저 snapshot 복구는 별도로 판단한다. 실패 시 이미 작동하는 배포를 보존하면서 수정/호환 복구를 수행하고 다시 G6를 검증한다.
 
 ## 실패와 재개
 

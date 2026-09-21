@@ -117,9 +117,9 @@ flowchart TD
 | WP-P02 | 최소 Next.js shell, health/runtime, fixture 고객/경영주 진입, build/test를 작업 PR로 실제 Preview 배포 | P01의 Git/Preview 경로 사용 가능 | PR head SHA, CI, Preview deployment ID/source SHA, 브라우저 smoke. 제품 G4~G6와 명확히 분리 |
 | WP-R01 | goal 실행 당시 고객 조사: 찾기 어려운 상품, 모호한 상품 표현, 점포 선택·가격/동의 기대, 기다림/상태/오류 회복 필요 | P01; 외부 접근 가능 범위 | claim/source/date/status, evidence-backed 발화 family, CORE/UX/data/eval 매핑 |
 | WP-R02 | 경영주 조사: 미확보 수요 파악, 묶음·예외·일괄 판단, 자연어 수정, 예산/자동화 신뢰와 업무 부담 | P01 | claim/source/date/status, synthetic 가설 분리, merchant scenario/test 매핑 |
-| WP-R03 | GS25/제조사/신뢰 가능한 공개 자료로 다양한 카테고리와 최신 관심/신상품 후보 조사. `민음사 빵`은 검증 질문 하나로 직접 확인 | P01 | 카테고리·최근 관심 후보의 출처 접근 가능성·표본·검증 질문. 전체 ~200 SKU/20~30 trend 후보 검증은 D02B/D05에서 수행. 특정 예시는 데이터 고정 축이 아님 |
+| WP-R03 | GS25/제조사/신뢰 가능한 공개 자료로 다양한 카테고리와 최신 관심/신상품 후보 조사. `민음사 빵`은 검증 질문 하나로 직접 확인 | P01 | 카테고리·최근 관심 후보의 출처 접근 가능성·표본·검증 질문. 전체 200개 이상 SKU/20~30 trend 후보 검증은 D02B/D05에서 수행. 특정 예시는 데이터 고정 축이 아님 |
 | WP-R04 | 한 시연 지역의 GS25 후보·출처 접근·좌표 획득 경로를 표본 조사 | P01 | 확인한 표본의 출처·주소/좌표 정합성·미확인 범위와 전체 8~12개 검증 계획. 개별 전수 확인은 D02B/D05 |
-| WP-R05 | 실제 shell 결과를 바탕으로 Next.js/Vercel/Neon/Gateway/지도/Playwright/접근성/structured output/DB 경합·시간 테스트의 필요한 공식 문서 조사 | P02 | 선택할 API/버전/제약/오류·fallback/test assertion과 task 매핑. 넓은 기술 탐색은 제외 |
+| WP-R05 | 실제 shell 결과를 바탕으로 Next.js/Vercel/sql.js/OpenAI/지도/Playwright/접근성/structured output/SQLite 저장·시간 테스트의 필요한 공식 문서 조사 | P02 | 선택할 API/버전/제약/오류·fallback/test assertion과 task 매핑. 넓은 기술 탐색은 제외 |
 | WP-P03 | P01~R05 결과로 [10번](10-implementation-plan.md)과 이 DAG를 실제 파일/도구/권한에 맞게 고정. task owner/reviewer/결정 시점/중단 기준을 배정 | P01~P02, R01~R05 | 순환 없는 DAG, CORE 검증 범위, ownership 충돌 0, Context 기준선, 실제 blocker, auditor의 PLAN-READY audit 처분 |
 | WP-P04 | gate manifest/runner/CI aggregate와 반례 테스트 구현 | P03 | 0 test, missing child, stale, fixture-only live, 동일 구현/검증자, 잘못된 SHA, 목적 보존 필드/증거·독립 판정 누락을 모두 거절하는 실행 증거 |
 
@@ -142,15 +142,15 @@ flowchart TD
 |---|---|---|---|
 | WP-D01 | customer/merchant eval taxonomy, expected outcome 스키마, evidence-backed/synthetic origin, paraphrase `group_id`, dev/validation/holdout 분할을 설계 | P03, R01~R03 | 범주/분모/정답 규칙, split hash, family 누수 검사, evaluator-only holdout 접근 |
 | WP-D02A | 상품·점포·역할의 필드·출처·합성 표시와 최소 시나리오 계약 확정 | P03, R01~R04 초기 조사 | DBA/소비자 계약 검토. 전체 자료·좌표 확보는 요구하지 않음 |
-| WP-D02B | 약 200 SKU·20~30 최근 관심 후보·8~12 verified stores·합성 고객 약 20/점포별 경영주 1(8~12)·시나리오 원본을 본격 조사·정규화 | D02A | 점포별 이름·주소·좌표 출처 검증, trend 근거 상태, provenance/synthetic 상태, 다양성/중복 검사 입력. 소수 예시 복제 없음 |
-| WP-D03 | DBA가 provenance/catalog/store/actor/session/role/request/consent/order/allocation/payment/reservation/event/policy/version 스키마와 마이그레이션을 먼저 구현 | D01, D02A | 마이그레이션 review, 실제 격리 PostgreSQL dry-run/rollback, constraint/index/권한 G2 |
+| WP-D02B | 200개 이상 SKU·20~30 최근 관심 후보·8~12 verified stores·합성 고객 약 20/점포별 경영주 1(8~12)·시나리오 원본을 본격 조사·정규화 | D02A | 점포별 이름·주소·좌표 출처 검증, trend 근거 상태, provenance/synthetic 상태, 다양성/중복 검사 입력. 소수 예시 복제 없음 |
+| WP-D03 | DBA가 provenance/catalog/store/actor/session/role/request/consent/order/allocation/payment/reservation/event/policy/version 스키마와 마이그레이션을 먼저 구현 | D01, D02A | 마이그레이션 review, 실제 격리 sql.js SQLite dry-run/rollback, constraint/index/권한 G2 |
 | WP-D04A | 최소 seed·공통 importer·정적 factory·DB 테스트 초기화 도구 | D03 | 실제 DB 무결성·반복 삽입·격리·독립 검토. F00 앱 API에 의존하지 않는 SEED-MIN-READY |
 | WP-D04B | 전체 상품·점포·역할·시나리오를 공통 importer로 삽입. 보호된 평가 자료는 앱 DB와 분리 | D02B, D04A | 전체 seed checksum·반복성·무결성, 평가 분할·보호 산출물. 공통 코드 변경은 DBA가 직렬 처리 |
 | WP-D05 | 생성자와 다른 data/eval reviewer가 출처·좌표·분포·불변식·split/holdout 누수·출처·변경 이력을 독립 검사 | P04, D04B | SEED-READY 보고서와 catalog/store/actor/scenario/eval/schema/seed 버전 묶음 |
 
 ### SEED-READY 판정
 
-- 약 200개 상품의 다양성과 field 출처 이력이 확인되고 합성 필드는 명시됨.
+- 200개 이상 상품의 다양성과 field 출처 이력이 확인되고 합성 필드는 명시됨.
 - 20~30 최근 관심 후보는 근거 종류/시각을 가지며 ‘신상품=인기’로 바뀌지 않음.
 - 8~12개 점포 각각의 이름·주소·좌표가 검증됨. 실제 재고/상품 취급은 주장하지 않음.
 - 합성 actor/세션/scenario, 마이그레이션, deterministic seed/reset이 실제 test DB에서 통과함.
@@ -165,10 +165,10 @@ flowchart TD
 | ID | 기능 | 조사할 질문 | G0 산출물 |
 |---|---|---|---|
 | WP-XR-F | 기반/DB | 현재 framework/runtime/DB 마이그레이션·transaction/clock/session/reset 공식 계약은 무엇인가 | 선택 API와 버전, 실패/복구, DB/clock test assertion 매핑 |
-| WP-XR-S | 상품 식별/NL | 실제 고객 표현·상품 속성/별칭/모호성, Gateway structured output/tool error/fallback은 무엇인가 | utterance family, 후보/질문/미식별 계약, schema/eval cases |
+| WP-XR-S | 상품 식별/NL | 실제 고객 표현·상품 속성/별칭/모호성, OpenAI structured output/tool error/fallback은 무엇인가 | utterance family, 후보/질문/미식별 계약, schema/eval cases |
 | WP-XR-C | 고객 요청 | 상품 확인·점포·수량·가격·자동 구매 동의를 이해하고 오류에서 회복하는 최소 UX는 무엇인가 | 화면/API/state/error copy와 unit/DB/browser tests |
 | WP-XR-M | 경영주 | 묶음 수요·미식별·이번만/지속 정책·stale 제안을 적은 업무로 처리하는 흐름은 무엇인가 | intent/scope fields, dashboard states, eval/UX tests |
-| WP-XR-O | 발주 | 수요·예산·최소량·중복/동시 실행을 보수적으로 제한할 transaction/locking 방식은 무엇인가 | domain/DB constraint, concurrency/retry tests |
+| WP-XR-O | 발주 | 수요·예산·최소량·반복 명령을 보수적으로 제한할 transaction/snapshot 방식은 무엇인가 | domain/DB constraint, snapshot/retry tests |
 | WP-XR-R | 이행 | 공급/입고/배정/모의 결제/예약/48시간에서 시간·재전송·부분 실패를 어떻게 구분할 것인가 | state/event contract, clock boundary/idempotency tests |
 | WP-XR-U | 역할 UX/지도 | 모바일/데스크톱·접근성·지도 장애·loading/empty/error/recovery를 현재 도구로 어떻게 검증할 것인가 | responsive/a11y/map fallback/browser 시나리오 mapping |
 | WP-XR-Q | QA/릴리스 | Playwright/Vercel/GitHub/observability의 exact deployment·profile 격리·trace 방법은 무엇인가 | QA runbook, stable locators, exact SHA/deployment assertions |
@@ -181,10 +181,10 @@ flowchart TD
 |---|---|---|---|---|
 | WP-F00 | domain-owner+dba | 세션/역할/시계/seed/reset/공통 event·검증 기반 | P04, D04A(SEED-MIN-READY), XR-F | unit 불변식, 실제 DB 권한·격리·시간 경계, reset 반복성 |
 | WP-FS | nl-implementation | 검색/별칭/속성/후보/질문/정정/미식별/structured output | F00, XR-S | 상품 목록 검증 범위, 정답/모호/없음, schema/tool failure, live/fixture 구분 |
-| WP-FC | customer-be/fe/ux | 상품 확인 뒤 동의·요청·조회·지원되는 변경/취소 | F00, FS contract, XR-C | 권한/재전송/조건 변경/경합 unit+DB, 핵심 UI states |
+| WP-FC | customer-be/fe/ux | 상품 확인 뒤 동의·요청·조회·지원되는 변경/취소 | F00, FS contract, XR-C | 권한/재전송/조건 변경/순차 상태 변경 unit+DB, 핵심 UI states |
 | WP-FM | merchant-be/fe/ux | 묶음/미식별/자연어 수정/이번만·지속/수동 승인 | F00, FC contract, XR-M | intent/scope, stale/version, 권한·업무 부담 unit+DB |
-| WP-FO | domain-owner+merchant-be | 수요 연결 발주·예산·최소량·중복·동시 자동/수동 실행 | F00, FC/FM contracts, XR-O | 수요 초과 0, 동시 예산/중복/rollback 실제 DB |
-| WP-FR | domain-owner+merchant-be | 공급/FIFO/모의 결제/예약/입고/알림/48시간 수령 | F00, FC/FO contracts, XR-R | 수량 보존, 동시 배정, 결제 실패, 정확히 직전/정각/직후, idempotency |
+| WP-FO | domain-owner+merchant-be | 수요 연결 발주·예산·최소량·중복·순차 자동/수동 실행 | F00, FC/FM contracts, XR-O | 수요 초과 0, 예산 재검증/중복/rollback 실제 DB |
+| WP-FR | domain-owner+merchant-be | 공급/FIFO/모의 결제/예약/입고/알림/48시간 수령 | F00, FC/FO contracts, XR-R | 수량 보존, 순차 배정, 결제 실패, 정확히 직전/정각/직후, idempotency |
 
 각 구현자는 자체 unit을 수행하고, 다른 agent가 요구사항에서 반례를 도출해 독립 판정한다. G1 성공만으로 G2를 부여하지 않는다. 스키마 변경 요청은 DBA와 소비자 영향 분석을 거쳐 새 migration/Context hash로 반영한다.
 
@@ -193,13 +193,13 @@ flowchart TD
 | ID | 범위 | 선행 | 완료 증거 |
 |---|---|---|---|
 | WP-I01 | 식별↔확인↔동의↔요청 | FS, FC | 후보 수정/미식별/늦은 응답/중복 제출에서 UI/API/DB/event 일치 G3 |
-| WP-I02 | 요청↔묶음/정책↔발주↔공급↔FIFO↔결제↔예약↔입고/수령 | FC, FM, FO, FR | 성공/실패/재전송/stale/경합의 수량·금액·권한·상태 보존 G3 |
+| WP-I02 | 요청↔묶음/정책↔발주↔공급↔FIFO↔결제↔예약↔입고/수령 | FC, FM, FO, FR | 성공/실패/재전송/stale/순차 상태 변경의 수량·금액·권한·상태 보존 G3 |
 | WP-U01 | 고객 모바일 수직 흐름 | I01, I02, XR-U | 실제 브라우저에서 입력→질문/확인→점포→동의→상태→알림→48시간/회복 실행 증거(G4-ready; 독립 QA 전 PASS 아님) |
 | WP-U02 | 경영주 데스크톱 수직 흐름 | I02, XR-U | 묶음/미식별→자연어 수정→수동/정책→결과→입고/수령/예외 실행 증거(G4-ready; 독립 QA 전 PASS 아님) |
 | WP-Q01 | 독립 customer-qa | U01, D05, XR-Q | 구현자와 다른 agent/profile의 목적 기반 탐색, 화면+network/trace+DB/event 증거와 고객 G4 독립 판정 |
-| WP-Q02 | 독립 merchant-qa | U02, D05, XR-Q | Q01과 다른 agent/profile, 업무 부담·stale/부분 실패/동시 실행과 경영주 G4 독립 판정 포함 |
+| WP-Q02 | 독립 merchant-qa | U02, D05, XR-Q | Q01과 다른 agent/profile, 업무 부담·stale/부분 실패/반복 명령과 경영주 G4 독립 판정 포함 |
 
-U01/U02는 독립 QA가 평가할 실행 가능한 흐름을 준비한다. Q01/Q02가 각각 독립 판정을 마친 후 두 결과와 교차 상태 증거를 모아 통합 담당이 G4를 최종 판정한다. N01의 기준선 측정은 흐름 준비 뒤 QA와 병행할 수 있으나 G4 PASS를 대신하지 않는다. 두 QA는 같은 데모 session의 교차 상태를 대조하되 독립 보고서를 합치지 않는다. fixture 브라우저와 Preview live/model 결과를 별도로 표시한다.
+U01/U02는 독립 QA가 평가할 실행 가능한 흐름을 준비한다. Q01/Q02가 각각 독립 판정을 마친 후 두 결과와 교차 상태 증거를 모아 통합 담당이 G4를 최종 판정한다. N01의 기준선 측정은 흐름 준비 뒤 QA와 병행할 수 있으나 G4 PASS를 대신하지 않는다. 두 QA는 각자 한 탭에서 동일 seed의 고객→경영주→고객 흐름을 재현한다. 필요하면 같은 SQLite 사본을 각각 복원하며 브라우저 간 공유를 가정하지 않고 독립 보고서를 남긴다. fixture 브라우저와 Preview live/model 결과를 별도로 표시한다.
 
 ## Wave 4: 자연어 기준선과 제한 최적화
 
@@ -277,20 +277,9 @@ U01/U02는 독립 QA가 평가할 실행 가능한 흐름을 준비한다. Q01/Q
 
 조사와 계획의 순서: PLAN-READY 전에는 각 영역의 문제·자료 접근·위험을 파악하는 초기 탐색과 연구 질문/출처 계획을 검토한다. M1에서는 그 계획으로 본격 조사·데이터 생성·독립 평가셋 구축을 마쳐 SEED-READY를 판정한다. 전 상품 수집을 PLAN-READY의 선행조건으로 만들거나 조사를 계획 이후에만 허용하는 순환은 없다. 각 기능 G0의 추가 조사는 해당 결정에 필요한 범위로 제한한다.
 
-## D-31 반영: 모델 전환 작업 배정
+## OpenAI 설정과 사용량 작업 배정
 
-기존 DAG 안에서 CORE-23·AC-29를 다음 작업에 배정한다. 상세 계약은 [25번](25-model-budget-and-fallback.md)을 따른다.
-
-| 작업 | 추가 구현·검증 |
-|---|---|
-| WP-P01 / WP-R05 | 양쪽 인증·무료 한도·유효 모델·잔액 조회 경로·SDK 계약 확인 |
-| WP-P03 | 남은 평가·전환·G5/G6·데모 예비량, 확인 주기·유효시간을 운영 ADR로 결정 |
-| WP-FS / WP-FM | 공유 제공자 어댑터의 단일 작성자 지정, Gateway/Gemini 직접 호출·같은 출력 계약·오류 분류 구현 |
-| WP-N01~N03 | 제공자별 결과 분리, 사전 후보 한도 안에서 Gemini 최소 품질 검증, holdout 보호 |
-| WP-U01/U02 / WP-Q01/Q02 | 선택한 모델로 두 역할 E2E, 전환 후 동의·수량·중복 실행 회귀 확인 |
-| WP-G5 / WP-L01~L03 | 잔량 재확인, 선택 설정의 G5, 실제 배포 G6, 남은 데모 계획과 복구 설정 기록 |
-
-어댑터는 상품 식별 담당이 소유하고 경영주 담당이 같은 계약을 소비한다. 모델 전환만으로 실험 후보 횟수를 초기화하지 않는다. 초기 예비 경로 연결 시험은 제품 품질 검증과 구분한다.
+D-44·CORE-23·AC-29와 [25번](25-openai-api-and-budget.md)을 따른다. P01/R05는 .env.local·Vercel OPENAI_API_KEY/OPENAI_MODEL/LLM_MODE와 Responses 계약을 확인한다. FS/FM은 서버 어댑터·구조화 출력·오류 분류를 공유한다. N01~N03은 선택 모델의 품질·토큰 사용량을 기록하고 G5/L01~L03은 정확한 배포 설정·키 비노출·실제 모델과 시연 예산을 검사한다. 모델 변경 시 영향받는 평가와 두 역할 E2E를 다시 수행한다.
 
 ## 최소 seed와 전체 seed의 적용 범위
 

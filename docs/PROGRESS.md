@@ -5,12 +5,12 @@
 ## 현재 포인터
 
 ```text
-현재 task: 디자인·서비스 가치·Neon 안내·경영주 재검토 문서 정리 및 커밋
+현재 task: SQLite 데모·OpenAI API 기준으로 문서/스킬 전환 및 환경 양식·검사기 준비
 branch: main (origin/main tracking)
 PR: 없음
 마지막 유효 게이트: 제품 게이트 미실행
 마지막 Production deployment: 없음
-다음 한 가지: 사용자가 이번 정리 커밋을 push. 경영주 후보 선택과 README 준비·preflight는 별도로 진행
+다음 한 가지: 사용자가 .env.local과 Vercel에 OpenAI 키를 입력한 뒤 설정/실제 연결 검사. 이번 변경 commit/push는 미실행
 ```
 
 ## 현재 상태
@@ -20,10 +20,10 @@ PR: 없음
 | 요구사항·실행 계약·스킬·템플릿 | 최신 지시 반영·문서 검증 완료 | README·card·02·WORKPLAN·GOAL |
 | 위임 운영 결정 | ADR-001 채택, 실행 검증 전 | DECISION_INDEX·ADR-001 |
 | GitHub | 기존 push는 사용자 완료 보고. 이번 문서 정리의 push도 사용자가 담당 | 이전 게시 기준 `8f1765ab8f43d09ac447331fc127a373d174f2f7`; 현재 커밋은 `git log -1`로 확인 |
-| 로컬 사전점검 검사기 | 기존 7개 테스트 재실행 통과 | `.agents/skills/wanna-gs-preflight/scripts/` |
+| 로컬 설정/사전점검 검사기 | OpenAI 15개 + inventory 10개 테스트 통과 | scripts/ 및 .agents/skills/wanna-gs-preflight/scripts/ |
 | 앱·CI·게이트 실행기·DB seed | 미구현 | 기능 개발 goal 미시작 |
-| Neon | 계정 생성 완료 사용자 보고, 프로젝트/production 안내 수령 | 28번; 인증·격리·DB 왕복은 미검증 |
-| Vercel·Gateway·Gemini | 인증·실제 호출·잔량·배포 미검증 | 환경 준비 후 preflight 필요 |
+| SQLite | D-43 한 PC·한 탭 구조 확정, 실제 앱/seed/WASM은 미구현 | 06/29번, Neon은 현재 준비 대상 제외 |
+| Vercel·OpenAI | 배포/실제 호출 미검증, 정적 검사에서 OPENAI_API_KEY 누락 확인 | D-44, .env.example/.env.local 준비·25번·P08 |
 | 앱 단위·통합·E2E·실제 모델 평가 | 미실행 | 문서 검사와 구분 |
 | 최종 제출 URL | 없음 | 실제 배포 전 |
 
@@ -34,7 +34,7 @@ PR: 없음
 - clone/worktree 경로를 실행 시 확인한다. 특정 사용자 홈 경로에 의존하지 않는다.
 - card.md의 목적 보존 기준을 시작·인계·복구와 작업/실패/검증 보고서에 연결한다. 실행기·CI 강제는 초기 구현에 포함한다.
 - ADR-001에 따라 최소 seed 이후 기능 구현과 전체 자료 수집을 병행한다. 정식 QA·자연어 기준선·최종 게이트는 전체 seed를 요구한다.
-- 무료 Gateway 기본과 사용자 키의 Gemini 예비 경로를 유지한다. 실제 잔량·품질·최종 배포 검증은 남아 있다.
+- D-43 SQLite와 D-44 OpenAI API를 현재 기준으로 한다. 이전 Neon/Gateway/Gemini 준비 조건을 대체했다. 실제 앱·모델·최종 배포 검증은 남아 있다.
 - 강제 full-access 설정과 fixture 기반 중간 Production 제안은 현 실행 계약으로 채택하지 않았다. 중간 공유는 Preview, 최종 Production은 G5 후 G6 검증이다.
 - 중복된 과거 리뷰 5개는 [통합 검토 기록](reviews/2026-09-21-execution-proposals.md)에 결론·기존 검사 범위를 보존하고 삭제했다. `.gitignore`로 비밀값·로컬 연결·테스트 부산물·임시 파일을 제외했다.
 
@@ -121,3 +121,13 @@ PR: 없음
 - 실행 준비: Codex 설정 위치·실제 권한 확인, Vercel 자동 테스트 접근과 심사자 공유 접근의 구분을 보완. 기존 릴리스 계약 유지.
 
 문서 링크·코드 블록·결정 ID·공백 검사를 최종 실행하고 커밋한다. 앱 기능·배포·외부 연동은 이번 작업에 포함되지 않으며 기존 테스트 계획을 실행 완료로 표시하지 않는다. 아래의 과거 미커밋·미실행 기록은 각 작업 당시 상태다. 커밋 결과와 실제 SHA는 Git 이력에서 확인한다.
+
+## SQLite·OpenAI API 전환 — 2026-09-21
+
+사용자 D-43/44를 반영해 아키텍처·서비스/API 계약·goal·WORKPLAN·검증/복구·데이터·UX·배포·핵심 요구·결정 인덱스와 관련 스킬을 갱신했다. DB는 로컬 생성 seed.sqlite를 Vercel 정적 자산으로 제공하고 한 탭의 sql.js가 실행하며 IndexedDB에는 SQLite 사본을 저장한다. 서버는 OpenAI 모델 API만 담당한다. 200개 이상 상품 생성, 동일 seed/catalog manifest, 실제 SQL 및 브라우저 저장·복원 검증은 goal 구현 작업이다.
+
+.env.example과 빈 키의 .env.local을 준비했다. .env.local은 Git 무시 대상으로 확인했다. 키 값 없이 모델/모드만 안내하며 scripts/check_openai_env.py의 기본 실행에서 OPENAI_API_KEY MISSING, live=not_run, ready_for_goal=false, 종료코드 2를 확인했다. 실제 OpenAI 요청은 보내지 않았다. --live는 사용자가 키를 넣은 뒤 별도로 실행할 소량 연결 시험이다.
+
+실제 검증: OpenAI 검사기 15개 unit test, inventory 10개 unit test, 스킬 8개 quick_validate 통과. Markdown 73개·로컬 링크 337개·코드 블록·D44/CORE25/AC31 순서·중복·누락 검사 및 git diff --check 통과. 팀원 원본 10개의 SHA-256은 작업 전과 동일하다. sqlite_migration_review와 openai_env_checker의 독립 문서 검토에서 지적한 서버 상태·예비 모델 경로·검사 결과 설명을 수정했다. 이 증거는 문서와 설정 검사기의 검증이며 앱 SQL/WASM·live API·Vercel·제품 G1~G6 통과가 아니다.
+
+직전 문서 정리 커밋은 1a5e8a2다. 이번 변경은 로컬 미커밋 상태이며 commit/push·goal 실행·외부 배포는 하지 않았다. 키 입력·연결 점검 후 별도 goal로 앱 구현을 시작한다.

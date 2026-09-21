@@ -12,6 +12,23 @@ from datetime import datetime, timezone
 from urllib.parse import urlsplit
 
 
+def sqlite_inventory():
+    """Probe only an in-memory Python connection; never opens a project DB."""
+    try:
+        import sqlite3
+        connection = sqlite3.connect(":memory:")
+        try:
+            version = connection.execute("SELECT sqlite_version()").fetchone()[0]
+        finally:
+            connection.close()
+        return "available", "Python SQLite " + version + "; sql.js/WASM, seed and browser storage not tested."
+    except (ImportError, OSError):
+        return "unavailable", "Python SQLite unavailable; select a supported local seed builder during bootstrap."
+    except Exception:
+        # Extension failures may contain paths or data. Suppress raw errors.
+        return "unverified", "In-memory Python SQLite probe failed; raw error suppressed."
+
+
 def execute(argv, cwd, timeout=20):
     try:
         result = subprocess.run(argv, cwd=cwd, capture_output=True, text=True,
@@ -66,13 +83,17 @@ def collect(project, check_auth=False, remote="origin"):
         "production_execution_verified": False,
         "checks": checks,
         "live_checks": "not_run",
-        "note": "Inventory alone cannot prove push, PR, CI, deployment, DB, model, browser, or agents.",
+        "storage_mode": "browser_sqlite_single_tab",
+        "note": "Inventory alone cannot prove push, PR, CI, deployment, sql.js, browser persistence, model, or agents.",
     }
     if not project.is_dir():
         item("project", "failed", "Project directory does not exist.")
         report["status"] = "BLOCKED"
         return report
     item("project", "available", "Project directory exists.")
+    sqlite_status, sqlite_detail = sqlite_inventory()
+    item("python_sqlite", sqlite_status, sqlite_detail)
+    item("browser_sqlite", "unverified", "Verify sql.js/WASM export/import in P06 and Preview persistence in P07; no external DB account is required.")
 
     binaries = {}
     for command in ("git", "node", "npm", "gh", "vercel"):
@@ -126,7 +147,8 @@ def collect(project, check_auth=False, remote="origin"):
     item("vercel_local_link", "available" if linked else "unverified",
          "Project/org linkage fields present; target correctness unverified." if linked else "No valid local Vercel link; a connector or explicit target can supply it.")
     report["environment_names_present"] = [name for name in (
-        "DATABASE_URL", "AI_GATEWAY_API_KEY", "VERCEL_TOKEN", "VERCEL_OIDC_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"
+        "OPENAI_API_KEY", "OPENAI_MODEL", "LLM_MODE",
+        "VERCEL_TOKEN", "VERCEL_OIDC_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"
     ) if bool(os.environ.get(name))]
     # Do not read .env files or dump environment values. Presence is not authentication.
     if check_auth:

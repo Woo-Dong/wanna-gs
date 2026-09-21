@@ -4,9 +4,9 @@
 
 ## 공통
 
-- 식별자: UUID 또는 충돌 없는 서버 생성 ID.
+- 식별자: UUID 또는 충돌 없는 앱 생성 ID.
 - 금액: 원 단위 정수. 수량: 양의 정수.
-- 시간: UTC `timestamptz`, 화면 표시는 Asia/Seoul.
+- 시간: UTC epoch milliseconds `INTEGER`, 화면 표시는 Asia/Seoul.
 - 변경 레코드: `created_at`, `updated_at`, 필요한 경우 `version`.
 - 거래 데이터: `demo_session_id`. 쿼리·쓰기·초기화 모두 범위를 검증한다.
 - 중복 방지 키는 사용자/세션/동작 범위로 고유하게 한다. 같은 키에 다른 요청 본문을 보내면 오류로 처리한다.
@@ -19,7 +19,7 @@
 | `stores` | name, location_label, latitude, longitude, coordinate_source, accuracy, 출처 이력 | 실제 점포·좌표 확인, 거래/재고는 모의 |
 | `store_product_conditions` | store_id, product_id, price_krw, minimum_order_qty, order_multiple, available_order_qty, supply_status, assortment_status, stock_qty, observation_status, observed_at, reason, version | 시뮬레이션 조건임을 표시 |
 | `demo_sessions` | seed_version, clock_offset, status | 고객·경영주가 공유할 시연 단위 |
-| `demo_actors` | session_id, role, store_id, display_name | 서버가 역할·범위를 확인 |
+| `demo_actors` | session_id, role, store_id, display_name | 로컬 서비스가 데모 역할·범위를 확인 |
 | `purchase_requests` | actor_id, product_id, store_id, quantity, accepted_price_krw, consent_version, consent_at, sequence, status, pending_reason | 배정·발주된 수량은 별도 연결과 정합성 유지 |
 | `unidentified_requests` | original_text, dialogue, extracted_clues, candidate_ids, reason, store_id | 본부용 기능은 만들지 않음 |
 | `order_policies` | store_id, enabled, categories, budget_krw, budget_period, allow_extra_quantity=false, approved_by, version | 기간·초기값 O-08 |
@@ -42,45 +42,45 @@
 - 수량·금액의 유효 범위 CHECK, 상태 enum 또는 검증된 문자열.
 - 세션/점포/상품/접수 순서의 대기열 조회 인덱스.
 - 주문·결제·알림 이벤트 고유 키로 재실행 안전성 확보.
-- 공급 확정량 초과 배정과 동시 예산 초과는 트랜잭션/조건부 갱신으로 방지.
-- 다른 세션의 외래 키를 연결하지 않도록 서버 및 데이터 제약을 설계.
+- 공급 확정량 초과 배정과 예산 초과는 단일 연결의 순차 트랜잭션으로 방지.
+- 다른 데모 세션의 외래 키를 연결하지 않도록 로컬 서비스와 SQLite 제약을 설계.
 - 상태만 `expired`로 바뀌길 기다리지 말고 마감 시각을 직접 조회.
 
-## API 경계
+## 로컬 서비스와 서버 API 경계
 
-모든 URL은 제안이다. 요청의 세션·사용자·점포 범위를 서버에서 검증한다. DB 자격증명을 브라우저에 전달하지 않는다.
+D-43: 상품/경영주 모델 호출과 health만 HTTP API다. 아래 나머지는 브라우저의 로컬 서비스 명령/조회 이름이며 서버 거래 endpoint로 만들지 않는다. SQLite·역할·세션은 같은 탭에 존재한다. 모델 키는 서버에만 두고 DB 자격증명은 필요 없다.
 
-| API | 역할 | 주요 처리 |
+| 로컬 명령/서버 API | 역할 | 주요 처리 |
 |---|---|---|
-| `POST /api/demo/sessions` | 데모 시작 | seed 버전에 맞는 격리 세션 |
+| `demo.createSession` | 데모 시작 | seed 버전에 맞는 격리 세션 |
 | `POST /api/product-assistant` | 고객 | 후보 탐색·구분 질문 |
-| `GET /api/products/:id/store-options` | 고객 | 점포·가격 확인 |
-| `POST /api/requests` | 고객 | 상품 확인·동의 조건·중복 검증 후 저장 |
-| `GET /api/requests` | 고객 | 본인 요청·예약 상태 |
-| `POST /api/unidentified-requests` | 고객 | 원문·사유 저장 |
-| `POST /api/requests/:id/cancel` | 고객 | O-04 확정 후 지원 |
-| `GET /api/merchant/demand` | 경영주 | 미확보 수요·사유·기존 발주 연결 |
-| `POST /api/merchant/reviews` | 경영주/이벤트 | 에이전트 검토 실행 |
-| `POST /api/merchant/proposals/:id/instructions` | 경영주 | 자연어 제안 수정 |
-| `POST /api/merchant/proposals/:id/approve` | 경영주 | 제안 버전·최신 조건 검사 후 발주 |
-| `PUT /api/merchant/order-policy` | 경영주 | 정책 설정·버전·승인 기록 |
-| `POST /api/merchant/auto-order-runs` | 경영주/허용된 이벤트 | 활성 정책 안에서만 자동발주 |
-| `POST /api/demo/orders/:id/confirm-supply` | 데모 경영주 | 확보량 시뮬레이션·배정·모의 결제 연결 |
-| `POST /api/demo/orders/:id/receive` | 데모 경영주 | 입고·픽업 가능·알림 생성 |
-| `POST /api/merchant/reservations/:id/collect` | 경영주 | O-09 방식 및 마감 검사 |
-| `GET /api/notifications` | 고객/경영주 | 본인 앱 내 알림 |
-| `POST /api/demo/advance-time` | 데모 권한 | 현재 세션의 시계만 이동 |
-| `POST /api/demo/reset` | 데모 권한 | 현재 세션만 초기화 |
+| `catalog.getStoreOptions` | 고객 | 점포·가격 확인 |
+| `requests.create` | 고객 | 상품 확인·동의 조건·중복 검증 후 저장 |
+| `requests.list` | 고객 | 본인 요청·예약 상태 |
+| `needs.record` | 고객 | 원문·사유 저장 |
+| `requests.cancel` | 고객 | O-04 확정 후 지원 |
+| `merchant.getDemand` | 경영주 | 미확보 수요·사유·기존 발주 연결 |
+| `merchant.review` | 경영주/이벤트 | 에이전트 검토 실행 |
+| `POST /api/merchant-assistant` | 경영주 | 자연어 제안 수정 |
+| `merchant.approve` | 경영주 | 제안 버전·최신 조건 검사 후 발주 |
+| `merchant.updatePolicy` | 경영주 | 정책 설정·버전·승인 기록 |
+| `merchant.runAutoOrder` | 경영주/허용된 이벤트 | 활성 정책 안에서만 자동발주 |
+| `demo.confirmSupply` | 데모 경영주 | 확보량 시뮬레이션·배정·모의 결제 연결 |
+| `demo.receive` | 데모 경영주 | 입고·픽업 가능·알림 생성 |
+| `merchant.collect` | 경영주 | O-09 방식 및 마감 검사 |
+| `notifications.list` | 고객/경영주 | 본인 앱 내 알림 |
+| `demo.advanceTime` | 데모 권한 | 현재 세션의 시계만 이동 |
+| `demo.reset` | 데모 권한 | 현재 세션만 초기화 |
 
 ## 오류 계약
 
 응답은 `code`, 사용자 안내 `message`, 필요한 경우 `details`, `retryable`을 가진다. 예: `INVALID_INPUT`, `STALE_PROPOSAL`, `CONSENT_MISMATCH`, `INSUFFICIENT_SUPPLY`, `PICKUP_EXPIRED`, `LLM_UNAVAILABLE`, `RATE_LIMITED`.
 
-서버 오류·비밀정보·원문 DB 예외를 사용자에게 그대로 노출하지 않는다. 오류가 났는데 완료 카피를 보여주지 않는다.
+서버 모델 오류·비밀정보·원문 DB 예외를 사용자에게 그대로 노출하지 않는다. 오류가 났는데 완료 카피를 보여주지 않는다.
 
 ## seed 데이터
 
-D-26에 따라 약 200개 다양한 상품과 실제 점포·좌표를 준비한다. 8~12개 점포·합성 고객/경영주 구성은 [19번](19-data-research-and-seeding.md)의 초기안이다. [24번](24-market-research-and-scenario-design.md)의 사용자 니즈·트렌드 조사를 선행하고 seed와 평가 사례를 함께 생성한다. 기존 20개/가상 점포 3개 제안은 대체됐다.
+D-26에 따라 200개 이상 다양한 상품과 실제 점포·좌표를 준비한다. 8~12개 점포·합성 고객/경영주 구성은 [19번](19-data-research-and-seeding.md)의 초기안이다. [24번](24-market-research-and-scenario-design.md)의 사용자 니즈·트렌드 조사를 선행하고 seed와 평가 사례를 함께 생성한다. 기존 20개/가상 점포 3개 제안은 대체됐다.
 
 필수 상황: 유사 상품명, 맛·용량 차이, 미등록 표현, 최소 발주량 미달, 발주 제한, 공급 종료, 공급량 부족, 자동발주 예산 초과, 예약 입고 대기, 픽업 가능, 기한 초과.
 
@@ -105,7 +105,7 @@ DB를 구현하기 전에 다음 계약을 확정한다.
 | 재동의/상태 API | review_required 복귀와 동의 버전, 지원 여부 | O-05/R-25 |
 | 실행 결과·알림 | correlation/idempotency key, 부분 성공 조회·재개, 최초 픽업 시각 보존 | R-24/R-27 |
 
-입출력 필드뿐 아니라 오류 code·HTTP 상태·retryable·필드 단위·서버 권한을 소비자와 함께 고정한다. 정책이 정해지기 전 테스트 기대값을 스키마 설계로 대신 결정하지 않는다.
+입출력 필드뿐 아니라 오류 code·retryable·필드 단위·로컬 역할, 모델 API의 HTTP 상태·입출력 검증을 소비자와 함께 고정한다. 정책이 정해지기 전 테스트 기대값을 스키마 설계로 대신 결정하지 않는다.
 
 ## 출처·실험 데이터 계약
 
@@ -126,6 +126,14 @@ D-37·[27번](27-service-values-and-guardrails.md). 필드명과 물리 테이�
 
 ## D-41/42가 요구하는 데이터·API 의미
 
-`minimum_order_qty`와 `order_multiple`은 발주 조건이다. 수요 총량의 저장 상한이나 `POST /api/requests`의 MOQ 초과 거절 조건으로 쓰지 않는다. 유효 요청량·진행 중 발주 연결량·미발주량을 구분하고 동일 요청을 중복 계산하지 않는다.
+`minimum_order_qty`와 `order_multiple`은 발주 조건이다. 수요 총량의 저장 상한이나 `requests.create`의 MOQ 초과 거절 조건으로 쓰지 않는다. 유효 요청량·진행 중 발주 연결량·미발주량을 구분하고 동일 요청을 중복 계산하지 않는다.
 
 발주 가능 기한, O-03에서 정할 구매 동의 유효기간, `pickup_available_at`/`pickup_deadline_at`을 단일 `deadline`이나 하나의 만료 이벤트로 대체하지 않는다. 입고 대기에는 픽업 마감을 미리 생성하지 않는다. 동의 유효성을 저장·검증할 필드와 재동의 상태는 O-03 결정 후 구체화한다. 현재 `consent_at`만으로 무기한 유효 동의라고 가정하지 않는다. 회차 테이블·새 모집 기한은 이번 결정으로 추가하지 않는다.
+
+## SQLite 타입·snapshot·모델 API
+
+UUID는 TEXT, 시간은 UTC epoch milliseconds INTEGER, boolean은 0/1 CHECK, 구조화 값은 검증한 JSON TEXT를 사용한다. 연결마다 foreign_keys를 활성화하고 sql.js export/import 뒤에도 검증한다. PostgreSQL 전용 타입·행 잠금·pgvector는 제외한다.
+
+IndexedDB에는 SQLite 파일 바이트와 schema/seed/catalog version·generation을 함께 저장한다. 29번의 저장 완료 경계·저장 실패 복원·버전 불일치 안내를 따른다. 업무 테이블을 IndexedDB에 따로 중복 구현하지 않는다.
+
+HTTP 모델 입력은 text·필요한 후보/묶음 요약·catalog version·request ID로 제한한다. 서버는 정적 카탈로그와 출력 schema를 검증하며 클라이언트 거래 정보는 신뢰된 DB 사실로 간주하지 않는다. 응답은 모델/제공자·request ID·version·후보/제안·오류다. 로컬 서비스가 최신 상태와 대조한 후 적용한다.

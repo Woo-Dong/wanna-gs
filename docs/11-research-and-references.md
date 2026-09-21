@@ -1,5 +1,7 @@
 # 조사 근거·사례·추가 확인
 
+현재 실행 기준: D-43의 한 탭 브라우저 SQLite와 D-44의 OpenAI API 직접 호출이다. 아래 과거 Neon/PostgreSQL·Gateway/Gemini·서버 거래/종료 후 실행 제안은 현행 설정이나 필수 검증이 아니다. 제품 후보의 미채택 상태는 그대로 유지한다.
+
 문서 기준일: 2026-09-20. 아래는 대화 중 열람한 공식 문서와 참가자 회고를 요약한 것이다. 계정 권한·현재 가격·지원 모델은 실행 시 다시 확인한다. 이번 문서화 과정에서 모든 출처를 새로 재검증한 것은 아니다.
 
 ## 공식 기술 자료
@@ -71,7 +73,7 @@
 | 실제 GS의 요청·예약·재고 기능 범위는? | 최종 제안서의 문제 표현 확정 전 | 공식 서비스 안내·실사용·담당자 확인 |
 | 행사에서 허용되는 모델·외부 무료 서비스는? | M0 이전 | 주최 측 안내 |
 | 제공 Workspace 외 API 크레딧이 있는가? | M0 이전 | 관리자/주최 측 답변 |
-| Vercel/Neon 실제 무료 리소스·권한은? | M0 | 계정 내 사용량·플랜 |
+| Vercel/OpenAI 실제 리소스·사용량·권한은? | M0 | 계정 내 사용량·플랜 |
 | 한국어 후보 검색·경영주 지시 품질은? | M3/M4 | 고정 평가 세트 |
 | 벡터 검색이 개선되는가? | 선택 M7 | 동일 사례의 비교 실행 |
 
@@ -98,7 +100,7 @@
 
 ## 2026-09-21 모델 예비 경로 조사
 
-[25번](25-model-budget-and-fallback.md)에 공식 모델 종료 안내, Gemini 요금·호출 제한, Gateway 잔액 API 근거를 정리했다. 모델·가격 확인과 실제 사용자 계정 접근 검증은 구분한다.
+과거에는 Gateway/Gemini 예비 경로를 조사했으나 D-44로 대체됐다. 현재 [25번](25-openai-api-and-budget.md)은 OpenAI 설정·Responses·구조화 출력·오류 코드의 공식 근거를 관리한다. 자료 확인과 실제 사용자 계정 접근 검증은 구분한다.
 
 ## 디자인 참고 — 2026-09-21
 
@@ -107,3 +109,7 @@
 ## Neon 후속 설정 확인 — 2026-09-21
 
 사용자 제공 가이드를 [공식 CLI](https://raw.githubusercontent.com/neondatabase/neon-pkgs/main/packages/cli/README.md), [구성 패키지](https://raw.githubusercontent.com/neondatabase/neon-pkgs/main/packages/config/README.md), [최근 CLI 안내](https://neon.com/blog/just-landed-in-the-neon-cli), [공식 플랜](https://github.com/neondatabase/website/blob/main/content/docs/introduction/plans.md)과 대조했다. 적용 범위·출처·미실행 항목은 [28번](28-neon-setup-guide.md)에 있다. 원격 계정/DB나 실제 CLI 명령을 실행한 결과는 아니다.
+
+## 현재 SQLite·OpenAI 기준의 근거
+
+2026-09-21 [sql.js](https://github.com/sql-js/sql.js), [Database export/import](https://sql.js.org/documentation/Database.html), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), [Vercel SQLite 안내](https://vercel.com/kb/guide/is-sqlite-supported-in-vercel)를 확인했다. 브라우저 실행·정적 seed·파일 사본을 29번에 연결했다. OpenAI·Next.js·Vercel 환경변수 공식 자료는 25번에 있다. 앱 실행·실제 계정 연결은 아직 시험하지 않았다.

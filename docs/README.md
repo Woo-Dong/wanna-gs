@@ -17,7 +17,7 @@
 - 경영주는 건별 검토 대신 요약·그룹·자연어 지시로 관리한다.
 - 자동발주는 사전 승인된 규칙 안에서만 실행하고, 고객 요청 수량을 초과하지 않는다.
 - 본부용 화면·기능은 구현하지 않는다. 향후 사업 가치로만 설명한다.
-- 배포 목적지는 Vercel이다. 권장 기준선은 Next.js + Neon PostgreSQL + Vercel AI Gateway이며 Gemini 직접 호출을 예비 경로로 준비한다.
+- 배포 목적지는 Vercel이다. 권장 기준선은 Next.js + 브라우저 SQLite + OpenAI API 직접 호출이다. 사용자 키는 서버에만 둔다.
 - Vector RAG는 검색 품질을 비교할 선택 실험이다. 핵심 완료 조건에 자동으로 포함하지 않는다.
 
 ## 읽는 순서
@@ -86,7 +86,7 @@
 
 | 문서 | 목적 |
 |---|---|
-| [19 데이터 조사·seed](19-data-research-and-seeding.md) | 약 200개 상품·실제 점포 위치·합성 사용자·반복 가능한 DB 삽입 |
+| [19 데이터 조사·seed](19-data-research-and-seeding.md) | 200개 이상 상품·실제 점포 위치·합성 사용자·반복 가능한 DB 삽입 |
 | [20 역할·공유 컨텍스트](20-agent-roles-and-context.md) | 고객/경영주 UX·FE·BE·DBA·QA 책임, 버전/ACK와 모델 선택 |
 | [21 UX·자연어 품질](21-ux-and-natural-language-quality.md) | 별도 사용자 관점 QA, 범주별 eval·독립 holdout |
 | [22 에이전트 운영 감사](22-orchestration-audit.md) | 운영 규칙의 모호함/비효율 검증, 제한된 개선 시험 |
@@ -97,7 +97,7 @@ goal 시작과 기능별 설계 시 에이전트가 최신 근거를 조사한�
 
 추가 스킬: [조사](../.agents/skills/wanna-gs-research/SKILL.md), [독립 UX QA](../.agents/skills/wanna-gs-ux-audit/SKILL.md), [자연어 실험](../.agents/skills/wanna-gs-nl-experiment/SKILL.md), [운영 감사](../.agents/skills/wanna-gs-orchestration-audit/SKILL.md).
 
-[25 모델 사용량과 Gemini 전환](25-model-budget-and-fallback.md): 사용자 제공 키, 무료 한도 점검, 전환 조건과 재검증. D-31·CORE-23·AC-29에 연결한다.
+[25 OpenAI API 설정·검증·사용량](25-openai-api-and-budget.md): 사용자 키의 로컬/Vercel 입력 위치, dotenv 양식과 실제 연결 검사. D-44·CORE-23·AC-29에 연결한다.
 
 ## 문서 기준과 작업 카드
 
@@ -113,6 +113,6 @@ goal 시작과 기능별 설계 시 에이전트가 최신 근거를 조사한�
 
 최종 이미지는 26번의 코드 구현 매핑과 브라우저 비교에 사용한다(D-39). [리뷰 목록](reviews/README.md)의 팀원 자료는 실행 명세가 아니다. [경영주 자료 검토](reviews/2026-09-21-merchant-handoff-review.md)의 반영 후보는 D-40에 따라 사용자가 선택하기 전까지 미채택으로 유지한다.
 
-[28 Neon 계정 이후 연결](28-neon-setup-guide.md): 계정 생성 완료 보고·제공 프로젝트, 실제 인증/격리/DB 검증, 선택 CLI·skills·MCP, Neon 구성 적용과 Vercel 앱 배포의 차이를 정리했다.
+[28 Neon 계정 이후 연결](28-neon-setup-guide.md)은 D-43 이전의 과거 안내다. 현재 goal의 설치·연결 대상이 아니다. [29 브라우저 SQLite 데모](29-browser-sqlite-demo.md)가 현재 데이터 생성·저장·배포·복원·검증 기준이다.
 
 경영주 자료 재검토에서 D-41/42는 사용자 직접 결정으로 반영했다. 모집 목표 초과 접수를 유지하고 기한 결합으로 인한 잘못된 자동 구매·입고 전 수령 만료를 금지한다. 나머지 M 후보는 검토 보고서의 권고이며 미채택이다.

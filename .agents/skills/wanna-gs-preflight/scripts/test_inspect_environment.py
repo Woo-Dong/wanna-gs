@@ -64,6 +64,44 @@ class InventoryTests(unittest.TestCase):
         self.assertEqual(statuses["package.json"], "bootstrap_required")
         self.assertEqual(statuses["github_auth"], "available")
 
+    def test_sqlite_inventory_reads_only_memory_and_closes_connection(self):
+        import sqlite3
+        connection = sqlite3.connect(":memory:")
+        with patch.object(sqlite3, "connect", return_value=connection) as connect:
+            status, detail = inspector.sqlite_inventory()
+        self.assertEqual(status, "available")
+        connect.assert_called_once_with(":memory:")
+        with self.assertRaises(sqlite3.ProgrammingError):
+            connection.execute("SELECT 1")
+        self.assertIn("not tested", detail)
+
+    def test_sqlite_probe_failure_hides_raw_error(self):
+        import sqlite3
+        with patch.object(sqlite3, "connect", side_effect=sqlite3.DatabaseError("SECRET_PATH")):
+            status, detail = inspector.sqlite_inventory()
+        self.assertEqual(status, "unverified")
+        self.assertNotIn("SECRET_PATH", detail)
+
+    def test_model_presence_only_and_no_external_db_requirement(self):
+        values = {
+            "DATABASE_URL": "PRIVATE_DB_URL",
+            "OPENAI_API_KEY": "PRIVATE_OPENAI_KEY",
+            "OPENAI_MODEL": "PRIVATE_MODEL_SETTING",
+            "LLM_MODE": "PRIVATE_MODE_SETTING",
+            "GEMINI_API_KEY": "UNUSED_GEMINI_KEY",
+            "AI_GATEWAY_API_KEY": "UNUSED_GATEWAY_KEY",
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            with patch.dict(os.environ, values, clear=True), patch.object(inspector.shutil, "which", return_value=None):
+                result = inspector.collect(temporary)
+        self.assertEqual(set(result["environment_names_present"]), {
+            "OPENAI_API_KEY", "OPENAI_MODEL", "LLM_MODE"
+        })
+        for value in values.values():
+            self.assertNotIn(value, json.dumps(result))
+        self.assertFalse(result["ready_for_goal"])
+        self.assertEqual(result["live_checks"], "not_run")
+
     def test_command_timeout_does_not_expose_partial_output(self):
         timeout = subprocess.TimeoutExpired(["gh", "auth", "status"], 20, output="SECRET")
         with patch.object(inspector.subprocess, "run", side_effect=timeout):

@@ -44,7 +44,7 @@
 - 변경 범주: 프롬프트 | search | 스키마 | data | model | tool-output
 - 단일 변경 / 복합이면 이유·ablation:
 - data 변경 출처 이력 / 스키마 마이그레이션·호환·복구·DBA 담당자:
-- dev 선별·고정 regression·서버 불변식 결과:
+- dev 선별·고정 regression·로컬 도메인 불변식 결과:
 - validation paired 비교 / 범주별 numerator·denominator·CI 또는 변동:
 - 잘못된 확정·과도한 거절 / 스키마·tool 오류 / P50·P95 / usage·cost:
 - 독립 평가자 판정 / 관련 역할 검토 / G1~G4 증거:
@@ -63,5 +63,5 @@
 
 중단 시에도 이전 최선 버전을 유지한다. 예산·plateau·외부 차단은 허구 SKU, 동의·권한·거래 불변식, 출시 최소 기준, 필수 G1~G6를 면제하지 않는다. fixture와 live 결과를 분리한다.
 
-- 실행 제공자·모델 ID·무료 등급 / 묶음 전후 잔량·확인 시각:
+- OpenAI 모델 ID·설정 / 묶음 token usage·사용량 한도·확인 시각:
 - 전환 여부·새 비교 조건 / 남은 필수 평가·데모 예비량:

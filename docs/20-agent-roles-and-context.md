@@ -8,13 +8,13 @@
 |---|---|---|
 | coordinator | 요구·우선순위·DAG·소유권·결정 원장·종료 판단 | 통합/배포를 직렬화, 자기 증거만으로 통과 금지 |
 | customer-ux | 고객 여정·모바일 화면 구조·상품 확인·점포/지도·동의·오류 안내 | customer-fe/be와 화면 상태 계약 |
-| customer-fe | 고객 UI·입력/로딩/오류/키보드·API 소비 | 최종 재고/금액/권한 판정은 BE |
-| customer-be | 고객 요청/동의·조회/취소·세션 API | 공유 domain 서비스를 재사용, 정책 복제 금지 |
+| customer-fe | 고객 UI·입력/로딩/오류/키보드·API 소비 | 거래 검증은 로컬 domain/service, 서버는 모델 입력 검증 |
+| customer-be | 고객 요청/동의·조회/취소의 로컬 서비스와 서버 모델 API | 공유 domain 서비스를 재사용, 정책 복제 금지 |
 | merchant-ux | 묶음 수요·예외·일괄 승인·자연어 수정의 업무 흐름 | 불필요한 건별 검토를 줄이는 기준 |
 | merchant-fe | 경영주 대시보드·그룹 조작·정책/결과 표시 | merchant-be 및 공통 계약 |
-| merchant-be | 제안/정책/발주/입고/수령 API·서버 권한 | 자동/수동 경합과 버전 검사 |
+| merchant-be | 제안/정책/발주/입고/수령의 로컬 서비스와 서버 모델 API | 순차 명령·중복·역할·버전 검사 |
 | domain-owner | 발주·배정·모의 결제·예약·시간/수량 불변식 | 고객/경영주 BE 공통, 중복 구현 금지 |
-| dba | 스키마·마이그레이션·제약·인덱스·seed·DB 경쟁/복구 | 공통 DB 변경 단일 작성자, 정책은 ADR 근거 |
+| dba | 스키마·마이그레이션·제약·인덱스·seed·SQLite 저장/복구 | 공통 DB 변경 단일 작성자, 정책은 ADR 근거 |
 | data-research | 200 SKU·공개 점포·출처 이력·합성 actor·분포 | DBA import, 독립 data reviewer |
 | nl-implementation | 상품 검색·속성/별칭·structured output·도구 경계 | 앱 모델/provider·프롬프트 버전 |
 | nl-experiment | 실패 분석·가설·후보 프롬프트/검색/데이터 실험 | 23번 적용, holdout 정답 관리 금지 |

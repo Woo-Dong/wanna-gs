@@ -13,7 +13,7 @@
 | 차별점 | 실행 방식 | 남겨야 할 증거 |
 |---|---|---|
 | 실행 시점의 새로운 조사 | 당시 트렌드·고객/경영주 니즈·기능별 UX/기술/검증 자료를 직접 확인. 대화의 특정 상품 예시에 범위를 고정하지 않음 | 출처·날짜·한계 → 설계 결정 → 데이터·시나리오·테스트 연결 |
-| 현실적인 데이터와 평가를 함께 구축 | 약 200개 다양한 상품, 실제 점포/좌표, 합성 사용자와 모의 거래를 준비. 정상·모호·예외 상황에서 발화 생성 | 사실/합성 구분, seed 버전·무결성, 평가셋 분할 |
+| 현실적인 데이터와 평가를 함께 구축 | 200개 이상 다양한 상품, 실제 점포/좌표, 합성 사용자와 모의 거래를 준비. 정상·모호·예외 상황에서 발화 생성 | 사실/합성 구분, seed 버전·무결성, 평가셋 분할 |
 | 핵심 요구를 보존하는 자율 결정 | 기존 유효 결정 확인 → 정책 초안 → 서로 다른 두 에이전트 검토 → 채택 → 구현/회귀 검증 | ADR·대체/의존 관계·기각 이유·변경 영향 |
 | 역할별 개발과 독립 검증 | 고객/경영주 UX·FE·BE, DBA, 조사, 자연어 실험/평가, QA, 통합 담당 분리 | 작업 계약·파일 소유권·공유 버전 확인·별도 검증자 |
 | 작은 기능부터 단계적으로 통합 | 각 기능 구현과 단위 검증 후 실제 DB·인접 기능·브라우저로 연결 범위를 넓힘 | G0~G6 결과와 해당 코드/데이터 revision |
@@ -30,17 +30,17 @@
 
 입고 후 픽업 가능 알림을 생성한다. 수령 마감은 알림 생성 시각으로부터 정확히 48시간이며, 마감 정각부터 수령할 수 없다.
 
-경영주는 건별 확인을 늘리지 않도록 묶음 요약·자연어 지시로 관리한다. 미확보 요청 관리와 미식별 요청 보존/경영주 조회도 포함한다. 발주 승인·공급 확보·결제·예약·입고는 각각 관리한다. 자동발주는 활성 발주에 연결되지 않은 유효 미확보 수요만 대상으로 삼는다. 실행 시 최신 수량·예산·발주 조건을 한 트랜잭션에서 다시 검증한다. LLM은 해석과 제안을 맡고 권한·동의·금액·수량·기한은 서버가 검증한다.
+경영주는 건별 확인을 늘리지 않도록 묶음 요약·자연어 지시로 관리한다. 미확보 요청 관리와 미식별 요청 보존/경영주 조회도 포함한다. 발주 승인·공급 확보·결제·예약·입고는 각각 관리한다. 자동발주는 활성 발주에 연결되지 않은 유효 미확보 수요만 대상으로 삼는다. 실행 시 최신 수량·예산·발주 조건을 한 트랜잭션에서 다시 검증한다. LLM은 해석과 제안을 맡고 동의·금액·수량·기한·데모 역할은 브라우저 업무 서비스가 검증한다. 서버는 모델 호출과 입출력 검증을 담당한다.
 
-본부 화면, 사진·링크 입력, 레시피·복수 상품 묶음, 실제 GS 연동·실제 청구는 제외한다. 본부 가치는 설명만 남기고 Vector RAG는 개선 근거가 있을 때의 선택 실험으로 둔다. 기술 기준선은 Next.js/TypeScript FE·BE, Neon PostgreSQL, Vercel AI Gateway다. Gemini API 직접 호출을 예비 경로로 준비하고 양쪽 접근을 사전점검한다.
+본부 화면, 사진·링크 입력, 레시피·복수 상품 묶음, 실제 GS 연동·실제 청구는 제외한다. 본부 가치는 설명만 남기고 Vector RAG는 개선 근거가 있을 때의 선택 실험으로 둔다. 기술 기준선은 Next.js/TypeScript FE·BE, 브라우저 SQLite, OpenAI API다. 사용자 키로 서버에서 직접 호출하며 로컬·배포 환경을 각각 점검한다.
 
 ## 시작 전 준비
 
 1. [GitHub 저장소](https://github.com/Woo-Dong/wanna-gs)를 원하는 위치에 clone하거나 기존 clone/worktree를 연다. Git 작성자·인증, push/PR/merge·Actions 권한과 실제 브랜치 보호·승인 경로를 확인한다.
 2. Codex 환경에서 프로젝트·Git 메타데이터 쓰기, 패키지 설치, 네트워크, 브라우저·서브 에이전트 권한을 준비한다. 설정 파일 이름뿐 아니라 P00의 실제 작업 결과를 확인한다. 새 장비의 신뢰/실행 키 위치와 선택적 설정 예시는 [18번](docs/18-environment-preflight.md)의 안내를 따른다.
 3. Vercel에 로그인하고 이 GitHub 저장소를 프로젝트에 연결한다. 플랜의 행사 이용 조건, Production 브랜치, Preview/Production 환경과 배포 권한을 확인한다. 자동 테스트용 보호 우회와 심사자용 공유 링크/공개 접근을 나누어 준비하고 로그인하지 않은 브라우저에서도 확인한다.
-4. Neon 계정은 생성 완료로 보고받았다. [Neon 후속 연결 가이드](docs/28-neon-setup-guide.md)에 따라 제공 프로젝트의 접근 권한과 브랜치를 확인하고 테스트·Preview·제출 데이터를 분리한다. 연결 정보는 서버 비밀 저장소에 넣는다. 계정 생성만으로 DB 연결 성공을 판정하지 않는다.
-5. Gateway의 무료 모델·잔액·인증을 확인한다. Gemini 예비 경로용 프로젝트와 키는 사용자가 만들고 서버 비밀 저장소에 주입한다. 무료 등급과 호출 한도를 확인하며 카드 등록·유료 전환을 자동으로 진행하지 않는다. 계정이 카드·약관·본인 확인을 요구하면 그 조건과 비용을 먼저 확인한다.
+4. 외부 DB 계정·Marketplace 설정은 필요 없다. [브라우저 SQLite 안내](docs/29-browser-sqlite-demo.md)에 따라 한 PC의 일반 브라우저에서 WASM·저장소 접근을 점검한다. SQLite seed 생성·삽입·배포 자산 준비는 Codex의 초기 구축 작업이다.
+5. OpenAI API 키를 발급하고 API 프로젝트의 모델 접근·사용량 한도를 확인한다. 아래 양식대로 루트 `.env.local`과 Vercel 서버 환경변수에 입력한다. Codex/ChatGPT Workspace 로그인과 앱 API 인증은 별개다.
 6. Node·패키지 관리자·Git·Python 3와 테스트 브라우저를 준비한다. 로컬/CI/Preview/Production별 필요한 인증을 확인하고 비밀값을 저장소나 채팅에 넣지 않는다.
 7. 아래 inspect와 live preflight를 실행해 부족한 설정을 확인한 뒤 goal을 시작한다. 실제 계정·권한·한도 차단은 준비 단계에서 해결한다.
 
@@ -58,11 +58,25 @@ git rev-parse --show-toplevel
 
 기존 clone 또는 worktree에서는 마지막 명령으로 현재 루트를 확인한다. 이후 명령은 이 루트에서 실행한다. 폴더 이름이나 사용자 홈 경로는 고정하지 않는다. 아직 Git이 없는 문서 폴더라면 `pwd`와 `AGENTS.md`·`card.md`·`docs/GOAL.md`를 대조하고, 기존 저장소를 새로 초기화하지 않는다. 다른 장비에서 받은 프로젝트에는 로컬 인증·비밀값·Vercel 연결 설정을 별도로 준비한다.
 
-## 모델 키와 무료 한도
+## OpenAI API 키 입력
 
-Gateway를 기본으로 쓰고, 사용자가 발급한 Gemini 키를 서버의 `GEMINI_API_KEY`에 넣어 예비 경로를 준비한다. 키는 채팅이나 저장소에 올리지 않는다. `GEMINI_MODEL_ID`는 실행 당시 사용 가능한 저가 모델 중 한국어·구조화 출력 검증을 통과한 것으로 정한다.
+프로젝트 루트의 `.env.local`에 아래 세 값을 둔다. 파일이 없으면 [.env.example](.env.example)을 복사하고 기존 파일은 덮어쓰지 않는다. `OPENAI_API_KEY=` 뒤에 실제 키를 입력한다.
 
-테스트 중과 배포 직전에 잔량을 확인한다. 남은 필수 평가·배포 검증·데모에 부족하면 Gemini 직접 호출로 전환하고, 선택한 모델로 자연어 평가와 고객/경영주 E2E를 다시 검증한다. 키를 넣는 것만으로 무료 이용이 보장되지는 않으므로 Google 프로젝트의 무료 등급과 호출 한도도 확인한다. 유료 전환·자동 충전은 별도 승인 없이 하지 않는다. 설정과 전환 절차는 [모델 사용량과 Gemini 전환](docs/25-model-budget-and-fallback.md)을 따른다.
+```dotenv
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-5-mini
+LLM_MODE=live
+```
+
+Vercel 프로젝트 **Settings → Environment Variables**에도 동일한 세 변수를 Preview와 Production에 등록하고 새 배포를 만든다. `.env.local`은 Git에서 제외되므로 push만으로 키가 배포되지 않는다. 키에 `NEXT_PUBLIC_`을 붙이거나 채팅·문서에 적지 않는다.
+
+```bash
+python3 scripts/check_openai_env.py
+# 키 입력 후 실제 연결 확인: API 요청 한 번의 사용량 발생
+python3 scripts/check_openai_env.py --live
+```
+
+기본 검사는 네트워크 없이 누락/형식만 확인한다. 실제 호출 성공도 앱 전체 준비 완료는 아니다. 예시 모델의 계정 접근·한국어 품질은 goal에서 검증한다. [OpenAI 설정·검증·사용량 안내](docs/25-openai-api-and-budget.md)에 로컬/Vercel/CI 입력 위치와 오류별 조치가 있다. 무료 API 크레딧 제공을 가정하지 않으며 Gateway/Gemini 키는 준비하지 않는다.
 
 ## 1. 전용 스킬로 연결 점검
 
@@ -75,7 +89,7 @@ $wanna-gs-preflight 이 프로젝트를 inspect 모드로 점검하고 GitHub/Ve
 이어서 실제 시험:
 
 ```text
-$wanna-gs-preflight live 모드로 임시 GitHub 브랜치·PR·CI·Vercel Preview·격리 DB·실제 모델·브라우저·서브 에이전트 연동을 시험하고 정리해줘. goal 준비 상태와 미검증 릴리스 조건을 보고해줘.
+$wanna-gs-preflight live 모드로 임시 GitHub 브랜치·PR·CI·Vercel Preview·SQLite 파일/브라우저 저장·실제 OpenAI 모델·브라우저·서브 에이전트 연동을 시험하고 정리해줘. goal 준비 상태와 미검증 릴리스 조건을 보고해줘.
 ```
 
 스킬이 목록에 없으면 `.agents/skills/wanna-gs-preflight/SKILL.md`를 읽고 실행하도록 요청한다. live 모드는 지정 repo/project의 임시 리소스를 사용한다. 기존 기본·통합 branch, Production 배포·설정·데이터는 변경하지 않는다.
@@ -120,7 +134,7 @@ python3 .agents/skills/wanna-gs-preflight/scripts/inspect_environment.py --proje
 
 구현자 자체 검사와 독립 검증을 구분한다. 고객 QA와 경영주 QA는 서로 다른 agent ID로 배정하고 각각 대상 기능 구현자와도 분리해 실제 브라우저에서 UX를 확인한다. 슬롯이 적으면 순차 실행한다. 공통 스키마·마이그레이션·lockfile·계약에는 작성자를 한 명 두고, 독립 가능한 작업만 병렬화한다. 운영 감사자는 또 다른 관리자/감사자를 재귀 생성하지 않는다.
 
-기능마다 정상·경계·실패를 검사하고 거래에는 중복·경합·세션 격리·시간 경계를 포함한다. 테스트 0개, skip, stale, 불안정한 결과나 fixture 성공을 필수 live 통과로 표시하지 않는다. 화면 캡처만으로 거래 성공을 판단하지 않고 DB/event/UI 상태를 대조한다. 정책·코드·모델·프롬프트·seed가 바뀌면 영향을 받는 검사부터 상위 통합까지 재검증한다.
+기능마다 정상·경계·실패를 검사하고 거래에는 중복 클릭·snapshot 저장/복원·세션 reset·시간 경계를 포함한다. 테스트 0개, skip, stale, 불안정한 결과나 fixture 성공을 필수 live 통과로 표시하지 않는다. 화면 캡처만으로 거래 성공을 판단하지 않고 DB/event/UI 상태를 대조한다. 정책·코드·모델·프롬프트·seed가 바뀌면 영향을 받는 검사부터 상위 통합까지 재검증한다.
 
 작업 브랜치 → 통합 브랜치 → 제출 브랜치로 진행한다. 검증 후 작은 논리 단위로 commit/push하고 PR·독립 리뷰·CI를 연결한다. 새 통합 검사 항목의 기본 이름은 `gate`이며 기존 필수 검사 설정과 호환되어야 한다. 작업→통합 squash는 허용 방식 안에서 사용하고, 통합→main은 이력을 보존하는 merge/FF를 우선한다. 초기/중간 Preview를 유지하되 최종 Production은 G5 이후, 완료는 배포 후 G6까지 요구한다. 같은 계정의 에이전트 리뷰를 GitHub의 별도 인간 승인으로 계산하지 않는다.
 
@@ -158,13 +172,13 @@ python3 .agents/skills/wanna-gs-preflight/scripts/inspect_environment.py --proje
 합의한 프로토타입 범위와 사전에 정한 품질 기준으로 완료를 판단한다. 현재 아래 항목은 모두 미검증 상태다. 상용 운영 정책과 평가하지 않은 입력은 검증 범위에 포함되지 않는다.
 
 - [ ] 핵심 요구와 적용 인수 기준이 구현·테스트에 연결되고 관련 G0~G6가 통과했다.
-- [ ] 실행 당시 조사 기록에서 약 200개 상품·검증된 실제 점포/위치·합성 사용자·시나리오·평가셋으로 이어지는 근거와 버전이 있다.
+- [ ] 실행 당시 조사 기록에서 200개 이상 상품·검증된 실제 점포/위치·합성 사용자·시나리오·평가셋으로 이어지는 근거와 버전이 있다.
 - [ ] 고객 요청부터 경영주 발주·공급 확보·모의 자동 결제·입고·48시간 수령까지 정상/필수 예외 흐름이 검증됐다.
 - [ ] 중복 실행·초과 배정/발주·동의/권한 위반·타 세션 간섭과 reset·시간 경계를 검사했다.
 - [ ] 자연어 기준선·후보·최선 버전의 비교, 독립 최종 평가, 개선 달성 또는 정당한 중단 사유를 기록했고 출시 최소 기준을 충족했다.
 - [ ] 구현자와 분리된 서로 다른 고객/경영주 QA의 브라우저 검사 및 최종 정책·운영 감사에서 중대한 미해결 문제가 없다.
 - [ ] 실제 제출 Vercel URL에서 실제 모델·DB·브라우저 동작과 심사자 접근 경로를 확인했다.
-- [ ] Gateway와 Gemini 예비 경로를 시험하고, 최종 선택 모델의 품질·전환 검증·잔량·남은 데모 예산을 기록했다.
+- [ ] OpenAI 로컬/배포 설정·실제 호출·오류 처리·키 비노출을 확인하고 최종 모델의 품질·사용량·시연 예산을 기록했다.
 - [ ] 원격 commit/PR/CI·릴리스 source SHA·deployment ID·schema/seed/model/config가 검증한 버전과 일치한다.
 - [ ] 실행·시연·초기화·복구 안내, 유효 결정/기각 이력, 알려진 한계와 후속 개선을 정리했다.
 - [ ] 필수 미실행·실패·외부 차단을 숨기거나 과거/fixture 결과로 대체한 항목이 없다.
@@ -184,6 +198,7 @@ python3 .agents/skills/wanna-gs-preflight/scripts/inspect_environment.py --proje
 
 ```bash
 python3 .agents/skills/wanna-gs-preflight/scripts/test_inspect_environment.py -v
+python3 -m unittest discover -s scripts -p 'test_check_openai_env.py' -v
 ```
 
 이 검사는 로컬 검사기의 비밀값 비노출·오판 방지·timeout·기존 보고서 보존·임시 Git repo 관찰을 확인한다. 외부 연동과 제품 동작은 별도로 테스트한다.
@@ -205,7 +220,7 @@ python3 .agents/skills/wanna-gs-preflight/scripts/test_inspect_environment.py -v
 
 상세 참고: [작업 DAG](docs/WORKPLAN.md) · [데이터 구축](docs/19-data-research-and-seeding.md) · [역할·모델·맥락](docs/20-agent-roles-and-context.md) · [운영 감사](docs/22-orchestration-audit.md) · [실행 시점 조사](docs/24-market-research-and-scenario-design.md) · [외부 리뷰 처리](docs/reviews/2026-09-21-execution-proposals.md).
 
-비밀값 예시는 `DATABASE_URL`, 필요 시 `DATABASE_URL_TEST`, `AI_GATEWAY_API_KEY`, `VERCEL_AUTOMATION_BYPASS_SECRET`이며 실제 값은 환경별 secret 저장소에 둔다. 지원되는 OIDC 등 대체 인증은 실제 경로를 검증한다. 보호된 Preview 자동화 접근·CI 브라우저 설치·무료 모델 평가 예산은 [18번 준비표](docs/18-environment-preflight.md)를 따른다.
+비밀값은 `OPENAI_API_KEY`와 필요한 경우 `VERCEL_AUTOMATION_BYPASS_SECRET`이다. 모델/모드는 `OPENAI_MODEL`·`LLM_MODE`로 설정한다. 키는 로컬 `.env.local` 또는 플랫폼 서버 secret에 두며 [25번](docs/25-openai-api-and-budget.md)과 [18번](docs/18-environment-preflight.md)에 따라 실제 환경별로 검사한다.
 
 이 README는 실행 개요다. 정확한 계약은 [GOAL](docs/GOAL.md), 사용자 정의는 [결정 원장](docs/02-decisions-and-open-questions.md), 현재 진행과 증거는 [PROGRESS](docs/PROGRESS.md)를 기준으로 함께 관리한다. 개발을 시작하려면 위 `/goal` 명령을 실행한다.
 
@@ -241,3 +256,8 @@ python3 .agents/skills/wanna-gs-preflight/scripts/test_inspect_environment.py -v
 
 후속 사용자 결정 D-41/42는 반영했다. 모집 목표를 넘는 요청도 받고, 발주·구매 동의·픽업 기한을 혼동해 자동 구매나 입고 전 수령 만료가 발생하지 않도록 한다. 나머지 경영주 기능은 비교 검토의 최신 권고를 보고 선택하며 아직 일괄 병합하지 않았다.
 
+## 현재 데모 실행 방식
+
+D-43: **한 PC·한 브라우저 탭에서 고객/경영주 역할을 전환**한다. Codex가 200개 이상의 상품·점포·모의 사용자 데이터를 로컬 SQLite에 삽입하고, 초기 DB 파일·WASM·카탈로그를 Vercel 앱과 배포한다. 거래는 브라우저 SQLite에서 실행하고 파일 사본을 IndexedDB에 저장해 새로고침 때 복원한다. 서버는 LLM 호출만 담당하며 모델 키는 서버에 둔다.
+
+Neon/Marketplace/Blob 설정·DB URL·공유 DB 서버는 필요 없다. 여러 기기·탭 동기화, 다중 사용자 충돌 시험, 브라우저 종료 후 자동발주는 제외한다. 같은 탭의 중복 클릭·잘못된 수량/동의·48시간·저장 실패는 검증한다. 이 변경은 자연어 품질·독립 QA·Vercel 최종 검증을 줄이는 것이 아니다. [29번](docs/29-browser-sqlite-demo.md), [06번 아키텍처](docs/06-system-architecture.md), [goal 계약](docs/GOAL.md)을 따른다. 28번 Neon 안내는 과거 기록이다.

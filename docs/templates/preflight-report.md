@@ -5,7 +5,7 @@
 - scope: ready_for_goal
 - ready_for_goal: true | false
 - production_execution_verified: false (기본 live 범위)
-- repo/remote·검사 SHA / Vercel project·환경 / runtime·DB driver·모델:
+- repo/remote·검사 SHA / Vercel project·환경 / runtime·sql.js/WASM·schema/seed/manifest·브라우저·모델:
 - 실제 사용 도구: CLI / connector / browser / agent IDs:
 
 ## 검사
@@ -42,15 +42,24 @@
 - 요청된 설정과 실제 적용 파일/Git/네트워크/설치 권한 차이:
 - required check/aggregate gate mapping과 최초 초기 구축 허용 경로:
 - 보호된 Preview의 허용 접근 방식·origin 제한·secret 로그 비노출:
-- local/CI/배포별 DB·모델 인증 경로(값 제외):
+- local/CI/배포별 모델 인증 경로(값 제외), 외부 DB 설정 불필요 확인:
 - eval split/후보/반복/도구 호출량 추정·실제 quota·최종 평가/G6 여유:
 - 조사 원문 접근·실제 가용 모델/agent 슬롯·CI 브라우저 확인:
 
 빈 필드는 준비 완료가 아니다. 계획된 후속 eval 비용과 최소 preflight 기본 동작 검사 성공을 구분한다.
 
-## 모델별 준비와 무료 예산
+## SQLite 저장 준비
 
-- Gateway / Gemini 직접 호출: 인증 방식·모델 ID·환경·실제 요청 ID·판정(키 값 제외):
-- 대상 팀/Google 프로젝트·무료/유료 등급·잔량/할당량·관측 시각·조회 실패/불확실성:
-- 남은 필수 평가·전환 검증·G5/G6·데모 계획·예비량·RPM/TPM/RPD 적합성:
-- 선택 경로·전환 필요 여부·부족한 설정·다음 검증:
+- P06: 실제 sql.js SQL·제약·rollback·export/import 명령과 기대값/관측값:
+- P07: Preview origin·WASM/seed hash·쓰기/snapshot/새로고침/역할 전환/reset 결과:
+- snapshot 저장 실패와 직전 저장본 복구, export/import 후 외래 키 재설정:
+- 임시 SQLite 파일·브라우저 namespace 소유/정리 여부:
+- Python 메모리 SQLite 관찰과 P06/P07 실제 검증 구분:
+- 한 탭 시연 한계, Preview→Production 간 상태 자동 이전 없음 확인:
+
+## OpenAI API 준비와 예산
+
+- OpenAI API: 로컬/Preview 인증·설정 모델·모드·실제 요청 ID·구조화 출력 판정(키 값 제외):
+- OpenAI API 프로젝트·결제/허용 예산·모델 접근·호출 한도·관측 시각·조회 실패/불확실성:
+- 남은 필수 평가·G5/G6·데모 계획·예비량·계정 rate limit 적합성:
+- `.env.local`/Vercel 서버 설정·정적 점검/live 호출 구분·부족한 설정·다음 검증:

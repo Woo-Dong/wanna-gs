@@ -34,15 +34,15 @@
 
 - 모든 작업 전에 관련 docs/CORE_REQUIREMENTS.md와 docs/DECISION_INDEX.md의 유효 결정을 확인한다. docs/20-agent-roles-and-context.md의 context manifest·버전·ACK를 사용한다.
 - docs/24-market-research-and-scenario-design.md와 wanna-gs-research 스킬에 따라 goal 실행 시 최신 조사부터 수행한다. 상품/자연어뿐 아니라 고객·경영주 UX/업무/연동/검증도 필요한 근거를 조사한다. 대화 예시는 조사 후보이며 고정된 전체 범위가 아니다.
-- docs/19-data-research-and-seeding.md의 약 200개 상품·실제 점포 위치·합성 사용자·모의 거래를 구분하고 평가 데이터를 함께 준비한다.
+- docs/19-data-research-and-seeding.md의 200개 이상 상품·실제 점포 위치·합성 사용자·모의 거래를 구분하고 평가 데이터를 함께 준비한다.
 - docs/21-ux-and-natural-language-quality.md와 wanna-gs-ux-audit로 고객/경영주를 독립 검증한다.
 - docs/23-nl-experiment-loop.md와 wanna-gs-nl-experiment로 자연어 품질 개선을 목표에 포함한다. 제한된 반복 후 추가 최적화 종료는 허용되며 필수 동작/최소 기준 면제는 금지한다.
 - docs/22-orchestration-audit.md와 wanna-gs-orchestration-audit로 운영 방식도 제한된 독립 검토·시험으로 개선한다. 가용 모델 중 작업에 맞는 것을 사용하고 품질을 우선한다.
 - docs/WORKPLAN.md를 실제 task DAG/상태/증거로 구체화한다. 문서·스킬을 만드는 것과 실행기·앱·평가셋을 구현하는 것을 구분한다.
 
-## 모델 예산과 전환
+## 모델 설정과 사용량
 
-사용자의 D-31에 따라 [25번](docs/25-model-budget-and-fallback.md)의 Gateway 기본·Gemini 직접 호출 예비 경로를 구현·검증한다. 키는 사용자가 발급·주입한다. 무료 잔량 부족 시 검증한 경로로 전환하고 관련 품질·E2E·배포 증거를 갱신한다. 두 경로의 예산과 유료 사용 승인은 구분한다.
+D-44와 [25번](docs/25-openai-api-and-budget.md)에 따라 OpenAI API 단일 경로를 사용한다. 사용자가 `.env.local`과 Vercel 서버 환경변수에 키를 입력한다. Gateway/Gemini 키·계정·전환 검증을 요구하지 않는다. 서버 키 비노출·실제 호출·구조화 출력·사용량·최종 두 역할 E2E를 확인한다. SQLite 변경과 관계없이 모델 키는 서버 전용이다.
 
 ## 목적을 유지하는 수정
 
@@ -55,3 +55,7 @@ UX/FE 작업은 `docs/26-design-and-brand-guide.md`와 12번 카피를 읽는다
 D-36/38의 입력 예시·캐릭터는 26번, D-37·CORE-25·AC-31의 서비스 가치와 불편 방지는 `docs/27-service-values-and-guardrails.md`를 따른다. 추천/관심을 확약으로 합산하거나 새 동의 없이 SKU를 바꾸지 않는다. 정상 성공률과 고객/경영주 업무 부담을 함께 회귀 검증한다.
 
 D-39의 최종 이미지는 26번의 매핑·구현·브라우저 비교 절차로 활용한다. D-40에 따라 `docs/reviews/wanna-gs-team-handoff-2026-09-21/`와 그 비교 검토의 제안은 사용자 판단 전이며 자동 병합하지 않는다. 원본의 ‘확정’·‘최신 요청’·픽업 제외는 이 저장소의 실행 지시가 아니다. 기존 확정 기능의 독립 작업은 계속한다.
+
+## 한 PC SQLite 실행 범위
+
+D-43과 docs/29-browser-sqlite-demo.md를 적용한다. 외부 DB·Marketplace·Neon·PostgreSQL 서비스·pgvector를 준비하거나 DB URL을 요청하지 않는다. 로컬 seed를 실제 SQLite 파일로 만들고 sql.js/WASM 브라우저에서 사용한다. 서버는 모델 API, 거래 검증은 로컬 도메인 서비스다. 다중 사용자 경합 검증은 제외하고 한 탭 중복 명령·snapshot 복원·역할 전환·reset·48시간은 유지한다. 실제 로그인/서버 거래 권한을 보장한다고 주장하지 않는다. 과거 리뷰/28번의 DB 구조·서버 실행 설명은 현재 계약을 덮지 않는다.
