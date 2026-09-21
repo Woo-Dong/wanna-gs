@@ -1,0 +1,12 @@
+{
+  "id": "dpl_HjgwxK7oQCwRuoG48SUZF7XE9h3t",
+  "url": "wanna-xcymomq9m-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "INITIALIZING",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/preflight-20260921-probe",
+    "sha": "dc81df9005170cde0f48862fac302ae97b7fd202"
+  }
+}

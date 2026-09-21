@@ -1,0 +1,80 @@
+{
+  "phase": "bootstrap",
+  "scope": "B01 only. Product G3–G6, domain, live product eval and release remain not_run.",
+  "source_patterns": [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "app/**/*.css",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "scripts/*.py",
+    "tests/gates/*.py",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "vercel.json",
+    "quality/gates.json",
+    ".github/workflows/*.yml",
+    "AGENTS.md",
+    "card.md",
+    "docs/GOAL.md",
+    "docs/CORE_REQUIREMENTS.md",
+    "docs/DECISION_INDEX.md",
+    "docs/02-decisions-and-open-questions.md",
+    "docs/20-agent-roles-and-context.md",
+    "docs/29-browser-sqlite-demo.md",
+    "docs/decisions/ADR-002-demo-domain-policies.md",
+    "docs/decisions/ADR-003-evaluation-and-demo-boundaries.md",
+    "docs/execution/run-20260921/plan.md",
+    "docs/execution/run-20260921/research.md",
+    "docs/execution/run-20260921/context-app-v3.json"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "command": [
+        "python3",
+        "scripts/check_contracts.py"
+      ]
+    },
+    {
+      "id": "gate-and-env-tests",
+      "command": [
+        "python3",
+        "scripts/test_runner.py"
+      ],
+      "tests": true
+    },
+    {
+      "id": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ]
+    },
+    {
+      "id": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "B01",
+      "implementers": [
+        "root"
+      ],
+      "requirements": [
+        "CORE-16",
+        "CORE-17",
+        "CORE-18",
+        "CORE-22"
+      ]
+    }
+  ],
+  "context_manifest": "docs/execution/run-20260921/context-app-v3.json"
+}

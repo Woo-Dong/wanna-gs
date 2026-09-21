@@ -4,7 +4,9 @@
 
 이 문서 묶음은 최초 구현의 현재 기준이다. 별도의 문서 릴리스 번호를 붙이지 않고 Git 이력과 결정 기록으로 변경을 추적한다.
 
-이 저장소에는 설계 문서, 에이전트 작업 지침, 사전점검 도구가 있다. 앱·CI·DB·배포는 아직 구현하지 않았다. 실제 문서 검증·Git 게시 상태와 남은 준비는 [진행 기록](docs/PROGRESS.md)에서 확인한다. GitHub와 Vercel 등 환경을 준비한 뒤 `/goal`로 개발을 시작한다.
+현재 `/goal`을 실행 중이다. 실제 GitHub·Vercel·OpenAI·브라우저 SQLite 사전 시험을 통과했고, Next.js 앱 기반과 단계별 검증 게이트를 구축하고 있다. 제품 거래 기능과 최종 제출 검증은 진행 중이며, 실제 증거와 다음 작업은 [진행 기록](docs/PROGRESS.md)에서 확인한다.
+
+Node.js 22에서 `npm ci`, `npm run dev`로 시작한다. `npm run gate`는 현재 단계의 실제 검사와 독립 리뷰의 코드·계약 일치를 검증한다.
 
 ## 이 goal의 목적과 차별점
 
@@ -38,7 +40,7 @@
 
 1. [GitHub 저장소](https://github.com/Woo-Dong/wanna-gs)를 원하는 위치에 clone하거나 기존 clone/worktree를 연다. Git 작성자·인증, push/PR/merge·Actions 권한과 실제 브랜치 보호·승인 경로를 확인한다.
 2. Codex 환경에서 프로젝트·Git 메타데이터 쓰기, 패키지 설치, 네트워크, 브라우저·서브 에이전트 권한을 준비한다. 설정 파일 이름뿐 아니라 P00의 실제 작업 결과를 확인한다. 새 장비의 신뢰/실행 키 위치와 선택적 설정 예시는 [18번](docs/18-environment-preflight.md)의 안내를 따른다.
-3. Vercel에 로그인하고 이 GitHub 저장소를 프로젝트에 연결한다. 플랜의 행사 이용 조건, Production 브랜치, Preview/Production 환경과 배포 권한을 확인한다. 자동 테스트용 보호 우회와 심사자용 공유 링크/공개 접근을 나누어 준비하고 로그인하지 않은 브라우저에서도 확인한다.
+3. Vercel에 로그인하고 이 GitHub 저장소를 프로젝트에 연결한다. CLI 로그인과 GitHub 계정 연결은 별개다. `Login Connection` 오류가 나면 [Vercel Authentication](https://vercel.com/account/authentication)에서 GitHub를 연결하고 재시도한다. 상세 순서는 [18번](docs/18-environment-preflight.md)의 Vercel CLI 안내를 따른다. 플랜의 행사 이용 조건, Production 브랜치, Preview/Production 환경과 배포 권한을 확인한다. 자동 테스트용 보호 우회와 심사자용 공유 링크/공개 접근을 나누어 준비하고 로그인하지 않은 브라우저에서도 확인한다.
 4. 외부 DB 계정·Marketplace 설정은 필요 없다. [브라우저 SQLite 안내](docs/29-browser-sqlite-demo.md)에 따라 한 PC의 일반 브라우저에서 WASM·저장소 접근을 점검한다. SQLite seed 생성·삽입·배포 자산 준비는 Codex의 초기 구축 작업이다.
 5. OpenAI API 키를 발급하고 API 프로젝트의 모델 접근·사용량 한도를 확인한다. 아래 양식대로 루트 `.env.local`과 Vercel 서버 환경변수에 입력한다. Codex/ChatGPT Workspace 로그인과 앱 API 인증은 별개다.
 6. Node·패키지 관리자·Git·Python 3와 테스트 브라우저를 준비한다. 로컬/CI/Preview/Production별 필요한 인증을 확인하고 비밀값을 저장소나 채팅에 넣지 않는다.
