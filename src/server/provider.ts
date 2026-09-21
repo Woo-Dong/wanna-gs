@@ -2,6 +2,7 @@ import OpenAI from 'openai';
 import { z } from 'zod';
 import type { ModelUsage } from '../contracts/assistant';
 export class AssistantError extends Error {
+  diagnostic?:string;
   attempt?:{providerCalled:boolean;model:string|null;usage:ModelUsage|null;latencyMs:number;mode:'live'};
   constructor(public code:string, public publicMessage:string, public retryable:boolean, public httpStatus:number){super(code)}
 }
