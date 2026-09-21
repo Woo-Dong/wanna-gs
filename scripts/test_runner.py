@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 if __name__ == "__main__":
     suite = unittest.TestSuite()
-    for directory in ('scripts', 'tests/gates'):
+    for directory in ('scripts', 'tests/gates', 'evals/tests'):
         suite.addTests(unittest.TestLoader().discover(str(ROOT / directory), pattern='test_*.py'))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     output = ROOT / 'artifacts/raw/python-tests.json'

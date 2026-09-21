@@ -1,0 +1,2112 @@
+[
+  {
+    "source_id": "SRC-7440767e76f6",
+    "url": "https://www.otokimall.com/front/product/category/23",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "edd41c6138c31fba3e599b46835d666ec4e4836b0b69de8867062ac1d49b90d4",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-4118cd4b3e27",
+    "url": "https://www.otokimall.com/front/product/product_list.ajax",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "type": "search",
+      "scate": 23,
+      "sbrand": 0,
+      "keyword": "",
+      "keywordRe": "",
+      "storeNo": 0,
+      "depthCheck": 2,
+      "ptype": 0,
+      "psort": "pop",
+      "listBtn": 0,
+      "pageSize": 80,
+      "page": 1
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "680e3b24bd53d008ac515f437499464d4550c1fe1515ef59abb3c7f64ee8606e",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.otokimall.com/front/product/category/23",
+    "provenance": "official_manufacturer_public_listing"
+  },
+  {
+    "source_id": "SRC-8e614baf1464",
+    "url": "https://www.otokimall.com/front/product/product_list.ajax",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "type": "search",
+      "scate": 16,
+      "sbrand": 0,
+      "keyword": "",
+      "keywordRe": "",
+      "storeNo": 0,
+      "depthCheck": 2,
+      "ptype": 0,
+      "psort": "pop",
+      "listBtn": 0,
+      "pageSize": 80,
+      "page": 1
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "bd96c607fda955b3bddb0ff8eda57c9323ade574c9d52f2df56785cbb480917b",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.otokimall.com/front/product/category/16",
+    "provenance": "official_manufacturer_public_listing"
+  },
+  {
+    "source_id": "SRC-02cfbd420cdf",
+    "url": "https://www.otokimall.com/front/product/product_list.ajax",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "type": "search",
+      "scate": 33,
+      "sbrand": 0,
+      "keyword": "",
+      "keywordRe": "",
+      "storeNo": 0,
+      "depthCheck": 2,
+      "ptype": 0,
+      "psort": "pop",
+      "listBtn": 0,
+      "pageSize": 80,
+      "page": 1
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "db4e674d8bf280c5b051a9229d98cccfb6edf6e41ff2baa604ce6d12e8a14c86",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.otokimall.com/front/product/category/33",
+    "provenance": "official_manufacturer_public_listing"
+  },
+  {
+    "source_id": "SRC-478cc979d7c0",
+    "url": "https://www.otokimall.com/front/product/product_list.ajax",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "type": "search",
+      "scate": 5,
+      "sbrand": 0,
+      "keyword": "",
+      "keywordRe": "",
+      "storeNo": 0,
+      "depthCheck": 2,
+      "ptype": 0,
+      "psort": "pop",
+      "listBtn": 0,
+      "pageSize": 80,
+      "page": 1
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "460e4879e92d221dd84438a22af38ce48e3251c279576bdfb6458b30b09317e9",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.otokimall.com/front/product/category/5",
+    "provenance": "official_manufacturer_public_listing"
+  },
+  {
+    "source_id": "SRC-8c3a61cb93c4",
+    "url": "https://www.otokimall.com/front/product/product_list.ajax",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "type": "search",
+      "scate": 6,
+      "sbrand": 0,
+      "keyword": "",
+      "keywordRe": "",
+      "storeNo": 0,
+      "depthCheck": 2,
+      "ptype": 0,
+      "psort": "pop",
+      "listBtn": 0,
+      "pageSize": 80,
+      "page": 1
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "8f95e76bc07793fd4e994038c775e7a4411d27bc89e9bf64b643c6efae5cdfb6",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.otokimall.com/front/product/category/6",
+    "provenance": "official_manufacturer_public_listing"
+  },
+  {
+    "source_id": "SRC-9111520c1677",
+    "url": "https://www.otokimall.com/front/product/product_list.ajax",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "type": "search",
+      "scate": 11,
+      "sbrand": 0,
+      "keyword": "",
+      "keywordRe": "",
+      "storeNo": 0,
+      "depthCheck": 2,
+      "ptype": 0,
+      "psort": "pop",
+      "listBtn": 0,
+      "pageSize": 80,
+      "page": 1
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "4c2ed402bb42c6e1b57ea1e7325a4f955dd3c38fb7e6cb6d548dabd4175ceda7",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.otokimall.com/front/product/category/11",
+    "provenance": "official_manufacturer_public_listing"
+  },
+  {
+    "source_id": "SRC-791a68e6d310",
+    "url": "https://www.bing.co.kr/product/getProductList",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "pdt_code": "",
+      "page_cnt": 128,
+      "search_name": "",
+      "tag_type": "1",
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "3fbe306763010224c1936eb1b6dc351f3294142c0a1a9f2b4e3401176d8cce75",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-e37a99c552da",
+    "url": "https://www.bing.co.kr/product/detail?PDT=123",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "04dbeccf3ce79b3433ee5bcd1ca978d015e72a98ee6f4d11434ebe52ce7ca374",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-f9a71d7d3c5c",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 288,
+      "PDT": 123,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "805249d9adf5d406eb2463742b5e053f4b0b3f4a1e06c987c42d17a1792686aa",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-741467352198",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 287,
+      "PDT": 123,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "bbb5fca610d166b6fa51caecd2ff5f9c5d2930daa4db14753853b7d24ebcf505",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-759a8cfab346",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 286,
+      "PDT": 123,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "da4ee99ef3f44b3eed5de13c2cedea8bcbfc6b0e4cd99bf806a85b5e90a6cddd",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-44be3d7e24d6",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 285,
+      "PDT": 123,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "2d25dd56f1513239be7d5553e07091a9c5b5c3ff951140ed2aae56ae0cfe03c7",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-758a34745bc8",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 284,
+      "PDT": 123,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "cec20008fde780a59caa5d661da3649e3b16ef61e26132ef72552b7b6d465bc1",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-4e3d0323865e",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 410,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "24d4c9b8546f7280fee12469ef124b6ac8840ee6e8878d6f8cf68acc508014e3",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-a3dbd6e33c05",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 688,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "cb91317dcda74dfd94271b1d04836c50e649aea97596d39cfcbf88c26df0b76e",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-3e18f3affe97",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 411,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "c72aa18999b86d4a8a4f71bfb4dfefdfe41513091c394cf1a90b53267d7371cc",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-9923b1c50df5",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 412,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "70a2ee592972919b4ac7b3698d163e38114f1ee15b98110c2f2116b7ca53de4b",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e4020bfc5089",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 421,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "76cfae2643f3873d0a66062d5aaef48bbffaccd18708f0aebaa26761cee4021a",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=123",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-63f0dea14eec",
+    "url": "https://www.bing.co.kr/product/detail?PDT=38",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "27fd2b32bd366dc36b3c26d0ea799746f21c31b314456873791f460d12c2d4fd",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-93242e94ddac",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 47,
+      "PDT": 38,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "adbab75af4c382daaddb519b9a27f2e82dde6da36c3d488b4234141cc9e9c45d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-a136986de07f",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 48,
+      "PDT": 38,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "67fcb5cce6e6a5375cf962ac7f5d4fea6898fc1a6f9435327611b6ec4f11edb3",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-6628c31dc8a5",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 119,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "436633ee4dc321f66661301e25bd5c7a1d03ea79bac3b9def556db367284593c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-cb4320f2aa39",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 120,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "c8796ae473bf3f057aefd797b8a4566f193669cae0f6911c5b7a53d032444cea",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e8d8920568e9",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 121,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "514d8981eefd734e9b679878d4f475c48570cfb2ac6d411b3a18c0f3eb2d50f2",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-c4dc9a037471",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 126,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "51e6b182abe2eb47725facebaf13db7395af74810f65426909ffe23eb28f527c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-cf0ac42e0e2d",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 542,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "f4ff0d16dd58d7ce94a22ba33ce7d37b775a10ae2675dda78e36e3afe89f6345",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-d6987a4cdaf1",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 127,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "52ca2d6be0a66f3c951970f9b28b87a7297fe81170c155858bdadb8bcfe9f58b",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-70e1056fcff3",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 128,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "a8261b70d2066ed499aeafa1404a0c48eec1098122aa3f6c790cfaf6a7a0f1a7",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-171ad0e066ce",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 129,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "244c94c47612c232afbb26fe50d1022d2de7d8a2c11a39238390eed7ae104c69",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=38",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f186eae8ae21",
+    "url": "https://www.bing.co.kr/product/detail?PDT=43",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "bea1c0cec31ddf41851b7c553003f67d7bdfd9e0e5e36bd5c5f419050620dac9",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-cf85e133f1db",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 138,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "ceea90f7db357281c6869e4718d4c2f0e19e112a76d8a3113211467d07e57f3a",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=43",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-142e9dadf421",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 322,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "30b20682d14e1cdc2660a8c71c7a22eba1be249eb5bc88137fee8a30057f1f16",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=43",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-fae227695155",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 665,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "761937c5f3dfe087a2d99178a40ebfffba723728496e818b88e4a379b3b230ff",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=43",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-40490c99c599",
+    "url": "https://www.bing.co.kr/product/detail?PDT=51",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "24cfe01981da2d48c5e8080805356dbed8405be34de7901db2958afc63a091f5",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-5b28c8a1712a",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 168,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "a0e503254077527bf8543d8bef26798f50a59dc6f686551413366ddce4de484d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=51",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-bdc0c09a3ee2",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 171,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "682097459e58f6cd15e8b996fae77ff7162a7cd3d2a08c8c2d672e8b50d79246",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=51",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f10e1d91798e",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 174,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "b7d1c808bc9d3c5e014ee94843f9a829a18d71a088a7b22c88928e37997d3ac5",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=51",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-c0e1b737e1e0",
+    "url": "https://www.bing.co.kr/product/detail?PDT=111",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "540c7468759bd82612138122cc864a83e328ca1fd6cb5aa40cea467cb6de37d7",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-81b6db006e6a",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 137,
+      "PDT": 111,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "ead944532fc92523063880d52db21e4342e83de9a9d718399c7b7b877192b66b",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=111",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-3777bfff16f8",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 385,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "ce730491f7935fe145dfc6849c33915211e29d66850ce39fd7dbb1d745cab02e",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=111",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-b9cea3f257c2",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 386,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "2f3bcc8b961ec5c3b818078f3106eb8a38f887722fd5ecbcc939786484e8efa3",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=111",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2258d15b2fab",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 388,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "7afd320f6d782181a8f8420110343f211fcb2e36a31659ecc4f3667554842d25",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=111",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-4772b7e0cf2e",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 502,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "78f9fc5761995f55ab03a59e69cee34c5b588d2dfd8c8bde9175faa5d137ec76",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=111",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-3abe77ed34b4",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 682,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "2ec7c26180638831a2ce15fffe054d6172ae641c1bf507a5572d6979a508820d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=111",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-9a5aaf6d3fd1",
+    "url": "https://www.bing.co.kr/product/detail?PDT=25",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "c475c9a2ad4c5d1fe20bd45e5b6b357627b0e279886690d7e786bd54bdb6e3f7",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-100752c23059",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 32,
+      "PDT": 25,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "6d704f37d0b6fbd17691b31b506d5e42a4266e207d43e6bac15719de1f9e0150",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=25",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-fe3abd6b2301",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 183,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "73998edfbb56b1ed4f074e2ce62126c8c64d30ca8f124dcd95622934cdf4e1b0",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=25",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-1f41637f6331",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 184,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "de52e4079d74f129da2d025bc6427ddb169f55a178179c653575b81325a597b1",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=25",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-78495870239c",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 185,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "490f51cce32a38492da4238db32c325e811c38ba66d94356193d320dccfdaece",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=25",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2c0bd8565cd4",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 186,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "848b3575c3170ea93b4bf20a12ccaf5f00c79d49e7d3448de6803e037dca667a",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=25",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-6e28e5f02ed8",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 561,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "bd8c6e51381b36aed0f46b9acc52f9a783086dc8d1342695b57793ebeabac1de",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=25",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-8ba1208bcf35",
+    "url": "https://www.bing.co.kr/product/detail?PDT=35",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "8e871780ededf622062ca9b35340b221d6509fc86dfa7bde3cfa833ef5c240ef",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-2b7fca4ecc27",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 43,
+      "PDT": 35,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "5f0563b9ee8a7b0f51c44c3a3c1bd68a5c6203d9cdab7aeff0419a9d37aac918",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-e5189a2d87d4",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 44,
+      "PDT": 35,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "8020031e5ffab313652309da8247d2d52c171fbdc399ef8593f2072707781e3b",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-bead04f016a8",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 45,
+      "PDT": 35,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "e6393c0b37a9ef9d17555338873065666ea80ea66fad627d5cbe7ac6193165fe",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-607ad37301d9",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 436,
+      "PDT": 35,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "85551e6b6b6e7e2e00a3d40277d8d574ae72a8e872af02e970339cd6a06f49d8",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-2d227c632c54",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 279,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "d8a535e56fc4bf1f4ec88bde272e6a8a6ea2246c614564353d724b6becb4e41f",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f433aa91fb47",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 280,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "b4a2f07582ed0abde8bdc8dba3233ef4c7d186c3169562e8fbf78f52a64da437",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-267eeb4981a1",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 281,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "12cbc3ab775de8e11e3afda7fb64706fd6d86c77fbae6d57a6b5d89e688d019b",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-0c1f8e89e1c7",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 284,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "3d5d2629a755a5eb995c8c100e7abcaaec8e040e63986ff9e8e3d47e95275743",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2b3c2a35c07d",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 285,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "03905d26e9f9e909c104d747f4d4c8fcc9668182d129e2069369877f704d9dd3",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-d05a2eca4027",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 286,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "9418943e31fe2a7b9b3386d50e279c452ecabc352da8e3ee206330ee5b7ab904",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-7cd7585e01c3",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 287,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "b18328d3208b8ff727493840fb373a49015aa95a04b4ae6766e9854b80ac5369",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-6fb1c22cf8d5",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 290,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "ed71797343dc18afce2a46ea09659d279edc0b7d3f09bebf1c65967a59366af0",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-12a39ef8e2ed",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 679,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "148897db8144b9563873fd3beb67742f86daf05f3b5e921c03a9f384bc96d5b4",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-0c8f22909e2f",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1082,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "3845bd1f150ed896de0c63f55c55a955554b4b5918b2669bffe46a574943441d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=35",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-65d14fd3ae39",
+    "url": "https://www.bing.co.kr/product/detail?PDT=31",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "c607f2c27ae918e3a7ec6173f844e26d235f8276d626e95bd74a14b1fe334f95",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-fde405aae781",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 41,
+      "PDT": 31,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "c47931b1eda03df83a8846bc5635e28a6fa8077ef2e247a649c9a4f6c3ae31ec",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-fb28be0cff92",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 42,
+      "PDT": 31,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "60345e41e1ce259cee0f8350f388eb571dd6e146c45b55f72fc8b1b5e2750109",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-405ef0d8ad35",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 273,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "0604d54ed483f0603e1528008a88b2a8e88d114963f0309d6f0691223a43acdd",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-677aa2f2106c",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 274,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "b5bc38ee90fb6ae15dcf69eea3a6e3cf23e15eb7f208f378d9ec445cbf22cd16",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-9ad204edb650",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 516,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "9bca55efebc3cf217a1035194124a1c1bdd27491e63733ff622412b57a09b55c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e1e4ea6f8f5c",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 271,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "35d81ffbb8688537cce75954b95ff4aa752cb714bae37935d5cac966e9429db9",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-bfe374dc54b2",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1074,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "94bce052ecafc5b1856e9e83cc51556f723aa49dd5d44641392cde749da3758d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=31",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-d142c5be7174",
+    "url": "https://www.bing.co.kr/product/detail?PDT=248",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "279dce3e6aeefeee10441f546cd0407dcec107bbd6ee9849e29b8fb06bffd605",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-afa60b3c325c",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1078,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "0221855904c1cb7b16885e4eec655138d6c65df4aaebb0157618507db926b265",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=248",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-ce09766bde02",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1079,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "a6d649b2055a4edcb70569eb71fdceafd5cb9291ab852229bf559a1f1383e035",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=248",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f0ee6aaf80df",
+    "url": "https://www.bing.co.kr/product/detail?PDT=247",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "2c43485e40e50162ca261749bcb5576f863aa9435cf3aaee1cd78644de7db216",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-d362c83f7187",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 437,
+      "PDT": 247,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "97c8d7f012fc8b7df3143340f0cfc2e945b48551553aaa39eedcd0a15d944ef5",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=247",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-6a7b3340ca91",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 445,
+      "PDT": 247,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "267380c91ca8478f1ad4d7fcf28311a24a769dd9875337e026b4493ec9db22bb",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=247",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-33772122dbda",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1076,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "8ccba3c7e06f2844d53c62ada208ba80c09085ef934bc4faa045ce93625e8888",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=247",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-6c0ff8c6fce8",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1092,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "64ec4f652605217e273d2fdf287b6203ad86466fc6f3e86c17fac71fc1c264df",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=247",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2acb4a09087f",
+    "url": "https://www.bing.co.kr/product/detail?PDT=76",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "91e3ecf30b8df8f8c03c704857817d91e70ed0306e5763b1986aa8ad7ab025b2",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-fed6a0c5f62b",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 212,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "18e368580fcc7ec1ed9a6a7ab3df7815708458a74f488d26a21fa9777dde53a4",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=76",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-3fddfb6693a8",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 213,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "f93163c11d46c53ee7f331425c3726b1b6faf2e96607fa754a32ab1067867e71",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=76",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-ba4e5520ba3c",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 214,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "f7ff7fe4c6d3b2e098c4c44c7c629eb4bad8d2c9bf446614d8c6b6e67938daa7",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=76",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-173c6c7fcdee",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 431,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "583816500d95a6e7cdc04dab2a4ac6eb0a2b7cb3a6f4a3e6a5fd7c16eea824d8",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=76",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e87a93f2f5a1",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 432,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "1f09003979a664d0e3d594482881da6d021925f039188e202e5a6f74ea6031f3",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=76",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-41408f906c1b",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1002,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "6282160b2a027e16ca8c47dafb790b01b19e948111335654e5a6a002ec518e07",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=76",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-1dd93ca6b3f3",
+    "url": "https://www.bing.co.kr/product/detail?PDT=77",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "c0270ae47129215a9e1d6891f81d4da8baee0a2bb2597cc8604ac6df36745830",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-4a4bd0758dee",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 215,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "6a0ff7f15208d8f6f71c0057d796d53334a8c818fefa21c66570e5455642b65a",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=77",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e92dc0ba702f",
+    "url": "https://www.bing.co.kr/product/detail?PDT=78",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "f6d72eeb0dbc513b29552ae1ea1989a14b1a86317f64a51089d2e323ce4e7796",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-b97b7f8bce0f",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 216,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "15323cfa11ed6d8beb944a722e971419d37865322c134b2c8a6e1893917c3ac5",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=78",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-366c9a240de2",
+    "url": "https://www.bing.co.kr/product/detail?PDT=79",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "e109a800b41d4c7aeee05747ebae701528db8e9d914b65c2c5d3f452aa9a4426",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-d0c14653962f",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 217,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "21096eb4aa65593a46633945a1df7dd2d3173740ca5bec8021678bcb4448eaee",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=79",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-bcfdc70e3c01",
+    "url": "https://www.bing.co.kr/product/detail?PDT=6",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "1d7b9902cac4be3c57733282c329c4d7935d83241380ac4b2d3b0250af11ec0e",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-3d5a64dfa155",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 12,
+      "PDT": 6,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "4d183d23cf4e9b4f7aaa6fb0db8509f23214bea1bdebf87ac45d117653a2e592",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=6",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-471bd9bb29b4",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 21,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "85acd345293e4c3e83cbd81b2f44eb7aa8b4478f8bb015f982bf70b41169a56c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=6",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-4ed9bc7668f0",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 22,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "b87842ef3c0f9605875489454513c27c3f099094f2f90e09d83e23b06c89ab32",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=6",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-bc8bc57b6203",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 23,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "c74271cec8e5103affcebfcd574068d12c20882df212d945ec16b007b901cfe8",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=6",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-bb691ca78545",
+    "url": "https://www.bing.co.kr/product/detail?PDT=17",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "dfe962241234a0cf1d4df34ceb901bdff3cbd1d21470f3781b4e7e72bf43f537",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-2be534fa4c17",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 55,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "6ae9d7615dcfa72a27c151922358c58ddb1d56e67cab311cea63c1c7f7e49d95",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-5349bac440c4",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 57,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "a76d127f2a2cd5c1e5e3af8d00eb80358010f9aee0dfebfadefb831255faa876",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f7b1152d52aa",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 419,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "a5d5d257a9c38810571e93f461b25649c4de58683bc1a8c3dad3b3adf9b8335c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-cad66031ee12",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 533,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "237c1dea4f6ccafad903b0650b615d070a56d7a7164ca740133f3c098aba12bf",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2cd4e778c4b6",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 969,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "782325ff4b7c121b0be1d0fff1c1ef8626b52d1978d3c7164437d7850728051a",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-ba1c76c27108",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 970,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "2b24a85e5cac4d48866f1454387468ef628e1f54671814f324de2bc40b37fff2",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-56ec5bbc7bc1",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1094,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "fef54ec3e7635ffedb60c30695512a186e094b937f063e0856e0dcaec3dcebf8",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=17",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-9fd170f7ae34",
+    "url": "https://www.bing.co.kr/product/detail?PDT=18",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "d270d16010962d4f9ff05b4346cd44a77ef62a9b82baa1a165aae2eaa0bd5b5f",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-519f2d29d8df",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 623,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "38da6a3dbb95c9fc4eaf090f3be482b17f6bdad16151f20d5aa51e3faeba0200",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=18",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f55bd3b82c63",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 971,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "f7657959adf8a6407c206d807a8cf41da762613afe30f8e2ae7646b3085d56b1",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=18",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-af61a98e81f5",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 972,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "eda81d08f212249e93404fa21f9046bf43d42d65d5c5339deadb895c8098ff2e",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=18",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2eed3a223a55",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 973,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "6e89b1ba09fc96750ad575b0fafec78b9ff3c7b541441e29acc5f0103e4fe64d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=18",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-0e626adfd1a0",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 974,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "d3f1abcce531ea86533f4e3647c11b8d126badba234458818b258a698bcc91a8",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=18",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-56801c5d1fc5",
+    "url": "https://www.bing.co.kr/product/detail?PDT=7",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "172e4c3483b96a313ea94afb553d7a099d59eb7a2475e13998a6ec595d599359",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-f4f0d38a2afe",
+    "url": "https://www.bing.co.kr/product/get_family_ind_info",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "family_ind_idx": 15,
+      "PDT": 7,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "2dea7bf609a5ea4c90f848b5f7a61f103be22549492b2ef683bdf15ce6b5ee82",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=7",
+    "provenance": "official_manufacturer_public_product_selector"
+  },
+  {
+    "source_id": "SRC-3db417f18335",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 28,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "96a194cc3256f508d4dd1326c0b8d0715b1ac47e6eedb8c23576979035237b41",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=7",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-b01b4c95cb40",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 30,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "4258b05c9e435df645c3b3596d968ac529d02b566b8210e1557ef7a19626d860",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=7",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-daafe2f37591",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 810,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "f6d087b922cb9f168ac66aae847646f50919c62712924151bcd525b16955c15f",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=7",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2b3f4601ac6f",
+    "url": "https://www.bing.co.kr/product/detail?PDT=8",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "c819f90ef8a15dca691c5b7347f8f192a5c0e117f214fb817df2d1b527642ac1",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-b0ead557e2b4",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 32,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "adc85a6b010588cfbff944c0666de487c43ff671c5174ba0e4e51922c26f56d6",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=8",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-edc4d342ce1a",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 333,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "ac47d98b254c984d8178f2b79649c58c2a6a492844b23072bc5ae2e3035ce32a",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=8",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-4acacff9cf69",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 802,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "8746dc70cdec72d9c49c111893c7b3be46f5b902d11f40cbdbc44c18087aebdb",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=8",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e009d8bf7d0f",
+    "url": "https://www.bing.co.kr/product/detail?PDT=11",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "e2c7ea564089b99590ffb992c032fc7224f676db9ff2413b3cf376d26c7d41c8",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-63be9c7801d7",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 38,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "d98f9dc347a1daa5fcaca39426ae9737f56ae5db0b74da3158691a0c7e6301b0",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=11",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-967d818d0477",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 39,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "349e6914cd3949c48a1dd83d30fa5dfb1547431005615dea3d21bdf77cfcaf4c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=11",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-1c93b1168cfd",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 40,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "d04319195cce7769343da46ac2706577c14cabc7d048a98c36cc5d06b7213d7d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=11",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e8aa04628b00",
+    "url": "https://www.bing.co.kr/product/detail?PDT=13",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "dbbc648766181a270279806bc64b6b93a4056a253d24695065b970e8abab75db",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-223c906d51a6",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 45,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "60e883840fbe33f8241d07751eb4d478f0fd19f0a858dd250c470c3c0626a3cb",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=13",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-bb7a78997271",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 803,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "6bab1aba75702fb5469d2d348e9b6f5267066ef9b47ee67059d926eba9b05468",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=13",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-505e21627f82",
+    "url": "https://www.bing.co.kr/product/detail?PDT=14",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "074bc1db25c5c2aadf2c4fddfc3dd9295d4b419ed3c61f6ddbdfb07658b51a3d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-7ac8e0e4b217",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 46,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "631d8c4c99320c74d355572e6493c0e851d2d71581e01f04d763d0fe2695483d",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=14",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f82139c57edc",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 640,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "ec5cfd47fa1f2ef7b1dbf2e0087ab5d1eb1f7a57fae1a1cc93c58aac52168bce",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=14",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-e9746efaf940",
+    "url": "https://www.bing.co.kr/product/detail?PDT=20",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "0414741aa9399636d137fb50ecc4d2b96f27778f336ac9638e27cbf8c6112d48",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-e77f6bddbc60",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 64,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "89002cad5a50984e1fb170918fa7ddf2435b582b642aa98a687bd0e372d224c0",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=20",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-5d9e819873e4",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 976,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "4c8e56aaa4bfec39240d0f77629684f0592cf5bc14daa5a66efbaaf3fa3b2e20",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=20",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-36ace44e9fbb",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 1115,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "d2464fc92e2e1e580db134d660023ea11a9798638fd6169ce749541ddab1fe63",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=20",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-d1a46110470e",
+    "url": "https://www.bing.co.kr/product/detail?PDT=23",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "0e3e521b1d65d6f2e702b35c6f0b7c16d5c19937794bc613906bad892d9b6977",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-b901604791f9",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 68,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "9088df9efe706432b5d1f9b3a1c36a33002750acc58ab169d4a6b88ec3d7c954",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=23",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-984b23714331",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 625,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "fb4b2a787918b102cb45f84e9ef3d65c5653c23bf2b672d1c33fa3c3f9631bf6",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=23",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-f5df2e868be5",
+    "url": "https://www.bing.co.kr/product/detail?PDT=156",
+    "method": "GET",
+    "parameters": null,
+    "checked_at": "2026-09-21",
+    "response_sha256": "4bda1ee89495fe406f531d48bbc80160d43ab81c84b5a2d54664d12134e94287",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed"
+  },
+  {
+    "source_id": "SRC-77a4a44e2bdd",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 627,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "a7c710b4e0151b023d0f4f22a17979e8186fa6364527c0de7b9cb2301daccde9",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=156",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  },
+  {
+    "source_id": "SRC-2ebd0b9dcade",
+    "url": "https://www.bing.co.kr/product/get_volume_list",
+    "method": "POST read-only public listing",
+    "parameters": {
+      "prod_idx": 628,
+      "lang": "KO"
+    },
+    "checked_at": "2026-09-21",
+    "response_sha256": "896ad57cce71c821f4ff1cbfdaf3cd71084f2fa0d1b95ac4a21c7e56a7188e3c",
+    "stored": "normalized_facts_only",
+    "raw_cache": "local /tmp only; not deployed",
+    "public_page": "https://www.bing.co.kr/product/detail?PDT=156",
+    "provenance": "official_manufacturer_public_flavor_volume_selector"
+  }
+]

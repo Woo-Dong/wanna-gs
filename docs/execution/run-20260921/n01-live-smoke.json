@@ -1,0 +1,103 @@
+{
+  "purpose": "live schema smoke only, not formal eval",
+  "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "targetSku": "DEMO-9C30B1DB55A9",
+  "customer": {
+    "ok": true,
+    "data": {
+      "sessionId": "SMOKE-SESSION",
+      "generation": 1,
+      "actorId": "SMOKE-CUSTOMER",
+      "roleEpoch": 1,
+      "requestId": "N01-SMOKE-C",
+      "conversationId": "SMOKE-DIALOGUE",
+      "inputRevision": 1,
+      "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+      "mode": "live",
+      "model": "gpt-5-mini-2025-08-07",
+      "promptVersion": "baseline-v1",
+      "catalogVersion": "catalog-248-v1",
+      "result": {
+        "action": "show_candidates",
+        "candidates": [
+          {
+            "id": "DEMO-9C30B1DB55A9",
+            "kind": "exact",
+            "sharedEvidence": [
+              "name: 바나나맛우유 240ml",
+              "brand: 빙그레",
+              "size: 240ml",
+              "observed: 바나나"
+            ],
+            "differences": [],
+            "unknownConditions": []
+          },
+          {
+            "id": "DEMO-C9C6273BA9A4",
+            "kind": "confirm",
+            "sharedEvidence": [
+              "name: 바나나맛우유 무가당 240ml",
+              "brand: 빙그레",
+              "size: 240ml",
+              "observed: 바나나",
+              "observed: 무가당"
+            ],
+            "differences": [
+              "포함 문구: '무가당' — 사용자가 언급 안함"
+            ],
+            "unknownConditions": [
+              "사용자가 무가당을 원했는지 여부"
+            ]
+          }
+        ],
+        "question": null,
+        "reason": "사용자 요청 '바나나맛우유 240ml'이 카탈로그에 정확히 일치(일반/무가당 존재), 주요 후보 1–2개 제시. 확인 필요합니다.",
+        "confirmationRequired": true
+      },
+      "usage": {
+        "inputTokens": 16552,
+        "outputTokens": 257,
+        "totalTokens": 16809,
+        "estimatedCostUsd": 0.004652
+      },
+      "latencyMs": 4154
+    }
+  },
+  "merchant": {
+    "ok": true,
+    "data": {
+      "sessionId": "SMOKE-SESSION",
+      "generation": 1,
+      "actorId": "SMOKE-MERCHANT",
+      "roleEpoch": 1,
+      "requestId": "N01-SMOKE-M",
+      "conversationId": "SMOKE-DIALOGUE",
+      "inputRevision": 1,
+      "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+      "mode": "live",
+      "model": "gpt-5-mini-2025-08-07",
+      "promptVersion": "baseline-v1",
+      "catalogVersion": "catalog-248-v1",
+      "result": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 50000,
+          "excludeCategories": [],
+          "excludeProductIds": [],
+          "maxQuantity": null,
+          "restorePrevious": false
+        },
+        "question": null,
+        "reason": "이번 발주 예산을 오만원(50,000원)으로 제한 요청함."
+      },
+      "usage": {
+        "inputTokens": 16551,
+        "outputTokens": 90,
+        "totalTokens": 16641,
+        "estimatedCostUsd": 0.00431775
+      },
+      "latencyMs": 2494
+    }
+  }
+}
