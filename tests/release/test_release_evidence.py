@@ -13,10 +13,10 @@ gate=importlib.util.module_from_spec(SPEC);SPEC.loader.exec_module(gate)
 H=lambda value:gate.digest(str(value).encode())
 
 class Package:
-    def __init__(self,root):
+    def __init__(self,root,config_name="next.config.mjs"):
         self.root=Path(root)
         for tree in gate.RUNTIME_TREES:(self.root/tree).mkdir(parents=True,exist_ok=True)
-        for name in set(gate.ANCHORS)|set(gate.EVAL_SOURCES)|{'next.config.mjs','evals/baseline-coverage.json'}:
+        for name in set(gate.ANCHORS)|set(gate.EVAL_SOURCES)|({'evals/baseline-coverage.json',config_name} if config_name else {'evals/baseline-coverage.json'}):
             self.write(name, b'// private synthetic unittest source')
         self.write('data/seed/products.json',[])
         self.catalog=gate.digest(b'[]')
@@ -165,5 +165,20 @@ class ReleaseTests(unittest.TestCase):
         self.p.mutate(bundle['report'],lambda r:r.update(usage_unknown_attempts=1))
         self.p.mutate(bundle['execution'],lambda e:e.update(unknown_provider_count=1,provider_not_called_count=1,outbound_http_attempts=e['provider_called_count']+2))
         self.assertEqual(self.p.check()['status'],'PASS')
+
+    def test_next_default_without_config_is_valid(self):
+        self.p=Package(Path(self.tmp.name)/'default-next',config_name=None)
+        self.assertEqual(self.p.check()['status'],'PASS')
+        self.assertFalse(any(name.startswith('next.config.') for name in self.p.files))
+    def test_next_config_addition_is_fingerprint_change(self):
+        self.p=Package(Path(self.tmp.name)/'default-next',config_name=None)
+        self.p.write('next.config.mjs',b'export default {}')
+        self.reject('RUNTIME_SET_OR_HASH_MISMATCH')
+    def test_next_config_modification_is_fingerprint_change(self):
+        self.p.write('next.config.mjs',b'export default { poweredByHeader: false }')
+        self.reject('RUNTIME_SET_OR_HASH_MISMATCH')
+    def test_next_config_deletion_is_fingerprint_change(self):
+        (self.p.root/'next.config.mjs').unlink()
+        self.reject('RUNTIME_SET_OR_HASH_MISMATCH')
 
 if __name__=='__main__':unittest.main()

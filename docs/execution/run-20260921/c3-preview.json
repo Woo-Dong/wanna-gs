@@ -1,0 +1,14 @@
+{
+  "id": "dpl_EK3hT5PniMZihubk9Z3csF7VUxGx",
+  "url": "wanna-krv43ok6h-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n04-model-candidate",
+    "sha": "55f92fe107694d0e570135362321d35d47131343"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

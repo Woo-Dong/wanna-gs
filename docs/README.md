@@ -1,12 +1,12 @@
 # 원하GS (WANNA GS): 설계 문서
 
-기준일: 2026-09-21 · 최초 구현 기준 · 상태: 자율 실행 계약 / 구현 전
+기준일: 2026-09-21 · 최초 구현 기준 · 상태: goal 구현·검증 진행 중
 
 ## 프로젝트 한 문장
 
 고객의 자연어 상품 요청을 점포별 수요로 모으고, 경영주의 일괄 판단과 보수적인 자동발주를 거쳐, 확보된 물량을 모의 자동 결제·픽업 예약으로 연결하는 랄프톤 프로토타입.
 
-이 문서 묶음은 지금까지의 사용자 논의를 실행 가능한 설계로 정리한 것이다. 실제 GS 서비스·상품·재고·발주·결제 시스템과 연결하지 않는다. Vercel 프로젝트 생성·로컬 연결과 기본 설정은 마쳤다. 앱·DB seed는 아직 구현 전이며 GitHub 연동·실제 LLM·배포 검증의 현재 상태는 [PROGRESS](PROGRESS.md)에서 관리한다. `/goal`도 아직 실행하지 않았다.
+이 문서 묶음은 지금까지의 사용자 논의를 실행 가능한 설계로 정리한 것이다. 실제 GS 서비스·상품·재고·발주·결제 시스템과 연결하지 않는다. Vercel 프로젝트 생성·로컬 연결과 기본 설정은 마쳤다. 고객/경영주 앱·248상품 SQLite seed·실제 LLM 경로와 CI를 구현했다. 자연어 품질 개선과 최종 배포 검증은 진행 중이며 현재 상태와 실패 증거는 [PROGRESS](PROGRESS.md)에서 관리한다.
 
 ## 가장 먼저 알아야 하는 결정
 
@@ -45,7 +45,7 @@
 | 19 | [18-environment-preflight.md](18-environment-preflight.md) | goal 전 사전 설정·연동 테스트·결과 판정 |
 | 수시 | [PROGRESS.md](PROGRESS.md) | 작업 상태·검증 증거·다음 단계 |
 
-프로젝트 전체 개발 규칙은 [루트 AGENTS.md](../AGENTS.md), 문서 세부 규칙은 [docs/AGENTS.md](AGENTS.md)에 있다. `/goal`에서는 이 README와 GOAL 문서를 명시적으로 읽도록 한다. 검증·복구 프로젝트 스킬은 [.agents/skills](../.agents/skills/wanna-gs-verify/SKILL.md)에 있다. 자동 실행기와 CI는 초기 개발에서 구현한다.
+프로젝트 전체 개발 규칙은 [루트 AGENTS.md](../AGENTS.md), 문서 세부 규칙은 [docs/AGENTS.md](AGENTS.md)에 있다. `/goal`에서는 이 README와 GOAL 문서를 명시적으로 읽도록 한다. 검증·복구 프로젝트 스킬은 [.agents/skills](../.agents/skills/wanna-gs-verify/SKILL.md)에 있다. 자동 실행기와 CI의 현재 실행 범위는 PROGRESS와 quality/gates.json에서 확인한다.
 
 ## 확정 여부와 문서 우선순위
 
@@ -72,7 +72,7 @@
 
 ## 검토와 개발 방식
 
-사용자 요청에 따라 영역별 구현·자체 단위 테스트 → 독립 검증 → 단계적 통합·재검증을 개발 규칙으로 추가했다. 기술적인 자동 차단은 아직 없으며 앱 개발의 GATE-BOOTSTRAP에서 구현한다. 제품 정책 검토는 13번, 역할·게이트는 14번, 실패 복구는 15번을 읽는다. [작업 계약](templates/task-contract.md), [게이트 보고서](templates/gate-report.md), [실패 보고서](templates/failure-report.md)를 재사용한다.
+사용자 요청에 따라 영역별 구현·자체 단위 테스트 → 독립 검증 → 단계적 통합·재검증을 개발 규칙으로 추가했다. 단계별 자동 검사와 코드 지문·독립 리뷰 검사를 구현했다. 현재 통과한 단계가 최종 G5/G6 통과를 뜻하지 않는다. 제품 정책 검토는 13번, 역할·게이트는 14번, 실패 복구는 15번을 읽는다. [작업 계약](templates/task-contract.md), [게이트 보고서](templates/gate-report.md), [실패 보고서](templates/failure-report.md)를 재사용한다.
 
 이 기준에서는 위 항목을 사람 의논 대기 대신 에이전트 정책 결정·검증 작업으로 처리한다. 이전 권장안은 출발점이며 채택 여부는 ADR로 추적한다.
 

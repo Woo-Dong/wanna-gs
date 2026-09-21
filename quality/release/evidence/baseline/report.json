@@ -1,0 +1,394 @@
+{
+  "version": "EVAL-20260921-v1",
+  "mode": "live",
+  "live_evidence": true,
+  "dataset_hash": "316ad33b9d6f47e217a96246e81990b8fae0e11fd162dd31385715247ab4cb02",
+  "cases": 336,
+  "passed": 227,
+  "incomplete": 51,
+  "mandatory_errors": 0,
+  "fatal_errors": [],
+  "metrics": {
+    "customer/dev/clear": {
+      "cases": 119,
+      "passed": 98,
+      "complete": 104,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8235294117647058,
+      "accuracy_completed": 0.9423076923076923,
+      "minimum": 0.95,
+      "minimum_met": false
+    },
+    "customer/dev/category:C01": {
+      "cases": 27,
+      "passed": 23,
+      "complete": 26,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8518518518518519,
+      "accuracy_completed": 0.8846153846153846
+    },
+    "customer/validation/clear": {
+      "cases": 40,
+      "passed": 34,
+      "complete": 36,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.85,
+      "accuracy_completed": 0.9444444444444444,
+      "minimum": 0.95,
+      "minimum_met": false
+    },
+    "customer/validation/category:C01": {
+      "cases": 9,
+      "passed": 8,
+      "complete": 8,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8888888888888888,
+      "accuracy_completed": 1.0
+    },
+    "customer/dev/category:C02": {
+      "cases": 24,
+      "passed": 16,
+      "complete": 19,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.6666666666666666,
+      "accuracy_completed": 0.8421052631578947
+    },
+    "customer/validation/category:C02": {
+      "cases": 8,
+      "passed": 5,
+      "complete": 7,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.625,
+      "accuracy_completed": 0.7142857142857143
+    },
+    "customer/dev/category:C03": {
+      "cases": 24,
+      "passed": 22,
+      "complete": 22,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.9166666666666666,
+      "accuracy_completed": 1.0
+    },
+    "customer/validation/category:C03": {
+      "cases": 8,
+      "passed": 7,
+      "complete": 7,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.875,
+      "accuracy_completed": 1.0
+    },
+    "customer/dev/uncertain": {
+      "cases": 61,
+      "passed": 48,
+      "complete": 53,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.7868852459016393,
+      "accuracy_completed": 0.9056603773584906,
+      "minimum": 0.9,
+      "minimum_met": false
+    },
+    "customer/dev/category:C04": {
+      "cases": 21,
+      "passed": 9,
+      "complete": 13,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.42857142857142855,
+      "accuracy_completed": 0.6923076923076923
+    },
+    "customer/validation/uncertain": {
+      "cases": 20,
+      "passed": 16,
+      "complete": 17,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8,
+      "accuracy_completed": 0.9411764705882353,
+      "minimum": 0.9,
+      "minimum_met": false
+    },
+    "customer/validation/category:C04": {
+      "cases": 7,
+      "passed": 4,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.5714285714285714,
+      "accuracy_completed": 0.8
+    },
+    "customer/dev/category:C05": {
+      "cases": 18,
+      "passed": 18,
+      "complete": 18,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/validation/category:C05": {
+      "cases": 6,
+      "passed": 6,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/dev/category:C06": {
+      "cases": 18,
+      "passed": 16,
+      "complete": 16,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8888888888888888,
+      "accuracy_completed": 1.0
+    },
+    "customer/validation/category:C06": {
+      "cases": 6,
+      "passed": 6,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/dev/category:C07": {
+      "cases": 18,
+      "passed": 15,
+      "complete": 15,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8333333333333334,
+      "accuracy_completed": 1.0
+    },
+    "customer/validation/category:C07": {
+      "cases": 6,
+      "passed": 5,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8333333333333334,
+      "accuracy_completed": 1.0
+    },
+    "customer/dev/category:C08": {
+      "cases": 15,
+      "passed": 13,
+      "complete": 13,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8666666666666667,
+      "accuracy_completed": 1.0
+    },
+    "customer/validation/category:C08": {
+      "cases": 5,
+      "passed": 4,
+      "complete": 4,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8,
+      "accuracy_completed": 1.0
+    },
+    "customer/dev/category:C09": {
+      "cases": 15,
+      "passed": 14,
+      "complete": 15,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.9333333333333333,
+      "accuracy_completed": 0.9333333333333333
+    },
+    "customer/validation/category:C09": {
+      "cases": 5,
+      "passed": 5,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/dev/clear": {
+      "cases": 45,
+      "passed": 15,
+      "complete": 41,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.3333333333333333,
+      "accuracy_completed": 0.36585365853658536,
+      "minimum": 0.95,
+      "minimum_met": false
+    },
+    "merchant/dev/category:M01": {
+      "cases": 9,
+      "passed": 0,
+      "complete": 9,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    },
+    "merchant/validation/clear": {
+      "cases": 15,
+      "passed": 7,
+      "complete": 15,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.4666666666666667,
+      "accuracy_completed": 0.4666666666666667,
+      "minimum": 0.95,
+      "minimum_met": false
+    },
+    "merchant/validation/category:M01": {
+      "cases": 3,
+      "passed": 0,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    },
+    "merchant/dev/category:M02": {
+      "cases": 9,
+      "passed": 8,
+      "complete": 9,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.8888888888888888,
+      "accuracy_completed": 0.8888888888888888
+    },
+    "merchant/validation/category:M02": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/dev/category:M03": {
+      "cases": 9,
+      "passed": 2,
+      "complete": 9,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.2222222222222222,
+      "accuracy_completed": 0.2222222222222222
+    },
+    "merchant/validation/category:M03": {
+      "cases": 3,
+      "passed": 1,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.3333333333333333,
+      "accuracy_completed": 0.3333333333333333
+    },
+    "merchant/dev/category:M04": {
+      "cases": 9,
+      "passed": 5,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.5555555555555556,
+      "accuracy_completed": 1.0
+    },
+    "merchant/validation/category:M04": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/dev/uncertain": {
+      "cases": 27,
+      "passed": 8,
+      "complete": 13,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.2962962962962963,
+      "accuracy_completed": 0.6153846153846154,
+      "minimum": 0.9,
+      "minimum_met": false
+    },
+    "merchant/dev/category:M05": {
+      "cases": 9,
+      "passed": 0,
+      "complete": 4,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    },
+    "merchant/validation/uncertain": {
+      "cases": 9,
+      "passed": 1,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.1111111111111111,
+      "accuracy_completed": 0.16666666666666666,
+      "minimum": 0.9,
+      "minimum_met": false
+    },
+    "merchant/validation/category:M05": {
+      "cases": 3,
+      "passed": 0,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    },
+    "merchant/dev/category:M06": {
+      "cases": 9,
+      "passed": 2,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.2222222222222222,
+      "accuracy_completed": 1.0
+    },
+    "merchant/validation/category:M06": {
+      "cases": 3,
+      "passed": 0,
+      "complete": 0,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": null
+    },
+    "merchant/dev/category:M07": {
+      "cases": 6,
+      "passed": 4,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.6666666666666666,
+      "accuracy_completed": 0.8
+    },
+    "merchant/validation/category:M07": {
+      "cases": 2,
+      "passed": 0,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    },
+    "merchant/dev/category:M08": {
+      "cases": 6,
+      "passed": 2,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.3333333333333333,
+      "accuracy_completed": 0.4
+    },
+    "merchant/validation/category:M08": {
+      "cases": 2,
+      "passed": 1,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.5,
+      "accuracy_completed": 0.5
+    },
+    "merchant/dev/category:M09": {
+      "cases": 6,
+      "passed": 0,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    },
+    "merchant/validation/category:M09": {
+      "cases": 2,
+      "passed": 0,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.0,
+      "accuracy_completed": 0.0
+    }
+  },
+  "outbound_attempts": 367,
+  "tokens_known": 6208489,
+  "usage_unknown_attempts": 0,
+  "latency_p50_ms": 2420,
+  "latency_p95_ms": 4460,
+  "nl_minimum_pass": false,
+  "product_gates": "not_assessed",
+  "run_id": "214fba09-c781-43e6-94aa-bec437f305b2",
+  "run_fingerprint": "80f9a9a1e7106ae84dd3797d2ca45f825a3f3eef4a2623d8ac3083e400e5f11b",
+  "catalog_hash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "evaluation_scope": "frozen_stage",
+  "frozen_stage_coverage_verified": true,
+  "stage_ready": false
+}
