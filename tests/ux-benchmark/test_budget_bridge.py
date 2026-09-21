@@ -36,7 +36,7 @@ class BridgeTests(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'AUTHORIZED_CALL_LIMIT'):self.call('reserve')
   state=json.loads(self.ledger.read_text());self.assertEqual(len(state['attempts']),18);self.assertTrue(all(a['provider_called'] is True for a in state['attempts'].values()))
  def test_future_call_reserve_and_cost_stop_before_attempt(self):
-  for key,value,reason in [('mandatory_reserve',{'future':2400},'CALL_RESERVE_STOP'),('mandatory_cost_reserve_usd',13,'COST_SOFT_STOP')]:
+  for key,value,reason in [('mandatory_reserve',{'future':2400},'CALL_RESERVE_STOP'),('mandatory_cost_reserve_usd',18,'COST_SOFT_STOP')]:
    self.cfg['run_id']=key;self.cfg[key]=value;self.write();self.begin()
    with self.assertRaisesRegex(Exception,reason):self.call('reserve')
    self.cfg['mandatory_reserve']={'future':10};self.assertEqual(len(json.loads(self.ledger.read_text())['attempts']),0)

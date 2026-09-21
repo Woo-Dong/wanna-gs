@@ -102,7 +102,46 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(budget.snapshot()['accounted_calls_upper_bound'],20)
     def test_cost_reserve_stop_and_provider_false_release(self):
         budget=r.Budget(self.path/'ledger');aid=budget.reserve('r',0);budget.finish(aid,{'status':'failed','provider_called':False});self.assertEqual(budget.snapshot()['accounted_calls_upper_bound'],20)
-        with self.assertRaisesRegex(r.RunnerError,'COST_SOFT_STOP'):budget.reserve('r',0,14)
+        with self.assertRaisesRegex(r.RunnerError,'COST_SOFT_STOP'):budget.reserve('r',0,19)
+    def test_user_approved_twenty_dollar_boundary_and_just_below(self):
+        self.assertEqual(r.GOAL_API_COST_SOFT_LIMIT_USD,20.0)
+        for name,future in [('equal',17.45),('above',17.46)]:
+            budget=r.Budget(self.path/name,prior_reserve=50)
+            with self.assertRaisesRegex(r.RunnerError,'COST_SOFT_STOP'):budget.reserve('r',0,future)
+            self.assertEqual(budget.snapshot()['accounted_calls_upper_bound'],50)
+        budget=r.Budget(self.path/'below',prior_reserve=50)
+        aid=budget.reserve('r',0,17.449)
+        self.assertEqual(r.load_json(budget.path)['attempts'][aid]['status'],'pending')
+        self.assertAlmostEqual(budget.snapshot()['cost_upper_estimate_usd'],2.55)
+    def test_old_fifteen_boundary_allowed_without_rewriting_history(self):
+        budget=r.Budget(self.path/'history',prior_reserve=50)
+        history={'run_id':'old-failed-run','status':'failed','provider_called':True,'cost':12.4}
+        unknown={'run_id':'old-timeout','status':'unknown','provider_called':None,'cost':None}
+        with budget.locked() as state:
+            state['attempts'].update(old=history,unknown=unknown)
+        before=r.load_json(budget.path)
+        self.assertAlmostEqual(budget.snapshot()['cost_upper_estimate_usd'],14.95)
+        aid=budget.reserve('new-run',0)
+        after=r.load_json(budget.path)
+        self.assertAlmostEqual(budget.snapshot()['cost_upper_estimate_usd'],15.0)
+        self.assertEqual(after['attempts']['old'],before['attempts']['old'])
+        self.assertEqual(after['attempts']['unknown'],before['attempts']['unknown'])
+        for key in set(before)-{'attempts'}:self.assertEqual(after[key],before[key])
+        self.assertIsNone(after['attempts'][aid]['provider_called'])
+        self.assertIsNone(after['attempts'][aid]['cost'])
+    def test_future_cost_reserve_still_counts_every_pending_attempt(self):
+        budget=r.Budget(self.path/'future',prior_reserve=50)
+        budget.reserve('r',0,17.4)  # 2.50 + .05 + 17.40 < 20.
+        with self.assertRaisesRegex(r.RunnerError,'COST_SOFT_STOP'):budget.reserve('r',0,17.4)
+        self.assertEqual(len(r.load_json(budget.path)['attempts']),1)
+    def test_fifty_prior_call_reserve_and_2400_limit_unchanged(self):
+        budget=r.Budget(self.path/'calls',prior_reserve=50)
+        budget.reserve('r',2349)
+        with self.assertRaisesRegex(r.RunnerError,'CALL_RESERVE_STOP'):budget.reserve('r',2349)
+        snapshot=budget.snapshot()
+        self.assertEqual(snapshot['accounted_calls_upper_bound'],51)
+        self.assertEqual(snapshot['known_provider_calls'],0)
+        self.assertEqual(snapshot['unknown_provider_calls'],1)
     def test_holdout_claim_is_once_per_dataset(self):
         b=r.Budget(self.path/'ledger');b.claim_holdout('d','r1');b.claim_holdout('d','r1')
         with self.assertRaisesRegex(r.RunnerError,'HOLDOUT_ALREADY'):b.claim_holdout('d','r2')

@@ -22,6 +22,9 @@ sys.path.insert(0, str(ROOT / 'evals'))
 from adapter import product_response, merchant_response
 from scorer import fingerprint, read_jsonl, validate_dataset
 VERSION = 'E02-v1'
+# User explicitly approved raising the goal API evaluation estimate from $15 to
+# $20 on 2026-09-21; this is not credit purchase authority or a provider hard cap.
+GOAL_API_COST_SOFT_LIMIT_USD = 20.0
 REQUIRED_SOURCES = frozenset({'scripts/run_nl_eval.py','evals/adapter.py','evals/scorer.py','evals/taxonomy.json','evals/manifest.json','evals/validation.jsonl','evals/validation-coverage.json','src/contracts/assistant.ts','data/seed/products.json','package.json','package-lock.json','app/api/product-assistant/route.ts','app/api/merchant-assistant/route.ts'} | {str(p.relative_to(ROOT)) for p in (ROOT/'src/server').glob('*.ts')})
 CANDIDATE_KEYS = ('mode','model','prompt_version','prompt_hash','catalog_version','catalog_hash','source_sha','api_version','source_files')
 ENVELOPE = ('sessionId','generation','actorId','roleEpoch','requestId','conversationId','inputRevision','catalogHash')
@@ -127,7 +130,7 @@ class Budget:
         with self.locked() as data:
             totals=self.totals(data)
             if totals['accounted_calls_upper_bound']+1+mandatory_reserve>2400: raise RunnerError('CALL_RESERVE_STOP')
-            if totals['cost_upper_estimate_usd']+self.unknown_cost+mandatory_cost_reserve>=15: raise RunnerError('COST_SOFT_STOP')
+            if totals['cost_upper_estimate_usd']+self.unknown_cost+mandatory_cost_reserve>=GOAL_API_COST_SOFT_LIMIT_USD: raise RunnerError('COST_SOFT_STOP')
             aid=str(uuid.uuid4());data['attempts'][aid]={'run_id':run_id,'status':'pending','provider_called':None,'cost':None}
         return aid
     def finish(self, aid, observation):
