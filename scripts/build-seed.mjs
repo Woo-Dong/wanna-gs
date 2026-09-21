@@ -1,0 +1,18 @@
+import initSqlJs from 'sql.js';
+import { createHash } from 'node:crypto';
+import { mkdir, writeFile, copyFile } from 'node:fs/promises';
+const SQL = await initSqlJs();
+const db = new SQL.Database();
+db.run(`PRAGMA foreign_keys=ON;
+ CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+ INSERT INTO metadata VALUES ('schema','probe-v1'),('seed','20260921-v1');
+ CREATE TABLE actors(id TEXT PRIMARY KEY);
+ INSERT INTO actors VALUES ('customer'),('merchant');
+ CREATE TABLE notes(id TEXT PRIMARY KEY, actor_id TEXT NOT NULL REFERENCES actors(id), body TEXT NOT NULL CHECK(length(body) BETWEEN 1 AND 80));`);
+const bytes=db.export(); db.close();
+const dir = new URL('../public/probe/',import.meta.url); await mkdir(dir,{recursive:true});
+await writeFile(new URL('seed.sqlite',dir),bytes);
+const hash=createHash('sha256').update(bytes).digest('hex');
+await writeFile(new URL('manifest.json',dir), JSON.stringify({schema:'probe-v1',seed:'20260921-v1',sqljs:'1.14.2',seedSha256:hash,namespace:'wanna-gs-preflight-20260921'},null,2)+'\n');
+for(const file of ['sql-wasm.js','sql-wasm.wasm']) await copyFile(new URL('../node_modules/sql.js/dist/'+file,import.meta.url),new URL(file,dir));
+console.log(JSON.stringify({event:'seed-built',schema:'probe-v1',seed:'20260921-v1',seedSha256:hash}));
