@@ -52,3 +52,34 @@ scorer의 필드명 outbound_attempts는 provider_called=True인 attempt 합계�
 - source fingerprint `89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c` 직접 재계산. context-v6 및29개 입력hash 다시 일치. 두 quality review JSON 발급 완료.
 - root/domain 기구 파일12개 byte-for-byte 비교 일치. Python6필수suite 실제 수집142개(scripts18/gates18/evals32/eval-runner23/UX7/release44), UX Node test2mts+1mjs 존재 및 source fingerprint 포함 확인. 이 단계에서는 수집 확인이며 전체 gate 실행은 root가 후속 수행한다.
 - TS noEmit+allowImportingTsExtensions 조합과 typecheck/build required check, CI npm ci→npm run gate→always artifacts/raw 수집 경로를 확인했다. 본 ACK로 실제 모델/G5/G6 검증 범위가 늘어나지 않는다.
+
+## Optional Next config 및 실제 B0 공개 집계 — 독립 delta PASS
+
+조정자의 좁은 정정 배정에 따라 검토했다. 기구/실제baseline 공개 증거 정합성 범위이며 G5 제품 PASS나 UX 예외를 만들지 않았다. 실제모델0/장부쓰기0/보호holdout 및 생성기열람0, 소스수정0. 이전48회 UX 실패분모 및 비교 NOT_READY는 그대로다.
+
+### 설정 파일 존재 가정 정정
+
+- git diff로 확인한 checker의 유일한 동작변경은 next.config.{mjs,js,ts} 중 하나가 반드시 있어야 한다는 require1줄 삭제다. 이 앱은 해당파일이 없는 기본설정으로 실행되므로 이전기구가 과도한 파일존재를 가정했다. RUNTIME_CONFIGS의 존재하는 파일 hash 수집과 필수 runtime anchor들은 그대로다.
+- 독립 unit suite48/48 PASS. 추가로 reviewer 별도임시package에서 설정 없음 정상1 + mjs/js/ts별 추가/변경/삭제9 =10개 반례를 직접 실행했다. 없음은PASS, 실제파일집합/내용이 변한9개는RUNTIME_SET_OR_HASH_MISMATCH로 모두 거절됐다.
+- 실제root runtime_files를 호출해43파일을 수집했고 next.config를 만들지 않았다. 기본CLI는exit1/NOT_READY_MANIFEST_MISSING을 유지했다. 초기 검토의 기본CLI 검사는 manifest 없음에서 먼저 거절되어 이 runtime 존재 가정까지 실행하지 못했던 범위였으며, 이번 실제runtime 검사로 그 공백을 닫았다.
+
+### 공개 B0 bundle 검토
+
+- quality/release/evidence/baseline의 report/execution/binding/bundle JSON 및 EXPORT.md를 읽었다. 실제정식release manifest는 미생성이다. 공개 bundle을 Checker.nl(best=False)로 독립 실행해 형식/역사적binding/집계정합성PASS를 확인했다.
+- 원래 report에서 case_results만 제거한 결과가 공개report와 정확일치, 원래 n02-baseline-config.json과 공개binding.config도 정확일치. 실행출처8개 파일의 바이트hash를 직접 대조했다. canonical binding fingerprint는 원래80f9a9a1e7106ae84dd3797d2ca45f825a3f3eef4a2623d8ac3083e400e5f11b 그대로다.
+- original checkpoint에서336case/367turn/367unique attempt를 독립집계했다. provider true367/false0/unknown0, HTTP성공316/실패51, 알려진token6,208,489/비용$1.659112, pending0을 공개집계와 대조했다. 공개baseline336의 planned user turn368 중 미시도1개를 유지한다.
+- 품질227/336 PASS·109FAIL, incomplete51, stage_ready=false/nl_minimum_pass=false가 그대로다. 처리complete와품질합격을 구별한다.
+- checker에 private 경로 접근을 거절하는 reviewer guard를 걸고 실제 baseline.nl을 실행했다. 읽은 경로는 공개report/execution/binding3개뿐이었다. 역사적 private driver/proof **문자열**은 hash 재현을 위해 보존하지만 따라 열지 않는다. best/current에서private파일접근을 허용하도록 기준을 바꾸지 않았다.
+- 모든 공개JSON이 sanitizer를 통과했고 원문case_results/질문/정답/응답·비밀값을 새로내보내지 않았다. 공개원본hash/경로메타데이터와 비밀파일내용은 구분한다. 집계report는원본에서case_results만제거되어 원문본문이 없는 것을 직접대조했다. sanitizer는일반DLP보장이 아니므로 이 검토는 실제export내용대조를 포함한다.
+- 시작/종료시각은원본run.lock birthtime/summary mtime의근사치로명시됐고, provider시간증명으로격상하지않는다. historical 전체runtime hash는null이며 현재best전체source라고주장하지않는다.
+
+### delta 동결
+- `scripts/check_release_evidence.py`: `47c99b09f4debdf4476c81e72fa7a1d155ff339fd14180040ebf01c5d6056add`
+- `tests/release/test_release_evidence.py`: `40eec360c26c95e8b7b9d064a838a5eaa22395e6ac3d1c299bec4ddae70b8315`
+- `tests/release/README.md`: `081280f55281871a1c81bfe468508c341d72f42a1968bd30de1ab2081527e158`
+- baseline/report.json: `dcb9485f6c70292148575463d35a245d08f72195fb7518e8f9f35f336c9ca272`
+- baseline/execution.json: `4609589d0a06107efad6f5eafaabbb85e18a5de6cd659c924c942eb956fef0cb`
+- baseline/binding.json: `1817a4d2692c7c72e27624ce7620406b953d875aef3d0c89a69cf63953421300`
+- baseline/bundle.json: `7c60027b42722809306fcd51e17962fddf9ea270b064f85859eb425a7ef610ca`
+
+검토시각: 2026-09-21T10:51:03.747319+00:00

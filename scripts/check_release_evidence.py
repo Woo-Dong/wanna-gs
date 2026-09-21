@@ -77,7 +77,6 @@ def relative(root, name, evidence=False):
 
 def runtime_files(root):
     for anchor in ANCHORS: relative(root,anchor)
-    require(any((root/name).is_file() for name in ('next.config.mjs','next.config.js','next.config.ts')),'NEXT_CONFIG_REQUIRED')
     paths=set(name for name in RUNTIME_CONFIGS if (root/name).is_file())
     for tree in RUNTIME_TREES:
         folder=root/tree

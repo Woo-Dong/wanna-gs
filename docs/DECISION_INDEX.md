@@ -1,16 +1,14 @@
 # 현재 유효한 결정과 변경 추적
 
-최초 구현 기준. 사용자 정의는 02번과 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 위임 정책 본문은 개별 ADR이다. 이 인덱스는 현재 유효한 정책을 빠르게 찾아 다음 결정 전에 반드시 확인하기 위한 것이다. 앱 구현은 아직 시작하지 않았다. ADR-001은 개발 의존성 설계에 채택됐으며 실행 검증은 남아 있다.
+최초 구현 기준. 사용자 정의는 02번과 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 위임 정책 본문은 개별 ADR이다. 이 인덱스는 현재 유효한 정책을 빠르게 찾아 다음 결정 전에 반드시 확인하기 위한 것이다. 앱 구현·통합과 단계별 CI/Preview 검증을 진행했다. 현재 실행 판정은 [PROGRESS](PROGRESS.md)와 각 보고서에서 확인하며, 채택된 정책이 최종 G5/G6 통과를 뜻하지 않는다.
 
 ## 원장
 
 | 결정 ID | 구분 | 상태 | 유효 범위/기준 revision | 관련 CORE·상위 결정 | 대체/충돌 관계 | 구현·테스트·PR | 담당 |
 |---|---|---|---|---|---|---|---|
-| [ADR-001](decisions/ADR-001-minimal-seed-development.md) | user-delegated 운영 | adopted, 실행 미검증 | 2026-09-21 설계·후속 구현 | CORE-14/17/18/22, D-21/25/26/28/30 | 기존 D02→D03·D05→F00 대체, 최종 요구 유지 | WORKPLAN DAG·독립 검토, 앱 테스트/PR 미실행 | 조정자·DBA |
-
-| [ADR-002](decisions/ADR-002-demo-domain-policies.md) | user-delegated 제품 | adopted, 실행 미검증 | 최초 앱 구현 후보에만 한정 | CORE-01~26, D-21/41~45 | 기존 제안 O/R의 구체화; 확정 요구 대체 없음 | 구현/검증 미실행 | coordinator |
-
-| [ADR-003](decisions/ADR-003-evaluation-and-demo-boundaries.md) | user-delegated 평가/시연 | adopted, 실행 미검증 | 최초 제품 후보 | CORE-14/17~26, D-21/27/29 | 결과 전 기준 고정 | baseline/QA 미실행 | coordinator |
+| [ADR-001](decisions/ADR-001-minimal-seed-development.md) | user-delegated 운영 | adopted, seed/통합 실행됨 | 2026-09-21 설계·후속 구현 | CORE-14/17/18/22, D-21/25/26/28/30 | 기존 D02→D03·D05→F00 대체, 최종 요구 유지 | [실행 DAG](execution/run-20260921/plan.md)·PR2~8; 최종 G5/G6 미완료 | 조정자·DBA |
+| [ADR-002](decisions/ADR-002-demo-domain-policies.md) | user-delegated 제품 | adopted, I01 SQL/브라우저 검증 | 최초 앱 구현 후보에만 한정 | CORE-01~26, D-21/41~45 | 기존 제안 O/R의 구체화; 확정 요구 대체 없음 | [독립 SQL](execution/run-20260921/d02-independent.md)·I01 역할 QA, 최종 G5/G6 미완료 | coordinator |
+| [ADR-003](decisions/ADR-003-evaluation-and-demo-boundaries.md) | user-delegated 평가/시연 | adopted, 측정 실행/미달 보존 | 최초 제품 후보 | CORE-14/17~26, D-21/27/29 | 결과 전 기준 고정 | [B0 NL 실패](execution/run-20260921/n02-baseline-report.md)·[UX 미완료](execution/run-20260921/ux-baseline-recovery-results.md), C1/C2 기각, C3 개발 평가 중 | coordinator |
 
 실행 중 위 표에 실제 항목을 추가한다. 빈 양식은 검토·채택 증거가 아니다. 사용자 결정 D-01~최신 항목은 [02번](02-decisions-and-open-questions.md)에서 읽고, 새 위임 ADR을 이 표에 연결한다.
 
@@ -63,3 +61,7 @@ D-45: 앱 LLM은 OpenAI API 직접 호출이다. 사용자 키를 루트 `.env.l
 ## ADR-005 — 지속 수량 상한
 
 [ADR-005](decisions/ADR-005-persistent-quantity-cap.md)는 제품/상태 두 독립 검토 후 위임 채택했다. SKU별 검토 한 번의 수량 상한과 명시 해제, 새 검토 이벤트와 재전송을 구분한다. 일/주 누적 상한으로 해석하지 않으며 정책 변경은 경영주 확인을 요구한다. 사용량을 알 수 없는 모델 실패는 null로 보존한다. 구현·독립 재검증 증거는 I01에서 연결한다.
+
+## ADR-006 — UX 중단 측정의 출처 보존 복구
+
+[ADR-006](decisions/ADR-006-ux-baseline-recovery.md)은 N02 B0 UX 전체24의 사전 지정 재측정 한 번만 위임 채택했다. 최초 실패/미실행 분모와 누적48을 보존하며 기존 UX/자연어/출시 기준은 불변이다. 제품·상태 두 독립 검토 후 추가 재측정도11PASS/1FAIL/12미실행으로 중단했다. [원본·누적 분모](execution/run-20260921/ux-baseline-recovery-results.md)를 보존하며 전체 비교 NOT_READY다. 추가 자동 실행은 허용하지 않는다.
