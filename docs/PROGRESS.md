@@ -1,6 +1,6 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- task: I01 앱 통합 완료, N02 기준선 품질 FAIL, C1/C2 기각, C3 개발 평가 중. root `codex/n04-execution-records`, 통합 `b6fe33d`. 최종 G5/G6 완료 아님.
+- task: I01 앱 통합 완료, N02 기준선 품질 FAIL, C1/C2 기각, C3 개발 평가29/30으로 미달, C4 제한 복구 준비 중. root `codex/n04-execution-records`, 통합 `f2bcd94`. 최종 G5/G6 완료 아님.
 - [PR #4](https://github.com/Woo-Dong/wanna-gs/pull/4): head `10c00723d0b64ea47a06dcbd00e2b671e7c62daf`, CI35587047192/35587057239 PASS. 전체 로컬 gate fingerprint `6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3` PASS. 통합 merge CI35587268459 PASS.
 - [PR #5](https://github.com/Woo-Dong/wanna-gs/pull/5) 검증기구 head41a5c87, CI35589234402/35589257316 PASS, mergea8b5bb9/CI35589881815 PASS. 로컬 Python142+Node63/type/build PASS. C1 별도 `2026-ralphton-nl-candidate` 워크트리에서 상품연결/경영주delta 개선 기술검토 PASS, 실제 모델 아직0.
 - I01 Preview `dpl_73afciHs7CadEfeNSzpzz86sRmXz`, source10c0072, target=null READY. [배포](execution/run-20260921/i01-preview.json)·[실제 두 역할 브라우저](execution/run-20260921/i01-preview-browser.json): 고객 자연어·명시 동의→경영주 자연어 현재 예산 수정·묶음 승인→공급/모의 결제/입고48h→픽업/refresh PASS. 최초 own harness의 잘못된 scope 기대값 실패를 private 원본으로 보존했고 수정 후 2 live 호출 PASS(총4호출).
@@ -13,6 +13,8 @@
 - [PR #6](https://github.com/Woo-Dong/wanna-gs/pull/6): C1 기술후보 head3984a85, gate35590170703/35590191238 PASS, merge12b3d3f. Preview dpl_HrbM7qiBR59ooDa4nhnSQBmjCmQT/source3984a85 READY. Python145+Node70/type/build 및 두 독립 기술 검토 PASS. 실제 C1 dev30은22PASS/8FAIL(기존17PASS 대비 개선12/회귀7),33호출/$0.1744575. 5건 출력상한 도달 중3건 서버로그 확인, 회귀로 기각·validation0. C2는 lossless table/짧은참조/출력3200 후보를 별도워크트리에서 기술검토 중이다. [평가](execution/run-20260921/n02-c1-evaluation.md).
 - [PR #7](https://github.com/Woo-Dong/wanna-gs/pull/7): C2 기술후보 heade056fce8, gate35591017173/35591035300 PASS, merge97bd211. Preview dpl_ASemeiWS9zk1ks44qcizKBhxQ8He/sourcee056fce8 READY. Python145+Node75/type/build, 독립21+9검사 PASS. C2 dev30=25PASS/5FAIL(불완전3),34호출/$0.13242425, B0정상4회귀로기각·validation/holdout0. [평가](execution/run-20260921/n03-c2-evaluation.md).
 - [PR #8](https://github.com/Woo-Dong/wanna-gs/pull/8): C3 기술후보 head55f92fe, CI35592142900/35592170035 및 merge b6fe33d/CI35592376795 PASS. Python145+Node79/type/build, 독립 SDK mock/비용 검사 PASS. [Preview](execution/run-20260921/c3-preview.json) dpl_EK3hT5PniMZihubk9Z3csF7VUxGx READY. 해당 Preview branch에만 gpt-4.1-mini-2025-04-14를 설정하고 고정 dev30 실제 평가 중이다. 기존 전역/Production 모델·키는 유지한다. 시작 직전 장부 upper501/$4.5431865, 결과는 후속 보고서에 기록한다.
+- C3 dev30 최종29PASS/1FAIL, 응답오류0, B0 대비 개선12/회귀0. 경영주 명확8/9(88.89%)로 기준미달·validation/holdout0. 실제34호출/$0.1604032, 장부upper535/$4.7035897. [독립 평가](execution/run-20260921/n04-c3-evaluation.md). 상품 한 개 제외를 category전체로 넓힌 오류만 수정하는 C4를 준비한다.
+- [PR #9](https://github.com/Woo-Dong/wanna-gs/pull/9) 기록/검증기 통합: headc2f4c91, CI35592911345/35592931356 PASS, mergef2bcd94. Python149+Node79/type/build 및 독립 리뷰 PASS. B0 실패/UX48분모/보호 holdout/최종NOT_READY를 유지한다.
 - 다음: 제한 후보 실험·UX비교·보호84→G5 두 관점 정책/운영 감사→main release/CI→실제 제출 URL G6.
 
 ---

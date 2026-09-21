@@ -1,6 +1,6 @@
 {
-  "phase": "quality-evidence-integration",
-  "scope": "Preserve B0/C1/C2 failures, ADR006 one permitted UX recovery and its failure, sanitized public B0 evidence, execution runbook, and support legitimate Next default configuration without weakening release evidence. Actual G5/G6 remain NOT_READY.",
+  "phase": "nl-candidate",
+  "scope": "C4 one-factor merchant prompt correction preserves explicit SKU/category/mixed exclusions and referential policy copy. C3 dev29/30 insufficient; actual candidate evaluation and final G5/G6 pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -71,7 +71,8 @@
     "docs/execution/run-20260921/context-n04-v9.json",
     "docs/decisions/ADR-006-ux-baseline-recovery.md",
     "docs/execution/run-20260921/context-n04-v10.json",
-    "quality/release/evidence/baseline/*"
+    "quality/release/evidence/baseline/*",
+    "docs/execution/run-20260921/context-n05-v11.json"
   ],
   "checks": [
     {
@@ -151,21 +152,18 @@
   ],
   "tasks": [
     {
-      "id": "N04-RECORDS",
+      "id": "N05-C4-SERVER",
       "implementers": [
-        "root",
-        "preflight_builder"
+        "root"
       ],
       "requirements": [
-        "CORE-13",
-        "CORE-15",
-        "CORE-16",
-        "CORE-17",
-        "CORE-18",
+        "CORE-05",
+        "CORE-06",
         "CORE-21",
-        "CORE-23"
+        "CORE-23",
+        "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n04-v10.json"
+  "context_manifest": "docs/execution/run-20260921/context-n05-v11.json"
 }
