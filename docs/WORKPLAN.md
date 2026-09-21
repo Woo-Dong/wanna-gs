@@ -1,6 +1,6 @@
 # 실행 Workplan
 
-상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-n08-v16.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
+상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-merchant-cap-v17.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
 
 | 실행 묶음 | 상태 | 실제 증거·남은 의존성 |
 |---|---|---|
@@ -8,7 +8,7 @@
 | D01~D05·자료/seed/eval | 완료 | 248상품·9점포·실제 SQLite, data-independent.md 및 eval-independent.md; 보호84 내용은 평가자만 보유 |
 | F00/FS·모델 서버 | 통합 완료 | PR #3, 통합 e612cd9 CI PASS, n01-preview-smoke.json 실제 두 역할 호출 |
 | FC/FM/FO/FR·I01/I02·U01/U02 | I01 통합·Preview 완료 | PR4/CI, i01-preview-browser.json 및 고객/경영주 독립 SQLite/live QA; 최종 후보 역할 QA는 별도 필수 |
-| N01~N03·자연어 | C7 dev PASS·별도 adapter P1 복구 | C5/C6 실패 보존. D47 C7 dev30/30·회귀0 PASS(PR15 source63614f9), 전체 validation/새holdout0. 기존 merchant adapter P1은 별도 복구 후 새runtime에서 후속 검증. 출시 best 없음 |
+| N01~N03·자연어 | C7 validation FAIL·D47 한도 종료 | C5/C6 실패 보존. C7 dev30/30 후 validation01 83/84·incomplete1 FAIL. 상한adapter 별도수리 PR16/CI·198Python/111Node PASS. validation02/신규holdout0·출시best없음 |
 | UX v3·편의성 비교 | 기구 독립 PASS·실제 미실행 | Python189/Node92/type/build 및 독립SQLite fixture56/56 PASS; 옛48 실패보존. 최종 best 후 동일8×7 양 arm·best56/56→비교, 실제 새 실행0 |
 | Q01/Q02·최종 정책/운영 | 준비 | 최종 live 두 역할 QA는 적격 NL best 후 진행. 정책 두 관점·운영 감사는 현재 runtime와 최종 증거로 재확인 |
 | G5·L01~L03 | 미실행 | 자연어/UX 기준 충족→두 관점 최종 정책 검토→릴리스 PR/CI→Production/G6 순서 유지 |

@@ -20,4 +20,6 @@ Node22와 Python3.10 이상이 필요하다. 이 Mac의 system Python3.9는 glob
 
 현재 후보·예산·미완료 게이트·서버 종료와 보존 경로는 [재개 체크포인트](resume-checkpoint.md)를 따른다. Preview READY 및 기술 CI는 실제 모델/최종 제출 통과가 아니다.
 
-현재 context는 `context-n07-v15.json`이다. D46 budget20·ADR007 UX 기구는 검증됐지만 C5 holdout과 C6 dev가 실패했다. 역할별6개 후보 한도 도달로 추가 후보를 자동 시작하지 않는다. 실제 새 UX/최종 QA/G5/G6는 미실행이다. 모든 후보 소스·원본 B0·실패와 미실행 기록을 유지한다.
+현재 context는 `context-merchant-cap-v17.json`이다. D46 budget20·ADR007 UX 기구는 검증됐지만 C5 holdout·C6 dev·D47 C7 validation이 실패했다. 승인된 고객 후보 한 번의 추가를 사용했으며 추가 후보를 자동 시작하지 않는다. 실제 새 UX/최종 QA/G5/G6는 미실행이다. 모든 후보 소스·원본 B0·실패와 미실행 기록을 유지한다.
+
+최신: D47 C7 validation83/84·incomplete1 FAIL. 추가자동평가/후보/배포0, 준비서버종료·파일/빌드/로그보존. PR16 수량상한기술수리PASS와자연어FAIL을구분한다. 최신source·예산·재개조건은 PROGRESS/resume-checkpoint에기록한다.

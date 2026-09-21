@@ -1,3 +1,19 @@
+# 최신 재개 포인터 — D47 C7 validation 실패
+
+C7 validation01은83/84·incomplete1로 FAIL이다. source88ae1a431f8691790069487dc70f2519698bd122 / PR16·CI PASS / integration5e211aad0c72e4c940c3d89f62c955ab16bfbfdf. [현재 진행](../../PROGRESS.md)과 [실제 평가](n09-c7-validation-evaluation.md)를 우선한다. 기술 게이트와 역할별 정확도 충족이 미완료 응답0 조건을 대신하지 않는다.
+
+D47의 고객 추가1개를 사용했고 자동추가 금지에 따라 validation02·신규보호84·UX·최종역할QA·G5/G6는 미실행이다. 현재 출시 가능한 best가 없다. $20/2400 여유만으로 후보 수를 늘리거나 이름을 바꿔 재시작하지 않는다. 후속 후보/평가에는 새 사용자 지시와 사전 고정 범위가 필요하다. 원래GOAL은 미달이며 완료나 임의paused 상태로 바꾸지 않는다.
+
+누적upper1224/$7.9577773·known1174/$5.4077773+prior50/$2.50+기존unknown$.05. private n09-c7-validation-01/분석/driver/config/proof/binding 및 기존 C5/C6 실패와 C7dev PASS 및 모든 비용을 보존한다. 새 protected84는 미실행이며 evaluator만 접근한다. 기존 holdout 재호출 금지다.
+
+C7과별개로 발견한merchant capP1은복구·독립SQL검증·PR16/CI통합완료. domain/모델/정책은불변이며현source runtime47 hash4de25bb543fb1167df644a1da2859184462fc0ea371a89e6f933079b13cab64e다. 준비한local B0/C5/C7 프로세스는cwd확인후종료했고워크스페이스/build/log를유지한다. 재개시새PID/build/실제runtime/model을검사해시작해야하며과거server_proof를재사용하지않는다.
+
+경영주 QA 준비물 MIP01은 수정 후 [독립 delta 검토](c7-merchant-qa-instrumentation.md) PASS이며 최초 FAIL도 보존한다. 이는 실제 역할 QA가 아니다. 최종 기록 문서의 수치와 실패/미실행 범위는 독립 평가자가 원본과 대조했다.
+
+아래는 C6 이전 및 D46/D47 승인 시점의 이력이다. 현재 상태가 아니다.
+
+---
+
 **D47 최신 승인:** 사용자 실제 답변 ‘고객 후보 1개 추가 승인’으로 고객7/경영주6·총13 한정 복구를 실행한다. [C7 계약](c7-customer-contract.md)과 context-n08-v16, root codex/n08-customer-recovery를 따른다. 아래 ‘미승인’은 질문 전 상태의 이력이며 이제 이 추가 한 후보만 승인됐다. 최소기준·예산·실패·최종 검증은 그대로다.
 
 # 현재 재개 체크포인트 — C6 실패와 한도 도달

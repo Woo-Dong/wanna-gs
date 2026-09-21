@@ -1,14 +1,16 @@
-# 2026-09-21 goal 실행 중 — 현재 포인터
+# 2026-09-21 goal 미완료 — C7 검증 실패·자동 추가 종료
 
-- **C7 선별 dev30/30 PASS·회귀0. 출시 적격 best는 아직 없음.** D47 사용자 승인에 따른 고객7/경영주6·총13의 마지막 추가 후보이며 prompt만 수정했다. [독립 실제 평가](execution/run-20260921/n08-c7-dev-evaluation.md): source63614f9, 실제34calls/$0.1634884, retry/새unknown0. 전체 validation/새 holdout/UX/G5/G6 미실행.
-- **기존 merchant adapter P1 별도 복구 중.** 보류상품에 예산+상한2를 수정해도 상한이 누락돼5개발주되는 [독립 반례](execution/run-20260921/c7-policy-state-audit.md)를 재현했다. 원래 GOAL/AGENTS 필수결함복구권한과 ADR005에 따라 격리 worktree에서 수정하며 D47을 경영주 추가 NL후보 권한으로 쓰지 않는다. 모델/프롬프트/공통서버/평가 source32는 C7과 불변이다.
-- 수리 자체검사: 원본 승인5≠2 FAIL을 보존하고 같은 기대2 PASS, domain+merchant46/typecheck PASS. 독립 재검증·전체 gate·별도 PR/CI를 거친 뒤 새 runtime/source/Preview에서 동일 validation84 두 번을 실행한다. 원래 C7 dev결과를 새runtime 결과로 바꿔쓰지 않는다.
-- [PR15](https://github.com/Woo-Dong/wanna-gs/pull/15) source63614f9, CI35604047000/35604067120 PASS, merge73a3648/CI35604306456 PASS. 기술게이트 Python198+Node104/type/build·독립서버41/SDKmock2 PASS. [Preview](execution/run-20260921/c7-preview.json) dpl_3LzAGaofVNX7DSMUQ1E7KwKe1WH8 READY, targetnull. gpt-4.1-mini-2025-04-14/customer-identity-v7, runtime47 2f296cac...c5d94f. 보호 검증 환경이며 최종 제출 URL이 아니다.
-- 과거 C5 holdout82/84 FAIL 및 C6 dev29/30·고객불확실6/7·정상회귀1 FAIL을 보존한다. 기존 protected84 재호출 금지, 신규 독립84 데이터 revision03 PASS/모델NOT_RUN. 합격선·분모·실패/비용을 변경하지 않는다.
-- 공유 장부 upper1132회/$7.5237925 = known1082/$4.9737925 + prior50/$2.50 + 과거unknownusage$.05. 보수 추정이며 청구 확정값이 아니다. D46 $20/2400과 필수예약/STOP·구매/자동충전없음 유지. D47 추가후보 실패시 자동추가0.
-- ADR007 UX-v3 장치 독립PASS, 새8×7 양arm 실제0. 옛48분모(13PASS/2FAIL/33미실행) 유지. 고객 QA 준비장치의 독립모의검사 PASS는 실제고객QA가 아니다. 최신두역할QA·정책/운영 최종감사·G5·main/Production/G6 미완료.
-- root codex/n08-results, 별도수리 codex/merchant-cap-repair, 통합73a3648, main3ef1ee3. 모든 worktree/private/raw/원본/실패/세션로그 보존. C6/C7 runtime build는 준비만했으며 실제새UX서버미시작. [자원 장부](execution/run-20260921/resource-ledger.json).
-- 다음: 상한수리 독립검증→별도PR/CI/Preview→같은validation84×2→freeze/신규holdout최초1→UX/역할QA→두관점최종정책·운영/G5→main/Production→익명제출URL G6. 완료조건을 낮추지 않는다.
+- **현재 C7 전체 validation 첫 반복83/84 FAIL, 출시 적격 best 없음.** 고객 C04-validation-001의 HTTP502 INVALID_MODEL_RESPONSE/CANDIDATE_ACTION_CONTRACT 1건으로 incomplete1. 역할별40/40·19/20·15/15·9/9 정확도 기준은 충족했지만 완료/스키마오류0 조건을 위반해 nl_minimum_pass=false/stage_ready=false다. [독립 평가](execution/run-20260921/n09-c7-validation-evaluation.md).
+- D47 승인 고객7/경영주6·총13의 추가 후보를 사용했다. 다시 실패하면 자동 추가하지 않는 지시에 따라 validation02·새holdout·UX·현재후보 실제역할QA·추가모델호출0. 합격선·정답·실패분모·후보한도를 바꾸지 않는다. 추가 후보에는 새 사용자 지시가 필요하며 현재 목표를 완료/임의일시정지로 표시하지 않는다.
+- C7 dev30/30·회귀0 PASS는 원래 source63614f9의 선별 결과로 보존한다. validation은 별도 기존상한수리 포함source88ae1a4에서 수행했다. [dev 보고](execution/run-20260921/n08-c7-dev-evaluation.md). C5 holdout82/84 FAIL, C6 dev29/30 FAIL도 그대로 남는다.
+- **별도 경영주 adapter P1 복구 완료:** 보류상품 예산증액+상한2가5개발주로 이어지던 반례를 수정했다. [독립 SQL/수리 검토](execution/run-20260921/merchant-cap-repair-independent.md): 동일기대2 PASS·독립46검사+추가경로. 원래 GOAL/ADR005 결함복구이며 모델/정책/평가source32는 C7과 바이트동일. 이 기술PASS는 자연어FAIL을 면제하지 않는다.
+- [PR16](https://github.com/Woo-Dong/wanna-gs/pull/16) head88ae1a431f8691790069487dc70f2519698bd122, CI35605645794/35605662835 PASS, merge5e211aad/CI35605920549 PASS. 전체 Python198+Node111/type/build PASS, context-merchant-cap-v17/b5b15a4... 및 fp70dc053... 결속. PR15의 C7 prompt·기술CI와 실제dev 이력도 보존한다.
+- [최신 Preview](execution/run-20260921/c7-cap-preview.json) dpl_65MVJmqazoi8UT5GtfJvnH1rGJtK READY/targetnull, source88ae1a4, gpt-4.1-mini-2025-04-14/customer-identity-v7, runtime47 hash4de25bb5...cab64e. 보호된 검증 환경이며 최종 제출 URL이 아니다. main3ef1ee3 유지·제품 Production/G6 미실행.
+- C7 validation92calls/$0.4339848, retry0·새unknown0·pendingfalse. 누적 upper1224회/$7.9577773 = known1174/$5.4077773 + prior50/$2.50 + 이전unknownusage$.05. 계정청구 확정값이 아닌 보수추정. D46 $20/2400·기존예약/STOP·구매/자동충전없음 유지.
+- 새로운 보호84는 독립 데이터revision03 PASS지만 실제모델실행0/claim없음. 은퇴한 이전보호84 재호출금지. ADR007 새8×7 양arm 실제0, 옛48분모(13PASS/2FAIL/33미실행) 유지. QA 준비장치의 local/mock/SQL PASS는 실제두역할QA나 UX비교PASS가 아니다.
+- root codex/n09-validation-results, 통합5e211aad, 모든 worktree·private/raw·원본/실패/세션로그 보존. B0/C5/C7 준비서버만 실제cwd확인후 종료했고 파일·빌드는 유지한다. root 체크포인트 원본은 named Git stash로도 남겼으며 동일보고서는 PR16에 들어갔다. [자원 장부](execution/run-20260921/resource-ledger.json)·[재개 포인터](execution/run-20260921/resume-checkpoint.md).
+- 경영주 QA 준비물의 MIP01(실패 예약을 0개로 잘못 기대)도 수정했다. [독립 delta 검토](execution/run-20260921/c7-merchant-qa-instrumentation.md): 21개 재실행·실제 SQLite 상태/재시도·6개 변형 반례와 CLI 가드2 PASS. 최초 FAIL을 보존했으며 실제 브라우저/모델 QA는 미실행이다. 최종 기록을 독립 평가자가 원본 결과와 대조했고 앱 fingerprint·장부가 불변이다.
+- 다음: 실행기록 commit/push/PR/CI를 마친다. 같은 평가 재호출·추가후보·최종배포는 자동 진행하지 않는다. 향후 새 지시가 있으면 이 실패·예산·원래 기준을 유지하며 별도 한정 복구 범위를 정하고 실제원격/소스/장부를 대조한다.
 
 ## 이전 구현·실험 체크포인트
 
