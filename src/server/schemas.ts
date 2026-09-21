@@ -13,6 +13,10 @@ export const merchantOutputSchema=z.object({intent:z.enum(['modify','restore','c
 export function modelOutputSchema(role:'customer'|'merchant',ids:string[],categoryNames:string[]){
  if(!ids.length||!categoryNames.length)throw new Error('EMPTY_MODEL_CATALOG');
  const sku=z.enum(ids as [string,...string[]]);
- if(role==='customer')return customerOutputSchema.extend({candidates:z.array(customerOutputSchema.shape.candidates.element.extend({id:sku})).max(6)});
+ if(role==='customer'){
+  const candidate=customerOutputSchema.shape.candidates.element.extend({id:sku});
+  const grounded=z.union([candidate.extend({kind:z.literal('exact'),unknownConditions:z.array(z.string()).max(0)}),candidate.extend({kind:z.enum(['confirm','alternative'])})]);
+  return customerOutputSchema.extend({candidates:z.array(grounded).max(6)});
+ }
  return merchantOutputSchema.extend({constraints:constraintsSchema.extend({excludeProductIds:z.array(sku).max(60),excludeCategories:z.array(z.enum(categoryNames as [string,...string[]])).max(30)})});
 }

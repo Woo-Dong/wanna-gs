@@ -2,6 +2,7 @@ import type { z } from 'zod';
 import { customerInputSchema,customerOutputSchema,merchantInputSchema,merchantOutputSchema,modelOutputSchema } from './schemas';
 import { catalogContext,catalogHash,catalogVersion,categories,productById } from './catalog';
 import { retrieveCatalog } from './retrieval';
+import { packCatalog,packContext,packHistory,packIds,unpackResult,literalSkuReferences } from './packing';
 import { CUSTOMER_PROMPT,MERCHANT_PROMPT,PROMPT_VERSION } from './prompts';
 import { AssistantError,liveProvider,type ModelProvider } from './provider';
 import type { AssistantEnvelope,CustomerInterpretation,MerchantInterpretation,AssistantResponse } from '../contracts/assistant';
@@ -39,13 +40,14 @@ export async function interpret(role:'customer'|'merchant',body:unknown,provider
  const retrieved=retrieveCatalog(text,history);
  const suppliedCatalog=role==='customer'?retrieved.catalog:retrieved.fullCatalog;
  const matchingHints=role==='customer'?retrieved.matchingHints:{...retrieved.matchingHints,scope:'complete-catalog-ranked'};
- const input=JSON.stringify({catalog:suppliedCatalog,categories,matchingHints,context,history,text});
- const outputSchema=modelOutputSchema(role,suppliedCatalog.map(product=>product.id),categories);
+ const input=JSON.stringify({catalog:packCatalog(suppliedCatalog),literalSkuReferences:literalSkuReferences(text,history),categories,matchingHints:{...matchingHints,exactNameIds:packIds(matchingHints.exactNameIds)},context:packContext(context),history:packHistory(history),text});
+ const outputSchema=modelOutputSchema(role,packIds(suppliedCatalog.map(product=>product.id)),categories);
  const response=await provider(role==='customer'?CUSTOMER_PROMPT:MERCHANT_PROMPT,input,outputSchema,role+'_interpretation');
  let result:CustomerInterpretation|MerchantInterpretation;
  try{
   if(!outputSchema.safeParse(response.value).success)throw invalid('SUPPLIED_CATALOG_SCHEMA');
-  result=role==='customer'?verifyCustomer(response.value,'clarificationCount' in request?request.clarificationCount:0):verifyMerchant(response.value);
+  const unpacked=unpackResult(role,response.value);
+  result=role==='customer'?verifyCustomer(unpacked,'clarificationCount' in request?request.clarificationCount:0):verifyMerchant(unpacked);
   if(role==='merchant'&&'state' in request&&(result as MerchantInterpretation).intent==='restore'&&!request.state.previousConstraints)throw invalid();
  }catch(error){
   const safe=error instanceof AssistantError?error:invalid();safe.attempt={providerCalled:mode==='live',model:response.model,usage:response.usage,latencyMs:Date.now()-started,mode:'live'};throw safe;
