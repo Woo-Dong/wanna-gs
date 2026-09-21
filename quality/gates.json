@@ -1,6 +1,6 @@
 {
-  "phase": "quality-preparation",
-  "scope": "N02 UX measurement and release-evidence tooling. I01 app behavior remains covered by existing unit/integration evidence. Actual baseline/candidate/holdout, live UX comparison, G5 and G6 are pending.",
+  "phase": "nl-candidate",
+  "scope": "C1 retrieval/schema/prompt candidate and E02 safe diagnostic telemetry. Technical gates only; actual model quality adoption and G5/G6 remain pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -65,7 +65,8 @@
     "tests/ux-benchmark/*.mjs",
     "tests/ux-benchmark/*.py",
     "tests/release/*.py",
-    "docs/execution/run-20260921/context-n02-v6.json"
+    "docs/execution/run-20260921/context-n02-v6.json",
+    "docs/execution/run-20260921/context-n02-v7.json"
   ],
   "checks": [
     {
@@ -145,34 +146,29 @@
   ],
   "tasks": [
     {
-      "id": "N02-UX-INSTRUMENT",
+      "id": "N02-C1-SERVER",
       "implementers": [
-        "preflight_builder",
         "root"
       ],
       "requirements": [
-        "CORE-17",
-        "CORE-18",
+        "CORE-03",
+        "CORE-05",
         "CORE-21",
+        "CORE-23",
         "CORE-25"
       ]
     },
     {
-      "id": "N02-RELEASE-INSTRUMENT",
+      "id": "N02-E02-DIAGNOSTIC",
       "implementers": [
-        "preflight_builder",
-        "root"
+        "method_auditor"
       ],
       "requirements": [
-        "CORE-13",
-        "CORE-15",
-        "CORE-16",
-        "CORE-17",
         "CORE-18",
         "CORE-21",
         "CORE-23"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n02-v6.json"
+  "context_manifest": "docs/execution/run-20260921/context-n02-v7.json"
 }

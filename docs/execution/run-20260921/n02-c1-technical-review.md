@@ -31,3 +31,7 @@
 ## 후속 예비비 계획 독립 계산
 
 조정자는 이전 $.01/attempt의 미래 비용 추정을 $.008로 갱신 제안했다. baseline 실측 평균1.659112/367≈$.0045207의약1.77배이다. 1032×$.008=$8.256, 현재계상4.159112+미래8.256+다음unknown.05=12.465112<$15이며 선택실험 여유는$2.534888이다. 전체2400/$15/unknownattempt.05의실제중단로직은불변이다. 이 값은 미래실비/최악보장이아닌계획추정으로 조건부수용한다. C1출력1600token최대에서는입력19,200token만으로$.008에도달하므로 enum/context증가 및unknown실패발생을실측하고상향필요시선택실험을먼저중단해야한다. 기존baseline config/ledger실측을소급수정하지않는다.
+
+## 경영주 full-catalog 최종 delta 확인
+
+작성자가 merchant에 retrieved.fullCatalog를 사용하고 scope hint도 complete-catalog-ranked로 정합하게 수정했다. evaluator의 mocked-provider interpret('merchant') 실제 경로에서 plain exact 이름+'주세요' 입력에도248 unique SKU·정확상품우선·full hint를 확인했다. private merchant-full-probe.json. 최신 source-hashes-final.json으로 재동결하고 최종 server16/16도 다시 독립 실행 PASS했다. 후보 실제 모델0이며 최종 bounded 기술 PASS 유지, live 품질 채택은 보류다.

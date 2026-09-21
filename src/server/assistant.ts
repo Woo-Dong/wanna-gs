@@ -1,18 +1,22 @@
 import type { z } from 'zod';
-import { customerInputSchema,customerOutputSchema,merchantInputSchema,merchantOutputSchema } from './schemas';
+import { customerInputSchema,customerOutputSchema,merchantInputSchema,merchantOutputSchema,modelOutputSchema } from './schemas';
 import { catalogContext,catalogHash,catalogVersion,categories,productById } from './catalog';
+import { retrieveCatalog } from './retrieval';
 import { CUSTOMER_PROMPT,MERCHANT_PROMPT,PROMPT_VERSION } from './prompts';
 import { AssistantError,liveProvider,type ModelProvider } from './provider';
 import type { AssistantEnvelope,CustomerInterpretation,MerchantInterpretation,AssistantResponse } from '../contracts/assistant';
-const invalid=()=>new AssistantError('INVALID_MODEL_RESPONSE','응답에 확인할 수 없는 내용이 있어요. 다시 시도해 주세요.',true,502);
+const invalid=(diagnostic='OUTPUT_CONTRACT')=>Object.assign(new AssistantError('INVALID_MODEL_RESPONSE','응답에 확인할 수 없는 내용이 있어요. 다시 시도해 주세요.',true,502),{diagnostic});
 export function verifyCustomer(value:unknown,clarificationCount:number):CustomerInterpretation{
- const parsed=customerOutputSchema.safeParse(value);if(!parsed.success)throw invalid();const out=parsed.data;
- if(out.candidates.length>6||new Set(out.candidates.map(c=>c.id)).size!==out.candidates.length||out.candidates.some(c=>!productById.has(c.id)||[...c.sharedEvidence,...c.differences,...c.unknownConditions].some(x=>x.length>300))||out.reason.length>500)throw invalid();
+ const parsed=customerOutputSchema.safeParse(value);if(!parsed.success)throw invalid('OUTPUT_SCHEMA');const out=parsed.data;
+ if(out.candidates.length>6)throw invalid('CANDIDATE_LIMIT');
+ if(new Set(out.candidates.map(c=>c.id)).size!==out.candidates.length)throw invalid('CANDIDATE_DUPLICATE');
+ if(out.candidates.some(c=>!productById.has(c.id)))throw invalid('CANDIDATE_UNKNOWN_ID');
+ if(out.candidates.some(c=>[...c.sharedEvidence,...c.differences,...c.unknownConditions].some(x=>x.length>300))||out.reason.length>500)throw invalid('OUTPUT_TEXT_LIMIT');
  const primary=out.candidates.filter(c=>c.kind!=='alternative');
- if(out.action==='show_candidates'&&(!primary.length||out.question!==null))throw invalid();
- if(out.action==='unidentified'&&(primary.length||out.question!==null))throw invalid();
- if(out.action==='ask_clarification'&&(!out.question?.trim()||clarificationCount>=2||out.question.length>300))throw invalid();
- if(out.candidates.some(c=>c.kind==='exact'&&c.unknownConditions.length))throw invalid();
+ if(out.action==='show_candidates'&&(!primary.length||out.question!==null))throw invalid('CANDIDATE_ACTION_CONTRACT');
+ if(out.action==='unidentified'&&(primary.length||out.question!==null))throw invalid('UNIDENTIFIED_ACTION_CONTRACT');
+ if(out.action==='ask_clarification'&&(!out.question?.trim()||clarificationCount>=2||out.question.length>300))throw invalid('CLARIFICATION_CONTRACT');
+ if(out.candidates.some(c=>c.kind==='exact'&&c.unknownConditions.length))throw invalid('EXACT_WITH_UNKNOWN_CONDITION');
  return out;
 }
 export function verifyMerchant(value:unknown):MerchantInterpretation{
@@ -32,10 +36,15 @@ export async function interpret(role:'customer'|'merchant',body:unknown,provider
  if(request.catalogHash!==catalogHash)throw new AssistantError('CATALOG_MISMATCH','상품 목록이 바뀌었어요. 진행 중인 내용을 확인하고 새로고침해 주세요.',false,409);
  if('state' in request&&request.state.groups.some(g=>!productById.has(g.sku)))throw new AssistantError('INVALID_INPUT','상품 목록에 없는 묶음이 포함되어 있어요.',false,400);
  const {text,history,...context}=request;
- const input=JSON.stringify({catalog:catalogContext,categories,context,history,text});
- const response=await provider(role==='customer'?CUSTOMER_PROMPT:MERCHANT_PROMPT,input,role==='customer'?customerOutputSchema:merchantOutputSchema,role+'_interpretation');
+ const retrieved=retrieveCatalog(text,history);
+ const suppliedCatalog=role==='customer'?retrieved.catalog:retrieved.fullCatalog;
+ const matchingHints=role==='customer'?retrieved.matchingHints:{...retrieved.matchingHints,scope:'complete-catalog-ranked'};
+ const input=JSON.stringify({catalog:suppliedCatalog,categories,matchingHints,context,history,text});
+ const outputSchema=modelOutputSchema(role,suppliedCatalog.map(product=>product.id),categories);
+ const response=await provider(role==='customer'?CUSTOMER_PROMPT:MERCHANT_PROMPT,input,outputSchema,role+'_interpretation');
  let result:CustomerInterpretation|MerchantInterpretation;
  try{
+  if(!outputSchema.safeParse(response.value).success)throw invalid('SUPPLIED_CATALOG_SCHEMA');
   result=role==='customer'?verifyCustomer(response.value,'clarificationCount' in request?request.clarificationCount:0):verifyMerchant(response.value);
   if(role==='merchant'&&'state' in request&&(result as MerchantInterpretation).intent==='restore'&&!request.state.previousConstraints)throw invalid();
  }catch(error){
@@ -57,7 +66,7 @@ export async function handleAssistant(role:'customer'|'merchant',request:Request
    return Response.json(result,{headers:{'Cache-Control':'no-store'}});
  }catch(error){
    const safe=error instanceof AssistantError?error:new AssistantError('LLM_UNAVAILABLE','처리하지 못했어요. 입력을 유지하고 다시 시도해 주세요.',true,503);
-   console.info(JSON.stringify({event:'assistant_error',role,requestId:id,code:safe.code,attempt:safe.attempt}));
-   return Response.json({ok:false,error:{code:safe.code,message:safe.publicMessage,retryable:safe.retryable,attempt:safe.attempt||{providerCalled:false,model:null,usage:null,latencyMs:0,mode:'live'}}},{status:safe.httpStatus,headers:{'Cache-Control':'no-store'}});
+   console.info(JSON.stringify({event:'assistant_error',role,requestId:id,code:safe.code,diagnostic:safe.diagnostic,attempt:safe.attempt}));
+   return Response.json({ok:false,error:{code:safe.code,diagnostic:safe.diagnostic,message:safe.publicMessage,retryable:safe.retryable,attempt:safe.attempt||{providerCalled:false,model:null,usage:null,latencyMs:0,mode:'live'}}},{status:safe.httpStatus,headers:{'Cache-Control':'no-store'}});
  }
 }

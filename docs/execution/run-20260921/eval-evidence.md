@@ -79,3 +79,9 @@ Preview `dpl_73afciHs7CadEfeNSzpzz86sRmXz`, exact commit `10c00723d0b64ea47a06dc
 ## N02 baseline 완료 및 독립 판정
 
 정식baseline336개 모두 결과보존, PASS227/336, transport/schema미완료51, mandatory0, 최소기준 FAIL. 실제367회/6,208,489tokens/$1.659112/P95 4460ms. C06-dev-017 첫턴실패 때문에 계획368턴 중후속1턴 미호출이며 해당사례도실패분모유지. private n02-baseline 및 n02-baseline-analysis에config/run/원응답/attempt/공유ledger/분할채점 보존. 자세한role/split수치와실패가설은 n02-baseline-report.md. 동일run의dev/validation을독립repeat로세지않는다. holdout접근·호출0. baseline최소FAIL이므로출시best채택불가; C1기술회귀수정만PASS이고live품질미실행.
+
+## E02 고정 진단 보존 delta / C1 실행 준비
+
+root 승인 후 parse_attempt에 INVALID_MODEL_RESPONSE의 고정rule ID 11개만 보존하도록 보강했다. 임의진단문자열·개행·객체·배열·다른오류코드는 기록하지 않는다. 원문/키는복사하지않고usage/분모/호출/중단/holdout행동은변경하지않는다. runner SHA5ee03bb164e0610511c25d2934b6e7b6b234ef95a96c2770bf6b7dae08f51d7d, 자체26tests PASS, builder 독립검토대기. B0원본config와보고서/출력은소급수정0.
+
+C1 사전진단공개dev30(고객각범주2개,경영주각1개+M01/M03/M09추가1개;ID정렬첫사례) 및34발화를실제C1호출전에동결했다. dataset hash0d394d463679189b082390219e74725e7a310f5173a5613d0bd87b5af85d26c7. 이는full dev252나release분모가아니다. 이후validation84/92턴은기존frozen전부사용한다. private n02-c1-execution-plan.json에는exactPreview/source미정/명시GO대기/actual0/holdout0을명시했다. 미래reserve1032/$8.256운영추정과공유Budget50을유지하며,UX실측증가를실행직전장부에서확인한다.
