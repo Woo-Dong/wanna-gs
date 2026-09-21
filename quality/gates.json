@@ -1,6 +1,6 @@
 {
   "phase": "nl-candidate",
-  "scope": "C2 lossless catalog/reference packing and bounded output headroom. C1 dev30 rejected for regressions; B0 UX comparison remains NOT_READY. This gate validates only technical candidate, never G5/G6.",
+  "scope": "C3 nonreasoning model profile and explicit existing scope/fresh-state prompt rules. C1/C2 dev candidates rejected; B0 UX comparison NOT_READY. Technical gate only.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -67,7 +67,8 @@
     "tests/release/*.py",
     "docs/execution/run-20260921/context-n02-v6.json",
     "docs/execution/run-20260921/context-n02-v7.json",
-    "docs/execution/run-20260921/context-n03-v8.json"
+    "docs/execution/run-20260921/context-n03-v8.json",
+    "docs/execution/run-20260921/context-n04-v9.json"
   ],
   "checks": [
     {
@@ -147,11 +148,12 @@
   ],
   "tasks": [
     {
-      "id": "N03-C2-SERVER",
+      "id": "N04-C3-SERVER",
       "implementers": [
         "root"
       ],
       "requirements": [
+        "CORE-02",
         "CORE-03",
         "CORE-05",
         "CORE-21",
@@ -160,5 +162,5 @@
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n03-v8.json"
+  "context_manifest": "docs/execution/run-20260921/context-n04-v9.json"
 }

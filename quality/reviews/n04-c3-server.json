@@ -1,0 +1,26 @@
+{
+  "task": "N04-C3-SERVER",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "a249bb4e1cf4081dce2f5d5f2533b63eda34b67500202019554275421a335304",
+  "context_manifest": "docs/execution/run-20260921/context-n04-v9.json",
+  "consumed_context_hash": "39ab8976cced9628e0df3cf5fd44fbd435ad16717445347fb8c94d97455e3fa8",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-05",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "Independent Node22 server tests25/25 PASS and typecheck PASS on reviewed provider/model-profile source; final prompt sentence separately reviewed without claiming repeated runtime tests.",
+    "Independent SDK fetch12 check groups/18 mock outbound: both profiles, actual returned model pricing, unknown cost null, invalid usage rejection, incomplete/invalid JSON charged usage, seven HTTP error mappings and retry0, subsequent success and pre-call missing-key0. Actual external calls0.",
+    "Final prompt scope priority at clarificationCount2 reviewed: out-of-scope real operations end unidentified without primary candidates; ordinary valid product lookup and fresh merchant proposal remain supported.",
+    "Direct SHA256 verification: context-v9 expected hash and all37 inputs match; reviewed provider/model-profile/final prompt/test hashes match; gate fingerprint independently recomputed.",
+    "Report docs/execution/run-20260921/n04-c3-technical-review.md; reproducible private probe and TAP preserved in candidate artifacts/private/run-20260921/c3-independent."
+  ],
+  "scope": "Technical C3 candidate only. Account model access, actual API acceptance and model quality not_run; no live calls or protected holdout access. Price arithmetic verified, official pricing provenance is separate builder review. C1/C2 regressions and B0 UX NOT_READY remain; no best adoption, validation/holdout/G5/G6 completion. Unsigned reviewer JSON is not cryptographic identity proof.",
+  "checked_at": "2026-09-21T11:04:27.340564+00:00"
+}
