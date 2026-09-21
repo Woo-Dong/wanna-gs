@@ -56,7 +56,8 @@
         "codex/n06-stale-candidate",
         "codex/n06-resume-records",
         "codex/n07-grounding-candidate",
-        "codex/n08-customer-recovery"
+        "codex/n08-customer-recovery",
+        "codex/merchant-cap-repair"
       ],
       "value": "gpt-4.1-mini-2025-04-14",
       "production_or_global_changed": false
@@ -83,8 +84,8 @@
   ],
   "observations_scope": "initial preflight observations; current state is recorded separately and in PROGRESS",
   "current": {
-    "rootBranch": "codex/n08-results",
-    "integrationSha": "73a364860cb90f9bc9de4e186390411bce9dfd21",
+    "rootBranch": "codex/n09-validation-results",
+    "integrationSha": "5e211aad0c72e4c940c3d89f62c955ab16bfbfdf",
     "mainSha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
     "mainAndIntegrationProtection": "gate required, strict, enforce_admins, no force or delete",
     "productPrs": [
@@ -101,10 +102,11 @@
       "https://github.com/Woo-Dong/wanna-gs/pull/12",
       "https://github.com/Woo-Dong/wanna-gs/pull/13",
       "https://github.com/Woo-Dong/wanna-gs/pull/14",
-      "https://github.com/Woo-Dong/wanna-gs/pull/15"
+      "https://github.com/Woo-Dong/wanna-gs/pull/15",
+      "https://github.com/Woo-Dong/wanna-gs/pull/16"
     ],
-    "currentPreview": "dpl_3LzAGaofVNX7DSMUQ1E7KwKe1WH8",
-    "currentPreviewSource": "63614f9663a607373e0c7e9d43cb7e4616406b34",
+    "currentPreview": "dpl_65MVJmqazoi8UT5GtfJvnH1rGJtK",
+    "currentPreviewSource": "88ae1a431f8691790069487dc70f2519698bd122",
     "currentPreviewTarget": null,
     "productionSecret": "configured, not deployed or live verified",
     "deploymentRecovery": "deployment-recovery.md; retain canceled dpl_5vQB6DEZ2pADmhiuypMLRoQesczP and active Preview to avoid new-project first-deployment reset",
@@ -122,33 +124,33 @@
       "/Users/gsr/Desktop/workspace/2026-ralphton-c7-runtime",
       "/Users/gsr/Desktop/workspace/2026-ralphton-merchant-cap-repair"
     ],
-    "qualityPreparationFingerprint": "15e1ede83a81eb3e21fbbf2a5a7572f58344d3ab6be3ebb0d9185d37ae019c97",
-    "currentPreviewUrl": "https://wanna-hznkak3p7-beatrain-4635s-projects.vercel.app",
-    "currentPreviewStatus": "READY; C7 dev30/30 PASS, original merchant UI cap P1 pending separate repair",
-    "goalCompletion": "ACTIVE: C7 dev passed; merchant adapter P1 blocks final integration. validation/new holdout/UX/G5/G6 not_run.",
-    "localTestServers": "B0 3270 PID25573 and C5 3271 PID25585 prepared only; isolated UX fixture3231 independently checked; all files/logs retained",
+    "qualityPreparationFingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+    "currentPreviewUrl": "https://wanna-rbnpger37-beatrain-4635s-projects.vercel.app",
+    "currentPreviewStatus": "READY; C7 validation01 83/84 FAIL (one incomplete response), release NOT_READY",
+    "goalCompletion": "ACTIVE but incomplete: D47 one extra customer candidate failed final validation. No automatic additional candidates or paid stages. Preserving evidence and closing authorized preparation only.",
+    "localTestServers": "Owned B0 PID25573, C5 PID25585 and repaired C7 PID49268 stopped after exact cwd checks; all worktrees/builds/logs retained. No new UX study ran.",
     "apiBudget": {
-      "accountedCallUpper": 1132,
-      "knownCalls": 1082,
-      "knownEstimatedUsd": 4.9737925,
+      "accountedCallUpper": 1224,
+      "knownCalls": 1174,
+      "knownEstimatedUsd": 5.4077773,
       "priorCallReserve": 50,
       "priorEstimatedUsd": 2.5,
-      "upperEstimatedUsd": 7.5237925,
+      "upperEstimatedUsd": 7.9577773,
       "currentSoftCapUsd": 20,
       "userApprovedSoftCapUsd": 20,
       "approval": "D-46: user explicitly approved both changes and continued execution",
-      "implementation": "D46 budget20; C5 holdout and C6 dev failures retained; candidate limit not reset",
+      "implementation": "D46 budget20; D47 single extra customer candidate failed. Prior50 and earlier unknown reserve retained. No further automatic calls.",
       "unknownUsageReserveUsd": 0.05,
       "unknownUsageCalls": 1,
-      "observationScope": "After C7 dev34 calls; validation/new holdout/UX/role QA/G6 not_run.",
+      "observationScope": "After C7 validation01 92 calls, retry0 and new unknown0; second validation/new holdout/UX/final QA/G6 not_run.",
       "historicalC5DevStartIncludingReserveUsd": 16.1015333,
       "validation02FutureReserve": {
         "calls": 708,
         "estimatedUsd": 7.434
       }
     },
-    "checkedAt": "2026-09-21T13:21:33.903429+00:00",
-    "qualityPreparationScope": "PR15 C7 technical gate PASS; actual live quality not_run",
+    "checkedAt": "2026-09-21T13:38:42.334814+00:00",
+    "qualityPreparationScope": "PR16 existing merchant adapter repair technical PASS; latest NL validation FAIL",
     "candidateAuthority": {
       "decision": "D47",
       "customerMax": 7,
