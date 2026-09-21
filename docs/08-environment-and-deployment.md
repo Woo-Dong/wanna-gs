@@ -100,3 +100,7 @@ M0에서는 테스트 실행기·서브 에이전트/스킬 가용성을 확인�
 ## Gemini 예비 경로
 
 D-31에 따라 Gemini API 직접 호출을 함께 준비한다. 키는 사용자가 발급해 필요한 로컬/CI/Preview/Production 비밀 저장소에 주입한다. 테스트 묶음 전후와 배포 직전에 양쪽 한도를 확인하고, Gateway 잔량이 필수 검증·데모 예산보다 적으면 검증한 Gemini 모델로 전환한다. 같은 계정의 무료/유료 등급을 확인하며 저가라는 이유로 유료 호출을 허용하지 않는다. 상세 절차와 공식 출처는 [25번](25-model-budget-and-fallback.md)에 있다.
+
+## Neon 계정 이후 준비
+
+2026-09-21 사용자가 Neon 계정 생성 완료와 프로젝트 `green-unit-60810095`·`production` 브랜치 안내를 제공했다. 실제 프로젝트 접근·브랜치 ID·DB URL·플랜·격리는 미검증이다. [28번 연결 가이드](28-neon-setup-guide.md)에서 받은 일곱 단계를 현재 구조에 맞게 구분했다. Neon CLI/skills/MCP는 선택 관리 경로이며 `neon.ts`/`neon deploy`를 PostgreSQL 연결의 필수 단계로 추가하지 않는다. 앱은 Vercel, 모델은 기존 Vercel AI Gateway/Gemini 경로를 유지한다.

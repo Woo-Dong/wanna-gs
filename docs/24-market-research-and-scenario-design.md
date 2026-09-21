@@ -171,3 +171,9 @@ manifest는 `research_version`, `catalog_version`, `scenario_version`, `eval_ver
 ## 공통 참고 출발점
 
 공식 GS25·GS리테일·제조사·점포 자료와 공식 기술 문서의 출발점·제약은 [11번 조사 근거](11-research-and-references.md)와 [19번 데이터 명세](19-data-research-and-seeding.md)를 사용한다. source가 동적이거나 현재 본문을 확인하지 못하면 URL 존재만으로 상품/점포 사실을 확인했다고 기록하지 않는다.
+
+## 화면 예시와 가치 검증 데이터
+
+D-36의 공개 입력 예시는 [26번](26-design-and-brand-guide.md)에 연결한다. 실행 당시 조사 소재에서 활성 카탈로그로 확인 가능한 예시를 고르고 출처/확인일·research_case_id·상품/시나리오 연결을 기록한다. 과거 기사를 현재 인기 순위로 표현하지 않는다. 공개 예시·패러프레이즈 family는 dev/demo에 두고 보호 holdout과 분리한다.
+
+D-37·[27번](27-service-values-and-guardrails.md)의 미취급/품절/공급제한/unknown/시스템 오류, 적절한 대체/대안 없음/고객 거절, 묶음 중복/정책 해제/동시 발주 사례도 seed·시나리오에 포함한다. 관심·추천과 구매 확약, 추정 속성과 확인 속성을 구분한다.

@@ -99,3 +99,11 @@
 ## 2026-09-21 모델 예비 경로 조사
 
 [25번](25-model-budget-and-fallback.md)에 공식 모델 종료 안내, Gemini 요금·호출 제한, Gateway 잔액 API 근거를 정리했다. 모델·가격 확인과 실제 사용자 계정 접근 검증은 구분한다.
+
+## 디자인 참고 — 2026-09-21
+
+사용자 제공 UX 이미지와 [GS Retail 공식 App Store 소개](https://apps.apple.com/kr/app/id426644449)의 공개 화면을 확인했다. 후속 사용자 지시에 따른 시안/블루 강조색·밝은 카드·상품/점포 배치·하단 탐색을 26번 가이드에 반영한다. 정확한 GS 내부 토큰이나 로그인 앱 전체를 확인한 것은 아니다. 사용자 이미지는 `docs/assets/wanna-gs-ux-reference.png`로 보존했다. 디자인 수치와 화면 구성은 이 프로토타입의 시작값이며 현재 공식 앱의 정확한 규격으로 주장하지 않는다.
+
+## Neon 후속 설정 확인 — 2026-09-21
+
+사용자 제공 가이드를 [공식 CLI](https://raw.githubusercontent.com/neondatabase/neon-pkgs/main/packages/cli/README.md), [구성 패키지](https://raw.githubusercontent.com/neondatabase/neon-pkgs/main/packages/config/README.md), [최근 CLI 안내](https://neon.com/blog/just-landed-in-the-neon-cli), [공식 플랜](https://github.com/neondatabase/website/blob/main/content/docs/introduction/plans.md)과 대조했다. 적용 범위·출처·미실행 항목은 [28번](28-neon-setup-guide.md)에 있다. 원격 계정/DB나 실제 CLI 명령을 실행한 결과는 아니다.

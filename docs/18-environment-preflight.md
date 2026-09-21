@@ -161,3 +161,35 @@ Gateway가 이미 소진됐으면 해당 실패와 잔량을 기록한다. Gemin
 `approval_policy="never"`는 승인 요청 없이 허용 범위 안에서 실행하는 선택이다. `sandbox_mode="danger-full-access"`를 프로젝트 공통 필수값으로 고정하지 않는다. 프로젝트 config는 신뢰된 프로젝트에서 적용되며 조직 requirements가 허용 값을 제한할 수 있다. P00은 실제 파일/Git 쓰기·설치·네트워크·브라우저·에이전트 실행과 남은 차단을 검증한다. 현재 세션의 제한을 config 편집으로 우회하지 않는다. [공식 구성 우선순위](https://learn.chatgpt.com/docs/config-file/config-basic), [승인 정책과 샌드박스](https://learn.chatgpt.com/docs/agent-approvals-security) (2026-09-21 확인).
 
 사람이 처리할 계정·약관·키·카드 요구는 README 순서로 준비한다. 무료 경로에 카드가 필요하다는 일반 가정을 두지 않고 실제 계정 조건을 기록한다. 최초 Git docs commit/push 성공은 PR·Actions·Vercel·DB·모델 전체 preflight 성공과 구분한다.
+
+## 새 장비에서 Codex 설정을 준비할 때
+
+2026-09-21 [공식 설정 참조](https://learn.chatgpt.com/docs/config-file/config-reference)·[설정 우선순위](https://learn.chatgpt.com/docs/config-file/config-basic)를 확인했다. 외부 피드백의 `[projects."경로"]` 아래 `approval_policy`·`sandbox_mode`를 넣는 예시는 공식 프로젝트별 키로 확인되지 않았다. 프로젝트 신뢰와 실행 정책의 위치를 구분한다.
+
+사용자가 선택한 환경에서 전역 `~/.codex/config.toml`의 프로젝트 신뢰를 등록하는 예시:
+
+```toml
+[projects."/실제/clone/루트"]
+trust_level = "trusted"
+```
+
+위 경로는 `git rev-parse --show-toplevel` 결과로 바꾼다. 해당 프로젝트 설정이 이미 있으면 중복 테이블을 만들지 않고 수정한다. 사용자가 full access 실행을 선택하고 조직 정책이 허용할 때, 신뢰된 프로젝트의 로컬 `.codex/config.toml`에 설정하는 예시는 다음과 같다. 현재 저장소에서는 이 파일이 gitignore 대상이므로 새 장비에 자동 복사되지 않는다.
+
+```toml
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+```
+
+두 실행 키는 파일 최상위에 둔다. 전역 파일 최상위에 넣으면 다른 프로젝트에도 영향을 줄 수 있으므로 적용 범위를 먼저 구분한다. 이번 문서 작업에서 설정 파일을 만들거나 변경하지 않았다. 파일 변경이 이미 열린 세션에 소급 적용된다고 가정하지 않으며 새 실행 환경에서 실제 적용 모드와 P00 작업을 확인한다. 전체 config·키 값을 로그로 출력하지 않는다.
+
+P00 보고에는 요청한 모드, 실제 적용된 제한, 파일/Git 쓰기·네트워크·설치·브라우저·에이전트 검사와 근거를 남긴다. exact 문자열이 없다는 이유만으로 BLOCKED로 만들지 않는다. 실제 필수 경로가 막히면 BLOCKED, 확인되지 않으면 PARTIAL이다. `never`와 full access가 있어도 외부 인증·조직 정책·사용량 한도는 별도로 검사한다.
+
+## Preview의 자동 시험과 심사자 접근
+
+P05/P09에서 `automation_access`와 `reviewer_access`를 별개로 기록한다. 자동화는 허용된 bypass secret을 해당 배포 origin의 테스트 요청에만 사용한다. 심사자에게는 프로젝트가 허용하는 [공유 링크](https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/sharable-links), 팀 접근 또는 공개 데모 경로를 준비한다. 프로젝트 보호를 무조건 끄는 것은 필수 조건이 아니다.
+
+일반 URL은 자동화 bypass가 성공했다는 이유만으로 공개되지 않는다. 별도의 로그인하지 않은 브라우저에서 심사자 접근 경로와 후속 페이지/API를 검증한다. bypass secret을 심사자에게 넘기거나 공개 README/URL에 넣지 않는다. 비밀값을 포함한 공유 링크도 공개 로그/증거에 그대로 남기지 않고 deployment ID·검사 시각·접근 방식·결과만 기록한다. 공유 링크/플랜의 실제 사용 가능 여부는 계정에서 확인한다. 심사자 경로 미확인은 PARTIAL, 확인된 접근 불가는 해당 경로 BLOCKED로 보고한다.
+
+## Neon 계정 완료 이후 확인
+
+[28번](28-neon-setup-guide.md)에 사용자 제공 프로젝트와 CLI/선택 skills·MCP/config 안내를 기록했다. 계정 생성은 사용자 완료 보고이며 P06/P07 성공 증거가 아니다. P00은 실제 관리 도구 인증·대상 프로젝트/branch를 확인하고 P06/P07은 격리 DB와 Preview 서버 왕복을 검증한다. `.neon`의 production 연결이 개발 DB 설정으로 오용되지 않도록 환경별 대상과 비밀변수 범위를 기록한다. 필요한 관리/API 접근과 SQL 접속을 각각 확인한다. Neon AI Gateway·Functions·config deploy는 기존 앱의 필수 준비에 포함하지 않는다.

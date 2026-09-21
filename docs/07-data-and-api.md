@@ -17,7 +17,7 @@
 |---|---|---|
 | `products` | code, name, aliases, category, brand, flavor, size, description, source_type, source_url | 가상/웹 참고 출처 구분 |
 | `stores` | name, location_label, latitude, longitude, coordinate_source, accuracy, 출처 이력 | 실제 점포·좌표 확인, 거래/재고는 모의 |
-| `store_product_conditions` | store_id, product_id, price_krw, minimum_order_qty, order_multiple, available_order_qty, supply_status, reason, version | 시뮬레이션 조건임을 표시 |
+| `store_product_conditions` | store_id, product_id, price_krw, minimum_order_qty, order_multiple, available_order_qty, supply_status, assortment_status, stock_qty, observation_status, observed_at, reason, version | 시뮬레이션 조건임을 표시 |
 | `demo_sessions` | seed_version, clock_offset, status | 고객·경영주가 공유할 시연 단위 |
 | `demo_actors` | session_id, role, store_id, display_name | 서버가 역할·범위를 확인 |
 | `purchase_requests` | actor_id, product_id, store_id, quantity, accepted_price_krw, consent_version, consent_at, sequence, status, pending_reason | 배정·발주된 수량은 별도 연결과 정합성 유지 |
@@ -110,3 +110,22 @@ DB를 구현하기 전에 다음 계약을 확정한다.
 ## 출처·실험 데이터 계약
 
 상품/점포 마스터는 필드별 reference_verified / synthetic / simulated를 구분하고 source URL·사건/게시/확인일·버전을 저장한다. 점포 좌표는 WGS84와 주소 정합성을 확인한다. 가격·공급·재고는 실제값으로 주장하지 않는다. research_case_id → scenario_id → eval_case_id와 catalog/seed/policy 버전을 연결한다. 평가 정답·holdout은 앱 조회용 테이블/alias에 넣지 않는다. 평가 실행기의 보호된 산출물에서 관리하고 제출 서비스에 노출하지 않는다. 상세 스키마는 DBA와 평가자가 19/21/24번을 따라 확정한다.
+
+## 니즈·추천과 상품 상태의 의미 계약
+
+D-37·[27번](27-service-values-and-guardrails.md). 필드명과 물리 테이블은 초안이나 다음 구별은 유지한다.
+
+- `assortment_status`: 점포 취급/미취급/unknown. 조건 레코드 누락은 unknown이다.
+- `stock_qty`: 모의 점포 재고. null/unknown과 0을 구별하며 발주 가능 수량과 다르다.
+- `observation_status`, `observed_at`: 조회 성공/오류/미확인과 근거 시각. timeout을 품절로 저장하지 않는다.
+- 카탈로그 존재 여부와 검색 식별 결과는 별개다. 검색 0건만으로 미등록을 확정하지 않는다.
+- `need_records` 또는 동등한 확장: 세션·actor·점포·원문 참조, 정제 단서/근거/불확실성, 식별 상태·확인된 미충족 사유·관측 시각·source/research 참조. 미식별 기록과 이중 생성하지 않도록 사건 키를 공유하거나 연결한다.
+- `recommendation_events` 또는 동등한 이벤트: 원 니즈 ID, 후보 SKU, 정확/대체 구분, 노출/선택/거절, 후속 요청 ID. 구매 요청과 별도로 저장하고 노출·클릭이 발주 수량을 만들지 않는다.
+
+원문/대화는 기존 접근 범위 안에서 보존하며 모델 추정과 사용자 확인 속성을 구분한다. 운영 오류는 agent_runs 등 오류 기록으로 남기고 니즈 통계에서 제외한다. 재시도 중복·다른 점포/세션 조회·대체 선택 후 동의 전 거래 불변·전환 시 중복 수요를 DB 통합 검사에 포함한다. 본부용 API나 화면은 추가하지 않는다.
+
+## D-41/42가 요구하는 데이터·API 의미
+
+`minimum_order_qty`와 `order_multiple`은 발주 조건이다. 수요 총량의 저장 상한이나 `POST /api/requests`의 MOQ 초과 거절 조건으로 쓰지 않는다. 유효 요청량·진행 중 발주 연결량·미발주량을 구분하고 동일 요청을 중복 계산하지 않는다.
+
+발주 가능 기한, O-03에서 정할 구매 동의 유효기간, `pickup_available_at`/`pickup_deadline_at`을 단일 `deadline`이나 하나의 만료 이벤트로 대체하지 않는다. 입고 대기에는 픽업 마감을 미리 생성하지 않는다. 동의 유효성을 저장·검증할 필드와 재동의 상태는 O-03 결정 후 구체화한다. 현재 `consent_at`만으로 무기한 유효 동의라고 가정하지 않는다. 회차 테이블·새 모집 기한은 이번 결정으로 추가하지 않는다.

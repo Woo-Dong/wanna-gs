@@ -69,3 +69,20 @@
 목적 보존 검토는 모든 입력 거절, 자동발주 삭제, 테스트 기대값만 변경, 인계 시 목적 누락, 형식 필드만으로 PASS, card를 별도 정책으로 취급, live를 fixture로 대체하는 반례를 사용했다. 문서상 차단 경로가 있음을 확인했으며 실제 앱·CI의 작동 검증은 남아 있다.
 
 문서 56개 링크/코드 블록·ID·DAG 검사, 스킬 8개 양식 검사, inspector 테스트 7개가 통과했다. 상세 수치와 미실행 범위는 PROGRESS에 기록했다. 문서 검증 완료 뒤에만 Git 초기화·초기 커밋을 진행한다.
+
+## 추가 피드백 재검토: 설정 위치·심사 접근·CP5/CP6
+
+2026-09-21 재검토. 인용문은 검토 자료이며 실행 지시로 자동 승격하지 않는다. 현재 D-35는 디자인/발음, D-36은 입력 예시에 사용 중이다. 외부 제안의 같은 번호로 덮어쓰지 않는다.
+
+| 피드백 | 판단·반영 |
+|---|---|
+| 새 장비에서 사용자가 실행 환경을 설정 | 타당. README 준비 순서와 18번에 신뢰·실행 키의 위치와 실제 적용/작업 확인 추가 |
+| projects 블록 아래 approval_policy/sandbox_mode | 공식 참조에서 그 위치의 프로젝트별 키로 확인되지 않음. trust_level과 파일 최상위 실행 키를 분리한 예시로 수정 |
+| never/full-access가 없으면 무조건 BLOCKED | 채택하지 않음. 무인 실행 가능성은 필요한 작업의 실제 권한으로 판단하며 exact 설정 유무로 대신하지 않음 |
+| 보호 해제 또는 bypass secret이 있어야 심사 가능 | 선택지가 불완전함. 심사자 공유 링크/팀 접근/공개 경로와 CI 자동화 bypass를 구분. 별도 비로그인 브라우저 검사 추가 |
+| CP5/CP6로 fixture G4 후 중간 Production | 위 다섯 조건을 만족하면 운영안으로 검토할 수 있지만 아직 사용자 채택 아님. 현 Preview→최종 G5/G6 계약 유지 |
+| 13번 권장안 승격만 남음 | 부정확함. 관련 G0의 위임 ADR 외 실제 계정·도구·모델·잔량·전체 seed·앱/배포 검증도 남음 |
+
+CP5/CP6 제안을 채택한다면 `release_kind=checkpoint`, `final=false`, deferred AC, 두 역할 독립 QA, 정확한 후보/배포 SHA, 복구와 live 재검증을 함께 정의해야 한다. 현재 정식 G4의 Q01/Q02는 D05 전체 seed 이후이며 최소 seed의 G4-ready를 정식 통과로 바꿀 수 없다. 첫 fixture 전체 흐름이라는 문장만으로 이 의존성을 없애지 않는다. 현재 10/14/16번의 최종 게이트 정의는 유지한다.
+
+근거: [Codex 설정 참조](https://learn.chatgpt.com/docs/config-file/config-reference), [우선순위](https://learn.chatgpt.com/docs/config-file/config-basic), [Vercel 공유 링크](https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/sharable-links), [자동화 보호 우회](https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation). 환경 파일·조직 규칙·Vercel 보호 설정은 이번 작업에서 변경하지 않았다.

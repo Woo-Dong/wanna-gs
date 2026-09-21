@@ -103,3 +103,7 @@ FE/BE의 공통 계약·DB 마이그레이션·lockfile은 단일 작성자가 �
 ## 모델 제공자 설정
 
 [25번](25-model-budget-and-fallback.md)의 서버 어댑터에서 Gateway와 Gemini 직접 호출을 선택한다. 도메인·권한·거래 코드는 공유하며 두 제공자의 구조화 출력은 같은 스키마로 검증한다. 서버 설정과 실제 제공자·모델을 실행 기록에 남긴다. 설정 변경으로 재배포가 필요하면 새 배포에서 검증하며 진행 중 거래는 멱등 키로 보호한다.
+
+## Neon 도입 범위
+
+Neon 계정 후속 설정은 [28번](28-neon-setup-guide.md)을 따른다. 현재 Neon의 역할은 PostgreSQL이며 Next.js FE·BE는 Vercel에서 실행한다. Neon의 AI Gateway는 현재 사용하는 Vercel AI Gateway와 다른 서비스이므로 `neon.ts` 예시를 근거로 LLM 경로를 바꾸지 않는다. CLI/MCP는 개발 관리 도구이고 앱 런타임 연결을 대신하지 않는다.
