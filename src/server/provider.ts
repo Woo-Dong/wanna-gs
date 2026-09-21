@@ -19,7 +19,7 @@ export const liveProvider:ModelProvider=async(instructions,input,schema,name)=>{
   try{
     const client=new OpenAI({apiKey:process.env.OPENAI_API_KEY,maxRetries:0,timeout:45_000});
     const jsonSchema=z.toJSONSchema(schema);delete jsonSchema.$schema;
-    const response=await client.responses.create({model:process.env.OPENAI_MODEL||'gpt-5-mini',instructions,input,store:false,reasoning:{effort:'minimal'},max_output_tokens:1600,text:{format:{type:'json_schema',name,strict:true,schema:jsonSchema}}});
+    const response=await client.responses.create({model:process.env.OPENAI_MODEL||'gpt-5-mini',instructions,input,store:false,reasoning:{effort:'minimal'},max_output_tokens:3200,text:{format:{type:'json_schema',name,strict:true,schema:jsonSchema}}});
     observedModel=response.model;
     const inputTokens=response.usage?.input_tokens,outputTokens=response.usage?.output_tokens,totalTokens=response.usage?.total_tokens;
     if(Number.isSafeInteger(inputTokens)&&Number.isSafeInteger(outputTokens)&&Number.isSafeInteger(totalTokens)&&inputTokens!==undefined&&outputTokens!==undefined&&totalTokens!==undefined&&inputTokens>=0&&outputTokens>=0&&totalTokens===inputTokens+outputTokens){

@@ -7,7 +7,7 @@ const envelope={sessionId:'s1',generation:1,actorId:'a1',roleEpoch:1,requestId:'
 const input={...envelope,text:products[0].name,history:[],clarificationCount:0};
 const candidate={id:products[0].sku,kind:'exact',sharedEvidence:[products[0].name],differences:[],unknownConditions:[]};
 const output={action:'show_candidates',candidates:[candidate],question:null,reason:'상품을 확인해 주세요.',confirmationRequired:true};
-const fixture:ModelProvider=async()=>({value:output,model:'explicit-test-fixture',usage:{inputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:null}});
+const fixture:ModelProvider=async()=>({value:{...output,candidates:[{...candidate,id:'p0'}]},model:'explicit-test-fixture',usage:{inputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:null}});
 const empty={budgetLimitKrw:null,excludeCategories:[],excludeProductIds:[],maxQuantity:null,restorePrevious:false};
 test('normal identification is a candidate requiring customer confirmation; no transaction operation',async()=>{
  const r=await interpret('customer',input,fixture,'fixture');assert(r.ok);assert.equal(r.data.mode,'fixture');assert.deepEqual(r.data.result,output);assert.equal(r.data.requestId,'r1');

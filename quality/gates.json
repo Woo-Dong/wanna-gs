@@ -1,6 +1,6 @@
 {
   "phase": "nl-candidate",
-  "scope": "C1 retrieval/schema/prompt candidate and E02 safe diagnostic telemetry. Technical gates only; actual model quality adoption and G5/G6 remain pending.",
+  "scope": "C2 lossless catalog/reference packing and bounded output headroom. C1 dev30 rejected for regressions; B0 UX comparison remains NOT_READY. This gate validates only technical candidate, never G5/G6.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -66,7 +66,8 @@
     "tests/ux-benchmark/*.py",
     "tests/release/*.py",
     "docs/execution/run-20260921/context-n02-v6.json",
-    "docs/execution/run-20260921/context-n02-v7.json"
+    "docs/execution/run-20260921/context-n02-v7.json",
+    "docs/execution/run-20260921/context-n03-v8.json"
   ],
   "checks": [
     {
@@ -146,7 +147,7 @@
   ],
   "tasks": [
     {
-      "id": "N02-C1-SERVER",
+      "id": "N03-C2-SERVER",
       "implementers": [
         "root"
       ],
@@ -157,18 +158,7 @@
         "CORE-23",
         "CORE-25"
       ]
-    },
-    {
-      "id": "N02-E02-DIAGNOSTIC",
-      "implementers": [
-        "method_auditor"
-      ],
-      "requirements": [
-        "CORE-18",
-        "CORE-21",
-        "CORE-23"
-      ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n02-v7.json"
+  "context_manifest": "docs/execution/run-20260921/context-n03-v8.json"
 }
