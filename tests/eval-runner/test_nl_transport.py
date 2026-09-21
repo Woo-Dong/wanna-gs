@@ -158,4 +158,32 @@ class RunnerTests(unittest.TestCase):
     def test_fixture_mode_mismatch_still_accounts_observed_live_call(self):
         body=r.make_request(case(),[],config(),{},'r');response=success(body,config(mode='live'));attempt,_=r.parse_attempt({'status':200,'latency_ms':1,'body':response},body,'customer',config(),{'SKU1'});self.assertTrue(attempt['provider_called']);self.assertEqual(attempt['code'],'RESPONSE_VERSION_MISMATCH')
 
+    def test_fixed_diagnostic_rules_preserve_original_failure_accounting(self):
+        body=r.make_request(case(),[],config(),{},'r')
+        rules=['OUTPUT_CONTRACT','OUTPUT_SCHEMA','CANDIDATE_LIMIT','CANDIDATE_DUPLICATE','CANDIDATE_UNKNOWN_ID','OUTPUT_TEXT_LIMIT','CANDIDATE_ACTION_CONTRACT','UNIDENTIFIED_ACTION_CONTRACT','CLARIFICATION_CONTRACT','EXACT_WITH_UNKNOWN_CONDITION','SUPPLIED_CATALOG_SCHEMA']
+        for rule in rules:
+            response=failure('INVALID_MODEL_RESPONSE');response['error']['diagnostic']=rule
+            attempt,raw_value=r.parse_attempt({'status':502,'latency_ms':7,'body':response},body,'customer',config(),{'SKU1'})
+            self.assertEqual(attempt['diagnostic'],rule);self.assertEqual(attempt['code'],'INVALID_MODEL_RESPONSE');self.assertEqual(attempt['status'],'failed');self.assertTrue(attempt['provider_called']);self.assertIsNone(attempt['usage']);self.assertIsNone(raw_value)
+
+    def test_arbitrary_diagnostics_and_wrong_error_code_never_echo(self):
+        body=r.make_request(case(),[],config(),{},'r')
+        for value in [None,True,123,[],{},['OUTPUT_SCHEMA'],'OUTPUT_SCHEMA PRIVATE_SECRET','OUTPUT_SCHEMA\nPRIVATE_SECRET','private original user text','x'*10000]:
+            response=failure('INVALID_MODEL_RESPONSE');response['error']['diagnostic']=value
+            attempt,_=r.parse_attempt({'status':502,'latency_ms':1,'body':response},body,'customer',config(),{'SKU1'})
+            self.assertNotIn('diagnostic',attempt);self.assertNotIn('PRIVATE_SECRET',json.dumps(attempt));self.assertNotIn('original user',json.dumps(attempt))
+        response=failure('LLM_AUTH_ERROR');response['error']['diagnostic']='OUTPUT_SCHEMA'
+        attempt,_=r.parse_attempt({'status':503,'latency_ms':1,'body':response},body,'customer',config(),{'SKU1'});self.assertNotIn('diagnostic',attempt);self.assertEqual(attempt['code'],'LLM_AUTH_ERROR')
+
+    def test_diagnostic_http_journal_keeps_failure_and_adjacent_success(self):
+        def callback(body,n,conf):
+            if n==1:
+                response=failure('INVALID_MODEL_RESPONSE');response['error'].update(diagnostic='CANDIDATE_UNKNOWN_ID',message='PRIVATE_SECRET original model text')
+                return 502,response,{}
+            return 200,success(body,conf),{}
+        runner,server=self.runner([case(),case('C01-dev-002')],callback,mode='live');result=runner.run({'SKU1'},sleep=lambda _:None)
+        self.assertEqual(len(server.requests),2);self.assertTrue(result['complete']);self.assertEqual(result['failed_cases'],1);self.assertEqual(result['transport_success_cases'],1);self.assertEqual(result['budget']['known_provider_calls'],2)
+        obs=r.read_jsonl(runner.out/'observations.jsonl');self.assertEqual(obs[0]['attempts'][0]['diagnostic'],'CANDIDATE_UNKNOWN_ID');self.assertEqual(obs[0]['transport'],'error');self.assertEqual(obs[1]['transport'],'ok')
+        self.assertNotIn('PRIVATE_SECRET',runner.checkpoint.read_text());self.assertNotIn('original model text',runner.checkpoint.read_text())
+
 if __name__=='__main__':unittest.main()

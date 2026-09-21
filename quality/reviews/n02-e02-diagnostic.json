@@ -1,0 +1,24 @@
+{
+  "task": "N02-E02-DIAGNOSTIC",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+  "context_manifest": "docs/execution/run-20260921/context-n02-v7.json",
+  "consumed_context_hash": "f614548fab6267a329cbe50f997259f4bb96bd935a5e6d209e20814073f6375e",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-18",
+    "CORE-21",
+    "CORE-23"
+  ],
+  "evidence": [
+    "Independently read candidate parse_attempt diagnostic delta, context-v7 and all33 input hashes; current aggregate fingerprint968e2344... and runner5ee03bb1.../testce6c9b70... hashes directly match",
+    "Independent old/new AST function comparison against actual HEAD pre-delta parse_attempt: 3 error codes x 23 diagnostic values x provider_called true/false/null x known/unknown usage =414 synthetic combinations PASS. Exact11 allowlisted strings are added only to INVALID_MODEL_RESPONSE; stripping diagnostic preserves every original attempt field and raw return",
+    "Independent invalid diagnostic variants include wrong type/list/dict, lowercase, leading tab, newline/NUL suffix and private-text sentinel. No arbitrary diagnostic/message sentinel entered serialized attempts; known token/cost and unknown null/provider state preserved",
+    "Adjacent valid live-envelope synthetic success compared against previous function: identical status=ok, raw customer result, usage/cost/provider fields; success-envelope diagnostic sentinel not recorded. Actual provider/model calls0",
+    "Executed python3 -m unittest discover -s tests/eval-runner -p test_*.py -v in candidate worktree:26/26 PASS, skip0/failure0/error0. Uses local fake HTTP and temporary synthetic ledgers; failure journal, adjacent success, retry/stop/resume, denominator, unknown usage and protected-input guards remain valid",
+    "Prior preflight_builder independent276 matrix report was read as supplementary evidence only; this review independently executed414 combinations plus normal success and26 tests, without reading protected holdout data or generators"
+  ],
+  "scope": "N02 E02 fixed diagnostic telemetry delta only. Technical independent PASS does not establish C1 model quality/adoption, successful UX baseline recovery, final holdout, G5 or G6. No source changes, actual model calls or real budget writes. Synthetic fake-HTTP tests are not live provider evidence. Unsigned review JSON is attribution, not cryptographic identity proof.",
+  "checked_at": "2026-09-21T10:41:47.695103+00:00"
+}

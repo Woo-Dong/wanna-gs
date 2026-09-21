@@ -232,7 +232,12 @@ def parse_attempt(http,body,role,config,catalog):
         code=error.get('code','INVALID_HTTP_ENVELOPE') if isinstance(error,dict) else 'INVALID_HTTP_ENVELOPE'
         if code=='LLM_UNAVAILABLE' and called is False:code='CONNECTION_NOT_READY'
         if code not in STOP_CODES|TRANSIENT|{'INVALID_INPUT','CATALOG_MISMATCH','INVALID_MODEL_RESPONSE'}:code='INVALID_HTTP_ENVELOPE'
-        return base|{'provider_called':called,'usage':used,'cost_usd':cost,'status':'failed','code':code},None
+        result=base|{'provider_called':called,'usage':used,'cost_usd':cost,'status':'failed','code':code}
+        # Preserve only fixed server rule IDs; never serialize remote diagnostic text.
+        diagnostic=error.get('diagnostic') if isinstance(error,dict) else None
+        safe_rules={'OUTPUT_CONTRACT','OUTPUT_SCHEMA','CANDIDATE_LIMIT','CANDIDATE_DUPLICATE','CANDIDATE_UNKNOWN_ID','OUTPUT_TEXT_LIMIT','CANDIDATE_ACTION_CONTRACT','UNIDENTIFIED_ACTION_CONTRACT','CLARIFICATION_CONTRACT','EXACT_WITH_UNKNOWN_CONDITION','SUPPLIED_CATALOG_SCHEMA'}
+        if code=='INVALID_MODEL_RESPONSE' and isinstance(diagnostic,str) and diagnostic in safe_rules:result['diagnostic']=diagnostic
+        return result,None
     data=response.get('data',{})
     if response.get('ok') is not True or http['status']!=200 or not isinstance(data,dict):return base|{'code':'INVALID_HTTP_ENVELOPE'},None
     used,cost=usage_record(data.get('usage'))
