@@ -1,0 +1,25 @@
+{
+  "task": "N05-C4-SERVER",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "7b641d891c884c6008b7f25fd10b6fad7146af4715983f452392262c52c0de68",
+  "context_manifest": "docs/execution/run-20260921/context-n05-v11.json",
+  "consumed_context_hash": "5a3ff25c9b240c1786d2f763e70909017141279bee3c7fcb978dd0c5612c6fe3",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-05",
+    "CORE-06",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "Context-v11 expected SHA and all40 declared input hashes independently verified; aggregate gate fingerprint independently recalculated.",
+    "Reviewed final prompt eb1db993100b35785434fef31be7350a11b2849aad5bf0d2fb19e7a4917dbe83. C4-P01 mixed category/SKU conflict and C4-P02 explicit future-copy conflict resolved by narrow text conditions; both original findings and resolution retained.",
+    "Independent Node22 existing server25/25 tests executed before final wording clarification. Integration runtime/server tests except reviewed prompt remain byte-identical to tested C3 base55f92fe; customer prompt unchanged. No repeated execution or actual model behavior claimed.",
+    "Remote integration f2bcd94 gate checks unchanged and all prior source_patterns preserved after merge; new task and context bind only C4 technical candidate.",
+    "Report docs/execution/run-20260921/n05-c4-technical-review.md; private candidate artifacts/private/run-20260921/c4-independent/server-tests.log."
+  ],
+  "scope": "Narrow merchant prompt technical/semantic review only, not independent customer UI QA. Explicit category exclusions, mixed product/category edits, unmentioned delta preservation and explicit future currentConstraints copy remain supported. Actual model calls0 and protected holdout access0 in this review. C4 model quality not_run; UX comparison NOT_READY and G5/G6 incomplete. Unsigned JSON is not cryptographic identity attestation.",
+  "checked_at": "2026-09-21T11:16:37.633669+00:00"
+}
