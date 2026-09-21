@@ -8,6 +8,10 @@
 |---|---|---|---|---|---|---|---|
 | [ADR-001](decisions/ADR-001-minimal-seed-development.md) | user-delegated 운영 | adopted, 실행 미검증 | 2026-09-21 설계·후속 구현 | CORE-14/17/18/22, D-21/25/26/28/30 | 기존 D02→D03·D05→F00 대체, 최종 요구 유지 | WORKPLAN DAG·독립 검토, 앱 테스트/PR 미실행 | 조정자·DBA |
 
+| [ADR-002](decisions/ADR-002-demo-domain-policies.md) | user-delegated 제품 | adopted, 실행 미검증 | 최초 앱 구현 후보에만 한정 | CORE-01~26, D-21/41~45 | 기존 제안 O/R의 구체화; 확정 요구 대체 없음 | 구현/검증 미실행 | coordinator |
+
+| [ADR-003](decisions/ADR-003-evaluation-and-demo-boundaries.md) | user-delegated 평가/시연 | adopted, 실행 미검증 | 최초 제품 후보 | CORE-14/17~26, D-21/27/29 | 결과 전 기준 고정 | baseline/QA 미실행 | coordinator |
+
 실행 중 위 표에 실제 항목을 추가한다. 빈 양식은 검토·채택 증거가 아니다. 사용자 결정 D-01~최신 항목은 [02번](02-decisions-and-open-questions.md)에서 읽고, 새 위임 ADR을 이 표에 연결한다.
 
 ## 결정을 내리기 전

@@ -1,0 +1,1 @@
+export function GET(){return Response.json({app:'wanna-gs',phase:'bootstrap',transactions:'not_implemented',model:'not_checked',storage:'browser-sqlite-single-tab'},{headers:{'Cache-Control':'no-store'}});}

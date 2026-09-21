@@ -1,16 +1,31 @@
-# 진행 기록
+# 2026-09-21 goal 실행 중 — 현재 포인터
 
-최종 갱신: 2026-09-21. 앱 goal은 아직 시작하지 않았다.
+- task: B01 로컬 게이트·독립 검증 PASS, 첫 제품 기반 PR 준비. branch `codex/bootstrap`, base `3ef1ee3`. 전체 목표는 진행 중이다.
+- **P00–P11 및 PLAN-READY PASS**: 독립 감사와 실제 GitHub PR/CI/임시 기반 merge·Preview SQLite/모델 시험 완료. [preflight](execution/run-20260921/preflight-report.md) · [감사](execution/run-20260921/method-audit.md).
+- 마지막 외부 체크포인트: [PR #1](https://github.com/Woo-Dong/wanna-gs/pull/1) 임시 base에만 merge `33b7c7f`, exact merge CI `35579564243` SUCCESS. 제품 main은 변경하지 않았다.
+- Production 자동 오분류 2건은 [복구 기록](execution/run-20260921/deployment-recovery.md)에 보존. 생성한 probe 배포 3개만 제거해 현재 Vercel 배포 목록 0개. 제품 Production/G6는 미실행이다.
+- B01 로컬 전체 gate 및 독립 검증 PASS: Python 33개·별도 반례 33개·contracts/type/build. 누락 counts·문자열 false·공백 증거·bool count·중복 리뷰 fail-open 수정 및 재검증 완료. main에 GitHub required check `gate` strict/enforce_admins 보호를 등록했고 원격 실제 CI는 다음 단계다.
+- ADR-002 거래 정책과 ADR-003 평가·UX 경계는 서로 다른 두 검토 후 **채택**, 제품 실행 검증은 남아 있다. [실제 DAG](execution/run-20260921/plan.md), [현재 context v3](execution/run-20260921/context-app-v3.json).
+- 병행: D01 공식 상품 자료/실점포 좌표 수집·정제, E01 독립 평가 schema/scorer와 dev/validation/보호 holdout 준비. 제품 요청·발주·픽업 및 G1~G6는 아직 구현/검증 전이다.
+- 환경: 실제 OpenAI Responses local/Preview 성공, 서버 Preview key 등록, Node22/gh/Vercel 실제 사용 확인. 계정 정확 잔액은 unknown, ADR003 호출·비용 reserve 적용. 자동 QA bypass는 private 보관하며 심사자 공개 접근과 구분한다.
+- 보존: 시작 시 사용자 문서 4개 변경을 유지하고 private patch 저장. root 작업 공간, probe worktree `/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921`, Git branches, 로그를 보존한다. 키/토큰은 출력·커밋하지 않는다.
+- 다음: B01 독립 PASS→bootstrap PR/CI/Preview→통합 branch, D02 schema/domain 계약을 고정하고 고객·경영주·모델 구현을 분담한다.
+
+---
+
+# 이전 준비 기록 (goal 시작 전 이력)
+
+아래 상태는 과거 시점의 기록이며 현재 상태는 맨 위 포인터를 따른다.
 
 ## 현재 포인터
 
 ```text
-현재 task: SQLite·OpenAI 문서와 원격 경영주 상세 조회 통합·검증·커밋
+현재 task: Vercel 프로젝트·GitHub 연결 확인 완료
 branch: main (origin/main tracking)
 PR: 없음
 마지막 유효 게이트: 제품 게이트 미실행
 마지막 Production deployment: 없음
-다음 한 가지: 최신 원격 main 통합 후 사용자가 push. 환경 키 입력·preflight 및 앱 goal은 별도 진행
+다음 한 가지: OpenAI 키 주입 후 연결 점검 및 남은 preflight 수행
 ```
 
 ## 현재 상태
@@ -23,7 +38,8 @@ PR: 없음
 | 로컬 설정/사전점검 검사기 | OpenAI 15개 + inventory 10개 테스트 통과 | scripts/ 및 .agents/skills/wanna-gs-preflight/scripts/ |
 | 앱·CI·게이트 실행기·DB seed | 미구현 | 기능 개발 goal 미시작 |
 | SQLite | D-44 한 PC·한 탭 구조 확정, 실제 앱/seed/WASM은 미구현 | 06/29번, Neon은 현재 준비 대상 제외 |
-| Vercel·OpenAI | 배포/실제 호출 미검증, 정적 검사에서 OPENAI_API_KEY 누락 확인 | D-45, .env.example/.env.local 준비·25번·P08 |
+| Vercel | 개인 Hobby 프로젝트·GitHub Woo-Dong/wanna-gs 연결 확인, Production branch main, 배포 전 | CLI 59.23.2, Node 22.22.3, 아래 준비 기록 |
+| OpenAI | 정적 검사에서 OPENAI_API_KEY 누락, 실제 호출 미실행 | D-45·25번·P08, 키 값 비노출 |
 | 앱 단위·통합·E2E·실제 모델 평가 | 미실행 | 문서 검사와 구분 |
 | 최종 제출 URL | 없음 | 실제 배포 전 |
 
@@ -159,3 +175,23 @@ PR: 없음
 통합 검증은 설정 검사기 15개·환경 inventory 10개 unit test, Markdown 73개·로컬 링크 337개·코드 블록·결정/요구/AC 순서 검사, 충돌 표시 및 diff 공백 검사다. 실제 앱·API·배포 검증은 미실행이다. 독립 검토자 review_remote_integration이 원격 요구 보존과 SQLite 경계를 확인했으며 병합을 막을 문제가 없다고 판정했다. 스킬 8개 형식 검사·FR 13개 순서 검사·팀원 원본 10개 hash 보존도 확인했다. 기본 Python의 PyYAML 누락으로 형식 검사 실행이 한 번 실패해, PyYAML이 설치된 기존 Anaconda Python으로 재실행했다. 게시 절차는 16번에 fetch→작업 커밋→merge→영향 검증→main fast-forward→일반 push로 보강했다.
 
 통합 커밋 이후 사용자가 push한다. 최종 merge SHA와 원격 대비 상태는 `git log` 및 `git status -sb`로 확인한다. push 전 원격이 다시 바뀌면 새 변경을 통합·검증하며 force push하지 않는다.
+
+## Vercel 계정·CLI 준비
+
+Vercel CLI 59.23.2 설치 후 사용자가 브라우저 로그인을 완료했다. Node 22.22.3으로 CLI version·whoami·teams ls가 성공했으며 계정은 beatrain-4635다. 기본 Node 23에서 의존성 지원 경고가 있어 기존 Node 22 LTS로 CLI를 실행했다. 최초 조회는 세션 네트워크 제한으로 실패했고 네트워크 권한 허용 후 성공했다. 이를 인증 실패로 분류하지 않는다.
+
+사용자가 개인 공간 beatrain-4635s-projects(Hobby)를 선택했다. wanna-gs 프로젝트를 생성하고 현재 clone을 연결했다. 프로젝트 ID는 prj_T6x8XA3XyaNTgjMmvp7p9CgGCsks이며 Next.js·Node 22.x·루트 디렉터리 기본값을 project inspect로 확인했다. OPENAI_MODEL=gpt-5-mini와 LLM_MODE=live를 Production/Preview/Development의 일반 설정으로 등록했다. 이는 모델 접근이나 배포 성공 증거가 아니다.
+
+GitHub Woo-Dong/wanna-gs 연결 시도는 Login Connection 누락(HTTP 400)으로 실패했다. 사용자에게 Vercel 계정 Authentication에서 GitHub를 연결하도록 안내했다. 이후 사용자가 GitHub 계정 연결을 완료했고 재시도 결과는 아래에 기록했다. 로컬 Git의 기존 원격 설정과 Vercel의 GitHub 연동은 별개다.
+
+CLI link가 .env.local에 Vercel OIDC 토큰을 추가했다. 기존 OpenAI 필드 보존, 파일 권한 600, .env.local/.vercel의 Git 제외를 확인했다. CLI가 덧붙인 중복 ignore 규칙은 .env.example 허용을 덮지 않도록 제거했다. 계정 인증 토큰과 키 값은 출력하거나 문서에 기록하지 않았다.
+
+OpenAI 정적 검사는 키 누락(MISSING), 실제 API 호출은 미실행이다. 앱 코드와 DB seed는 아직 없으며 배포·제품 테스트·전체 preflight를 완료하지 않았다. 이번 설정 안내와 진행 기록은 미커밋이며 commit/push하지 않았다.
+
+설정 후 env ls에서 두 일반 설정의 대상 환경을 확인했다. 문서 정적 검사는 Markdown 73개·로컬 링크 339개·D45/CORE26/AC32와 코드 블록 검사를 통과했고 git diff --check도 통과했다. 첫 문서 수정 스크립트는 stdin 인코딩 오류로 실행되지 않아 명시적 Python 3와 UTF-8 선언으로 재실행했다. 앱 테스트 결과로 집계하지 않는다.
+
+## Vercel GitHub 연결 재확인
+
+2026-09-21 사용자의 계정 연결 완료 후 git connect를 재실행해 Connected를 확인했다. 최초 재시도는 세션 네트워크 제한으로 fetch failed가 발생했고 필요한 접근 권한을 받은 뒤 성공했다. Vercel 프로젝트 API의 필요한 필드만 조회해 Git provider=github, org=Woo-Dong, repo=wanna-gs, productionBranch=main을 확인했다. Next.js·Node 22.x 설정도 유지됐다.
+
+원격 환경변수 이름은 OPENAI_MODEL·LLM_MODE이며 OPENAI_API_KEY는 아직 등록되지 않았다. 프로젝트 응답의 latestDeployments는 비어 있었고 이번 작업에서 배포를 실행하지 않았다. Git 연결 성공은 빌드·Preview 접근·실제 모델·E2E 성공과 구분한다. GitHub 연동 차단은 해소됐으며 키 주입·남은 preflight·앱 구현과 배포 검증이 남아 있다. 인증 토큰과 비밀값은 출력하지 않았고 commit/push하지 않았다.

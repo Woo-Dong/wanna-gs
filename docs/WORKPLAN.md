@@ -1,6 +1,6 @@
 # 실행 Workplan
 
-상태: 구현 전 계획 기준선. 이 파일은 상세 task DAG와 증거 계약을 정의한다. preflight, 조사, Preview, PLAN-READY, SEED-READY, G0~G6 중 어느 것도 아직 실행·통과하지 않았다. 실행 시 관측한 저장소·도구·외부 근거에 맞춰 task를 구체화하되 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 사용자 결정, [14번 게이트](14-agent-development-loop.md)의 권위를 바꾸지 않는다.
+상태: 2026-09-21 실행 시작, preflight와 초기 조사 진행 중. [현재 실행 포인터](PROGRESS.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[context](execution/run-20260921/context.json)를 우선 확인한다. 아래 DAG는 구현 계획 기준선이다. 이 파일은 상세 task DAG와 증거 계약을 정의한다. preflight, 조사, Preview, PLAN-READY, SEED-READY, G0~G6 중 어느 것도 아직 실행·통과하지 않았다. 실행 시 관측한 저장소·도구·외부 근거에 맞춰 task를 구체화하되 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 사용자 결정, [14번 게이트](14-agent-development-loop.md)의 권위를 바꾸지 않는다.
 
 ## 목표와 종료 상태
 
@@ -261,7 +261,7 @@ U01/U02는 독립 QA가 평가할 실행 가능한 흐름을 준비한다. Q01/Q
 
 | 상태 | 현재 | PASS에 필요한 실제 산출물 |
 |---|---|---|
-| PREFLIGHT-CURRENT | NOT_RUN | 현재 repo/auth/integration 증거 |
+| PREFLIGHT-CURRENT | IN_PROGRESS (local model/auth/checkers 확인) | 현재 repo/auth/integration 증거 |
 | PREVIEW-SHELL | NOT_RUN | immutable Preview URL/deployment/source SHA와 browser 기본 동작 검사 |
 | PLAN-READY | NOT_RUN | 실행 시점 조사+구체 DAG+소유권+검증/중단/릴리스 경로 |
 | GATE-BOOTSTRAP | NOT_RUN | runner/CI와 실패 반례 거절 |
