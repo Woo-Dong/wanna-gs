@@ -240,3 +240,4 @@ python3 .agents/skills/wanna-gs-preflight/scripts/test_inspect_environment.py -v
 새 팀원 자료는 [경영주 비교 검토](docs/reviews/2026-09-21-merchant-handoff-review.md)에 정리했다. MOQ 현황·이력·자동 설정 영향 확인 등 후보와 픽업 제외·회차 상한·재발주 제한 등의 충돌을 구분했다. **사용자가 선택하기 전까지 제품 명세·DB·goal 필수 기능에 병합하지 않는다.**
 
 후속 사용자 결정 D-41/42는 반영했다. 모집 목표를 넘는 요청도 받고, 발주·구매 동의·픽업 기한을 혼동해 자동 구매나 입고 전 수령 만료가 발생하지 않도록 한다. 나머지 경영주 기능은 비교 검토의 최신 권고를 보고 선택하며 아직 일괄 병합하지 않았다.
+
