@@ -1,16 +1,13 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- 현재: C4는 dev30/30 및 첫 validation84/84 통과 후 두 번째83/84로 출시 최소 미달. best 선정·holdout·G5/G6 미완료. C5 stale 상태의 구조화 응답 제한은 기술 검증·PR/CI·Preview 완료, 실제 모델 미검증이다.
-- 작업 공간: root `codex/n06-resume-records`, 후보 worktree `codex/n06-stale-candidate`; source/실행 원본·실패 로그와 모든 작업 폴더를 보존한다. [작업 공간](execution/run-20260921/README.md).
-- 최신 통합 `560706f6796c1ff84fa2ebd1ad06f373f7d2a9ae`, main `3ef1ee3447ab3943527c4685949da4116bcf0566` 유지. PR #10 CI35593245608/35593270928 및 merge CI35593411158 PASS. 기술 통합을 최종 제품 품질 통과로 표현하지 않는다.
-- C4 Preview [배포 증거](execution/run-20260921/c4-preview.json): source48bdb4f, dpl_4MmYgaDCps4s6ECYsCA5cYLPMfe9, READY. `gpt-4.1-mini-2025-04-14`/packed-refs-v5. 기본 Preview/Production 환경의 모델은 변경하지 않았다.
-- [C4 개발 평가](execution/run-20260921/n05-c4-dev-evaluation.md): 30/30 PASS,34회/$0.1618284,B0 개선13/회귀0. [동일 설정 두 검증 평가](execution/run-20260921/n05-c4-validation-evaluation.md):84/84와83/84,각92호출,두 번째 경영주 불확실8/9=88.89%<90%. stale 제안에 restore가 나온 실패를 보존한다. 두 회 합산·추가 repeat로 통과를 찾지 않는다. 보호 holdout0.
-- [C5 비용 감사](execution/run-20260921/n06-c5-budget-audit.md): 장부 upper753/$5.7195333, 알려진703호출/$3.2195333에 prior50/$2.50 보수 예약을 포함한다. 새 후보의 필수 후속960×$.0105=$10.08와 다음 unknown$.05를 더하면$15.8495333이므로 기존$15 soft stop에 걸린다. 실제 계정 hard cap/청구액과 구분한다. 다음 paid 호출0, 임의 한도 상향0.
-- [UX 기준선 두 실패](execution/run-20260921/ux-baseline-recovery-results.md): 원본2PASS/1FAIL/21미실행, ADR006 허용 재측정11PASS/1FAIL/12미실행. 누적48 중13PASS/2FAIL/33미실행. 전체 비교 NOT_READY·추가 자동 실행 금지 유지. 비용과 별개인 출시 차단이다.
-- C5는 클라이언트가 전달한 stale=true 또는 명시된 두 제안 버전 불일치에서 모델 출력 schema를 clarify/빈 변경으로 제한한다. 실제 응답을 뒤에서 성공으로 바꾸지 않으며 일반 fresh/undo/카테고리/고객 동작은 유지한다. 실제 모델 검증 전 후보이며 새 사업정책이 아니다.
-- [PR #11](https://github.com/Woo-Dong/wanna-gs/pull/11): C5 source4fc3e1e, CI35595153529/35595175849 PASS, merge560706f. Python149+Node83/type/build·독립 상태60조합/SDK mock10 PASS. [C5 Preview](execution/run-20260921/c5-preview.json) READY, 실제 C5 호출0.
-- D46 후속: 예산20 구현 독립9경계+37회귀 PASS. ADR007 최종 초안7334ff76에 제품/상태 두 동의 후 채택. UX-v3는 구현 전이며 비교 NOT_READY 유지. 새 v13 컨텍스트에서 기술 게이트·정확한 C5 Preview/평가를 준비한다. PR11 merge CI35595322276 PASS.
-- 다음: [재개 체크포인트](execution/run-20260921/resume-checkpoint.md)의 현재 제한을 확인한다. D-46으로 사용자가 API 예상비용 상한20과 실패기록·최종품질기준을 유지한 UX 비교 절차의 두 독립 재설계를 명시 승인했다. 비용 실행기 변경·독립 검토와 ADR007 초안을 진행하며 새 고정 설정 전 실제 호출은 하지 않는다. G5 전 main/Production 릴리스는 하지 않는다.
+- 현재: C5 dev30/30, validation84/84·83/84는 원래 최소 기준을 각각 충족했으나 **최종 holdout82/84 FAIL**. 경영주 명확14/15=93.33%<95%, 고객 불확실19/20, mandatory0. C5는 출시 적격이 아니며 G5/G6·Production 미완료다. [독립 실패 보고](execution/run-20260921/n06-c5-holdout-evaluation.md).
+- D46 사용자 승인으로 추정 비용 상한$20을 적용하고 두 독립 검토 후 ADR007 UX 복구 절차를 채택했다. 새 크레딧 구매·자동충전은 하지 않았다. [PR12](https://github.com/Woo-Dong/wanna-gs/pull/12) CI 및 merge CI35596774787 PASS, 통합adcbd220, main3ef1ee3 유지.
+- C5 sourcef6a34def/Preview dpl_8YECM1r2msmSCtjLKGNSPvVYqKKV에서 gpt-4.1-mini-2025-04-14/packed-refs-v5 실제 평가를 수행했다. [dev](execution/run-20260921/n06-c5-dev-evaluation.md)·[두 validation](execution/run-20260921/n06-c5-validation-evaluation.md)·[공개 export 독립 검증](execution/run-20260921/n06-c5-export-independent.md). validation01의504/unknownusage1·재시도1, validation02의범위밖 의미오류1, holdout의2오류를 모두 보존한다.
+- 공유 API 장부: upper1064회/$7.1995789. 알려진1014회/$4.6495789, prior50/$2.50 및 기존unknownusage$.05를 포함한 보수 추정이며 계정 청구액은 아니다. 총2400회/$20 및 필수 후속 예약을 유지한다.
+- UX-v3 기구: Python189+Node92/type/build PASS, fingerprint fafda917e36bfe30a16a42046e69f907420663107a37b565e71c09d237c6b5bd. [독립 검증](execution/run-20260921/ux-v3-independent.md)은 unit/mock93+추가반례9·Chrome 실제SQLite fixture56/56 PASS. providerfalse를 성공 처리하던 결함을 수정했다. 실제 모델 UX 비교의 성공을 뜻하지 않는다.
+- ADR007의 새8×7 양 arm 실행은 아직0. 옛48분모(13PASS/2FAIL/33미실행)를 보존하고 새112를 합친160의 이력을 검증한다. C5 holdout 실패로 best arm·최종 역할 QA의 유료 실행은 시작하지 않았다. B0/C5 앱 worktree·로컬 서버·approved=false 초안은 보존한다.
+- 작업 공간: root codex/n06-results 및 기존 모든 worktree, artifacts/private/run-20260921 원본·실패·세션 기록 보존. [자원 장부](execution/run-20260921/resource-ledger.json). 키/보호 holdout 원문은 Git에 넣지 않는다.
+- 다음: docs21/23·ADR003의 기존 교체 규칙과 마지막 C6 후보 범위를 두 독립 관점으로 확인한다. 합격선·분모·후보 한도를 낮추거나 동일 holdout을 재실행해 통과를 찾지 않는다. UX 기구/실패 기록은 별도 PR·CI로 남기고, 제품 복구 후 새 독립 평가→UX/역할 QA→G5→main/Production→G6 순서를 유지한다.
 
 ## 이전 구현·실험 체크포인트
 

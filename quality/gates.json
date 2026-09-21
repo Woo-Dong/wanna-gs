@@ -1,6 +1,6 @@
 {
-  "phase": "nl-candidate",
-  "scope": "D46-approved goal API soft cap20 with unchanged2400/prior/unknown/future reservations; ADR007 independently adopted new UX study, instrumentation pending. C5 server unchanged from independently reviewed PR11; paid evaluation and G5/G6 pending.",
+  "phase": "ux-instrumentation-v3",
+  "scope": "Implement adopted ADR007 fixed 8x7 UX comparison and fail-closed release evidence; preserve original v2 failures. Fixture/technical checks only, independent actual study/role QA/G5/G6 remain pending. C5 app and frozen NL source files unchanged.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -75,7 +75,15 @@
     "docs/execution/run-20260921/context-n05-v11.json",
     "docs/execution/run-20260921/context-n06-v12.json",
     "docs/execution/run-20260921/context-n06-v13.json",
-    "docs/decisions/ADR-007-ux-comparison-recovery.md"
+    "docs/decisions/ADR-007-ux-comparison-recovery.md",
+    "tests/ux-benchmark/v3/*.py",
+    "tests/ux-benchmark/v3/*.mjs",
+    "tests/ux-benchmark/v3/*.mts",
+    "tests/ux-benchmark/v3/SOURCE-HASHES.json",
+    "docs/execution/run-20260921/context-ux-v14.json",
+    "quality/release/evidence/c5-validation-01/*",
+    "quality/release/evidence/c5-validation-02/*",
+    "quality/release/evidence/c5-freeze.json"
   ],
   "checks": [
     {
@@ -131,7 +139,9 @@
         "scripts/run_node_tests.py",
         "ux-instrument-tests",
         "tests/ux-benchmark/*.test.mts",
-        "tests/ux-benchmark/*.test.mjs"
+        "tests/ux-benchmark/*.test.mjs",
+        "tests/ux-benchmark/v3/*.test.mjs",
+        "tests/ux-benchmark/v3/*.test.mts"
       ],
       "tests": true,
       "counts_file": "artifacts/raw/ux-instrument-tests.json"
@@ -155,17 +165,18 @@
   ],
   "tasks": [
     {
-      "id": "N06-BUDGET20",
+      "id": "UX-V3-INSTRUMENT",
       "implementers": [
-        "preflight_builder"
+        "preflight_builder",
+        "root"
       ],
       "requirements": [
         "CORE-17",
+        "CORE-18",
         "CORE-21",
-        "CORE-23",
         "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n06-v13.json"
+  "context_manifest": "docs/execution/run-20260921/context-ux-v14.json"
 }

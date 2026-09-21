@@ -1,14 +1,16 @@
 # 실행 Workplan
 
-상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-app-v5.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
+상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-ux-v14.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
 
 | 실행 묶음 | 상태 | 실제 증거·남은 의존성 |
 |---|---|---|
 | P01~P04·초기 조사 | 완료 | preflight-independent.md, method-audit.md, PR #2/CI, Preview shell; 배포 사고와 복구는 deployment-recovery.md에 보존 |
 | D01~D05·자료/seed/eval | 완료 | 248상품·9점포·실제 SQLite, data-independent.md 및 eval-independent.md; 보호84 내용은 평가자만 보유 |
 | F00/FS·모델 서버 | 통합 완료 | PR #3, 통합 e612cd9 CI PASS, n01-preview-smoke.json 실제 두 역할 호출 |
-| FC/FM/FO/FR·I01/I02·U01/U02 | 로컬 통합 검증 완료, PR 대기 | d02-independent.md, i01-customer-browser.md, i01-merchant-browser.md, i01-local-gate.json; 아직 해당 제품 Preview 검증 전 |
-| N01~N03·편의성 비교 | 준비 | 공개336 baseline·독립 개선평가·보호84 및 실제 UX baseline/best 비교 미실행 |
+| FC/FM/FO/FR·I01/I02·U01/U02 | I01 통합·Preview 완료 | PR4/CI, i01-preview-browser.json 및 고객/경영주 독립 SQLite/live QA; 최종 후보 역할 QA는 별도 필수 |
+| N01~N03·자연어 | C5 holdout FAIL | dev30/30·validation84/84/83/84 최소PASS 후 holdout82/84, merchant clear14/15<95%; 실패보존·마지막 C6 및 독립 교체 계약 검토 |
+| UX v3·편의성 비교 | 기구 독립 PASS·실제 미실행 | Python189/Node92/type/build 및 독립SQLite fixture56/56 PASS; 옛48 실패보존. 최종 best 후 동일8×7 양 arm·best56/56→비교, 실제 새 실행0 |
+| Q01/Q02·최종 정책/운영 | 준비 | C5 live 두 역할 QA는 NL best 후 진행. 정책 두 관점·운영 감사는 현재 runtime와 최종 증거로 재확인 |
 | G5·L01~L03 | 미실행 | 자연어/UX 기준 충족→두 관점 최종 정책 검토→릴리스 PR/CI→Production/G6 순서 유지 |
 
 실행 묶음 식별자 B01/N01/I01은 위 WP 세부 작업을 묶은 실제 계약 이름이다. 모델 서버 작업 N01과 계획의 WP-N01 자연어 baseline은 구분한다. 앱 단위/로컬 실제 SQLite·브라우저 PASS가 전체 자연어 평가나 G5/G6 완료를 대신하지 않는다.
