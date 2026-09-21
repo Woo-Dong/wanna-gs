@@ -1,6 +1,6 @@
 {
-  "phase": "c6-grounding-and-eval-revision",
-  "scope": "C6 narrow input-grounded generation constraints and frozen replacement evaluation metadata. Independent technical/data checks only; original C5 holdout failure retained and actual C6 quality/G5/G6 pending.",
+  "phase": "c7-customer-identity",
+  "scope": "D47 one extra customer-only prompt candidate; merchant/model/catalog/retrieval/domain unchanged. C6 quality failure retained. Technical tests are separate from pending live dev/validation/holdout/UX/G5/G6.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -86,7 +86,9 @@
     "quality/release/evidence/c5-freeze.json",
     "docs/execution/run-20260921/context-n07-v15.json",
     "docs/execution/run-20260921/c6-recovery-plan.md",
-    "docs/execution/run-20260921/holdout-v2-independent.json"
+    "docs/execution/run-20260921/holdout-v2-independent.json",
+    "docs/execution/run-20260921/context-n08-v16.json",
+    "docs/execution/run-20260921/c7-customer-contract.md"
   ],
   "checks": [
     {
@@ -168,32 +170,22 @@
   ],
   "tasks": [
     {
-      "id": "C6-TECH",
+      "id": "C7-TECH",
       "implementers": [
-        "root",
-        "preflight_builder"
+        "preflight_builder",
+        "root"
       ],
       "requirements": [
         "CORE-02",
         "CORE-03",
         "CORE-05",
-        "CORE-12",
+        "CORE-11",
         "CORE-17",
         "CORE-18",
-        "CORE-21"
-      ]
-    },
-    {
-      "id": "EVAL-HOLDOUT-V2",
-      "implementers": [
-        "method_auditor"
-      ],
-      "requirements": [
-        "CORE-17",
-        "CORE-18",
-        "CORE-21"
+        "CORE-21",
+        "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n07-v15.json"
+  "context_manifest": "docs/execution/run-20260921/context-n08-v16.json"
 }

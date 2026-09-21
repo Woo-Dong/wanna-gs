@@ -1,0 +1,14 @@
+{
+  "id": "dpl_6nYrqPgj3Y9Rj161ZHQkPdLkN8Ro",
+  "url": "wanna-bzrcj9uf8-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n07-grounding-candidate",
+    "sha": "8397048e4b327db1433f2b1ea76c1e042a45adf4"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}
