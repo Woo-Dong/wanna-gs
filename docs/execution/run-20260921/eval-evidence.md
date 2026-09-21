@@ -69,3 +69,13 @@ E02 수정본 runner ae3450d3009f59cf344cdaac10f1ca42999f6daaacdb488bd61837a9ad2
 추가smoke를보수적으로덮는prior50은실제50회주장이아니다. future reserve best validation552(전체2repeat의3attempt상한)+holdout276+UX144+G5G6 60=1032, baseline최대1104와prior50합계2186≤2400이다. 필수호출최악치예약후214여유만남는다고해석하며유료한도확장이아니다. priorcost planning$2.50+futurecostplanning$10.32+다음unknownattempt$0.05를제외하면현재stage실지출여유$2.13이다. 건강한기존smoke와유사한단가라면baseline약$1.6~1.7로예상되지만이를미래사용량실측이나hardcap보장으로표시하지않는다.
 
 준비결과는private n02-preparation.json, 공개실패분석용analyze-public-run.py에보존했다. 분석기는기존독립검토scorer를호출하여baseline/dev/validation의동일run_id 보고서와실패분류를만들며, 이3보고서를서로다른repeat로세지않는다. 실제평가분모를부분성공으로바꾸지않고실패/미응답도유지한다. 보호holdout은읽지않았다. 정확I01Preview READY/source증거와명시실행GO 수신전actualbaseline호출0으로유지한다.
+
+## N02 baseline 실제 실행 시작
+
+Preview `dpl_73afciHs7CadEfeNSzpzz86sRmXz`, exact commit `10c00723d0b64ea47a06dcbd00e2b671e7c62daf`와 평가 config의 tracked24개 파일을 `git show <sha>:<path>`로 독립 byte 대조했다. private driver는 별도 SHA로 결속하며 public READY artifact를 private 불변 proof로 복사했다. 최종 config SHA `0f0ecca371e26561ba660997a544485955c77958bfb1783d2985417c4e9d754f`. 원격 API가 source SHA/prompt hash를 직접 증명하지 않는 한계는 유지하며 immutable Vercel source artifact와 로컬 source byte 대조로 연결한다.
+
+조정자의 Preview 두 역할 실제 UI smoke PASS 및 명시 실행 GO를 받은 뒤 dry-run `PLAN_VALID` 336사례/368턴/prior50/future1032를 확인했다. 실제 baseline run_id `214fba09-c781-43e6-94aa-bec437f305b2`를 한 번 시작했다. 출력은 private `n02-baseline/`, ledger `nl-budget.json`에 누적한다. 실패를 포함한 전체 분모를 유지하고 pending 불확실 시 자동 replay하지 않는다. holdout 본문/호출은 0이며 최종 품질 판정은 완료 후 별도로 기록한다.
+
+## N02 baseline 완료 및 독립 판정
+
+정식baseline336개 모두 결과보존, PASS227/336, transport/schema미완료51, mandatory0, 최소기준 FAIL. 실제367회/6,208,489tokens/$1.659112/P95 4460ms. C06-dev-017 첫턴실패 때문에 계획368턴 중후속1턴 미호출이며 해당사례도실패분모유지. private n02-baseline 및 n02-baseline-analysis에config/run/원응답/attempt/공유ledger/분할채점 보존. 자세한role/split수치와실패가설은 n02-baseline-report.md. 동일run의dev/validation을독립repeat로세지않는다. holdout접근·호출0. baseline최소FAIL이므로출시best채택불가; C1기술회귀수정만PASS이고live품질미실행.

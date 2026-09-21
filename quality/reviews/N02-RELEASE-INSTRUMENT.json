@@ -1,0 +1,28 @@
+{
+  "task": "N02-RELEASE-INSTRUMENT",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "89a5ff23ad60442a02e05550094f301c1f56932539640334b20a2fbba829196c",
+  "context_manifest": "docs/execution/run-20260921/context-n02-v6.json",
+  "consumed_context_hash": "0555063cc1bca9224124b2522d9371bf8ec8178ada49083c9bd306ae0d738a3b",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-13",
+    "CORE-15",
+    "CORE-16",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23"
+  ],
+  "evidence": [
+    "docs/execution/run-20260921/release-instrument-independent.md: independent44 synthetic protocol tests + six independently scripted counterexamples/adjacent normal probes PASS; actual root CLI returns exit1 NOT_READY_MANIFEST_MISSING",
+    "Initial fail-open UX unknown usage/cost, impossible network time clamp and ambiguous99questions all rejected after owner fix; normal per-role independent QA and legal NL retries retaining unknown/false provider histories preserved",
+    "Checked baseline336 failure preservation; two independent validation84 runs; final holdout84 aggregate-only frozen metadata; raw UX eight workloads x three repeats recomputation; source freshness, two role live browser/SQL reports, two policy perspectives, CORE coverage and G6-pending scope",
+    "Root release checker/tests/README copied byte-for-byte from independently reviewed frozen1032668e.../255f6bf5.../c820b2b4...; context-v6 hash and29 input hashes match; current aggregate source fingerprint independently recomputed89a5ff23...",
+    "docs/execution/run-20260921/e02-driver-review.md: public scripts/run_goal_eval.py differs from reviewed private driver only in import-base path; py_compile PASS, source7b4d5259..., model0/real-ledger0/holdout0",
+    "CI integration read: six mandatory Python suite discovery142 tests, release44 included, fingerprint includes implementation/tests; preparation phase does not claim actual G5 release evidence or G6 submission completion"
+  ],
+  "scope": "N02 quality-preparation instrumentation only. Independent review of builder/root tooling, not independent review of customer UI authored by research. Actual final NL selection/holdout, live UX baseline/best, G5 and G6 remain pending. Source hashes and unsigned JSON establish attributable consistency, not cryptographic reviewer identity or proof of execution.",
+  "checked_at": "2026-09-21T10:27:43.266699+00:00"
+}

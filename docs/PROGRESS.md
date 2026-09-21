@@ -1,15 +1,15 @@
 # 2026-09-21 goal 실행 중 — 현재 포인터
 
-- task: B01/N01 통합 완료, D02+C01+M01→I01 실제 SQLite 화면 연결 및 독립 검증 PASS, I01 게시 중. root `codex/i01-app`, 통합 `e612cd9`. 최종 목표/G5/G6 완료 아님.
-- [PR #3](https://github.com/Woo-Dong/wanna-gs/pull/3): exact371f380 CI35582300476/35582500506 PASS, 독립 기술 검토 PASS, Preview 실제 모델 두 역할 HTTP smoke PASS 후 squash merge. 통합 e612cd9 CI35583417853 SUCCESS.
-- 현재 API Preview `dpl_9uR4KbjNDJ97zehtRvUwNsLvLaPW`, source371f380 target=null READY. [호출 증거](execution/run-20260921/n01-preview-smoke.json). UI는 아직 기반 화면이며 최종 제품 시연 URL이 아니다.
-- D02 실제 SQL36검사 + C01 상태5 + M01 매핑3 + 서버9 = 통합 단위53/53 PASS. Python91/91도 PASS. 전체 src 타입검사 오류 수정 및 독립 delta 확인 완료. 전체 gate fingerprint `6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3` PASS. [D02](execution/run-20260921/d02-independent.md)·[248상품/9점포 검토](execution/run-20260921/data-independent.md).
-- C01 실제 Chromium fixture14 PASS는 자체 검사다. M01 독립 fixture에서 카탈로그·역할 epoch의 오래된 제안 및 기존 정책 범위 보존 3결함을 찾아 수정 후 독립 fixture17 PASS. 실제 SQLite 경영주12항목·live복구2회 PASS; 고객 독립 정상5/5·경계12/12 PASS, 대화맥락/실제 200%글씨 델타 회귀 PASS.
-- ADR002~005 각 두 관점 검토로 위임 채택. ADR005는 SKU별 검토 1회 수량 상한이며 하루 누적 제한과 구별하고 자동발주 이중 호출을 수정한다. 스키마v2/seed248v2, cataloghash f2696abe…343b1e.
-- E01 공개 dev252+validation84 / 보호 holdout84. E02 실제 HTTP 평가 실행기·복구 journal은 독립11반례 PASS. 기준선 전 prior50호출·$2.50을 보수적으로 예약하며 실측 과거사용량과 구분한다. 정식 baseline/holdout 호출0, 이전 smoke와 비용은 별도 기록한다.
-- main/integration required gate+strict+enforce_admins 실제 보호 유지. main3ef1ee3, 제품 Production/G6 미실행. Production 서버 비밀 환경변수는 등록했고 배포/실호출은 아직 하지 않았다. [이전 배포 사건·복구](execution/run-20260921/deployment-recovery.md)와 취소/Preview 기록 유지.
-- 보존 root `/Users/gsr/Desktop/workspace/2026-ralphton`, `2026-ralphton-preflight-20260921`, `2026-ralphton-domain`, `2026-ralphton-customer`, `2026-ralphton-merchant`. 초기 사용자 변경 patch·비공개 실행 로그 유지, 키/토큰 Git 제외.
-- 다음: I01 PR·CI·Preview→336 baseline와 제한 개선·보호84→G5 정책감사→main/G6 제출 검증.
+- task: I01 앱 통합 PR #4 merge 완료, N02 기준선 완료/품질 FAIL, C1 개선 후보·편의성 측정 중. root `codex/n02-quality`, 통합 `5f2e5d2`. 최종 G5/G6 완료 아님.
+- [PR #4](https://github.com/Woo-Dong/wanna-gs/pull/4): head `10c00723d0b64ea47a06dcbd00e2b671e7c62daf`, CI35587047192/35587057239 PASS. 전체 로컬 gate fingerprint `6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3` PASS. 통합 merge CI35587268459 PASS.
+- I01 Preview `dpl_73afciHs7CadEfeNSzpzz86sRmXz`, source10c0072, target=null READY. [배포](execution/run-20260921/i01-preview.json)·[실제 두 역할 브라우저](execution/run-20260921/i01-preview-browser.json): 고객 자연어·명시 동의→경영주 자연어 현재 예산 수정·묶음 승인→공급/모의 결제/입고48h→픽업/refresh PASS. 최초 own harness의 잘못된 scope 기대값 실패를 private 원본으로 보존했고 수정 후 2 live 호출 PASS(총4호출).
+- D02 SQL36 + C01 상태5 + M01 매핑3 + 서버9 = 단위53 PASS, Python91 PASS. 독립 고객 정상5/경계12 및 경영주 실제SQLite12·live 검증 PASS. [고객](execution/run-20260921/i01-customer-browser.md)·[경영주](execution/run-20260921/i01-merchant-browser.md).
+- ADR002~005 각 두 관점 검토로 위임 채택. schema-v2/seed248v2, cataloghash f2696abe…343b1e. 248상품·9공개 점포위치와 모의 거래/가격/재고 구분 유지.
+- N02 공개 dev252+validation84 =336case/368turn 기준선은 정확한 I01 Preview에서 227/336 PASS, 109 FAIL(51 응답 실패 포함). 실제367호출·$1.659112, 후속1턴 미호출 포함 실패분모 유지. 별도 보호 holdout84는 best 고정 후 평가자만 실행. prior50회/$2.50 보수 예약, 전체2400회/$15 및 필수 후속 예약 유지. 기준선 최소미달로 채택하지 않음. [보고서](execution/run-20260921/n02-baseline-report.md).
+- UX 8workload×3 baseline/best 측정기 자체fixture24 PASS, 독립 검토에서 반복분모·누락/시간분리 결함을 수정하고 독립fixture24/24·기구반례 PASS. 실제 baseline24 측정 실행 중, 비교 완료 아님.
+- main3ef1ee3, main/integration required gate+strict+enforce_admins 유지. Production 서버 키는 설정했으나 제품 Production/G6 미실행. [배포 사고·복구](execution/run-20260921/deployment-recovery.md) 보존.
+- root 및 preflight/domain/customer/merchant worktree, `artifacts/private/run-20260921/` 원본/실패/실행 로그를 보존한다. [작업공간 안내](execution/run-20260921/README.md). 비밀값/holdout은 Git 제외.
+- 다음: 기준선/제한 후보 실험·UX비교·보호84→G5 두 관점 정책/운영 감사→main release/CI→실제 제출 URL G6.
 
 ---
 

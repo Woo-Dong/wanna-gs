@@ -9,7 +9,7 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
     collection = {}
     missing = []
-    for directory in ('scripts', 'tests/gates', 'evals/tests', 'tests/eval-runner'):
+    for directory in ('scripts', 'tests/gates', 'evals/tests', 'tests/eval-runner', 'tests/ux-benchmark', 'tests/release'):
         collected = unittest.TestLoader().discover(str(ROOT / directory), pattern='test_*.py')
         collection[directory] = collected.countTestCases()
         if not collection[directory]: missing.append(directory)
