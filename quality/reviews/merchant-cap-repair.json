@@ -1,0 +1,20 @@
+{
+  "task": "MERCHANT-CAP-REPAIR",
+  "reviewer": "holdout_revision_review",
+  "implementers": ["preflight_builder", "root"],
+  "status": "PASS",
+  "fingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+  "context_manifest": "docs/execution/run-20260921/context-merchant-cap-v17.json",
+  "consumed_context_hash": "b5b15a4eff6c8ead11313ca6908f35f223a8ccbcad11855afa115953789fed42",
+  "purpose_preserved": true,
+  "requirements": ["CORE-05", "CORE-06", "CORE-07", "CORE-17", "CORE-25"],
+  "evidence": [
+    "docs/execution/run-20260921/merchant-cap-repair-independent.md: 독립 코드·정책 대조 및 직접 실행 근거와 제한.",
+    "Context v17의 64개 입력 hash 불일치0, gate_contract fingerprint 독립 재계산 일치.",
+    "원본 repro SHA786c657aca39cf81912f873f14177b43059ea216bdf3f74662087e9990726dda 그대로 실행: 보류 수요5/명시cap2의 실제 승인2, exit0. 수정 전5!=2 FAIL 이력 보존.",
+    "검토자가 실제 domain/merchant46 tests를 실행해 46PASS, fail/cancelled/skipped/todo0 확인. 자체 테스트 결과를 독립 실행으로 대체하지 않음.",
+    "별도 독립 SQL+adapter probe: 3SKU mixed/deferred+제외, 설정cap4/실제3, cap생략·undo·미동의/미승인 차단·replay/stale 추가주문0, 원수요9/주문6 PASS.",
+    "실제 SQL suite에서 future-copy 설정10/실제수요6·별도 정책확인10, MOQ/multiple/capacity/budget/활성정책 더작은 상한과 기존 결제·48h·reset·저장 복구 PASS."
+  ],
+  "scope": "원래 GOAL 필수 버그 복구의 독립 기술 검증. ADR005 의미 및 C7 고객 NL source/prompt/model/schema/domain 불변. D47 경영주 후보 추가 아님. 모델/장부0. 최종 실제 NL/브라우저 UX/두 역할 QA/G5/G6 완료를 뜻하지 않으며 후속 평가는 변경된 exact runtime source에 결속해야 함."
+}
