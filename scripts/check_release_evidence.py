@@ -88,6 +88,28 @@ def runtime_files(root):
 
 class Checker:
     def __init__(self,root): self.root=Path(root).resolve(); self.checked=set()
+    def eval_manifest(self,ref,catalog_hash):
+        original_path=relative(self.root,'evals/manifest.json');original_bytes=original_path.read_bytes();original=json.loads(original_bytes)
+        if ref is None:return original
+        require(isinstance(ref,dict) and set(ref)=={'path','sha256'} and ref['path']=='evals/manifest-v2.json' and sha(ref['sha256']),'EVAL_REVISION_REFERENCE')
+        raw=relative(self.root,ref['path']).read_bytes();require(digest(raw)==ref['sha256'],'EVAL_REVISION_HASH');value=json.loads(raw);sanitized(value);self.checked.add(ref['path'])
+        require(value.get('version')=='EVAL-20260921-v2' and value.get('revision')=='holdout-v2-c6' and value.get('status')=='frozen','EVAL_REVISION_NOT_FROZEN')
+        require(value.get('predecessor_manifest')=={'path':'evals/manifest.json','sha256':digest(original_bytes)},'EVAL_PREDECESSOR_MISMATCH')
+        require(value.get('catalog_hash')==catalog_hash==original.get('catalog_hash') and value.get('catalog_size')==original.get('catalog_size') and value.get('total_cases')==420 and value.get('archived_cases')==84 and value.get('holdout_access')=='evaluator_only','EVAL_REVISION_SCOPE')
+        for split in ('dev','validation'):require(value.get('splits',{}).get(split)==original.get('splits',{}).get(split),'PUBLIC_SPLIT_CHANGED')
+        old=original['splits']['holdout'];new=value.get('splits',{}).get('holdout',{})
+        require(value.get('label_counts')=={'customer':{'clear':40,'uncertain':20},'merchant':{'clear':15,'uncertain':9}},'HOLDOUT_REPLACEMENT_LABEL_COUNTS')
+        require(new.get('cases')==84 and new.get('counts')==old['counts'] and new.get('user_turns')==92 and new.get('worst_attempts')==276 and sha(new.get('dataset_hash')) and new['dataset_hash']!=old['dataset_hash'],'HOLDOUT_REPLACEMENT_COVERAGE')
+        families=new.get('family_hashes',[]);used={h for split in original['splits'].values() for h in split.get('family_hashes',[])}
+        require(isinstance(families,list) and len(families)>=len(old.get('family_hashes',[])) and all(sha(h) for h in families) and len(set(families))==len(families) and not (set(families)&used),'HOLDOUT_REPLACEMENT_FAMILY')
+        retired=value.get('retired_holdouts',[])
+        require(isinstance(retired,list) and len(retired)==1 and retired[0].get('dataset_hash')==old['dataset_hash'] and retired[0].get('status')=='FAIL' and retired[0].get('replay_authorized') is False and retired[0].get('retired_reason') and sha(retired[0].get('file_sha256')),'HOLDOUT_HISTORY_REQUIRED')
+        bundle=self.artifact(retired[0]['execution_evidence']);report=self.artifact(bundle['report'])
+        require(bundle.get('role')=='holdout_aggregate' and report.get('dataset_hash')==old['dataset_hash'] and report.get('cases')==84 and report.get('nl_minimum_pass') is False,'HOLDOUT_FAILURE_NOT_PRESERVED')
+        review=self.artifact(value.get('independent_data_review'))
+        require(review.get('status')=='PASS' and review.get('reviewer') and isinstance(review.get('implementers'),list) and review['implementers'] and review['reviewer'] not in review['implementers'] and review.get('dataset_hash')==new['dataset_hash'] and review.get('previous_dataset_hash')==old['dataset_hash'] and type(review.get('semantic_family_overlap')) is int and review['semantic_family_overlap']==0 and review.get('difficulty_equivalent') is True and review.get('thresholds_unchanged') is True and review.get('protected_content_not_published') is True,'HOLDOUT_DATA_REVIEW_REQUIRED')
+        timestamp(value.get('frozenAt'))
+        return value
     def artifact(self,ref,json_required=True):
         require(isinstance(ref,dict) and set(ref)=={'path','sha256'} and sha(ref['sha256']),'ARTIFACT_REFERENCE_REQUIRED')
         p=relative(self.root,ref['path'],True);data=p.read_bytes()
@@ -290,7 +312,12 @@ class Checker:
         d=m['datasets']
         for name,count in [('baseline',336),('validation',84),('holdout',84)]:require(d.get(name,{}).get('cases')==count and sha(d[name].get('hash')),'FROZEN_DATASET_REQUIRED')
         require(set(d)=={'baseline','validation','holdout'} and len({x['hash'] for x in d.values()})==3,'DATASET_SPLITS_NOT_DISTINCT')
-        public_manifest=json.loads(relative(self.root,'evals/manifest.json').read_text())
+        public_manifest=self.eval_manifest(m.get('eval_manifest'),candidate['catalogHash'])
+        if m.get('eval_manifest'):
+            require(timestamp(public_manifest['frozenAt'])<=freeze,'HOLDOUT_DATA_FROZEN_AFTER_CANDIDATE')
+            for bundle in [*m['nl']['validation'],m['nl']['holdout']]:
+                bound=self.artifact(bundle['binding'])['config']['source_files']
+                require(bound.get(m['eval_manifest']['path'])==m['eval_manifest']['sha256'],'EVAL_REVISION_SOURCE_BINDING')
         require(public_manifest.get('holdout_access')=='evaluator_only' and public_manifest.get('catalog_hash')==candidate['catalogHash'],'EVAL_MANIFEST_MISMATCH')
         for name in ('baseline','validation','holdout'):
             frozen=(public_manifest['splits']['holdout'] if name=='holdout' else json.loads(relative(self.root,f'evals/{name}-coverage.json').read_text()))
@@ -301,6 +328,10 @@ class Checker:
         require(first['run_id']!=second['run_id'] and first['run_fingerprint']==second['run_fingerprint'],'VALIDATION_REPEAT_MISMATCH')
         h=m['nl']['holdout'];require(h.get('role')=='holdout_aggregate','HOLDOUT_AGGREGATE_ONLY')
         hold,he=self.nl(h,d['holdout'],True,candidate)
+        if m.get('eval_manifest'):
+            for role,labels in public_manifest['label_counts'].items():
+                for label,count in labels.items():
+                    require(hold['metrics'].get(f'{role}/holdout/{label}',{}).get('cases')==count,'HOLDOUT_LABEL_DENOMINATOR_CHANGED')
         require(len({b['run_id'],first['run_id'],second['run_id'],hold['run_id']})==4,'DUPLICATE_NL_RUN')
         require(timestamp(he['started_at'])>=max(freeze,timestamp(e1['finished_at']),timestamp(e2['finished_at'])),'HOLDOUT_BEFORE_BEST_FROZEN')
         ha=self.artifact(h['independent_report']);require(ha.get('role')=='holdout_evaluator' and ha.get('status')=='PASS' and ha.get('run_id')==hold['run_id'] and ha.get('candidate_id')==candidate['id'] and ha.get('runtime_hash')==self.runtime_hash and ha.get('protected_content_not_published') is True,'HOLDOUT_INDEPENDENT_ATTESTATION')

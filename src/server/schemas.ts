@@ -10,15 +10,18 @@ export const customerOutputSchema=z.object({action:z.enum(['show_candidates','as
 export const merchantOutputSchema=z.object({intent:z.enum(['modify','restore','clarify']),scope:z.enum(['current_proposal','policy']).nullable(),constraints:constraintsSchema,question:z.string().nullable(),reason:z.string()}).strict();
 
 // Constrain opaque identifiers at generation time as well as in server verification.
-export function modelOutputSchema(role:'customer'|'merchant',ids:string[],categoryNames:string[],staleMerchant=false){
+export function modelOutputSchema(role:'customer'|'merchant',ids:string[],categoryNames:string[],staleMerchant=false,grounding:{skuOnlyExclusions?:boolean;customerScopeBoundary?:boolean;clarificationCount?:number}={}){
  if(!ids.length||!categoryNames.length)throw new Error('EMPTY_MODEL_CATALOG');
  const sku=z.enum(ids as [string,...string[]]);
  if(role==='customer'){
+  if(grounding.customerScopeBoundary){
+   return customerOutputSchema.extend({action:grounding.clarificationCount===2?z.literal('unidentified'):z.enum(['ask_clarification','unidentified']),candidates:z.array(customerOutputSchema.shape.candidates.element.extend({id:sku})).max(0),question:grounding.clarificationCount===2?z.null():z.string().nullable()});
+  }
   const candidate=customerOutputSchema.shape.candidates.element.extend({id:sku});
   const grounded=z.union([candidate.extend({kind:z.literal('exact'),unknownConditions:z.array(z.string()).max(0)}),candidate.extend({kind:z.enum(['confirm','alternative'])})]);
   return customerOutputSchema.extend({candidates:z.array(grounded).max(6)});
  }
  // A known stale proposal can only request a fresh review, never draft an edit or undo.
  if(staleMerchant)return merchantOutputSchema.extend({intent:z.literal('clarify'),scope:z.null(),constraints:z.object({budgetLimitKrw:z.null(),excludeCategories:z.array(z.string()).max(0),excludeProductIds:z.array(z.string()).max(0),maxQuantity:z.null(),restorePrevious:z.literal(false)}).strict(),question:z.string().min(1).max(300)});
- return merchantOutputSchema.extend({constraints:constraintsSchema.extend({excludeProductIds:z.array(sku).max(60),excludeCategories:z.array(z.enum(categoryNames as [string,...string[]])).max(30)})});
+ return merchantOutputSchema.extend({constraints:constraintsSchema.extend({excludeProductIds:z.array(sku).max(60),excludeCategories:z.array(z.enum(categoryNames as [string,...string[]])).max(grounding.skuOnlyExclusions?0:30)})});
 }

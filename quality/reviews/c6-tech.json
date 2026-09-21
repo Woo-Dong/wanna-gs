@@ -1,0 +1,28 @@
+{
+  "task": "C6-TECH",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "84eb39dc193a82caf4b9ea04558d246cb1b891f40ffd4160610a974476bb75d1",
+  "context_manifest": "docs/execution/run-20260921/context-n07-v15.json",
+  "consumed_context_hash": "2be3757da9a1d1d35f47e77c314402854f87ca8220f22e95201f1000dfc5454b",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-05",
+    "CORE-12",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21"
+  ],
+  "evidence": [
+    "Independent server unit41 PASS after C6-I01 full-prefix grammar fix; private final-unit.log retained, initial failure evidence preserved.",
+    "Independent probes58 PASS: merchant grammar/schema20, interpret/API mapping7, customer normal/negative/count2 boundaries26, actual SDK Responses payload via mocked fetch5. Real model/network/goal ledger writes0; fake key only.",
+    "Independent release81 PASS, including original72 and holdout revision9; separate7 synthetic main/method probes PASS. C6-H01 changed clear/uncertain denominator and C6-H02 boolean overlap reproduced then rejected after fixes; normal path retained.",
+    "Public frozen manifest-v2 3670b985b0189b4e7609af0acbce7bba792a4263a31ac62a246ad64e7d32ab60 Checker.eval_manifest PASS; separate data-review metadata binding, predecessor unchanged, old FAIL/no-replay, public splits,84/92,labels and family hashes verified without protected content access.",
+    "v15 all58 input hashes ACK; reviewed source bytes unchanged; collector paths include release and server tests; check_contracts.py PASS; aggregate fingerprint independently recalculated.",
+    "docs/execution/run-20260921/c6-server-independent.md; artifacts/private/run-20260921/c6-independent/final-context-ack.json and preserved probe scripts/logs."
+  ],
+  "scope": "C6 server/revision-checker technical preparation only. Data semantic quality is independently attested by a different reviewer, not re-reviewed from protected content here. Actual C6 model quality, validation, final holdout, UX study, role QA, G5/G6 not assessed. No protected examples/generator accessed. Unsigned JSON is not cryptographic identity proof.",
+  "checked_at": "2026-09-21T12:52:58.649045+00:00"
+}
