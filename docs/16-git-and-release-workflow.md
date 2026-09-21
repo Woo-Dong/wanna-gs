@@ -1,6 +1,6 @@
 # GitHub 기반 단계별 개발·커밋·배포
 
-상태: 실행 계약. 사용자 최신 지시에 따라 GitHub 저장소·인증·Vercel 연결 등 시작 설정이 완료됐다고 가정한다. 실제 실행 때 현재 상태를 재검증하되 매 단계 사용자 승인 절차로 바꾸지 않는다. 초기 docs 저장소와 커밋은 사용자 요청으로 생성했다. push는 현재 GitHub 쓰기 인증이 없어 차단됐으며 결과·재개 방법은 PROGRESS에서 확인한다. 이 상태는 향후 goal의 설정 완료 가정과 구분한다. 앱 PR·CI·배포는 별도 구현 단계다.
+상태: 실행 계약. 사용자 최신 지시에 따라 GitHub 저장소·인증·Vercel 연결 등 시작 설정이 완료됐다고 가정한다. 실제 실행 때 현재 상태를 재검증하되 매 단계 사용자 승인 절차로 바꾸지 않는다. 초기 docs 저장소와 커밋은 사용자 요청으로 생성했다. 초기 push 인증 실패는 과거 기록이며 이후 사용자가 게시했다. 현재 원격 접근·통합 상태는 PROGRESS와 실제 Git 조회로 확인한다. 이 상태는 향후 goal의 설정 완료 가정과 구분한다. 앱 PR·CI·배포는 별도 구현 단계다.
 
 ## 권한과 개발 환경
 
@@ -39,7 +39,7 @@
 9. 누적 검증: 실제 통합 결과에서 영향받은 G2/G3/G4를 실행한다. 누적 결과 실패 시 후속 병합을 막고 수정 또는 안전한 revert를 수행한다.
 10. 기록: research claim→task/context→ADR→schema/seed/eval/prompt/config→commit→PR→CI→통합 결과→Preview를 연결한다. PROGRESS 상단 task/branch/PR/마지막 유효 게이트/Production/다음 행동 포인터를 갱신하고 다음 작업으로 이동한다.
 
-모든 함수나 테스트 하나마다 commit하지 않는다. 독립적으로 설명·검증·되돌릴 수 있는 단위마다 만든다. 예: `feat(requests): persist confirmed product requests`, `test(allocation): cover concurrent supply claims`, `fix(pickup): reject collection at deadline`. commit 전에 돌린 테스트와 push 뒤에만 가능한 CI/Preview를 구별한다.
+모든 함수나 테스트 하나마다 commit하지 않는다. 독립적으로 설명·검증·되돌릴 수 있는 단위마다 만든다. 예: `feat(requests): persist confirmed product requests`, `test(allocation): reject duplicate supply events`, `fix(pickup): reject collection at deadline`. commit 전에 돌린 테스트와 push 뒤에만 가능한 CI/Preview를 구별한다.
 
 실패 상태도 작업 복구를 위해 remote에 보존할 필요가 있으면 명시적 WIP/draft로 올릴 수 있으나 통과한 단계나 merge 후보로 세지 않는다. 기본 체크포인트는 테스트가 통과한 상태다.
 
@@ -115,3 +115,9 @@ force push, reset --hard, 공유 이력 삭제, 사용자 변경 자동 stash/�
 아직 Git 이력이 없는 docs-only 폴더를 빈 원격 저장소에 연결하는 초기 커밋은 문서 링크·ID·스킬 형식·기존 검사기 테스트로 검증한다. 앱 G5를 요구하지 않으며, 이 커밋을 앱 릴리스로 보고하지 않는다. 원격 이력이 생겼으면 먼저 조회하고 보존한다. 초기 push에 force를 사용하지 않는다.
 
 fixture G4 이후 중간 Production을 허용하자는 외부 제안은 [검토 기록](reviews/2026-09-21-execution-proposals.md)의 조건부 제안으로 남긴다. 현재 실행 정책은 Preview 중간 확인과 최종 G5→main→Production→G6를 유지한다. 중간 배포를 채택할 때는 CP5/CP6 등 별도 상태·잔여 AC·모드 표시·복구·정확한 SHA 검증을 정의하고 관련 정책을 함께 갱신해야 한다. fixture 성공을 기존 최종 G5/G6로 바꾸지 않는다.
+
+## 문서 변경과 원격 main 통합
+
+작업 전과 게시 직전에 `git fetch origin`으로 최신 원격을 확인한다. 로컬 변경은 관련 파일만 검토·검증해 작업 브랜치에 커밋하고, 원격 main을 일반 merge로 통합한다. 같은 문장/결정 ID 충돌은 한쪽 전체를 선택하지 않고 사용자 결정·원격 추가 기능을 함께 대조한다. 이미 게시된 결정 ID는 유지하고 미게시 결정의 번호·참조를 조정해 매핑을 PROGRESS에 기록한다.
+
+통합 뒤 링크·ID·관련 테스트와 의미상 회귀를 검증한다. main에는 검증한 작업 브랜치만 fast-forward한다. push의 non-fast-forward 거절은 원격이 다시 바뀌었다는 뜻이므로 fetch→차이 검토→merge→재검증을 반복한다. 공유 main에 force push하거나 원격 커밋을 reset으로 제거하지 않는다. 여러 환경의 main 쓰기를 동시에 진행하면 재충돌할 수 있으므로 통합/게시 담당을 한 명으로 정한다.

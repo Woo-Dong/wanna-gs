@@ -5,12 +5,12 @@
 ## 현재 포인터
 
 ```text
-현재 task: SQLite 데모·OpenAI API 기준으로 문서/스킬 전환 및 환경 양식·검사기 준비
+현재 task: SQLite·OpenAI 문서와 원격 경영주 상세 조회 통합·검증·커밋
 branch: main (origin/main tracking)
 PR: 없음
 마지막 유효 게이트: 제품 게이트 미실행
 마지막 Production deployment: 없음
-다음 한 가지: 사용자가 .env.local과 Vercel에 OpenAI 키를 입력한 뒤 설정/실제 연결 검사. 이번 변경 commit/push는 미실행
+다음 한 가지: 최신 원격 main 통합 후 사용자가 push. 환경 키 입력·preflight 및 앱 goal은 별도 진행
 ```
 
 ## 현재 상태
@@ -19,11 +19,11 @@ PR: 없음
 |---|---|---|
 | 요구사항·실행 계약·스킬·템플릿 | 최신 지시 반영·문서 검증 완료 | README·card·02·WORKPLAN·GOAL |
 | 위임 운영 결정 | ADR-001 채택, 실행 검증 전 | DECISION_INDEX·ADR-001 |
-| GitHub | 기존 push는 사용자 완료 보고. 이번 문서 정리의 push도 사용자가 담당 | 이전 게시 기준 `8f1765ab8f43d09ac447331fc127a373d174f2f7`; 현재 커밋은 `git log -1`로 확인 |
+| GitHub | 원격 09c3cc3의 경영주 조회 명세와 로컬 63535e6의 SQLite/OpenAI 변경 통합 | 현재 branch·merge 결과는 Git 이력과 아래 기록 확인 |
 | 로컬 설정/사전점검 검사기 | OpenAI 15개 + inventory 10개 테스트 통과 | scripts/ 및 .agents/skills/wanna-gs-preflight/scripts/ |
 | 앱·CI·게이트 실행기·DB seed | 미구현 | 기능 개발 goal 미시작 |
-| SQLite | D-43 한 PC·한 탭 구조 확정, 실제 앱/seed/WASM은 미구현 | 06/29번, Neon은 현재 준비 대상 제외 |
-| Vercel·OpenAI | 배포/실제 호출 미검증, 정적 검사에서 OPENAI_API_KEY 누락 확인 | D-44, .env.example/.env.local 준비·25번·P08 |
+| SQLite | D-44 한 PC·한 탭 구조 확정, 실제 앱/seed/WASM은 미구현 | 06/29번, Neon은 현재 준비 대상 제외 |
+| Vercel·OpenAI | 배포/실제 호출 미검증, 정적 검사에서 OPENAI_API_KEY 누락 확인 | D-45, .env.example/.env.local 준비·25번·P08 |
 | 앱 단위·통합·E2E·실제 모델 평가 | 미실행 | 문서 검사와 구분 |
 | 최종 제출 URL | 없음 | 실제 배포 전 |
 
@@ -34,7 +34,7 @@ PR: 없음
 - clone/worktree 경로를 실행 시 확인한다. 특정 사용자 홈 경로에 의존하지 않는다.
 - card.md의 목적 보존 기준을 시작·인계·복구와 작업/실패/검증 보고서에 연결한다. 실행기·CI 강제는 초기 구현에 포함한다.
 - ADR-001에 따라 최소 seed 이후 기능 구현과 전체 자료 수집을 병행한다. 정식 QA·자연어 기준선·최종 게이트는 전체 seed를 요구한다.
-- D-43 SQLite와 D-44 OpenAI API를 현재 기준으로 한다. 이전 Neon/Gateway/Gemini 준비 조건을 대체했다. 실제 앱·모델·최종 배포 검증은 남아 있다.
+- D-44 SQLite와 D-45 OpenAI API를 현재 기준으로 한다. 이전 Neon/Gateway/Gemini 준비 조건을 대체했다. 실제 앱·모델·최종 배포 검증은 남아 있다.
 - 강제 full-access 설정과 fixture 기반 중간 Production 제안은 현 실행 계약으로 채택하지 않았다. 중간 공유는 Preview, 최종 Production은 G5 후 G6 검증이다.
 - 중복된 과거 리뷰 5개는 [통합 검토 기록](reviews/2026-09-21-execution-proposals.md)에 결론·기존 검사 범위를 보존하고 삭제했다. `.gitignore`로 비밀값·로컬 연결·테스트 부산물·임시 파일을 제외했다.
 
@@ -110,6 +110,16 @@ PR: 없음
 
 문서 정적 검사: Markdown 72개·로컬 링크 327개·코드 블록·D 42개/CORE 25개/AC 31개 검사 통과. `git diff --check` 통과. 앱/DB/LLM 테스트·배포·commit/push는 실행하지 않았다. 다음은 사용자가 권고 항목을 선택한 뒤 관련 기능 명세·작업 계약에 병합하는 것이다.
 
+## 경영주 상품↔고객 요청 상세 조회 추가
+
+2026-09-21 사용자가 경영주가 상품 단위 집계에서 고객 단위 요청 상세로 내려가 상품·수량·가격·동의 여부/시각·접수 순번·발주 연결·확보/배정/결제/예약/픽업 상태를 확인하도록 요구했다. 이를 새 거래 생명주기나 건별 승인으로 확장하지 않고 D-43 직접 결정, CORE-26, FR-13, AC-32로 추가했다.
+
+- 03/05/07: 상품 집계→고객 상세 흐름, 기존 관계를 이용하는 읽기 전용 조회, 제안 API와 필드/권한 계약을 연결했다.
+- 20/21/27: merchant UX/FE/BE 책임, 독립 merchant-qa 항목, 상품 합계·고객 행 합계와 세션/점포 격리 불변식을 연결했다.
+- 09/WORKPLAN/GOAL/README: 단위·실제 DB·G3·경영주 G4·G5/G6 적용 범위와 완료 체크를 추가했다.
+- `.agents/skills/wanna-gs-ux-audit/SKILL.md`와 `wanna-gs-verify/SKILL.md`: 5개 정보, 합계/상태/권한 대조를 실행 규칙에 추가했다.
+- 아직 앱·DB·API·브라우저·독립 QA는 실행하지 않았다. 동의 유효기간 O-03 등 기존 미정 정책은 임의로 확정하지 않았다.
+
 ## 문서 정리·커밋 대상 요약
 
 2026-09-21 사용자가 현재 변경 전체의 정리와 로컬 Git commit을 요청했다. push는 사용자가 직접 진행하므로 실행하지 않는다.
@@ -122,12 +132,30 @@ PR: 없음
 
 문서 링크·코드 블록·결정 ID·공백 검사를 최종 실행하고 커밋한다. 앱 기능·배포·외부 연동은 이번 작업에 포함되지 않으며 기존 테스트 계획을 실행 완료로 표시하지 않는다. 아래의 과거 미커밋·미실행 기록은 각 작업 당시 상태다. 커밋 결과와 실제 SHA는 Git 이력에서 확인한다.
 
+## 고객 상세 조회 요구사항 커밋·게시 요청
+
+2026-09-21 사용자가 직전 D-43 변경의 commit과 push를 요청했다. 변경된 문서·스킬 21개만 대상으로 하며 관련 없는 `.idea/`는 제외한다. 커밋 제목과 본문은 각 줄 50자 이내로 작성한다.
+
+`git diff --check`, 변경 문서의 코드 블록 짝·추가 로컬 링크, D 43개·CORE 26개·AC 32개·FR 13개의 순서/중복/누락 검사가 통과했다. 원격 main과 작업 전 HEAD의 일치를 확인했다. 앱·DB·브라우저 테스트와 독립 제품 QA는 미실행이다. 게시 완료는 push 결과와 원격 SHA 대조로 확인하며, 이후 README의 환경 준비·preflight와 별도 goal에서 CORE-26/AC-32를 구현·검증한다.
+
 ## SQLite·OpenAI API 전환 — 2026-09-21
 
-사용자 D-43/44를 반영해 아키텍처·서비스/API 계약·goal·WORKPLAN·검증/복구·데이터·UX·배포·핵심 요구·결정 인덱스와 관련 스킬을 갱신했다. DB는 로컬 생성 seed.sqlite를 Vercel 정적 자산으로 제공하고 한 탭의 sql.js가 실행하며 IndexedDB에는 SQLite 사본을 저장한다. 서버는 OpenAI 모델 API만 담당한다. 200개 이상 상품 생성, 동일 seed/catalog manifest, 실제 SQL 및 브라우저 저장·복원 검증은 goal 구현 작업이다.
+사용자 D-44/45를 반영해 아키텍처·서비스/API 계약·goal·WORKPLAN·검증/복구·데이터·UX·배포·핵심 요구·결정 인덱스와 관련 스킬을 갱신했다. DB는 로컬 생성 seed.sqlite를 Vercel 정적 자산으로 제공하고 한 탭의 sql.js가 실행하며 IndexedDB에는 SQLite 사본을 저장한다. 서버는 OpenAI 모델 API만 담당한다. 200개 이상 상품 생성, 동일 seed/catalog manifest, 실제 SQL 및 브라우저 저장·복원 검증은 goal 구현 작업이다.
 
 .env.example과 빈 키의 .env.local을 준비했다. .env.local은 Git 무시 대상으로 확인했다. 키 값 없이 모델/모드만 안내하며 scripts/check_openai_env.py의 기본 실행에서 OPENAI_API_KEY MISSING, live=not_run, ready_for_goal=false, 종료코드 2를 확인했다. 실제 OpenAI 요청은 보내지 않았다. --live는 사용자가 키를 넣은 뒤 별도로 실행할 소량 연결 시험이다.
 
 실제 검증: OpenAI 검사기 15개 unit test, inventory 10개 unit test, 스킬 8개 quick_validate 통과. Markdown 73개·로컬 링크 337개·코드 블록·D44/CORE25/AC31 순서·중복·누락 검사 및 git diff --check 통과. 팀원 원본 10개의 SHA-256은 작업 전과 동일하다. sqlite_migration_review와 openai_env_checker의 독립 문서 검토에서 지적한 서버 상태·예비 모델 경로·검사 결과 설명을 수정했다. 이 증거는 문서와 설정 검사기의 검증이며 앱 SQL/WASM·live API·Vercel·제품 G1~G6 통과가 아니다.
 
 직전 문서 정리 커밋은 1a5e8a2다. 이번 변경은 로컬 미커밋 상태이며 commit/push·goal 실행·외부 배포는 하지 않았다. 키 입력·연결 점검 후 별도 goal로 앱 구현을 시작한다.
+
+## 원격 main과 SQLite/OpenAI 문서 통합
+
+2026-09-21 `git fetch origin`으로 원격 `09c3cc3`의 경영주 상품→고객 상세 명세를 확인했다. 로컬 변경을 `codex/sqlite-openai-docs-sync`의 `63535e6`으로 보존한 뒤 일반 merge로 통합했다. 12개 파일의 충돌은 양쪽 요구를 대조해 해결했고 원격 커밋을 제거하거나 공유 이력을 재작성하지 않았다.
+
+이미 게시된 D-43(경영주 상세 조회)을 유지했다. 미게시 SQLite D-43은 D-44, OpenAI D-44는 D-45로 변경하고 문서·스킬의 참조를 함께 갱신했다. 과거 검증 기록의 ID 개수는 당시 기준이다. 최종 원장은 D 45개·CORE 26개·AC 32개·FR 13개다.
+
+경영주 상세는 로컬 조회 서비스로 연결하고 합성 고객·읽기 전용·동의/순번/발주/이행 상태·집계 일치·불일치 시 승인 중단을 유지했다. 같은 SQLite snapshot과 요청별 집계로 중복 합산을 막는 계약을 보완했다. 다중 브라우저 공유·서버 거래 DB·다중 사용자 경합 검사는 되살리지 않았다.
+
+통합 검증은 설정 검사기 15개·환경 inventory 10개 unit test, Markdown 73개·로컬 링크 337개·코드 블록·결정/요구/AC 순서 검사, 충돌 표시 및 diff 공백 검사다. 실제 앱·API·배포 검증은 미실행이다. 독립 검토자 review_remote_integration이 원격 요구 보존과 SQLite 경계를 확인했으며 병합을 막을 문제가 없다고 판정했다. 스킬 8개 형식 검사·FR 13개 순서 검사·팀원 원본 10개 hash 보존도 확인했다. 기본 Python의 PyYAML 누락으로 형식 검사 실행이 한 번 실패해, PyYAML이 설치된 기존 Anaconda Python으로 재실행했다. 게시 절차는 16번에 fetch→작업 커밋→merge→영향 검증→main fast-forward→일반 push로 보강했다.
+
+통합 커밋 이후 사용자가 push한다. 최종 merge SHA와 원격 대비 상태는 `git log` 및 `git status -sb`로 확인한다. push 전 원격이 다시 바뀌면 새 변경을 통합·검증하며 force push하지 않는다.

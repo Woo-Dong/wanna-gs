@@ -105,4 +105,4 @@ D-37·[27번](27-service-values-and-guardrails.md)의 미취급/품절/공급제
 
 ## SQLite 생성 산출물
 
-D-43과 29번에 따라 로컬 builder가 200개 이상의 독립 SKU를 실제 seed.sqlite에 삽입하고 같은 원본에서 catalog.json과 manifest를 생성한다. SQL 마이그레이션·출처 입력·생성 명령을 저장소에 두고 배포에서 재현한다. Python 무결성 검사와 실제 sql.js export/import·브라우저 snapshot 검사를 구분한다. 서버 DB 업로드나 외부 계정 연결은 없다.
+D-44과 29번에 따라 로컬 builder가 200개 이상의 독립 SKU를 실제 seed.sqlite에 삽입하고 같은 원본에서 catalog.json과 manifest를 생성한다. SQL 마이그레이션·출처 입력·생성 명령을 저장소에 두고 배포에서 재현한다. Python 무결성 검사와 실제 sql.js export/import·브라우저 snapshot 검사를 구분한다. 서버 DB 업로드나 외부 계정 연결은 없다.

@@ -1,6 +1,6 @@
 # OpenAI API 설정·검증·사용량
 
-D-44에 따라 앱 LLM은 OpenAI API를 직접 호출한다. Vercel AI Gateway·Gemini 예비 경로와 무료 크레딧 전환 요구(D-31)는 대체됐다. 개발용 Codex/ChatGPT Workspace와 앱의 OpenAI API 인증·사용량은 별개다. API 키는 사용자가 발급·입력하며 실제 접근·잔액·호출은 아직 검증하지 않았다.
+D-45에 따라 앱 LLM은 OpenAI API를 직접 호출한다. Vercel AI Gateway·Gemini 예비 경로와 무료 크레딧 전환 요구(D-31)는 대체됐다. 개발용 Codex/ChatGPT Workspace와 앱의 OpenAI API 인증·사용량은 별개다. API 키는 사용자가 발급·입력하며 실제 접근·잔액·호출은 아직 검증하지 않았다.
 
 ## 로컬 입력 위치
 

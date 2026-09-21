@@ -9,7 +9,7 @@ description: Verify WANNA GS implementation tasks with independent review and st
 
 1. 작업 계약과 실제 가용 도구를 확인한다. 구현자는 자체 단위 테스트를 수행하고, 별도 에이전트가 독립 검증한다. 같은 구현자의 두 번째 의견을 독립 검증으로 표시하지 않는다.
 2. 검증자는 구현자의 결론에 의존하지 말고 요구사항·입출력·반례·실행 결과를 확인한다. code fingerprint와 schema/seed/model/mode를 대조한다.
-3. 하위 PASS만으로 상위 PASS를 부여하지 않는다. 영역 통합은 실제 sql.js SQLite, 단계적 연결은 경계 실패/중복/오래된 응답, 브라우저는 SQLite·IndexedDB 사본 복원까지 확인한다. D-43의 한 탭 역할 전환을 사용한다. fixture와 live를 별도 판정한다.
+3. 하위 PASS만으로 상위 PASS를 부여하지 않는다. 영역 통합은 실제 sql.js SQLite, 단계적 연결은 경계 실패/중복/오래된 응답, 브라우저는 SQLite·IndexedDB 사본 복원까지 확인한다. D-44의 한 탭 역할 전환을 사용한다. 상품별 경영주 집계에서 고객별 요청 상세로 내려갈 때 상품·수량·가격·동의 여부/시각·접수 순번·발주 연결·확보/배정/결제/예약/픽업 상태와 actor/session/store 권한을 대조한다. fixture와 live를 별도 판정한다.
 4. 보고서에는 PASS/FAIL/BLOCKED/stale/not_applicable을 정확히 남긴다. 미실행·0개 테스트·필수 skip·누락/오래된 증거는 PASS가 아니다. not_applicable은 사유와 상위 검증을 제시하며 필수 AC 제외 수단으로 쓰지 않는다.
 5. 실패하면 [복구 절차](../../../docs/15-failure-recovery.md)를 따르고 해당 경로의 다음 통합을 보류한다. 무관한 작업은 계속한다. 검증 기준을 조용히 낮추지 않는다.
 6. [게이트 보고서](../../../docs/templates/gate-report.md)와 PROGRESS를 갱신한다. 실행기/CI가 없으면 구현된 것처럼 보고하지 않는다.

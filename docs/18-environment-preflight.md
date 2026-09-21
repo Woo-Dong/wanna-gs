@@ -18,7 +18,7 @@
 
 GitHub/Vercel 인증에는 현재 CLI 도움말이나 제공 connector의 인증 절차를 사용한다. GitHub에서는 auth·repo 조회, Vercel에서는 identity·프로젝트 연결을 확인한다. 입력 토큰을 문서로 제출할 필요는 없다. 로컬 `.vercel/project.json`은 연결 방법 중 하나이며 connector/명시적 대상 정보로 대체할 수 있다.
 
-D-43에 따라 DB 계정·연결 URL은 필요 없다. OpenAI API 인증은 local/Preview/Production에서 실제 호출 경로별로 확인한다. 환경변수 이름만 예시 파일에 적고 값은 해당 환경에 저장한다. 앱 실행의 정확한 인증 방식은 실제 지원 경로로 확인한다. CI가 로컬 로그인 상태를 자동 상속한다고 가정하지 않는다.
+D-44에 따라 DB 계정·연결 URL은 필요 없다. OpenAI API 인증은 local/Preview/Production에서 실제 호출 경로별로 확인한다. 환경변수 이름만 예시 파일에 적고 값은 해당 환경에 저장한다. 앱 실행의 정확한 인증 방식은 실제 지원 경로로 확인한다. CI가 로컬 로그인 상태를 자동 상속한다고 가정하지 않는다.
 
 제품 코드·package.json·workflow가 아직 없다는 것은 정상 docs-only 시작이다. 이를 설치 실패로 보고하지 않고 초기 구축 대상으로 표시한다.
 
@@ -196,4 +196,4 @@ P05/P09에서 `automation_access`와 `reviewer_access`를 별개로 기록한다
 
 ## SQLite 전환 이후 판정
 
-D-43과 [29번](29-browser-sqlite-demo.md)이 현재 저장 방식이다. [28번](28-neon-setup-guide.md)은 이전 설정 기록이며 Neon 계정·CLI·MCP·DB URL 부재는 차단 사유가 아니다. sql.js/WASM·SQLite 자산·IndexedDB 저장 경로는 실제 검사해야 한다. 역할 전환은 같은 탭에서 수행하고 별도 심사자 접근 확인용 브라우저는 자기 초기 상태를 사용한다. 로컬 역할 제한을 서버 인증으로, 한 탭 성공을 여러 기기 상태 공유로 보고하지 않는다.
+D-44과 [29번](29-browser-sqlite-demo.md)이 현재 저장 방식이다. [28번](28-neon-setup-guide.md)은 이전 설정 기록이며 Neon 계정·CLI·MCP·DB URL 부재는 차단 사유가 아니다. sql.js/WASM·SQLite 자산·IndexedDB 저장 경로는 실제 검사해야 한다. 역할 전환은 같은 탭에서 수행하고 별도 심사자 접근 확인용 브라우저는 자기 초기 상태를 사용한다. 로컬 역할 제한을 서버 인증으로, 한 탭 성공을 여러 기기 상태 공유로 보고하지 않는다.

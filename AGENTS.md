@@ -42,7 +42,7 @@
 
 ## 모델 설정과 사용량
 
-D-44와 [25번](docs/25-openai-api-and-budget.md)에 따라 OpenAI API 단일 경로를 사용한다. 사용자가 `.env.local`과 Vercel 서버 환경변수에 키를 입력한다. Gateway/Gemini 키·계정·전환 검증을 요구하지 않는다. 서버 키 비노출·실제 호출·구조화 출력·사용량·최종 두 역할 E2E를 확인한다. SQLite 변경과 관계없이 모델 키는 서버 전용이다.
+D-45와 [25번](docs/25-openai-api-and-budget.md)에 따라 OpenAI API 단일 경로를 사용한다. 사용자가 `.env.local`과 Vercel 서버 환경변수에 키를 입력한다. Gateway/Gemini 키·계정·전환 검증을 요구하지 않는다. 서버 키 비노출·실제 호출·구조화 출력·사용량·최종 두 역할 E2E를 확인한다. SQLite 변경과 관계없이 모델 키는 서버 전용이다.
 
 ## 목적을 유지하는 수정
 
@@ -58,4 +58,4 @@ D-39의 최종 이미지는 26번의 매핑·구현·브라우저 비교 절차�
 
 ## 한 PC SQLite 실행 범위
 
-D-43과 docs/29-browser-sqlite-demo.md를 적용한다. 외부 DB·Marketplace·Neon·PostgreSQL 서비스·pgvector를 준비하거나 DB URL을 요청하지 않는다. 로컬 seed를 실제 SQLite 파일로 만들고 sql.js/WASM 브라우저에서 사용한다. 서버는 모델 API, 거래 검증은 로컬 도메인 서비스다. 다중 사용자 경합 검증은 제외하고 한 탭 중복 명령·snapshot 복원·역할 전환·reset·48시간은 유지한다. 실제 로그인/서버 거래 권한을 보장한다고 주장하지 않는다. 과거 리뷰/28번의 DB 구조·서버 실행 설명은 현재 계약을 덮지 않는다.
+D-44과 docs/29-browser-sqlite-demo.md를 적용한다. 외부 DB·Marketplace·Neon·PostgreSQL 서비스·pgvector를 준비하거나 DB URL을 요청하지 않는다. 로컬 seed를 실제 SQLite 파일로 만들고 sql.js/WASM 브라우저에서 사용한다. 서버는 모델 API, 거래 검증은 로컬 도메인 서비스다. 다중 사용자 경합 검증은 제외하고 한 탭 중복 명령·snapshot 복원·역할 전환·reset·48시간은 유지한다. 실제 로그인/서버 거래 권한을 보장한다고 주장하지 않는다. 과거 리뷰/28번의 DB 구조·서버 실행 설명은 현재 계약을 덮지 않는다.

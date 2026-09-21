@@ -23,7 +23,7 @@ description: Test WANNA GS autonomous-development prerequisites before goal exec
 
 ## SQLite 실행 경계
 
-D-43과 [29번](../../../docs/29-browser-sqlite-demo.md)을 따른다. 외부 DB 계정·Neon·Marketplace·DB 연결 URL은 필요 없다. inspector의 Python 메모리 SQLite 확인은 읽기 전용 환경 관찰이며 P06/P07을 대신하지 않는다. P06은 실제 sql.js, P07은 실제 Preview 한 탭에서 검사한다. 브라우저 snapshot 저장 실패·복원과 WASM/seed 버전을 확인한다. 서버에는 LLM만 연결하고 거래 DB를 만들지 않는다. 다중 기기 경합은 제외하며 재전송·reset 후 늦은 응답은 유지한다.
+D-44과 [29번](../../../docs/29-browser-sqlite-demo.md)을 따른다. 외부 DB 계정·Neon·Marketplace·DB 연결 URL은 필요 없다. inspector의 Python 메모리 SQLite 확인은 읽기 전용 환경 관찰이며 P06/P07을 대신하지 않는다. P06은 실제 sql.js, P07은 실제 Preview 한 탭에서 검사한다. 브라우저 snapshot 저장 실패·복원과 WASM/seed 버전을 확인한다. 서버에는 LLM만 연결하고 거래 DB를 만들지 않는다. 다중 기기 경합은 제외하며 재전송·reset 후 늦은 응답은 유지한다.
 
 ## 핵심 판정
 

@@ -1,6 +1,6 @@
 # 환경 준비·SQLite 운영·배포
 
-현재 기준은 D-43의 한 PC·한 탭 SQLite 데모와 D-44의 OpenAI API 직접 호출이다. 앱 구현·배포·실제 모델 호출은 아직 검증하지 않았다. goal 전에 [18번 사전점검](18-environment-preflight.md)으로 실제 접근을 확인한다.
+현재 기준은 D-44의 한 PC·한 탭 SQLite 데모와 D-45의 OpenAI API 직접 호출이다. 앱 구현·배포·실제 모델 호출은 아직 검증하지 않았다. goal 전에 [18번 사전점검](18-environment-preflight.md)으로 실제 접근을 확인한다.
 
 ## 사용자가 준비할 것
 

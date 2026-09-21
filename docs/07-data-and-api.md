@@ -34,6 +34,8 @@
 | `events` | event_key, entity_type, entity_id, actor_type, previous_state, next_state, reason | 상태·중복·인계 증거 |
 | `product_embeddings` | product_id, model_id, dimensions, text_hash, vector, generated_at | 선택 실험 |
 
+경영주 고객 상세 조회는 새 생명주기 테이블을 만들지 않고 `demo_actors` → `purchase_requests` → `request_order_links` → `allocations` → `mock_payments`/`reservations`의 기존 연결을 읽는다. `actor_id`는 데모 세션 안에서만 유효하며 실제 개인정보를 뜻하지 않는다.
+
 발주 비용과 고객 판매 가격은 원래 다른 개념이다. 테스트 데이터에도 명시적으로 구분할지 결정하고, 발주 예산 계산에 판매가를 조용히 대신 사용하지 않는다. 초기 단순화가 필요하면 사용한 가격 기준을 UI·seed에 명시한다.
 
 ## 제약과 인덱스
@@ -48,7 +50,7 @@
 
 ## 로컬 서비스와 서버 API 경계
 
-D-43: 상품/경영주 모델 호출과 health만 HTTP API다. 아래 나머지는 브라우저의 로컬 서비스 명령/조회 이름이며 서버 거래 endpoint로 만들지 않는다. SQLite·역할·세션은 같은 탭에 존재한다. 모델 키는 서버에만 두고 DB 자격증명은 필요 없다.
+D-44: 상품/경영주 모델 호출과 health만 HTTP API다. 아래 나머지는 브라우저의 로컬 서비스 명령/조회 이름이며 서버 거래 endpoint로 만들지 않는다. SQLite·역할·세션은 같은 탭에 존재한다. 모델 키는 서버에만 두고 DB 자격증명은 필요 없다.
 
 | 로컬 명령/서버 API | 역할 | 주요 처리 |
 |---|---|---|
@@ -59,7 +61,9 @@ D-43: 상품/경영주 모델 호출과 health만 HTTP API다. 아래 나머지�
 | `requests.list` | 고객 | 본인 요청·예약 상태 |
 | `needs.record` | 고객 | 원문·사유 저장 |
 | `requests.cancel` | 고객 | O-04 확정 후 지원 |
-| `merchant.getDemand` | 경영주 | 미확보 수요·사유·기존 발주 연결 |
+| `merchant.getDemand` | 경영주 | 상품별 미확보 수요·사유·기존 발주 연결·고객 상세 진입 키 |
+| `merchant.getProductRequests` | 경영주 | 현재 점포·세션의 해당 상품 고객별 요청 상세와 상태 |
+| `merchant.getRequestDetail` | 경영주 | 허용된 단일 고객 요청의 동의·순번·발주·이행 상세 |
 | `merchant.review` | 경영주/이벤트 | 에이전트 검토 실행 |
 | `POST /api/merchant-assistant` | 경영주 | 자연어 제안 수정 |
 | `merchant.approve` | 경영주 | 제안 버전·최신 조건 검사 후 발주 |
@@ -77,6 +81,10 @@ D-43: 상품/경영주 모델 호출과 health만 HTTP API다. 아래 나머지�
 응답은 `code`, 사용자 안내 `message`, 필요한 경우 `details`, `retryable`을 가진다. 예: `INVALID_INPUT`, `STALE_PROPOSAL`, `CONSENT_MISMATCH`, `INSUFFICIENT_SUPPLY`, `PICKUP_EXPIRED`, `LLM_UNAVAILABLE`, `RATE_LIMITED`.
 
 서버 모델 오류·비밀정보·원문 DB 예외를 사용자에게 그대로 노출하지 않는다. 오류가 났는데 완료 카피를 보여주지 않는다.
+
+상품 집계 응답은 최소한 `product_id`, `requested_qty`, `uncommitted_qty`, `committed_qty`, `allocated_qty`, `reserved_qty`, `pending_reason`과 고객 상세 조회 가능 여부를 제공한다. 고객 상세 응답은 `actor_id`/`display_name`, `request_id`, `product_id`, `quantity`, `accepted_price_krw`, 계산된 `consent_status`, `consent_version`, `consent_at`, `sequence`, `request_status`, 연결된 `order_id`/`order_line_id`/`committed_qty`, allocation 상태·수량, mock payment 상태, reservation 상태·`pickup_available_at`·`pickup_deadline_at`·`collected_at`을 제공한다. 아직 존재하지 않는 후속 상태는 `null`과 명시적 상태로 구분한다.
+
+이 조회는 읽기 전용이며 고객별 발주·동의·결제 상태를 임의로 변경하지 않는다. 원문/대화는 기본 고객 상세에 포함하지 않고, D-43의 접근 범위와 개인정보 보호 계약이 별도로 허용한 경우에만 제한적으로 제공한다. 다른 세션·점포의 `actor_id`, 요청, 주문, 예약을 조회하면 안 된다.
 
 ## seed 데이터
 
@@ -104,6 +112,7 @@ DB를 구현하기 전에 다음 계약을 확정한다.
 | session/actor/실행 | 연결·역할·generation, reset 후 늦은 쓰기 거절 | R-17/R-19 |
 | 재동의/상태 API | review_required 복귀와 동의 버전, 지원 여부 | O-05/R-25 |
 | 실행 결과·알림 | correlation/idempotency key, 부분 성공 조회·재개, 최초 픽업 시각 보존 | R-24/R-27 |
+| 경영주 상품↔고객 상세 조회 | 상품 집계 합계와 고객 행의 수량·상태 일치, actor/session/store 권한, 동의·발주·이행 연결 | D-43/CORE-26/AC-32 |
 
 입출력 필드뿐 아니라 오류 code·retryable·필드 단위·로컬 역할, 모델 API의 HTTP 상태·입출력 검증을 소비자와 함께 고정한다. 정책이 정해지기 전 테스트 기대값을 스키마 설계로 대신 결정하지 않는다.
 
@@ -124,7 +133,7 @@ D-37·[27번](27-service-values-and-guardrails.md). 필드명과 물리 테이�
 
 원문/대화는 기존 접근 범위 안에서 보존하며 모델 추정과 사용자 확인 속성을 구분한다. 운영 오류는 agent_runs 등 오류 기록으로 남기고 니즈 통계에서 제외한다. 재시도 중복·다른 점포/세션 조회·대체 선택 후 동의 전 거래 불변·전환 시 중복 수요를 DB 통합 검사에 포함한다. 본부용 API나 화면은 추가하지 않는다.
 
-## D-41/42가 요구하는 데이터·API 의미
+## D-41/42/43이 요구하는 데이터·API 의미
 
 `minimum_order_qty`와 `order_multiple`은 발주 조건이다. 수요 총량의 저장 상한이나 `requests.create`의 MOQ 초과 거절 조건으로 쓰지 않는다. 유효 요청량·진행 중 발주 연결량·미발주량을 구분하고 동일 요청을 중복 계산하지 않는다.
 
@@ -137,3 +146,5 @@ UUID는 TEXT, 시간은 UTC epoch milliseconds INTEGER, boolean은 0/1 CHECK, �
 IndexedDB에는 SQLite 파일 바이트와 schema/seed/catalog version·generation을 함께 저장한다. 29번의 저장 완료 경계·저장 실패 복원·버전 불일치 안내를 따른다. 업무 테이블을 IndexedDB에 따로 중복 구현하지 않는다.
 
 HTTP 모델 입력은 text·필요한 후보/묶음 요약·catalog version·request ID로 제한한다. 서버는 정적 카탈로그와 출력 schema를 검증하며 클라이언트 거래 정보는 신뢰된 DB 사실로 간주하지 않는다. 응답은 모델/제공자·request ID·version·후보/제안·오류다. 로컬 서비스가 최신 상태와 대조한 후 적용한다.
+
+D-43 상세 조회의 `consent_status`는 기존 동의·기한 정책에서 계산해 표시하며 새 구매 조건을 만들지 않는다. 상품 합계와 고객 행은 같은 SQLite 읽기 snapshot의 같은 필터로 비교한다. 복수 발주 연결·배정·모의 결제 시도는 request_id별 하위 목록으로 분리하거나 먼저 집계해 조인 증폭으로 수량이 늘지 않게 한다. 조회는 상태·동의·순번을 변경하지 않는다.
