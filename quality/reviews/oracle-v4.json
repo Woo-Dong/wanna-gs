@@ -1,0 +1,26 @@
+{
+  "reviewer": "final_ux_state",
+  "status": "PASS",
+  "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+  "context_manifest": "docs/execution/run-20260921/context-n15-v22.json",
+  "consumed_context_hash": "95596d129dc5f891bcabe66a00913f5382555852625901150481de710c07c042",
+  "purpose_preserved": true,
+  "checked_at": "2026-09-22T04:17:14.535063+00:00",
+  "task": "ORACLE-V4",
+  "requirements": [
+    "CORE-03",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "CTX-20260922-N15-v22의102개 hash 직접 ACK 및 현재 fingerprint 재계산 일치.",
+    "docs/execution/run-20260921/oracle-v4-independent.md; docs/execution/run-20260921/oracle-v4-independent-audit.json SHA 6378b27c97b42c6c711a0f093576c8298c57351fd570fec6aa3f0a6e610cc5b0.",
+    "공개23회 전체 inventory/11dev 불변/12actual 원본↔정규화 old/new 1260행 전수 독립 재현. 변경3회/3사례만, 340ml FAIL·원본29·runtime50 보존.",
+    "독립 release121+runner35 및 최종 oracle33 PASS. 타입/경로18그룹과 수정 freeze15그룹 직접 PASS, 초기 pending 반례 보존·차단 재현.",
+    "revision04 normalized/raw byte 불변, old/new score 객체 전부 동일; 새 derivation12개 hash·cohort·manifest 결속."
+  ],
+  "scope": "파생 평가 무결성 기술 검토만 PASS. 실제 모델/장부0, 이번 기술 검토 보호 원문0. 원본 품질 FAIL은 불변이며 fresh holdout/QA/UX/G5/G6를 대신하지 않는다."
+}

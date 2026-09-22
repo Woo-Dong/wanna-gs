@@ -1,3 +1,9 @@
+# N15 현재 실행: 공개 oracle 무결성 복구
+
+ADR008 위임 채택. C11 앱/prompt/runtime50·Production cd29는 불변이다. 원래 validation01 84/84·02 83/84 FAIL을 보존하고 새 oracle 두 위치의 과소포함만 복구한다. method_auditor가 별도 데이터/manifest-v4·대칭 파생 재채점·정규화 관측·checker/runner를 작성한다. final_ux_state가 독립 기술/원본 대조를 수행한다. root는 문서/계보/context/PR/CI·최종 증거를 소유한다. research는 실제QA 준비와 제품 감사만 수행한다.
+
+ORACLE-V4와 C11-RUNTIME-LINEAGE 기술 게이트 전 유료 실행0. 기술 PASS 후 root의 새 동결→미실행 보호v3 최초1→고객QA→경영주QA→UX B0/C11→두 정책 관점→G5→main CI/병합→exact-main Production/G6다. D49 Production 유지, $20/2400·기존원장·실패/미완료 보존. 이 문서는 완료 선언이 아니다.
+
 # 실행 계약과 실제 DAG — 20260921
 
 상태: PLAN-READY 독립 판정 PASS (method-audit.md 최종 판정). 루트 작업 공간·private 로그·격리 probe는 보존한다. main에 완제품 전 변경을 직접 게시하지 않는다.

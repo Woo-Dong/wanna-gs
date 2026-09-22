@@ -1,0 +1,57 @@
+{
+  "version": "holdout-v3-oracle-v4-impact-v1",
+  "status": "PASS",
+  "scope": "ADR008 declared two public oracle slots only; semantic independence impact, not final V4 implementation validation",
+  "reviewer": "final_ux_state",
+  "implementers": [
+    "root",
+    "method_auditor"
+  ],
+  "dataset_hash": "5854b370a954fee49bfedf1834d24427267adc79499cd7ecc5e62925ba75518d",
+  "dataset_file_sha256": "3c0ce0039cbbaace6dde8c4052ed46b7578b3c599ac7bce0f9542642210ec6c0",
+  "state_file_sha256": "9cbbd15d484820f15b232dfa6514bd7979fb93a714c6301d82b920f5785b7d38",
+  "lineage_file_sha256": "536f81831e4cafdf067a2cdd023c4323da1a83d4b906423d36df9d105138c548",
+  "cases": 84,
+  "user_turns": 92,
+  "customer_cases_semantically_rechecked": 60,
+  "merchant_cases_unchanged_scanned": 24,
+  "public_oracle_slots_changed": 2,
+  "public_utterance_changes_authorized": 0,
+  "protected_dataset_changed": false,
+  "protected_state_changed": false,
+  "new_semantic_family_overlap": 0,
+  "new_protected_target_oracle_exposure": 0,
+  "added_public_sku_or_product_family_in_protected_cases": false,
+  "difficulty_unchanged": true,
+  "thresholds_unchanged": true,
+  "catalog_publicity_is_not_protected_case_disclosure": true,
+  "protected_content_not_published": true,
+  "actual_model_calls": 0,
+  "shared_ledger_access": 0,
+  "references": [
+    {
+      "path": "evals/manifest-v3.json",
+      "sha256": "2ad1373a6539b81d569f2fd3a06080c171d8d15fbb6d1ca8fba17347817d2159"
+    },
+    {
+      "path": "docs/execution/run-20260921/holdout-v3-independent.json",
+      "sha256": "932d328d5a482707ef732075a97f260706213ca90f79bf058a41483bf8794f1d"
+    },
+    {
+      "path": "docs/decisions/ADR-008-public-oracle-equivalence.md",
+      "sha256": "8e3348215dabe439769c76cd885bbd3b8e838f21e5ee728adb5b52b490cbb75f"
+    }
+  ],
+  "conditions": [
+    "Only the two adopted public oracle slots change; V4 exact-diff checking remains required.",
+    "Public catalog SKU knowledge is distinct from protected utterance/oracle or scenario-family exposure.",
+    "Prior independent full-data review and frozen data/state hashes remain valid; no replacement or re-generation is authorized.",
+    "No protected case IDs, utterances, answers, or target SKUs are contained in this attestation."
+  ],
+  "basis": [
+    "Read the 60 protected customer scenarios and their target relationships against the already-public named-product lookup and follow-up correction families.",
+    "Checked all84 protected rows and state input for the affected public product identities; no matches and no semantically equivalent newly exposed family were found.",
+    "The public input/family existed before this correction; adding the other valid catalog choice does not disclose or derive any protected target relationship."
+  ],
+  "verified_at": "2026-09-22T03:50:57.929479+00:00"
+}

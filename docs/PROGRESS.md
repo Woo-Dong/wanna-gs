@@ -1,3 +1,29 @@
+# 2026-09-22 N15 기술·독립 무결성 PASS
+
+[전체8검사](execution/run-20260921/n15-local-gate.json) PASS(Python244/server62/domainUI53/UX기구19/type/build 포함), [독립 검토](execution/run-20260921/oracle-v4-independent.md)의 신규33·freeze15반례와23run목록/12run원본↔정규화전수대조 PASS다. 미완료호출을허용하던기구초기반례를수리했고모든초안/최초FAIL을보존했다. exact source지문44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4와context102를결속했다.
+
+C11 두실제검증의새정답파생점수는84/84씩이며원본두번째83/84FAIL은그대로다. 원본29파일/runtime50/장부불변·새모델0이다. 다음은commit/CI·동일앱새source배포와계보최종결속후root동결/보호v3최초실행이다. 실제QA/UX·G5/main/G6완료는아직아니다.
+
+# 2026-09-22 ADR008 채택 — C11 앱 불변·공개 평가 정합성 복구
+
+공식 출처와 원명세를 [제품](execution/run-20260921/adr008-product-review.md)·[독립 상태](execution/run-20260921/adr008-state-review.md)·[독립 평가](execution/run-20260921/oracle-v4-evaluator-review.md) 관점에서 확인하고 [ADR008](decisions/ADR-008-public-oracle-equivalence.md)을 D48 위임으로 채택했다. 두500ml 모두 입력 조건에 맞는 고객 확인 후보여서 공개 oracle 두 위치의 단일허용은 과소포함 오류다. required_any와pool을 같은두SKU집합으로 대칭 수정하는 별도 revision만 허용한다. 340ml·다른조건불일치·동의없는확정은 그대로 오류다.
+
+원본29개 평가/실패 증거와 앱runtime50을 exact cd29 Git바이트와 대조해 고정했다. 원본FAIL/장부는 바꾸지 않는다. 앱/prompt/catalog/모델입력과 dev30은 불변이며, 기존두실제run을 각각 별도 파생 재채점하고 모든과거후보에 같은정답을 적용하는 검증기구를 구현중이다. 원본↔정규화관측의old/new채점동일과CI재현을 독립 검증한뒤 채택한다. 아직 파생 결과PASS나freshholdout 실행은 없다.
+
+후속정상계획은 보호92+QA/UX/G6및여유96=188회, 현재2004에서2192회로 기존2400/$20 내다. 앞서 요청한2500회 승인은 미응답이며 현재경로에 불필요하므로 예산불변이다. 기구기술PASS→새커밋/PR/CI·동일앱Production/Preview→최종동결/보호v3→두역할QA/UX→G5/main/G6를 계속한다.
+
+# 2026-09-22 C11 검증 두 번째 반복 FAIL — 최종 단계 보류
+
+C11 validation01은84/84 PASS, 동일 설정 validation02는83/84로 최소 비율은 충족했으나 C5/C10 대응 핵심 정상회귀1건으로 채택 FAIL이다. C02-validation-007에서 요구한500ml와 같은 이름/용량의 다른500ml SKU를 추가 primary로 제시했다. 340ml 오류나 transport/incomplete/mandatory 오류가 아니다. 두 회 결과와 원본 정답은 보존하며 freeze·보호 v3·실제 역할QA/UX·G5/main/G6는 실행하지 않는다. Production C11 READY는 유지한다.
+
+누적 upper2004회/$12.1930621, pending/새unknown0. 다음 후보의 기존 전체 검증 경로406회는 잔여396회를 초과하므로 호출 상한 변경을 사용자에게 요청했고 답변 전 추가 유료 호출을 금지했다. 동시에, 공식 상품 출처가 이미 입증한 두500ml의 포장 구분 누락과 단일 허용 정답의 타당성을 독립 검토한다. 임의 SKU 우선순위·원본 FAIL 덮어쓰기·합격선 완화는 하지 않는다. 현재 새 후보/정답 revision은 미채택이다.
+
+# 2026-09-22 C11 Production·실제 평가
+
+C11 exact source cd29a2bc3be8c80fa00c03c2985f06819bef7255의 [PR22](https://github.com/Woo-Dong/wanna-gs/pull/22)는 CI35682405032/35682389793 PASS 후 integration d0265035b6d624831d250c7edcf96857475d5e06으로 병합했고 merge CI35682523210도 PASS다. [Production](execution/run-20260921/c11-production.json)과 [동일 소스 Preview](execution/run-20260921/c11-preview.json)는 READY이며 제출 alias https://wanna-gs-sepia.vercel.app 는 새 Production을 제공한다. 익명 health200/configured/live는 확인했으나 G6 완료 증거는 아니다.
+
+실제 dev30/30 PASS·34calls·incomplete/mandatory/retry/새unknown0·기존 정상회귀0([독립 결과](execution/run-20260921/n14-c11-dev-evaluation.md)). dev 종료 upper1820/$11.1932501. 동일 config/max1·future280/$6.732로 validation01을 진행하며 첫 회가 원래 최소/회귀 기준을 모두 통과할 때만02를 실행한다. freshholdout·실제QA/UX·G5/main/G6는 아직 미완료다.
+
 # 2026-09-22 C11 기술 통합 PASS
 
 [기술 게이트](execution/run-20260921/c11-local-gate.json)의8검사 PASS(Python211/server62/domainUI53/UX기구19/type/build 포함)와 C11-CUSTOMER·NEED·EVAL·HOLDOUT 네 독립 검토를 동일 source fingerprint에 결속했다. 최초 review대기 FAIL도 보존했다. [고객 검토](execution/run-20260921/c11-customer-independent.md)·[니즈 검토](execution/run-20260921/c11-need-independent.md), context87 직접 ACK와 보호 v3 최종 DATA PASS를 확인했다. 실제 C11 모델·QA/UX·G5/main/G6는 아직0/미완료이며 다음은 commit/PR/CI→정확 Production 배포→고정 실제평가다.

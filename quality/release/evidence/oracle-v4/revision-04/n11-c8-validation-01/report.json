@@ -1,0 +1,214 @@
+{
+  "kind": "derived_public_oracle_rescore",
+  "actual_new_calls": 0,
+  "score": {
+    "passed": 80,
+    "evaluation_scope": "frozen_stage",
+    "run_fingerprint": "6c636045248f3c8a2e83622ffb996f5a8ee6ed14bbf91039d7f723ba65c28c12",
+    "outbound_attempts": 92,
+    "incomplete": 1,
+    "cases": 84,
+    "frozen_stage_coverage_verified": true,
+    "latency_p95_ms": 4847,
+    "tokens_known": 1175988,
+    "usage_unknown_attempts": 0,
+    "catalog_hash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+    "dataset_hash": "7b32f6d61cbd993c667edb941c7af57e14c325f5683bc4f483cca70cc47f1506",
+    "mode": "live",
+    "fatal_errors": [],
+    "product_gates": "not_assessed",
+    "mandatory_errors": 0,
+    "version": "EVAL-20260921-v1",
+    "nl_minimum_pass": false,
+    "latency_p50_ms": 2849,
+    "run_id": "740c1f22-f0fb-49a5-91a2-f741436f15c3",
+    "stage_ready": false,
+    "live_evidence": true,
+    "metrics": {
+      "customer/validation/clear": {
+        "cases": 40,
+        "passed": 37,
+        "complete": 40,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 0.925,
+        "accuracy_completed": 0.925,
+        "minimum": 0.95,
+        "minimum_met": false
+      },
+      "customer/validation/category:C01": {
+        "cases": 9,
+        "passed": 9,
+        "complete": 9,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/category:C02": {
+        "cases": 8,
+        "passed": 5,
+        "complete": 8,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 0.625,
+        "accuracy_completed": 0.625
+      },
+      "customer/validation/category:C03": {
+        "cases": 8,
+        "passed": 8,
+        "complete": 8,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/uncertain": {
+        "cases": 20,
+        "passed": 20,
+        "complete": 20,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0,
+        "minimum": 0.9,
+        "minimum_met": true
+      },
+      "customer/validation/category:C04": {
+        "cases": 7,
+        "passed": 7,
+        "complete": 7,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/category:C05": {
+        "cases": 6,
+        "passed": 6,
+        "complete": 6,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/category:C06": {
+        "cases": 6,
+        "passed": 6,
+        "complete": 6,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/category:C07": {
+        "cases": 6,
+        "passed": 6,
+        "complete": 6,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/category:C08": {
+        "cases": 5,
+        "passed": 5,
+        "complete": 5,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "customer/validation/category:C09": {
+        "cases": 5,
+        "passed": 5,
+        "complete": 5,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/clear": {
+        "cases": 15,
+        "passed": 14,
+        "complete": 14,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 0.9333333333333333,
+        "accuracy_completed": 1.0,
+        "minimum": 0.95,
+        "minimum_met": false
+      },
+      "merchant/validation/category:M01": {
+        "cases": 3,
+        "passed": 3,
+        "complete": 3,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M02": {
+        "cases": 3,
+        "passed": 3,
+        "complete": 3,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M03": {
+        "cases": 3,
+        "passed": 3,
+        "complete": 3,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M04": {
+        "cases": 3,
+        "passed": 2,
+        "complete": 2,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 0.6666666666666666,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/uncertain": {
+        "cases": 9,
+        "passed": 9,
+        "complete": 9,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0,
+        "minimum": 0.9,
+        "minimum_met": true
+      },
+      "merchant/validation/category:M05": {
+        "cases": 3,
+        "passed": 3,
+        "complete": 3,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M06": {
+        "cases": 3,
+        "passed": 3,
+        "complete": 3,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M07": {
+        "cases": 2,
+        "passed": 2,
+        "complete": 2,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M08": {
+        "cases": 2,
+        "passed": 2,
+        "complete": 2,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      },
+      "merchant/validation/category:M09": {
+        "cases": 2,
+        "passed": 2,
+        "complete": 2,
+        "mandatory_errors": 0,
+        "accuracy_all_cases": 1.0,
+        "accuracy_completed": 1.0
+      }
+    }
+  }
+}

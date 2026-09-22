@@ -297,26 +297,31 @@ def check_inputs(cases,config,coverage,catalog_path,state_fixtures,holdout=False
         if not holdout or any(c['split']!='holdout' for c in cases):raise RunnerError('PROTECTED_HOLDOUT_NOT_AUTHORIZED')
         if not isinstance(frozen_best,dict) or frozen_best.get('approved') is not True or frozen_best.get('source_sha')!=config['source_sha'] or frozen_best.get('prompt_hash')!=config['prompt_hash'] or frozen_best.get('catalog_hash')!=catalog_hash or frozen_best.get('model')!=config['model']:raise RunnerError('FROZEN_BEST_REQUIRED')
         if config['mode']!='live':raise RunnerError('HOLDOUT_REQUIRES_FROZEN_LIVE_CANDIDATE')
-        runs=frozen_best.get('validation_run_ids',[])
-        if len(runs)!=2 or len(set(runs))!=2 or frozen_best.get('validation_both_stage_ready') is not True:raise RunnerError('INDEPENDENT_REPEAT_PROOF_REQUIRED')
-        proofs=frozen_best.get('validation_reports',[])
-        if len(proofs)!=2:raise RunnerError('VALIDATION_REPORT_ARTIFACTS_REQUIRED')
-        reports=[]
-        for proof in proofs:
-            if not isinstance(proof,dict) or file_hash(ROOT/proof['path'])!=proof.get('sha256'):raise RunnerError('VALIDATION_PROOF_FINGERPRINT_MISMATCH')
-            reports.append(load_json(ROOT/proof['path']))
-        binding=frozen_best.get('validation_binding',{})
-        bound=[]
-        for key in ['config','state_fixtures']:
-            proof=binding.get(key,{})
-            if not isinstance(proof,dict) or not proof.get('path') or file_hash(ROOT/proof['path'])!=proof.get('sha256'):raise RunnerError('VALIDATION_BINDING_ARTIFACT_REQUIRED')
-            bound.append(load_json(ROOT/proof['path']))
-        validation_config,validation_states=bound
-        if attempt_limit(validation_config)!=attempt_limit(config) or any(validation_config.get(key)!=config.get(key) for key in CANDIDATE_KEYS):raise RunnerError('VALIDATION_CANDIDATE_MISMATCH')
-        expected_validation_fp=fingerprint({'runner':VERSION,'config':validation_config,'state_fixtures_hash':fingerprint(validation_states)})
-        expected_validation_dataset=load_json(ROOT/'evals/validation-coverage.json')['dataset_hash']
-        if any(report.get('run_fingerprint')!=expected_validation_fp or report.get('dataset_hash')!=expected_validation_dataset for report in reports):raise RunnerError('VALIDATION_CANDIDATE_PROOF_MISMATCH')
-        if {p.get('run_id') for p in reports}!=set(runs) or any(p.get('stage_ready') is not True or p.get('mode')!='live' or p.get('catalog_hash')!=catalog_hash for p in reports) or not reports[0].get('run_fingerprint') or reports[0]['run_fingerprint']!=reports[1].get('run_fingerprint') or reports[0].get('dataset_hash')!=reports[1].get('dataset_hash'):raise RunnerError('VALIDATION_REPEAT_PROOF_MISMATCH')
+        if 'validation_rescore_bundles' in frozen_best:
+            from rescore_public_oracle import verify_holdout_freeze
+            try:verify_holdout_freeze(ROOT,cases,config,frozen_best)
+            except (ValueError,KeyError,TypeError,OSError) as error:raise RunnerError(str(error))
+        else:
+            runs=frozen_best.get('validation_run_ids',[])
+            if len(runs)!=2 or len(set(runs))!=2 or frozen_best.get('validation_both_stage_ready') is not True:raise RunnerError('INDEPENDENT_REPEAT_PROOF_REQUIRED')
+            proofs=frozen_best.get('validation_reports',[])
+            if len(proofs)!=2:raise RunnerError('VALIDATION_REPORT_ARTIFACTS_REQUIRED')
+            reports=[]
+            for proof in proofs:
+                if not isinstance(proof,dict) or file_hash(ROOT/proof['path'])!=proof.get('sha256'):raise RunnerError('VALIDATION_PROOF_FINGERPRINT_MISMATCH')
+                reports.append(load_json(ROOT/proof['path']))
+            binding=frozen_best.get('validation_binding',{})
+            bound=[]
+            for key in ['config','state_fixtures']:
+                proof=binding.get(key,{})
+                if not isinstance(proof,dict) or not proof.get('path') or file_hash(ROOT/proof['path'])!=proof.get('sha256'):raise RunnerError('VALIDATION_BINDING_ARTIFACT_REQUIRED')
+                bound.append(load_json(ROOT/proof['path']))
+            validation_config,validation_states=bound
+            if attempt_limit(validation_config)!=attempt_limit(config) or any(validation_config.get(key)!=config.get(key) for key in CANDIDATE_KEYS):raise RunnerError('VALIDATION_CANDIDATE_MISMATCH')
+            expected_validation_fp=fingerprint({'runner':VERSION,'config':validation_config,'state_fixtures_hash':fingerprint(validation_states)})
+            expected_validation_dataset=load_json(ROOT/'evals/validation-coverage.json')['dataset_hash']
+            if any(report.get('run_fingerprint')!=expected_validation_fp or report.get('dataset_hash')!=expected_validation_dataset for report in reports):raise RunnerError('VALIDATION_CANDIDATE_PROOF_MISMATCH')
+            if {p.get('run_id') for p in reports}!=set(runs) or any(p.get('stage_ready') is not True or p.get('mode')!='live' or p.get('catalog_hash')!=catalog_hash for p in reports) or not reports[0].get('run_fingerprint') or reports[0]['run_fingerprint']!=reports[1].get('run_fingerprint') or reports[0].get('dataset_hash')!=reports[1].get('dataset_hash'):raise RunnerError('VALIDATION_REPEAT_PROOF_MISMATCH')
     cost_reserve=config.get('mandatory_cost_reserve_usd',0)
     if isinstance(cost_reserve,bool) or not isinstance(cost_reserve,(int,float)) or not math.isfinite(cost_reserve) or cost_reserve<0:raise RunnerError('INVALID_COST_RESERVE')
     reserve=config['mandatory_reserve']

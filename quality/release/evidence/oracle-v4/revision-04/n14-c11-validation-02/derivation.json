@@ -1,0 +1,37 @@
+{
+  "original": {
+    "report": {
+      "path": "quality/release/evidence/c11-validation-02/report.json",
+      "sha256": "b5eb258630f9457c0510f2db02e01401e32d46221d41f826a552a64f6af98ccd"
+    },
+    "execution": {
+      "path": "quality/release/evidence/c11-validation-02/execution.json",
+      "sha256": "3f683027d707a669a91d58b2822e52b7e36d3f27126efb49f5cb3b411a2b6669"
+    },
+    "binding": {
+      "path": "quality/release/evidence/c11-validation-02/binding.json",
+      "sha256": "cc0d8559b6bdf4e93878f72842b0efbe11d81ff99e33664b8559089a38e7a16a"
+    }
+  },
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "normalized": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n14-c11-validation-02/normalized.json",
+    "sha256": "c76ab004e82a383cc6ea44df78bf9c01b5eaca912eda6733fdc59d63d0a921fc"
+  },
+  "report": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n14-c11-validation-02/report.json",
+    "sha256": "90f3d813ba03de13e6a8bdf668e329bf68a7dcc59091828b941d5ca17671962b"
+  },
+  "actual_new_calls": 0,
+  "original_observations_sha256": "d188505325cd737181ac37fd1b970024cbf08c29ba1c06f2381e432ab7133ac0",
+  "evaluation_source_hashes": {
+    "scripts/check_release_evidence.py": "af7744bceaa8634a5396a2a0ce95e0c992244ff0cb4e3821a68f4f35441e9a98",
+    "scripts/run_nl_eval.py": "c819eb21e6511bf7a6fc41e081a635bbd95b93aed8fa8ac87eecd799f0ab2de3"
+  },
+  "scorer_sha256": "92caabf7aefbdc68e7d36e34772d8034a0b2260f1ce3ac1ade43ae475cc82f74",
+  "adapter_sha256": "68f1158551e094a8f6494aed525ed35aaafda4ba8cd6166ce099c63a0c30e690",
+  "tool_sha256": "cb1583a1b90a39699a338d9ea4ff85a662cde5209f10f269cf075d764b2e5797"
+}

@@ -89,6 +89,13 @@ def runtime_files(root):
 class Checker:
     def __init__(self,root): self.root=Path(root).resolve(); self.checked=set()
     def eval_manifest(self,ref,catalog_hash):
+        if isinstance(ref,dict) and ref.get('path')=='evals/manifest-v4.json':
+            from rescore_public_oracle import revision
+            try: value=revision(self.root,ref)
+            except (ValueError,KeyError,TypeError,OSError) as error: raise EvidenceError(str(error))
+            self.eval_manifest(value['predecessor_manifest'],catalog_hash)
+            require(value['catalog_hash']==catalog_hash,'EVAL_MANIFEST_MISMATCH')
+            return value
         original_path=relative(self.root,'evals/manifest.json');original_bytes=original_path.read_bytes();original=json.loads(original_bytes)
         if ref is None:return original
         require(isinstance(ref,dict) and set(ref)=={'path','sha256'} and ref['path'] in {'evals/manifest-v2.json','evals/manifest-v3.json'} and sha(ref['sha256']),'EVAL_REVISION_REFERENCE')
@@ -142,6 +149,22 @@ class Checker:
             if current:require(c['source_files'][name]==digest(relative(self.root,name).read_bytes()),'STALE_CANDIDATE_SOURCE')
         return fingerprint(b)
     def nl(self,bundle,dataset,best,candidate):
+        if bundle.get('kind')=='derived_public_oracle_rescore':
+            from rescore_public_oracle import verify_bundle, lineage
+            try: r,e,b=verify_bundle(self.root,bundle,current=best)
+            except (ValueError,KeyError,TypeError,OSError) as error: raise EvidenceError(str(error))
+            split='baseline' if r['cases']==336 else 'validation'
+            old=json.loads(relative(self.root,f'evals/{split}-coverage.json').read_text())
+            self.nl(bundle['original'],{'hash':old['dataset_hash'],'cases':old['cases'],'counts':old['counts']},False,candidate)
+            require(r['dataset_hash']==dataset['hash'] and r['cases']==dataset['cases'],'NL_DATASET_MISMATCH')
+            if best:
+                require(r['stage_ready'] and r['nl_minimum_pass'] and r['incomplete']==0 and r['mandatory_errors']==0,'NL_STAGE_NOT_READY')
+                require(e['candidate_id']==candidate['id'] and e['runtime_hash']==candidate['runtimeHash']==self.runtime_hash and e['stop_code'] is None,'STALE_NL_CANDIDATE')
+                for a,z in [('model','model'),('prompt_version','promptVersion'),('prompt_hash','promptHash'),('catalog_hash','catalogHash')]:require(b['config'][a]==candidate[z],'CANDIDATE_BINDING_MISMATCH')
+                if e['source_sha']!=candidate['sourceSha']:
+                    try:lineage(self.root,bundle['application_lineage'],e['source_sha'],candidate['sourceSha'],self.runtime_hash)
+                    except (ValueError,KeyError,TypeError,OSError) as error:raise EvidenceError(str(error))
+            return r,e
         r=self.artifact(bundle['report']);e=self.artifact(bundle['execution'])
         require(set(r)<=SCORER_KEYS,'NON_AGGREGATE_REPORT_FORBIDDEN')
         require(r.get('version')=='EVAL-20260921-v1' and r.get('mode')=='live' and r.get('live_evidence') is True,'NL_NOT_LIVE')
@@ -325,11 +348,14 @@ class Checker:
         if m.get('eval_manifest'):
             require(timestamp(public_manifest['frozenAt'])<=freeze,'HOLDOUT_DATA_FROZEN_AFTER_CANDIDATE')
             for bundle in [*m['nl']['validation'],m['nl']['holdout']]:
-                bound=self.artifact(bundle['binding'])['config']['source_files']
-                require(bound.get(m['eval_manifest']['path'])==m['eval_manifest']['sha256'],'EVAL_REVISION_SOURCE_BINDING')
+                if bundle.get('kind')=='derived_public_oracle_rescore':
+                    require(bundle.get('revision')==m['eval_manifest'],'EVAL_REVISION_SOURCE_BINDING')
+                else:
+                    bound=self.artifact(bundle['binding'])['config']['source_files']
+                    require(bound.get(m['eval_manifest']['path'])==m['eval_manifest']['sha256'],'EVAL_REVISION_SOURCE_BINDING')
         require(public_manifest.get('holdout_access')=='evaluator_only' and public_manifest.get('catalog_hash')==candidate['catalogHash'],'EVAL_MANIFEST_MISMATCH')
         for name in ('baseline','validation','holdout'):
-            frozen=(public_manifest['splits']['holdout'] if name=='holdout' else json.loads(relative(self.root,f'evals/{name}-coverage.json').read_text()))
+            frozen=(public_manifest['splits']['holdout'] if name=='holdout' else (self.artifact(public_manifest['public_datasets'][name]['coverage']) if public_manifest.get('revision_kind')=='public_oracle_correction' else json.loads(relative(self.root,f'evals/{name}-coverage.json').read_text())))
             require(d[name]=={'hash':frozen['dataset_hash'],'cases':frozen['cases'],'counts':frozen['counts']},'FROZEN_DATASET_MISMATCH')
         b,_=self.nl(m['nl']['baseline'],d['baseline'],False,candidate)
         validations=m['nl']['validation'];require(isinstance(validations,list) and len(validations)==2,'TWO_VALIDATIONS_REQUIRED')
