@@ -1,5 +1,5 @@
 import type { DemoSnapshot, RequestDetail, Scope, Condition } from '../../contracts/domain';
-import type { AssistantEnvelope } from '../../contracts/assistant';
+import type { AssistantEnvelope, CustomerInterpretation } from '../../contracts/assistant';
 export const TERMS_VERSION='wanna-gs-consent-v1';
 export const scopeOf=(s:DemoSnapshot):Scope=>({sessionId:s.session.id,generation:s.session.generation,actorId:s.actor.id,roleEpoch:s.roleEpoch});
 export const sameScope=(a:Scope,b:Scope)=>a.sessionId===b.sessionId&&a.generation===b.generation&&a.actorId===b.actorId&&a.roleEpoch===b.roleEpoch;
@@ -31,3 +31,14 @@ export function conditionText(c:Condition|undefined){
 export const canConfirmCondition=(c:Condition|undefined):c is Condition=>!!c&&c.observationStatus==='observed'&&Number.isInteger(c.salePriceKrw)&&c.salePriceKrw>=0;
 export function canRetryPayment(r:RequestDetail,now:number){return r.status!=='review_required'&&r.consent.status==='valid'&&r.reservation?.status==='payment_failed'&&r.reservation.holdExpiresAt!==null&&now<r.reservation.holdExpiresAt&&r.payments.filter(p=>p.cycle===r.paymentCycle).length<2;}
 export function distanceKm(a:{lat:number;lng:number},b:{lat:number;lng:number}){const rad=Math.PI/180;const dlat=(b.lat-a.lat)*rad,dlng=(b.lng-a.lng)*rad;return 6371*2*Math.asin(Math.sqrt(Math.sin(dlat/2)**2+Math.cos(a.lat*rad)*Math.cos(b.lat*rad)*Math.sin(dlng/2)**2));}
+
+/** Persist model evidence separately from the customer's original words and consent. */
+export function needCandidateClues(candidates:CustomerInterpretation['candidates']):string[]{
+ return candidates.flatMap(candidate=>{
+  const prefix=`모델 해석 (사용자 확정 아님) · 후보 SKU ${candidate.id} · 종류 ${candidate.kind}`;
+  return [prefix,
+   ...candidate.sharedEvidence.map(value=>`${prefix} · 모델이 제시한 관측 단서: ${value}`),
+   ...candidate.differences.map(value=>`${prefix} · 요청과의 차이: ${value}`),
+   ...candidate.unknownConditions.map(value=>`${prefix} · 미확인 조건: ${value}`)];
+ });
+}
