@@ -1,0 +1,23 @@
+{
+  "task": "C11-NEED",
+  "reviewer": "final_ux_state",
+  "status": "PASS",
+  "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+  "context_manifest": "docs/execution/run-20260921/context-n14-v21.json",
+  "consumed_context_hash": "e6512b02cac714b66845dda8be5648094d8967155c624016003b7c6b6ed136b0",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-03",
+    "CORE-11",
+    "CORE-17",
+    "CORE-25"
+  ],
+  "evidence": [
+    "CTX-20260922-N14-v21 원본87개 hash 직접 대조 ACK, aggregate fingerprint 재계산 일치.",
+    "docs/execution/run-20260921/c11-need-independent.md: 저장 근거·미확인과 사용자 확정을 구별하는 최소 수리 직접 검토.",
+    "고객7/7 독립 PASS. 별도 actual saveNeed/currentEnvelope/SQL roundtrip 8그룹에서 six-candidate/빈후보/중복/6가지stale/다른actor·store/확약0 확인.",
+    "artifacts/private/run-20260921/c11-customer-need-independent/probe-result.json 9그룹 PASS(저장8+prompt정적1), 최초 probe의 테이블명 오타와 로그 보존. 실제 browser/IndexedDB QA는 not_run."
+  ],
+  "scope": "기술/오프라인 데이터 검토만 PASS. 실제 모델 호출·공유장부 읽기/쓰기0. live NL/브라우저 QA/UX/G5/G6·최종배포 완료를 대신하지 않는다. 역할별 소유권은 서로 다른 작성자이며 reviewer의 앱/평가코드/보호데이터 작성0. unsigned JSON은 암호학적 신원 증명이 아니다.",
+  "checked_at": "2026-09-22T03:13:16.791069+00:00"
+}

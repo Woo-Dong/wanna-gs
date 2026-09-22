@@ -1,0 +1,40 @@
+{
+  "role": "holdout_evaluator",
+  "status": "FAIL",
+  "reviewer": "method_auditor",
+  "implementers": [
+    "root",
+    "research"
+  ],
+  "run_id": "a32976ff-e911-448d-b1fc-f798b3a80254",
+  "candidate_id": "C11",
+  "runtime_hash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "protected_content_not_published": true,
+  "candidate_frozen_before_execution": true,
+  "single_holdout_run": true,
+  "single_run_scope": "Current replacement dataset only; retired original dataset failure remains archived.",
+  "no_holdout_driven_tuning": true,
+  "tuning_scope": "Current replacement dataset was never used for tuning. Earlier retired holdout failure and ensuing generic recovery history are preserved.",
+  "error_categories": {
+    "customer/C01": 1,
+    "customer/C03": 1,
+    "customer/C05": 3,
+    "customer/C06": 2,
+    "merchant/M04": 2
+  },
+  "oracle_revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "validation_rescore_bundles": [
+    {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n14-c11-validation-01/bundle.json",
+      "sha256": "1ec2b5a02a94073c0a2640b96b63ea4ab5a6f4009739fd0507693e04cf7a6d43"
+    },
+    {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n14-c11-validation-02/bundle.json",
+      "sha256": "1e731ef43a62d2b94c9d11572e4ee38a1e86a3ade5669deff9e9f73086df5372"
+    }
+  ],
+  "scope": "Independent live frozen holdout evaluation; no final product pass implied. Evaluator-authored scorer/runner are supported by separate research/builder reviews, not self-independent claims."
+}

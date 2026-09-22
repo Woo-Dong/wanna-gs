@@ -1,0 +1,71 @@
+{
+  "reviewer": "/root/holdout_revision_review",
+  "implementers": [
+    "method_auditor"
+  ],
+  "status": "PASS",
+  "review_revision": "revision-03",
+  "dataset_hash": "18f2a373dc48b372f166e6dd6f51fd97687a406e33f8f601fe814bbeafd6c305",
+  "previous_dataset_hash": "1f9f938a7eba167ece4dd78f6c1d66a35d419c98a23af20ad4fad2d8b2474323",
+  "semantic_family_overlap": 0,
+  "semantic_family_overlap_count_kind": "independent_semantic_review_of_supplied_public_retired_demo_corpus",
+  "difficulty_equivalent": true,
+  "thresholds_unchanged": true,
+  "protected_content_not_published": true,
+  "case_count": 84,
+  "role_counts": {
+    "customer": 60,
+    "merchant": 24
+  },
+  "clear_counts": {
+    "customer": 40,
+    "merchant": 15
+  },
+  "uncertain_counts": {
+    "customer": 20,
+    "merchant": 9
+  },
+  "category_count": 18,
+  "single_turn_cases": 76,
+  "multi_turn_cases": 8,
+  "user_turns": 92,
+  "catalog_size": 248,
+  "data_structure_counts_pass": true,
+  "oracle_review_complete": true,
+  "failures": [],
+  "evidence": {
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-03/input.jsonl": "493deb46d113ba86dd25757c1794b9705979daf0055ae67f840a5882a06a0ce3",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-03/static-result.json": "e44774b595914f255b30f967fd5fa3b7a0a1b238243aa82b8ac924386be09c1e",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-03/findings.md": "e00d64812f7f5740781f8d4d5e9601119bec9045ddf36d888fee6ff2e5a577d7",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-03/lineage.json": "dd0520e2f1c438dc62a0871298bd8fc98b6f3ca95ceface711189480b52c4210",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-03/independent-binding-checks.json": "f7efc640ed784b4f7bb3c242ba156e0629cf5ca52f3c17c221ee56773faa58b9",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-03/per-case-adjudications.json": "6cb10d984e25bc3c159292db67f83b92e89f3f34876a32ced400e4cc60b1515d",
+    "artifacts/private/run-20260921/holdout-v2-independent/context-ack.json": "25e4af1b05df48c011ffb81905a060a1e6c6d323fd33c40828918f154fb97a6e",
+    "artifacts/private/run-20260921/holdout-v2-independent/family-adjudication-rubric.md": "897205eff026acaaeff138b2eb5b37074c3a54de27b093da7816808732c2f72a"
+  },
+  "model_calls": 0,
+  "product_quality": "NOT_ASSESSED",
+  "runner_compatibility": "NOT_ASSESSED",
+  "consumed_context_hash": "65069bac2aa60176028eb833adbe351956a0fee857bde24b53a2a7abb66ab7e4",
+  "strict_jsonschema_pass": true,
+  "all_case_texts_read": true,
+  "merchant_constraint_count_distribution": {
+    "1": 6,
+    "2": 4,
+    "3": 5
+  },
+  "dataset_bytes_sha256": "493deb46d113ba86dd25757c1794b9705979daf0055ae67f840a5882a06a0ce3",
+  "difficulty_basis": "Independent content/structure audit with fixed counts, turns, taxonomy, command-field distribution and preserved discriminating operations; not empirical model-difficulty equality or a paired comparison.",
+  "prior_reviews": [
+    "holdout-v2-independent.revision-01.json",
+    "holdout-v2-independent.revision-02.json"
+  ],
+  "all_case_adjudications": 84,
+  "unchanged_semantic_rows_from_revision02": 65,
+  "rechecked_changed_semantic_rows": 19,
+  "scorer_unchanged": true,
+  "previous_dataset_preserved": true,
+  "public_dev_validation_unchanged": true,
+  "release_authorized": false,
+  "ledger_mutations": 0
+}

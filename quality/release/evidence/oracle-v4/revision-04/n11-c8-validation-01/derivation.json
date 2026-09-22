@@ -1,0 +1,37 @@
+{
+  "original": {
+    "report": {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n11-c8-validation-01/original-report.json",
+      "sha256": "b65c406f16060e4b5f2b0cf29fba6310b96cb9e1adf51b5ed11de59bc62ac011"
+    },
+    "execution": {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n11-c8-validation-01/original-execution.json",
+      "sha256": "ae5303a45a98015ee056c43699a763cc50430685f6c2ab0f02a53dce85d674d6"
+    },
+    "binding": {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n11-c8-validation-01/original-binding.json",
+      "sha256": "dcdedf8080330ebb2b235487c3f84ea44e5945d7683f4343626cedc79125b64d"
+    }
+  },
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "normalized": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n11-c8-validation-01/normalized.json",
+    "sha256": "f4c6b970f80a0049cec2a2334781f3caf36a0c7c4845ecfd2f67d20aacf4c117"
+  },
+  "report": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n11-c8-validation-01/report.json",
+    "sha256": "e72cd7363960a263f6395b80ea9b3880d43705a1826801ef622c48d0ae3b08ec"
+  },
+  "actual_new_calls": 0,
+  "original_observations_sha256": "a40a91dbba552a5d82f8b923646962ab8b45d44b98da2a7d22ecd83fcc2d8561",
+  "evaluation_source_hashes": {
+    "scripts/check_release_evidence.py": "af7744bceaa8634a5396a2a0ce95e0c992244ff0cb4e3821a68f4f35441e9a98",
+    "scripts/run_nl_eval.py": "c819eb21e6511bf7a6fc41e081a635bbd95b93aed8fa8ac87eecd799f0ab2de3"
+  },
+  "scorer_sha256": "92caabf7aefbdc68e7d36e34772d8034a0b2260f1ce3ac1ade43ae475cc82f74",
+  "adapter_sha256": "68f1158551e094a8f6494aed525ed35aaafda4ba8cd6166ce099c63a0c30e690",
+  "tool_sha256": "cb1583a1b90a39699a338d9ea4ff85a662cde5209f10f269cf075d764b2e5797"
+}

@@ -1,0 +1,192 @@
+{
+  "version": "EVAL-20260921-v1",
+  "context_hash": "e8d6eb6ffef8765544e3aeeeb9c27b1e98f0c7cb5131202712ec4d32d806ea99",
+  "policy": "ADR-003",
+  "minimum_per_role_split_category": 2,
+  "family_split_tolerance": 2,
+  "total": 420,
+  "public": 336,
+  "protected": 84,
+  "categories": [
+    {
+      "id": "C01",
+      "role": "customer",
+      "name": "정확명",
+      "counts": {
+        "dev": 27,
+        "validation": 9,
+        "holdout": 9
+      }
+    },
+    {
+      "id": "C02",
+      "role": "customer",
+      "name": "검증 속성 조합",
+      "counts": {
+        "dev": 24,
+        "validation": 8,
+        "holdout": 8
+      }
+    },
+    {
+      "id": "C03",
+      "role": "customer",
+      "name": "오타·별칭·자모·한영",
+      "counts": {
+        "dev": 24,
+        "validation": 8,
+        "holdout": 8
+      }
+    },
+    {
+      "id": "C04",
+      "role": "customer",
+      "name": "모호·다후보",
+      "counts": {
+        "dev": 21,
+        "validation": 7,
+        "holdout": 7
+      }
+    },
+    {
+      "id": "C05",
+      "role": "customer",
+      "name": "미등록·미확인",
+      "counts": {
+        "dev": 18,
+        "validation": 6,
+        "holdout": 6
+      }
+    },
+    {
+      "id": "C06",
+      "role": "customer",
+      "name": "정정·후보/대체 거절",
+      "counts": {
+        "dev": 18,
+        "validation": 6,
+        "holdout": 6
+      }
+    },
+    {
+      "id": "C07",
+      "role": "customer",
+      "name": "수량·점포 혼용",
+      "counts": {
+        "dev": 18,
+        "validation": 6,
+        "holdout": 6
+      }
+    },
+    {
+      "id": "C08",
+      "role": "customer",
+      "name": "범위밖·긴입력·잡음",
+      "counts": {
+        "dev": 15,
+        "validation": 5,
+        "holdout": 5
+      }
+    },
+    {
+      "id": "C09",
+      "role": "customer",
+      "name": "주입·가짜SKU·도구오용",
+      "counts": {
+        "dev": 15,
+        "validation": 5,
+        "holdout": 5
+      }
+    },
+    {
+      "id": "M01",
+      "role": "merchant",
+      "name": "포함·제외",
+      "counts": {
+        "dev": 9,
+        "validation": 3,
+        "holdout": 3
+      }
+    },
+    {
+      "id": "M02",
+      "role": "merchant",
+      "name": "예산·수량·조건",
+      "counts": {
+        "dev": 9,
+        "validation": 3,
+        "holdout": 3
+      }
+    },
+    {
+      "id": "M03",
+      "role": "merchant",
+      "name": "이번만·앞으로 scope",
+      "counts": {
+        "dev": 9,
+        "validation": 3,
+        "holdout": 3
+      }
+    },
+    {
+      "id": "M04",
+      "role": "merchant",
+      "name": "이전복원·대명사",
+      "counts": {
+        "dev": 9,
+        "validation": 3,
+        "holdout": 3
+      }
+    },
+    {
+      "id": "M05",
+      "role": "merchant",
+      "name": "모호·충돌",
+      "counts": {
+        "dev": 9,
+        "validation": 3,
+        "holdout": 3
+      }
+    },
+    {
+      "id": "M06",
+      "role": "merchant",
+      "name": "stale",
+      "counts": {
+        "dev": 9,
+        "validation": 3,
+        "holdout": 3
+      }
+    },
+    {
+      "id": "M07",
+      "role": "merchant",
+      "name": "권한·주입",
+      "counts": {
+        "dev": 6,
+        "validation": 2,
+        "holdout": 2
+      }
+    },
+    {
+      "id": "M08",
+      "role": "merchant",
+      "name": "긴·불완전입력",
+      "counts": {
+        "dev": 6,
+        "validation": 2,
+        "holdout": 2
+      }
+    },
+    {
+      "id": "M09",
+      "role": "merchant",
+      "name": "연속수정·중복",
+      "counts": {
+        "dev": 6,
+        "validation": 2,
+        "holdout": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "report": {
+    "path": "quality/release/evidence/c4-validation-01/report.json",
+    "sha256": "684e1697f919d0cf8e96fbe03addec5c915a49e2ab7f50d2a4170235763de322"
+  },
+  "execution": {
+    "path": "quality/release/evidence/c4-validation-01/execution.json",
+    "sha256": "bdc369200c57e1c520de66d9fcd237e539af573d4d16755b6e31744adfddf353"
+  },
+  "binding": {
+    "path": "quality/release/evidence/c4-validation-01/binding.json",
+    "sha256": "6cc7f634855a56d69e3bcda540ad4b575e30ac29d9f526a0fb1aa086f1f764c5"
+  }
+}

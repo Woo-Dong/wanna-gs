@@ -1,0 +1,136 @@
+{
+  "version": "C11-runtime-lineage-v1",
+  "status": "PREPARATION_PASS",
+  "reviewer": "final_ux_state",
+  "implementers": [
+    "root",
+    "research"
+  ],
+  "candidateId": "C11",
+  "originalSourceSha": "cd29a2bc3be8c80fa00c03c2985f06819bef7255",
+  "observedHeadSha": "812827ada38b886ad5e364c3b4d2d8c904ef7ff8",
+  "newSourceSha": null,
+  "runtimeHash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "runtimeFiles": {
+    "app/api/health/route.ts": "8aeea43ce841bf57dd373e5a0dfe4f15f9423a8a78b9e6958d4d97d6ef1565bb",
+    "app/api/merchant-assistant/route.ts": "d4fe6b9ea51106fef261551414118ae06026eae3c9b3a3857f34f24c71b3fbb0",
+    "app/api/product-assistant/route.ts": "92f206e113475dbc0e5f407b2989994d6263894a09a2bc2ac3477e8e7da810c9",
+    "app/globals.css": "7dda50f05f6f36bef759d8af493010367d2f33c7d0f54a33c848c644ab957411",
+    "app/layout.tsx": "1d9793c9fe1dc36897d43890549b6c1bbd9d35e4cc3db578ce62b46608661e3c",
+    "app/page.tsx": "1bb52d1c440699623fa8b15214519f1b2c6ac66294435c4cc3b58cd4d7d3a348",
+    "data/schema/001.sql": "48c5c59a7e74a793139ab7a38062abc76709b08b1b4956117dc21e5f8b24416c",
+    "data/seed/config.json": "6338f09e26a89c63bedc42e9251075868c913c169d6e6a42a60a97364fbb0fb5",
+    "data/seed/products.json": "1139cbc5bcf21f1a78f1567d13d42a66ad3471e08d7d277d64842d586ba5390b",
+    "data/seed/stores.json": "e8859b1d8e0c5e371bdf1a3dbfe2cf384909136825669abdd6adbdf64070d506",
+    "package-lock.json": "df56e6907cef4d482d01907d62a103d98a770618914edbb9b1fb6680818432a8",
+    "package.json": "9ad43d327c9ee22b952ed1be18670cbef92d68581f847904e01426b2f2eccaef",
+    "public/demo/catalog.json": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+    "public/demo/manifest.json": "3b49f909df356509b4f9db299cbdfcb132f03a900b8c6ffbace23c067bcad01d",
+    "public/demo/seed.sqlite": "4cb10e899c9706bb0a9278b458bd7b70d3c34bf28f649b62ffae0894794a2b45",
+    "public/demo/sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+    "src/components/brand.tsx": "31504527a346e41731a2daf0aaf227921c55b425a67787f6a15966435a10f644",
+    "src/components/customer/CustomerView.tsx": "748fa2ed58fe354996a07e7eb5882e37dd0313b3c7c097ec1ae59d13cdc6b80e",
+    "src/components/customer/StoreMap.tsx": "e8b1c7d95bc940b3f0e1a9a5007f4c40ece4b846ba6d8d6e69b22d91916cce38",
+    "src/components/customer/customer.module.css": "2a550c25c4e998baca0346b212e473eb1f2b61b4b2c77ff406a27d467a73cbca",
+    "src/components/customer/model.ts": "bd47f698bc0ef67744f9bf6bc914dfb25cfad5f927159269bf0f8b7afabb900c",
+    "src/components/demo/AppShell.module.css": "75c348ef67d20d5e2b390c7fee5542f74d744ad0c72fb0180a1313b8f9fef856",
+    "src/components/demo/AppShell.tsx": "116404f640343e106dd954bc8aa470a569d2abe529c833dcdd339f7588db52fb",
+    "src/components/demo/DemoControls.tsx": "77ed26af08614b64720a44a1a581095c9f3fc430fb0f79b9283294f1ac832c43",
+    "src/components/demo/demo.module.css": "711b43aa319ed7d71ee93c7340e0deeda4c1a26242aaa8d2037c85a375150203",
+    "src/components/merchant/MerchantView.tsx": "1352bf1ea64bd0f30e5c3acc6352e89a538069427b52c471517544694ac1153f",
+    "src/components/merchant/merchant.module.css": "15c484517d97cd1fa46f775b5b212a8e9b54a1af9595b7d2a436e19bef16ff85",
+    "src/components/merchant/model.ts": "0c33f6e127d127731c1891a42b3c774fc5fb52263ee67f173d4a9870126c1a69",
+    "src/contracts/assistant.ts": "a482963843722dcd469d220ed41b391c3bc776eab5a79983adb8c1016b59815b",
+    "src/contracts/domain.ts": "fc06aec7bf7b089ebfbf379ad7daf1df9b003f907413aea38818beae8183bd4a",
+    "src/db/client.ts": "e95f598ec94cb5e5a8fceb4a73b08f1f775b6f03cea96eee1f03e2fdb56d9810",
+    "src/db/runtime.ts": "b567984ecef5504f6d091c30ab518dffbef767e69e06c4c8ee8d7f7ae1ecf631",
+    "src/db/worker.ts": "bd77f036336dcb6aa54ef7512ef6b6b10b031a9b64b058e04b62de3a062cbc3a",
+    "src/demo/scenarios.ts": "040513c0644ff657ab7960033db0127f4c8fd22774816cf382b4143617a4f520",
+    "src/domain/engine.ts": "b9ea21cd344c7467cf6d34fb7fa3abfb21a02c9cbcf3bb46d977cf7ed684cff4",
+    "src/server/assistant.ts": "cd4b1e0d87be1d7e30efb6d23ee9e4facec1a0955fe24145875a15446d9a7a74",
+    "src/server/catalog.ts": "6956ab9d275ae29263d5b4cdc2338dd2519160eed1b0fd3f1b2b9003a1f4f9fb",
+    "src/server/customer-boundary.ts": "a210a02bbbee74be42b7060f885eea86d5c59bee82e47cc7eb26edafb7c8855d",
+    "src/server/customer-size-grounding.ts": "03d3add2be2158d3fc39568b7ce7db849bc41945c0f68346a3c99b2d236baad5",
+    "src/server/customer-wire.ts": "24069afb53af5e5478848e294409d5a8a7b6d329f63b9d0475ed424eed2bbaca",
+    "src/server/merchant-grounding.ts": "37cfab83540613cabc28ba7b9cbf504cd5505b27b1c08c165b5fd9252ea7be68",
+    "src/server/merchant-wire.ts": "e283b906faa920ae61dd928b5b24c5c134c4ea2aee1def6124d49d66af44fca8",
+    "src/server/model-profile.ts": "f61a06fd44d0110b283b9c370146a2f489e3e3050e6f2ca7924a860c05251e1c",
+    "src/server/packing.ts": "474d065a256e6b08851577e07ca91b32f01c310cc416fcac7720d89da5a01ee8",
+    "src/server/prompts.ts": "16e967e7f0adf1cfff7ff16e994a0e82e6ff09cf09ac6cc2e5fc0303f51a6d5a",
+    "src/server/provider.ts": "8a01210b2de8ee634e46866fe5744a5ee5e90ac46ad5247e1c2e941a1c08b46d",
+    "src/server/retrieval.ts": "5b520cfc17d858aa33710e475f30692b71d432ce9087b19d15a012e9e04f3c4f",
+    "src/server/schemas.ts": "e4598b251ad851bf951fbcbd081f5c36bd475aa1f3ebcaf9ed22b441f681870a",
+    "tsconfig.json": "2686bf647dcd0cb0708291cd0d0a49701467fd0e3af897cdca9c8bdeecfcf3fd",
+    "vercel.json": "df773e40f1f2f3d8f5349752516f42c4d0b6f4e02d729c2aae38f312e707a2f9"
+  },
+  "runtimeFileCount": 50,
+  "inventoryExact": true,
+  "currentBytesMatchOriginalGit": true,
+  "currentBytesMatchObservedHeadGit": true,
+  "symlinkCount": 0,
+  "mismatches": 0,
+  "originalTechnicalGate": {
+    "path": "docs/execution/run-20260921/c11-local-gate.json",
+    "sha256": "1333589bede6720232da03a0ccef275261d715071b4935d1d2040eccb246bb3e",
+    "status": "PASS",
+    "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+    "executedChecks": 8
+  },
+  "originalContext": {
+    "path": "docs/execution/run-20260921/context-n14-v21.json",
+    "sha256": "e6512b02cac714b66845dda8be5648094d8967155c624016003b7c6b6ed136b0",
+    "id": "CTX-20260922-N14-v21",
+    "historicalGitFilesVerified": 87
+  },
+  "originalReviews": [
+    {
+      "path": "quality/reviews/c11-customer.json",
+      "sha256": "81dde6dd87a3acb65c64a67ea9b7182766b005698dd193f31be77463736e96e0",
+      "status": "PASS"
+    },
+    {
+      "path": "quality/reviews/c11-need.json",
+      "sha256": "903e413528412555e3eb0c437bf493322546a4c428258f0a13b053d3abe4257f",
+      "status": "PASS"
+    },
+    {
+      "path": "quality/reviews/c11-eval.json",
+      "sha256": "f8f75e69eb3e949b9888d5332ec2c2f8d30e91791fd1afa191bc73826355e65d",
+      "status": "PASS"
+    },
+    {
+      "path": "quality/reviews/c11-holdout.json",
+      "sha256": "a22a34854e90158f6ee928405b504f6943f97e4c51a081ee39a0bbad752ec59c",
+      "status": "PASS"
+    }
+  ],
+  "originalIndependentReports": [
+    {
+      "path": "docs/execution/run-20260921/c11-customer-independent.md",
+      "sha256": "dba395a667f3b80272683b0d4c6a4aed8c78e50b48cd6de65f9f4d247d918329"
+    },
+    {
+      "path": "docs/execution/run-20260921/c11-need-independent.md",
+      "sha256": "71d3f1e9af476f1136d8389397f5b1fd9aecc2f71528c51649224fb9b6221c7b"
+    },
+    {
+      "path": "docs/execution/run-20260921/c11-eval-independent.md",
+      "sha256": "2c7a90f0e5a33fbb9d457a4c8d2a3a7c3e09a5e9f5b71e225f49aaea0eab978a"
+    },
+    {
+      "path": "docs/execution/run-20260921/holdout-v3-independent.json",
+      "sha256": "932d328d5a482707ef732075a97f260706213ca90f79bf058a41483bf8794f1d"
+    },
+    {
+      "path": "docs/execution/run-20260921/holdout-v3-independent.md",
+      "sha256": "cbae305f2f661415426146a1de4e1e28fa4a08100898e054d6467d95db191025"
+    }
+  ],
+  "liveClaim": false,
+  "newGateClaim": false,
+  "protectedContentAccess": false,
+  "actualModelCalls": 0,
+  "appEdits": 0,
+  "newSourceBinding": "pending exact N15 commit and independent deployment metadata check",
+  "verifiedAt": "2026-09-22T03:48:27.079935+00:00"
+}

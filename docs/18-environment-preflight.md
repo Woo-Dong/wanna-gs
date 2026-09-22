@@ -197,3 +197,33 @@ P05/P09에서 `automation_access`와 `reviewer_access`를 별개로 기록한다
 ## SQLite 전환 이후 판정
 
 D-44과 [29번](29-browser-sqlite-demo.md)이 현재 저장 방식이다. [28번](28-neon-setup-guide.md)은 이전 설정 기록이며 Neon 계정·CLI·MCP·DB URL 부재는 차단 사유가 아니다. sql.js/WASM·SQLite 자산·IndexedDB 저장 경로는 실제 검사해야 한다. 역할 전환은 같은 탭에서 수행하고 별도 심사자 접근 확인용 브라우저는 자기 초기 상태를 사용한다. 로컬 역할 제한을 서버 인증으로, 한 탭 성공을 여러 기기 상태 공유로 보고하지 않는다.
+
+## Vercel CLI와 계정 연결 순서
+
+프로젝트 루트에서 설치·인증·연결을 차례로 진행한다. 이미 설치/로그인/연결됐다면 해당 상태를 먼저 확인하고 재사용한다.
+
+```bash
+npm install -g vercel@latest
+vercel --version
+vercel login
+vercel whoami
+vercel teams ls
+vercel project ls
+```
+
+`vercel login`이 안내하는 브라우저에서 사용자가 계정 로그인·기기 인증을 완료한다. 계정 비밀번호나 인증 토큰을 채팅에 전달하지 않는다. 여러 팀이 있으면 이 프로젝트를 둘 팀을 확인하고 기존 wanna-gs 프로젝트가 있는지 먼저 조회한다.
+
+```bash
+vercel link --project wanna-gs
+vercel project inspect
+vercel git connect https://github.com/Woo-Dong/wanna-gs.git
+vercel env ls
+```
+
+프로젝트/팀 이름은 실제 조회 결과에 맞춘다. 여러 공간이 있으면 명령에 `--scope <선택한-scope>`를 지정해 같은 공간을 사용한다. 로컬 `.vercel/` 연결과 Vercel↔GitHub 저장소 연결은 별개다. `Login Connection` 누락 오류가 나오면 사용자가 [계정 Authentication](https://vercel.com/account/authentication)에서 저장소에 접근 가능한 GitHub 계정을 연결한 뒤 `vercel git connect`를 다시 실행한다. 이후 GitHub 앱 설치·저장소 접근 승인이 요구되면 해당 저장소 권한을 부여한다. `.vercel/`은 Git에서 제외하며 다른 clone에서는 다시 link한다. [공식 계정 연결 안내](https://vercel.com/docs/accounts#login-methods-and-connections).
+
+환경변수는 25번대로 Preview/Production에 설정한다. `OPENAI_MODEL`·`LLM_MODE`는 일반 설정으로, `OPENAI_API_KEY`는 서버 비밀값으로 구분한다. 비어 있는 키를 원격에 등록하지 않는다. 기존 `.env.local`을 덮어쓸 수 있는 env pull은 준비 과정에서 무조건 실행하지 않는다. CLI 59.23.2에서는 `vercel link`도 OIDC 토큰을 내려받아 `.env.local`을 갱신했다. 연결 전후 기존 설정의 보존과 Git 제외 여부를 값 출력 없이 확인한다. CLI가 `.gitignore` 끝에 `.env*`를 추가하면 `.env.example` 허용 규칙을 덮지 않도록 정리한다. 문서만 있는 상태의 CLI 인증·프로젝트 생성은 실제 앱 배포 성공이 아니다. Next.js 코드·빌드 설정은 초기 구축 시 맞추고 P05/P08/P09에서 Preview·모델·브라우저를 별도로 검증한다.
+
+2026-09-21 공식 근거: [CLI 설치](https://vercel.com/docs/cli), [로그인](https://vercel.com/docs/cli/login), [로컬 연결](https://vercel.com/docs/cli/link), [Git 연결](https://vercel.com/docs/cli/git). 실제 설치 버전과 계정 결과는 PROGRESS에 기록한다.
+
+현재 PC에서는 Node 22 LTS가 설치돼 있으므로 CLI를 해당 런타임으로 실행할 수 있다. 예: `PATH="/opt/homebrew/opt/node@22/bin:$PATH" vercel whoami`. 이는 이 PC의 관측 예시이며 다른 장비의 고정 경로 요건이 아니다. 목표 구현 시 로컬/CI/Vercel의 지원 Node LTS를 맞추고 lockfile과 실행 버전을 기록한다.

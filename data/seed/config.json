@@ -1,0 +1,11 @@
+{
+  "schema": "schema-v2",
+  "seed": "seed-248-v2",
+  "catalog": "catalog-248-v1",
+  "policy": "ADR002+004+005",
+  "sessionId": "DEMO-SESSION-001",
+  "customerCount": 30,
+  "defaultBudgetKrw": 100000,
+  "seedNow": 1789948800000,
+  "availabilityModulo": 4
+}

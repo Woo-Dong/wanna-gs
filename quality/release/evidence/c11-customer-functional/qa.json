@@ -1,0 +1,73 @@
+{
+  "scope": "G5",
+  "completion_scope": "D50-functional-release/customer-component",
+  "original_full_g5_pass": false,
+  "role": "customer",
+  "provider": "openai",
+  "status": "PASS",
+  "mode": "live",
+  "actual_browser": true,
+  "actual_sql": true,
+  "provider_calls": 3,
+  "candidate_id": "C11",
+  "source_sha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "prompt_version": "customer-classification-v11",
+  "catalog_hash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "deployment_id": "dpl_HrUL1N35GXdFVfGG95fCgxMBKJRn",
+  "origin": "https://wanna-o08huc5in-beatrain-4635s-projects.vercel.app",
+  "runtime_hash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "reviewer": "method_auditor",
+  "implementers": [
+    "root",
+    "research",
+    "preflight_builder"
+  ],
+  "coverage": [
+    "CORE-01",
+    "CORE-03",
+    "CORE-04",
+    "CORE-07",
+    "CORE-08",
+    "CORE-09",
+    "CORE-10",
+    "CORE-11",
+    "CORE-17",
+    "CORE-23",
+    "CORE-24",
+    "CORE-25"
+  ],
+  "checks_planned": 6,
+  "checks_executed": 6,
+  "failures": 0,
+  "mandatory_errors": 0,
+  "not_run": 0,
+  "unresolved_major": 0,
+  "fixture_checks_planned": 12,
+  "fixture_checks_executed": 12,
+  "fixture_failures": 0,
+  "fixture_not_run": 0,
+  "fixture_actual_model_calls": 0,
+  "known_nl_limit": "C11 protected holdout 75/84 FAIL remains unchanged; natural-language candidate/action/undo interpretation is not generally guaranteed. User confirmation and merchant approval boundaries remain required.",
+  "first_setup_failure_preserved": true,
+  "actual_cost_usd": 0.009884400000000002,
+  "actual_tokens": 23739,
+  "evidence": [
+    {
+      "path": "quality/release/evidence/c11-customer-functional/live-report.json",
+      "sha256": "b05d4d75dc5b74c7746b3e1765eb1f45addecc51e2d2e650712e998d9f79729e"
+    },
+    {
+      "path": "quality/release/evidence/c11-customer-functional/fixture-report.json",
+      "sha256": "6dbfb4c55bc9346900dd6f30b38f6951298f6a7ffe160ba0076c58d7087a9ff9"
+    },
+    {
+      "path": "quality/release/evidence/c11-customer-functional/setup-failure.json",
+      "sha256": "296de6ef534d7a7f9765f6790c20cc462c8a0f4f285528409cc5143f21c21cca"
+    },
+    {
+      "path": "quality/release/evidence/c11-customer-functional/sqlite-summary.json",
+      "sha256": "848416e74d6661a5ceb8dba48978459367a405276edec8fe2c080505c7641993"
+    }
+  ]
+}

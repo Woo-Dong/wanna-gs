@@ -1,0 +1,59 @@
+{
+  "runner": "E02-v1",
+  "config": {
+    "mode": "live",
+    "origin": "https://wanna-gw30pjecw-beatrain-4635s-projects.vercel.app",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "prompt_version": "packed-refs-v5",
+    "prompt_hash": "eb1db993100b35785434fef31be7350a11b2849aad5bf0d2fb19e7a4917dbe83",
+    "catalog_version": "catalog-248-v1",
+    "catalog_hash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+    "source_sha": "48bdb4f18f6c769806fbfa9399ea2cf6af2b5f6f",
+    "api_version": "assistant-v1",
+    "source_files": {
+      "app/api/merchant-assistant/route.ts": "d4fe6b9ea51106fef261551414118ae06026eae3c9b3a3857f34f24c71b3fbb0",
+      "app/api/product-assistant/route.ts": "92f206e113475dbc0e5f407b2989994d6263894a09a2bc2ac3477e8e7da810c9",
+      "data/schema/001.sql": "48c5c59a7e74a793139ab7a38062abc76709b08b1b4956117dc21e5f8b24416c",
+      "data/seed/config.json": "6338f09e26a89c63bedc42e9251075868c913c169d6e6a42a60a97364fbb0fb5",
+      "data/seed/products.json": "1139cbc5bcf21f1a78f1567d13d42a66ad3471e08d7d277d64842d586ba5390b",
+      "evals/adapter.py": "68f1158551e094a8f6494aed525ed35aaafda4ba8cd6166ce099c63a0c30e690",
+      "evals/dev-coverage.json": "ca5a642af56580ba1f5184f804cbafb58105aa05d6ad96c679be0a486451e871",
+      "evals/dev.jsonl": "19b3a5f19425f3d90c78b5551d13c96e2f301ca1abcedcaeb348fdf23329ad1d",
+      "evals/manifest.json": "781be002d345bf910a37e23176a3bedd27eac6475fda0e978c09801503ef8a0a",
+      "evals/scorer.py": "92caabf7aefbdc68e7d36e34772d8034a0b2260f1ce3ac1ade43ae475cc82f74",
+      "evals/taxonomy.json": "dc5314cc20c095e933da4c31dfe0916e8af184bdf5b2a4051c350c4a1136a706",
+      "evals/validation-coverage.json": "7473b3eda6a1ac5eb34a6e09296502e65c5463e567ae37c9e72f2965f1e70812",
+      "evals/validation.jsonl": "9ebf5b240648c43ee01a0c8b6d8f2223aa0af5bd0f74f958c08bae38632e7082",
+      "package-lock.json": "df56e6907cef4d482d01907d62a103d98a770618914edbb9b1fb6680818432a8",
+      "package.json": "9ad43d327c9ee22b952ed1be18670cbef92d68581f847904e01426b2f2eccaef",
+      "public/demo/manifest.json": "3b49f909df356509b4f9db299cbdfcb132f03a900b8c6ffbace23c067bcad01d",
+      "scripts/build-eval-state.mts": "f453a2495bdb7a54f99d2a4a2379bc65f5be576a172bfb77d05874c05599a915",
+      "scripts/run_goal_eval.py": "7b4d52598a127272d0a382409683fc2bb76f141b8eedc59bd38844a13e188795",
+      "scripts/run_nl_eval.py": "5ee03bb164e0610511c25d2934b6e7b6b234ef95a96c2770bf6b7dae08f51d7d",
+      "src/contracts/assistant.ts": "a482963843722dcd469d220ed41b391c3bc776eab5a79983adb8c1016b59815b",
+      "src/server/assistant.ts": "5960034aebee9ea4c343cb618fd9a042f6b0ac5bf110ceaa01647e55492f76c8",
+      "src/server/catalog.ts": "6956ab9d275ae29263d5b4cdc2338dd2519160eed1b0fd3f1b2b9003a1f4f9fb",
+      "src/server/model-profile.ts": "f61a06fd44d0110b283b9c370146a2f489e3e3050e6f2ca7924a860c05251e1c",
+      "src/server/packing.ts": "474d065a256e6b08851577e07ca91b32f01c310cc416fcac7720d89da5a01ee8",
+      "src/server/prompts.ts": "eb1db993100b35785434fef31be7350a11b2849aad5bf0d2fb19e7a4917dbe83",
+      "src/server/provider.ts": "8a01210b2de8ee634e46866fe5744a5ee5e90ac46ad5247e1c2e941a1c08b46d",
+      "src/server/retrieval.ts": "5b520cfc17d858aa33710e475f30692b71d432ce9087b19d15a012e9e04f3c4f",
+      "src/server/schemas.ts": "dabb27c95b45b38bf8ed35acb58915cf71b6084461bc306eaa8a5ace6529bafe"
+    },
+    "mandatory_reserve": {
+      "best_validation": 276,
+      "holdout": 276,
+      "ux": 72,
+      "g5_g6": 60
+    },
+    "mandatory_cost_reserve_usd": 7.182,
+    "prior_call_reserve": 50,
+    "deployment_proof": {
+      "origin": "https://wanna-gw30pjecw-beatrain-4635s-projects.vercel.app",
+      "source_sha": "48bdb4f18f6c769806fbfa9399ea2cf6af2b5f6f",
+      "artifact": "artifacts/private/run-20260921/n05-c4-preview-proof.json",
+      "sha256": "d3a6f1643fcb00569141f0a38744c99c100852b0fe281549ff1b56cfee3af212"
+    }
+  },
+  "state_fixtures_hash": "0ab9f3bd52026bd13470fcc5e99ce09ca315710c227d1dfea848a5d3e210df24"
+}

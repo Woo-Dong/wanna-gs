@@ -1,0 +1,27 @@
+{
+  "task": "N04-RECORDS",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "2e7077e90767ebe780c1da081213682e1673eff6629f283f7f0db01a6927325d",
+  "context_manifest": "docs/execution/run-20260921/context-n04-v10.json",
+  "consumed_context_hash": "6d9ecdcc7cdb8958d6e1599bba6a537d3e77c2d95d816968d9001f5d8d554465",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-13",
+    "CORE-15",
+    "CORE-16",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23"
+  ],
+  "evidence": [
+    "Direct current context hash and all40 input hashes matched; gate fingerprint independently recomputed. app/src tracked33 files equal integration b6fe33d bytes.",
+    "Previously independent release48 tests plus reviewer10 config counterexamples reused only after exact checker/test/README source hashes matched; no repeated test execution claim.",
+    "Public B0 report/execution/binding/bundle exact hashes match previous independent original aggregation/privacy/path-guard review. Baseline336/227PASS/109FAIL and planned368/actual367/missing1 remain.",
+    "Read current diff, ADR006, runbook/README, C1/C2 evaluations and both UX cohort records: original failures, rejected candidates, cumulative48 denominator, no third recovery and G5/G6 NOT_READY preserved.",
+    "Report docs/execution/run-20260921/n04-records-independent.md; reviewed local document links exist. No current actual release manifest."
+  ],
+  "scope": "Evidence and release-instrument correction only; not customer UI independent QA or whole-product release approval. Actual models0 and protected holdout access0 in this review. Earlier tests reused by exact source identity. C3 live evaluation/quality belongs to separate evidence. Unsigned JSON is not cryptographic reviewer identity proof.",
+  "checked_at": "2026-09-21T11:12:51.582475+00:00"
+}

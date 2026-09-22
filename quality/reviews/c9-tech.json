@@ -1,0 +1,30 @@
+{
+  "task": "C9-TECH",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "9cfb0097b0faf61d60158c037af02a4e316899ead533b88c7d42981da785d61f",
+  "context_manifest": "docs/execution/run-20260921/context-n12-v19.json",
+  "consumed_context_hash": "44e82074148e322215f0df95f3358b88e24211f6a8f8cc2dfbc5101a52b3db36",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-05",
+    "CORE-11",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "Independent server53/53 PASS, fail/cancel/skip0; builder frozen10 files exactly match integrated root; context72 hashes and aggregate fingerprint directly verified.",
+    "Independent12 groups PASS: four synthetic C8 generation/verify gaps fail generation in C9; current/policy/restore/clarify, mixed and SKU-only grounding/stale normal and rejection paths preserve canonical semantics.",
+    "Actual installed SDK with fake fetch6 requests tests strict nested schema, original SKU/history/context mapping, route502 known usage, unknown usage null; external HTTP/model0. Full248 enum bound and customer schema exact equality across12 configurations verified.",
+    "verifyCustomer/verifyMerchant bodies and provider/model/packing/retrieval/catalog/domain/UI/eval contracts unchanged; existing tests change wrapper only, not canonical expected answers.",
+    "Actual Budget in disposable synthetic ledgers4 boundary probes PASS: future672 stops2424;648 permits2400;one extra earlier call stops2401;dev2376. No shared ledger access; no completion guarantee.",
+    "docs/execution/run-20260921/c9-action-independent.md and private c9-independent scripts/results/logs preserve provenance, limitations and C8 validation FAIL."
+  ],
+  "scope": "C9 server technical contract only; actual model quality, role browser QA, UX/G5/G6 untested. No protected raw/generator, real model/HTTP/deployment/shared ledger access. Past customer UI authorship is not independent customer UI QA. Unsigned identity is not cryptographic proof.",
+  "checked_at": "2026-09-22T01:23:24.044412+00:00"
+}

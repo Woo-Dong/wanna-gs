@@ -1,0 +1,68 @@
+{
+  "scope": "G5",
+  "completion_scope": "D50-functional-release/merchant-component",
+  "original_full_g5_pass": false,
+  "role": "merchant",
+  "provider": "openai",
+  "status": "PASS",
+  "mode": "live",
+  "actual_browser": true,
+  "actual_sql": true,
+  "provider_calls": 3,
+  "candidate_id": "C11",
+  "source_sha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "prompt_version": "customer-classification-v11",
+  "catalog_hash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "deployment_id": "dpl_HrUL1N35GXdFVfGG95fCgxMBKJRn",
+  "origin": "https://wanna-o08huc5in-beatrain-4635s-projects.vercel.app",
+  "runtime_hash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "reviewer": "research",
+  "implementers": [
+    "root",
+    "preflight_builder"
+  ],
+  "coverage": [
+    "CORE-01",
+    "CORE-04",
+    "CORE-05",
+    "CORE-06",
+    "CORE-07",
+    "CORE-08",
+    "CORE-09",
+    "CORE-10",
+    "CORE-17",
+    "CORE-23",
+    "CORE-24",
+    "CORE-25",
+    "CORE-26"
+  ],
+  "checks_planned": 11,
+  "checks_executed": 11,
+  "failures": 0,
+  "mandatory_errors": 0,
+  "not_run": 0,
+  "unresolved_major": 0,
+  "first_failure_preserved": true,
+  "total_role_attempt_calls_including_prior_failed_run": 6,
+  "actual_cost_usd": 0.0164432,
+  "actual_tokens": 40253,
+  "evidence": [
+    {
+      "path": "quality/release/evidence/c11-merchant-functional/live-report.json",
+      "sha256": "697c1e26d931837018d9093cfacb8763ae27615bab35070dbeae43209af64bf4"
+    },
+    {
+      "path": "quality/release/evidence/c11-merchant-functional/first-failure.json",
+      "sha256": "8ca0c2e14f85b4fdf012132b6259ddd9a8d0f8489ecb46e01a46e5b7eb351dbc"
+    },
+    {
+      "path": "quality/release/evidence/c11-merchant-functional/sqlite-summary.json",
+      "sha256": "9ac9bf60dd1e8468bd7958807c86c47597c0c14196be65d30b5e51ba6d6a4e45"
+    },
+    {
+      "path": "docs/execution/run-20260921/n16-merchant-functional-qa.md",
+      "sha256": "8184b1e83f8c433a6ee08cb6568400ed40bc0acc42f09e648680520a42a37d22"
+    }
+  ]
+}

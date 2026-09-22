@@ -1,0 +1,14 @@
+{
+  "id": "dpl_5RvbQuM2PaWxh6gnC7gVPSsXeS29",
+  "url": "wanna-f8y2bkli5-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n14-c11-recovery",
+    "sha": "cd29a2bc3be8c80fa00c03c2985f06819bef7255"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

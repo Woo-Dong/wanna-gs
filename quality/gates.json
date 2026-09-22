@@ -1,0 +1,242 @@
+{
+  "phase": "n16-functional-release",
+  "scope": "D50 user-directed functional release; preserve original NL FAIL and G5 NOT_READY. Stop optimization; require independent actual role QA, major functional issues zero, technical CI and final main Production verification.",
+  "source_patterns": [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "app/**/*.css",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "scripts/*.py",
+    "tests/gates/*.py",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "vercel.json",
+    "quality/gates.json",
+    ".github/workflows/*.yml",
+    "AGENTS.md",
+    "card.md",
+    "docs/GOAL.md",
+    "docs/CORE_REQUIREMENTS.md",
+    "docs/DECISION_INDEX.md",
+    "docs/02-decisions-and-open-questions.md",
+    "docs/20-agent-roles-and-context.md",
+    "docs/29-browser-sqlite-demo.md",
+    "docs/decisions/ADR-002-demo-domain-policies.md",
+    "docs/decisions/ADR-003-evaluation-and-demo-boundaries.md",
+    "docs/execution/run-20260921/plan.md",
+    "docs/execution/run-20260921/research.md",
+    "docs/execution/run-20260921/context-app-v3.json",
+    "docs/decisions/ADR-004-supplier-capacity.md",
+    "docs/execution/run-20260921/domain-contract.md",
+    "src/contracts/domain.ts",
+    "src/contracts/assistant.ts",
+    "data/seed/config.json",
+    "data/seed/products.json",
+    "data/seed/stores.json",
+    "evals/manifest.json",
+    "docs/execution/run-20260921/context-app-v4.json",
+    "data/research/*.json",
+    "data/research/*.py",
+    "evals/*.py",
+    "evals/tests/*.py",
+    "tests/server/*.test.ts",
+    "evals/*.json",
+    "evals/*.jsonl",
+    "src/**/*.css",
+    "tests/**/*.mts",
+    "tests/customer/*.tsx",
+    "tests/customer/*.ts",
+    "tests/merchant/*.tsx",
+    "tests/merchant/*.ts",
+    "tests/merchant/*.cjs",
+    "tests/customer/*.cjs",
+    "tests/eval-runner/*.py",
+    "scripts/*.mjs",
+    "data/schema/*.sql",
+    "public/demo/*",
+    "next.config.*",
+    "docs/decisions/ADR-005-persistent-quantity-cap.md",
+    "docs/execution/run-20260921/context-app-v5.json",
+    "scripts/*.mts",
+    "tests/integration/*.mjs",
+    "tests/**/*.html",
+    "tests/ux-benchmark/*.mjs",
+    "tests/ux-benchmark/*.py",
+    "tests/release/*.py",
+    "docs/execution/run-20260921/context-n02-v6.json",
+    "docs/execution/run-20260921/context-n02-v7.json",
+    "docs/execution/run-20260921/context-n03-v8.json",
+    "docs/execution/run-20260921/context-n04-v9.json",
+    "docs/decisions/ADR-006-ux-baseline-recovery.md",
+    "docs/execution/run-20260921/context-n04-v10.json",
+    "quality/release/evidence/baseline/*",
+    "docs/execution/run-20260921/context-n05-v11.json",
+    "docs/execution/run-20260921/context-n06-v12.json",
+    "docs/execution/run-20260921/context-n06-v13.json",
+    "docs/decisions/ADR-007-ux-comparison-recovery.md",
+    "tests/ux-benchmark/v3/*.py",
+    "tests/ux-benchmark/v3/*.mjs",
+    "tests/ux-benchmark/v3/*.mts",
+    "tests/ux-benchmark/v3/SOURCE-HASHES.json",
+    "docs/execution/run-20260921/context-ux-v14.json",
+    "quality/release/evidence/c5-validation-01/*",
+    "quality/release/evidence/c5-validation-02/*",
+    "quality/release/evidence/c5-freeze.json",
+    "docs/execution/run-20260921/context-n07-v15.json",
+    "docs/execution/run-20260921/c6-recovery-plan.md",
+    "docs/execution/run-20260921/holdout-v2-independent.json",
+    "docs/execution/run-20260921/context-n08-v16.json",
+    "docs/execution/run-20260921/c7-customer-contract.md",
+    "docs/execution/run-20260921/context-merchant-cap-v17.json",
+    "docs/execution/run-20260921/merchant-cap-repair-contract.md",
+    "docs/execution/run-20260921/c7-policy-state-audit.md",
+    "docs/execution/run-20260921/context-n11-v18.json",
+    "docs/execution/run-20260921/c8-customer-contract.md",
+    "tests/server/*.fixture.ts",
+    "docs/execution/run-20260921/context-n12-v19.json",
+    "docs/execution/run-20260921/c9-action-contract.md",
+    "docs/execution/run-20260921/c10-size-contract.md",
+    "docs/execution/run-20260921/c10-reservation-evaluator-review.md",
+    "docs/execution/run-20260921/context-n13-v20.json",
+    "docs/execution/run-20260921/c11-recovery-contract.md",
+    "docs/execution/run-20260921/c11-retry-reservation-evaluator-review.md",
+    "docs/execution/run-20260921/c11-retry-reservation-state-review.md",
+    "docs/execution/run-20260921/context-n14-v21.json",
+    "docs/execution/run-20260921/holdout-v3-independent.json",
+    "docs/decisions/ADR-008-public-oracle-equivalence.md",
+    "docs/execution/run-20260921/adr008-product-review.md",
+    "docs/execution/run-20260921/adr008-state-review.md",
+    "docs/execution/run-20260921/oracle-v4-evaluator-review.md",
+    "docs/execution/run-20260921/context-n15-v22.json",
+    "evals/revisions/**/*.json",
+    "evals/revisions/**/*.jsonl",
+    "docs/decisions/D50-functional-release.md",
+    "docs/execution/run-20260921/context-n16-v23.json",
+    "quality/release/functional-manifest.json"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "command": [
+        "python3",
+        "scripts/check_contracts.py"
+      ]
+    },
+    {
+      "id": "catalog-source",
+      "command": [
+        "python3",
+        "data/research/validate-candidates.py"
+      ]
+    },
+    {
+      "id": "gate-and-env-tests",
+      "command": [
+        "python3",
+        "scripts/test_runner.py"
+      ],
+      "tests": true
+    },
+    {
+      "id": "server-tests",
+      "command": [
+        "python3",
+        "scripts/run_node_tests.py",
+        "server-tests",
+        "tests/server/*.test.ts"
+      ],
+      "tests": true,
+      "counts_file": "artifacts/raw/server-tests.json"
+    },
+    {
+      "id": "domain-ui-tests",
+      "command": [
+        "python3",
+        "scripts/run_node_tests.py",
+        "domain-ui-tests",
+        "tests/domain/*.mts",
+        "tests/customer/*.test.ts",
+        "tests/merchant/*.test.ts"
+      ],
+      "tests": true,
+      "counts_file": "artifacts/raw/domain-ui-tests.json"
+    },
+    {
+      "id": "ux-instrument-tests",
+      "command": [
+        "python3",
+        "scripts/run_node_tests.py",
+        "ux-instrument-tests",
+        "tests/ux-benchmark/*.test.mts",
+        "tests/ux-benchmark/*.test.mjs",
+        "tests/ux-benchmark/v3/*.test.mjs",
+        "tests/ux-benchmark/v3/*.test.mts"
+      ],
+      "tests": true,
+      "counts_file": "artifacts/raw/ux-instrument-tests.json"
+    },
+    {
+      "id": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ]
+    },
+    {
+      "id": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ]
+    },
+    {
+      "id": "functional-release",
+      "command": [
+        "python3",
+        "scripts/check_functional_release.py"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "FUNCTIONAL-RELEASE",
+      "implementers": [
+        "root",
+        "research"
+      ],
+      "requirements": [
+        "CORE-01",
+        "CORE-02",
+        "CORE-03",
+        "CORE-04",
+        "CORE-05",
+        "CORE-06",
+        "CORE-07",
+        "CORE-08",
+        "CORE-09",
+        "CORE-10",
+        "CORE-11",
+        "CORE-12",
+        "CORE-13",
+        "CORE-14",
+        "CORE-15",
+        "CORE-16",
+        "CORE-17",
+        "CORE-18",
+        "CORE-19",
+        "CORE-20",
+        "CORE-21",
+        "CORE-22",
+        "CORE-23",
+        "CORE-24",
+        "CORE-25",
+        "CORE-26"
+      ]
+    }
+  ],
+  "context_manifest": "docs/execution/run-20260921/context-n16-v23.json"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "dpl_65MVJmqazoi8UT5GtfJvnH1rGJtK",
+  "url": "wanna-rbnpger37-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/merchant-cap-repair",
+    "sha": "88ae1a431f8691790069487dc70f2519698bd122"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

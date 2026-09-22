@@ -1,0 +1,24 @@
+{
+  "role": "holdout_evaluator",
+  "status": "FAIL",
+  "reviewer": "method_auditor",
+  "implementers": [
+    "root",
+    "preflight_builder"
+  ],
+  "run_id": "0c70f6af-a17c-4cad-a150-a5d638267c0f",
+  "candidate_id": "C10",
+  "runtime_hash": "c66d01832a9f86a63d86ff4ab0ed616cb46f267d74ecb8a2cc0018d0c041cdec",
+  "protected_content_not_published": true,
+  "candidate_frozen_before_execution": true,
+  "single_holdout_run": true,
+  "single_run_scope": "Current replacement dataset only; retired original dataset failure remains archived.",
+  "no_holdout_driven_tuning": true,
+  "tuning_scope": "Current replacement dataset was never used for tuning. Earlier retired holdout failure and ensuing generic recovery history are preserved.",
+  "error_categories": {
+    "customer/C04": 2,
+    "customer/C05": 4,
+    "customer/C08": 2
+  },
+  "scope": "Independent live frozen holdout evaluation; no final product pass implied. Evaluator-authored scorer/runner are supported by separate research/builder reviews, not self-independent claims."
+}

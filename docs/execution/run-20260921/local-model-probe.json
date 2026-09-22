@@ -1,0 +1,38 @@
+[
+  {
+    "case": "unauthorized",
+    "http": 401,
+    "body": {
+      "error": "UNAUTHORIZED"
+    }
+  },
+  {
+    "case": "invalid",
+    "http": 400,
+    "body": {
+      "error": "INVALID_INPUT"
+    }
+  },
+  {
+    "case": "live",
+    "http": 200,
+    "mode": "live",
+    "model": "gpt-5-mini-2025-08-07",
+    "result": {
+      "ok": true,
+      "message": "연결 확인되었습니다. 요청하신 지시를 실행하지 않았습니다."
+    },
+    "usage": {
+      "input_tokens": 86,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 45,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 131
+    }
+  }
+]

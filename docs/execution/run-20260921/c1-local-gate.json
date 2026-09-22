@@ -1,0 +1,100 @@
+{
+  "phase": "nl-candidate",
+  "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+  "context_manifest": "docs/execution/run-20260921/context-n02-v7.json",
+  "started_at": "2026-09-21T10:41:19.882145+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "C1 retrieval/schema/prompt candidate and E02 safe diagnostic telemetry. Technical gates only; actual model quality adoption and G5/G6 remain pending.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 145,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 26,
+        "tests/ux-benchmark": 7,
+        "tests/release": 44
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "968e2344a7d3c47141d1efc99aec2197db081b717c6810ba1a8025c902d158de",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "review_joined_at": "2026-09-21T10:42:28.100936+00:00",
+  "review_join_note": "Executed checks unchanged; independent reviews joined after completion; original missing-review result preserved privately."
+}

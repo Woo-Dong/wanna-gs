@@ -1,0 +1,20 @@
+{
+  "id": "dpl_DXBCqN4fZ4CWK4B79Y5roswcD5kE",
+  "url": "wanna-5wwzlx3z7-beatrain-4635s-projects.vercel.app",
+  "target": "production",
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n11-customer-contract",
+    "sha": "bb2ab8056716c6d32669c1f8c6103a4a2ca397dd"
+  },
+  "alias": [
+    "wanna-gs-sepia.vercel.app",
+    "wanna-gs-beatrain-4635s-projects.vercel.app",
+    "wanna-gs-git-codex-n11-customer-65971b-beatrain-4635s-projects.vercel.app"
+  ],
+  "createdAt": 1790038780478,
+  "scope": "User-promoted intermediate C8 Production; G5/G6 not passed",
+  "submission_url": "https://wanna-gs-sepia.vercel.app"
+}

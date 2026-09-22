@@ -1,0 +1,52 @@
+{
+  "reviewer": "/root/holdout_revision_review",
+  "implementers": [
+    "method_auditor"
+  ],
+  "status": "FAIL",
+  "review_revision": "revision-01",
+  "dataset_hash": "650af94aca1a60408dc8b5a5fb9a5e168b9d6ffa898d8e03236dc74024b1cc71",
+  "previous_dataset_hash": "1f9f938a7eba167ece4dd78f6c1d66a35d419c98a23af20ad4fad2d8b2474323",
+  "semantic_family_overlap": 1,
+  "semantic_family_overlap_count_kind": "confirmed_lower_bound_not_complete_total",
+  "difficulty_equivalent": false,
+  "thresholds_unchanged": true,
+  "protected_content_not_published": true,
+  "case_count": 84,
+  "role_counts": {
+    "customer": 60,
+    "merchant": 24
+  },
+  "clear_counts": {
+    "customer": 40,
+    "merchant": 15
+  },
+  "uncertain_counts": {
+    "customer": 20,
+    "merchant": 9
+  },
+  "category_count": 18,
+  "single_turn_cases": 76,
+  "multi_turn_cases": 8,
+  "user_turns": 92,
+  "catalog_size": 248,
+  "data_structure_counts_pass": true,
+  "oracle_review_complete": false,
+  "failures": [
+    "confirmed_public_demo_semantic_family_overlap",
+    "template_substitution_not_independent_semantic_family",
+    "difficulty_equivalence_not_demonstrated",
+    "metadata_violates_case_json_schema",
+    "per_case_oracle_lineage_insufficient"
+  ],
+  "evidence": {
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-01/input.jsonl": "12ef938d6fea7fa23f64c042e9b500873a2e47d407afce85fac653845bcd24a1",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-01/static-result.json": "1e495a89c179ae1967c786826f925cdbc0d8781d0695a29d823c67557b3bd790",
+    "artifacts/private/run-20260921/holdout-v2-independent/revision-01/findings.md": "483f88dbd4dc9b40b3a13e08a58cfa6047f227ca477abc209369163cb4a89536",
+    "artifacts/private/run-20260921/holdout-v2-independent/context-ack.json": "25e4af1b05df48c011ffb81905a060a1e6c6d323fd33c40828918f154fb97a6e"
+  },
+  "model_calls": 0,
+  "product_quality": "NOT_ASSESSED",
+  "runner_compatibility": "NOT_ASSESSED",
+  "consumed_context_hash": "65069bac2aa60176028eb833adbe351956a0fee857bde24b53a2a7abb66ab7e4"
+}

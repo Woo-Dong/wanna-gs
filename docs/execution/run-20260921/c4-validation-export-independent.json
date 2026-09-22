@@ -1,0 +1,15 @@
+{
+  "scope": "C4 validation-01 public aggregate export, not C4 best acceptance",
+  "reviewer": "root",
+  "implementer": "preflight_builder",
+  "status": "PASS",
+  "checked_at": "2026-09-21T11:38:20.559360+00:00",
+  "checks": [
+    "SCORER_KEYS allowlist aggregate exactly matches original report",
+    "All bundle and original source artifact hashes match",
+    "Frozen config exact equality",
+    "Recomputed 92 distinct attempts, 1037782 tokens, cost0.426964, all known provider success",
+    "C4 second validation83/84 failure remains; no best/holdout/release approval"
+  ],
+  "harness_correction": "Initial reviewer compared all fields except case_results and failed because valid nonaggregate comparison_scope/source_sha are omitted too; checked actual SCORER_KEYS and confirmed all retained fields unchanged."
+}

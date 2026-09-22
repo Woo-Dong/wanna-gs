@@ -1,0 +1,100 @@
+{
+  "phase": "nl-candidate",
+  "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+  "context_manifest": "docs/execution/run-20260921/context-n03-v8.json",
+  "started_at": "2026-09-21T10:50:12.787264+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "C2 lossless catalog/reference packing and bounded output headroom. C1 dev30 rejected for regressions; B0 UX comparison remains NOT_READY. This gate validates only technical candidate, never G5/G6.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 145,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 26,
+        "tests/ux-benchmark": 7,
+        "tests/release": 44
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "0b0aeb857a1df936b7d1d73161127ededb3176b7d998faa6eb1a62b0a59d2215",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "review_joined_at": "2026-09-21T10:52:07.735157+00:00",
+  "review_join_note": "Unchanged executed checks joined with independent review; original missing-review report preserved."
+}

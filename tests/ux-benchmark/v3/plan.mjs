@@ -1,0 +1,10 @@
+import crypto from 'node:crypto';
+export const VERSION='UX-BENCHMARK-v3',STUDY_ID='ux-study-v3-01',REPETITIONS=7,CLOCK=Date.UTC(2026,8,21,3);
+export const RUN_IDS={baseline:'ux-baseline-b0-v3-01',best:'ux-best-v3-01'};
+export const HISTORY=[{runId:'ux-baseline-b0-v2-01',originalSha256:'4989b1053468134ff8a3099b951493ba483687f57fb14de49db48ea4e87b4209',planned:24,attempted:3,passed:2,failed:1,notRun:21},{runId:'ux-baseline-b0-v2-recovery-01',originalSha256:'2b9839efff2d118b48751642e7382b41d6e41fa49b837ccb4beff56fd1433c4b',planned:24,attempted:12,passed:11,failed:1,notRun:12}];
+export const workloads=[{id:'clear-1',kind:'clear',product:0,role:'customer'},{id:'clear-2',kind:'clear',product:1,role:'customer'},{id:'clear-3',kind:'clear',product:2,role:'customer'},{id:'ambiguous',kind:'ambiguous',product:0,role:'customer'},{id:'reconsent',kind:'reconsent',product:0,role:'customer'},{id:'batch-10',kind:'batch',product:0,role:'merchant'},{id:'auto-normal',kind:'auto',product:0,role:'cross-role'},{id:'exception-batch',kind:'exception',product:0,role:'merchant'}].map(w=>({...w,viewport:w.role==='customer'?{width:390,height:844}:{width:1440,height:900},plannedModelCalls:w.kind==='ambiguous'?2:['clear','auto'].includes(w.kind)?1:0}));
+export const trials=workloads.flatMap(w=>Array.from({length:7},(_,n)=>({workload:w.id,repetition:n+1,plannedModelCalls:w.plannedModelCalls})));
+export const canonical=v=>JSON.stringify(v===null||typeof v!=='object'?v:Array.isArray(v)?v.map(x=>JSON.parse(canonical(x))):Object.fromEntries(Object.keys(v).sort().map(k=>[k,JSON.parse(canonical(v[k]))])));
+export const hash=v=>crypto.createHash('sha256').update(typeof v==='string'||Buffer.isBuffer(v)?v:canonical(v)).digest('hex');
+export const PLAN={version:VERSION,studyId:STUDY_ID,runIds:RUN_IDS,repetitions:7,clock:CLOCK,workloads,trials,history:HISTORY};
+export const PLAN_HASH=hash(PLAN);

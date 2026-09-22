@@ -1,0 +1,164 @@
+{
+  "run_id": "run-20260921",
+  "root": "/Users/gsr/Desktop/workspace/2026-ralphton",
+  "base_sha": "3ef1ee3",
+  "repo": "Woo-Dong/wanna-gs",
+  "project_id": "prj_T6x8XA3XyaNTgjMmvp7p9CgGCsks",
+  "preflight": {
+    "worktree": "/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921",
+    "probe_branch": "codex/preflight-20260921-probe",
+    "base_branch": "codex/preflight-20260921-base",
+    "pr": "https://github.com/Woo-Dong/wanna-gs/pull/1",
+    "deployment": "dpl_HjgwxK7oQCwRuoG48SUZF7XE9h3t",
+    "production_changed": true,
+    "preserve_reason": "사용자 작업 공간·세션로그 보존 요청; 외부 probe는 검사 종료 후 닫거나 비활성 처리하고 식별자/증거 보존",
+    "base_sha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
+    "probe_sha": "dc81df9005170cde0f48862fac302ae97b7fd202",
+    "preview_url": "https://wanna-xcymomq9m-beatrain-4635s-projects.vercel.app",
+    "production_incident": "two probe deployments incorrectly targeted production, both removed; no pre-existing product deployment",
+    "removed_deployments": [
+      "dpl_Hj8RkGhTHbM9EDcUMPigz951gTzh",
+      "dpl_7TUDmUeKJ5DNo6HQCT7WzjXJTZNh"
+    ],
+    "pr_state": "MERGED temporary base only",
+    "merge_sha": "33b7c7f62fc0d49aa570f30af6432780c88821e0",
+    "preview_state": "removed after successful P07/P09",
+    "probe_token": "removed branch-specific variable",
+    "cleanup": "worktrees/branches/PR/CI histories and sanitized artifacts preserved by user request; all 3 deployments removed; no active probe server endpoint in Vercel",
+    "retained_credentials": "existing product Preview OpenAI secret and named automation bypass for authorized product QA; secret values private only"
+  },
+  "changes": [
+    {
+      "resource": "Preview OPENAI_API_KEY",
+      "action": "added from existing validated local key via stdin",
+      "secret_value_logged": false
+    },
+    {
+      "resource": "automation bypass",
+      "action": "created named Codex WANNA GS 20260921 automated QA; private file mode600",
+      "secret_value_logged": false
+    },
+    {
+      "resource": "branch Preview PROBE_TOKEN",
+      "action": "created for codex/preflight-20260921-probe only",
+      "state": "registered after remote branch existed"
+    },
+    {
+      "resource": "Production OPENAI_API_KEY",
+      "action": "existing local key registered as secret via stdin before release; no deployment triggered",
+      "secret_value_logged": false
+    },
+    {
+      "resource": "OPENAI_MODEL Preview branch only",
+      "branches": [
+        "codex/n04-model-candidate",
+        "codex/n05-scope-candidate",
+        "codex/n06-stale-candidate",
+        "codex/n06-resume-records",
+        "codex/n07-grounding-candidate",
+        "codex/n08-customer-recovery",
+        "codex/merchant-cap-repair"
+      ],
+      "value": "gpt-4.1-mini-2025-04-14",
+      "production_or_global_changed": false
+    }
+  ],
+  "observations": {
+    "local_model": "CONNECTED; gpt-5-mini actual Responses",
+    "github": "existing Git credential injected into GH_TOKEN in subprocess; user Woo-Dong ADMIN",
+    "rulesets": [],
+    "main_protection": "404 Branch not protected",
+    "actions_enabled": true,
+    "vercel_protection": "all_except_custom_domains; maintained",
+    "unit_checker_tests": 25,
+    "preflight_sql_builder_tests": "8 PASS self-report; independent pending",
+    "ci": [
+      "35578841657 gate PASS",
+      "35578860372 gate PASS"
+    ]
+  },
+  "not_verified": [
+    "product G0-G6",
+    "Production judge access",
+    "account exact remaining quota"
+  ],
+  "observations_scope": "initial preflight observations; current state is recorded separately and in PROGRESS",
+  "current": {
+    "rootBranch": "codex/n11-customer-contract",
+    "integrationSha": "d4854474bcd4b5195d7542e4dd29fdc7f2554e82",
+    "mainSha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
+    "mainAndIntegrationProtection": "gate required, strict, enforce_admins, no force or delete",
+    "productPrs": [
+      "https://github.com/Woo-Dong/wanna-gs/pull/2",
+      "https://github.com/Woo-Dong/wanna-gs/pull/3",
+      "https://github.com/Woo-Dong/wanna-gs/pull/4",
+      "https://github.com/Woo-Dong/wanna-gs/pull/5",
+      "https://github.com/Woo-Dong/wanna-gs/pull/6",
+      "https://github.com/Woo-Dong/wanna-gs/pull/7",
+      "https://github.com/Woo-Dong/wanna-gs/pull/8",
+      "https://github.com/Woo-Dong/wanna-gs/pull/9",
+      "https://github.com/Woo-Dong/wanna-gs/pull/10",
+      "https://github.com/Woo-Dong/wanna-gs/pull/11",
+      "https://github.com/Woo-Dong/wanna-gs/pull/12",
+      "https://github.com/Woo-Dong/wanna-gs/pull/13",
+      "https://github.com/Woo-Dong/wanna-gs/pull/14",
+      "https://github.com/Woo-Dong/wanna-gs/pull/15",
+      "https://github.com/Woo-Dong/wanna-gs/pull/16",
+      "https://github.com/Woo-Dong/wanna-gs/pull/17",
+      "https://github.com/Woo-Dong/wanna-gs/pull/18"
+    ],
+    "currentPreview": "dpl_65MVJmqazoi8UT5GtfJvnH1rGJtK",
+    "currentPreviewSource": "88ae1a431f8691790069487dc70f2519698bd122",
+    "currentPreviewTarget": null,
+    "productionSecret": "configured, not deployed or live verified",
+    "deploymentRecovery": "deployment-recovery.md; retain canceled dpl_5vQB6DEZ2pADmhiuypMLRoQesczP and active Preview to avoid new-project first-deployment reset",
+    "worktrees": [
+      "/Users/gsr/Desktop/workspace/2026-ralphton",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-domain",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-customer",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-merchant",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-preflight-20260921",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-nl-candidate",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-ux-baseline-v3",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-ux-v3-instrument",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-c5-runtime",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-c6-runtime",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-c7-runtime",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-merchant-cap-repair",
+      "/Users/gsr/Desktop/workspace/2026-ralphton-c8-contract"
+    ],
+    "qualityPreparationFingerprint": "70dc053f50bd40ec5bc88ab46047defe13f3f810daa1cda0d3d3236acb517aec",
+    "currentPreviewUrl": "https://wanna-rbnpger37-beatrain-4635s-projects.vercel.app",
+    "currentPreviewStatus": "READY; C7 validation01 83/84 FAIL (one incomplete response), release NOT_READY",
+    "goalCompletion": "INCOMPLETE; D48 explicit delegated recovery resolves D47 approval blocker. C8 implementation and original final gates in progress.",
+    "localTestServers": "Owned B0 PID25573, C5 PID25585 and repaired C7 PID49268 stopped after exact cwd checks; all worktrees/builds/logs retained. No new UX study ran.",
+    "apiBudget": {
+      "accountedCallUpper": 1224,
+      "knownCalls": 1174,
+      "knownEstimatedUsd": 5.4077773,
+      "priorCallReserve": 50,
+      "priorEstimatedUsd": 2.5,
+      "upperEstimatedUsd": 7.9577773,
+      "currentSoftCapUsd": 20,
+      "userApprovedSoftCapUsd": 20,
+      "approval": "D-46: user explicitly approved both changes and continued execution",
+      "implementation": "D46 budget20; D47 single extra customer candidate failed. Prior50 and earlier unknown reserve retained. No further automatic calls.",
+      "unknownUsageReserveUsd": 0.05,
+      "unknownUsageCalls": 1,
+      "observationScope": "After C7 validation01 92 calls, retry0 and new unknown0; second validation/new holdout/UX/final QA/G6 not_run.",
+      "historicalC5DevStartIncludingReserveUsd": 16.1015333,
+      "validation02FutureReserve": {
+        "calls": 708,
+        "estimatedUsd": 7.434
+      }
+    },
+    "checkedAt": "2026-09-22T00:25:28.157944+00:00",
+    "qualityPreparationScope": "PR16 existing merchant adapter repair technical PASS; latest NL validation FAIL",
+    "candidateAuthority": {
+      "decision": "D48",
+      "selectedNext": "C8 customer generation contract repair",
+      "furtherRecovery": "Coordinator may choose evidence-backed bounded repair under original USD20/2400 and product minima; no automatic repeat without new cause",
+      "failureHistoryReset": false
+    }
+  }
+}

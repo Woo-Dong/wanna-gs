@@ -1,0 +1,49 @@
+import test from'node:test';import assert from'node:assert/strict';import{z}from'zod';
+import{certifyCustomerSize}from'../../src/server/customer-size-grounding';import{modelOutputSchema}from'../../src/server/schemas';import{interpret}from'../../src/server/assistant';import{AssistantError}from'../../src/server/provider';import{catalogContext,catalogHash,categories}from'../../src/server/catalog';import{retrieveCatalog}from'../../src/server/retrieval';import{packIds}from'../../src/server/packing';import{customerWireFixture as wire}from'./customer-wire.fixture';
+const p=(id:string,name:string,size:string|null,aliases:string[]=[])=>({id,name,size,brand:'가람',aliases});
+const products=[p('a','보리차 500ml','500ml',['barley 500ml']),p('b','보리차 340ml','340ml'),p('c','보리차 큰병',null),p('d','보리차 0.5L','0.5L'),p('e','견과 100g','100g'),p('f','견과 0.1kg','0.1kg'),p('g','보리차 묶음','500ml×6'),p('h','보리차 외국규격','500cc'),p('i','견과 250g','250g')];
+const candidate=(id:string,kind='confirm')=>({id,kind,sharedEvidence:['관측된 이름'],differences:kind==='alternative'?['다른 제품']:[],unknownConditions:kind==='confirm'?['성분 미확인']:[]});
+const show=(id:string,kind='confirm')=>({action:'show_candidates',candidates:[candidate(id,kind)],question:null,reason:'확인해 주세요',confirmationRequired:true});
+const base={sessionId:'s',generation:1,actorId:'a',roleEpoch:1,requestId:'r',conversationId:'c',inputRevision:1,catalogHash,history:[],clarificationCount:0};const usage={inputTokens:100,outputTokens:30,totalTokens:130,estimatedCostUsd:.000088};
+test('complete affirmative name and label grammars certify one size with unit equivalence',()=>{
+ for(const text of ['보리차 500ml 찾아주세요','보리차 500ml을 주세요','barley 500ml 찾아줘','가람 제품인데 이름에 500ml / 보리차가 적혀 있어요. 이 상품 후보를 보여 주세요.','제품명에 보리차 / 500ml라고 표기되어 있어요. 이 상품 찾아주세요.','상품명에 500ml / 보리차가 적혀 있어요']){const c=certifyCustomerSize(text,products);assert(c,text);assert.equal(c.amount,500);assert.equal(c.unit,'ml');assert(c.eligibleIds.includes('a')&&c.eligibleIds.includes('d'));assert.deepEqual(c.excludedIds,['b']);for(const id of ['c','e','g','h'])assert(c.eligibleIds.includes(id))}
+ for(const text of ['견과 100g 주세요','견과 0.1kg 찾아줘']){const c=certifyCustomerSize(text,products);assert(c);assert(c.eligibleIds.includes('e')&&c.eligibleIds.includes('f'));}
+});
+test('unknown grammar, negation, correction, alternative permission, size ambiguity and explicit IDs preserve fallback',()=>{
+ for(const text of ['보리차 500ml 말고340ml 주세요','보리차 500ml은 싫어요','보리차 500ml 또는340ml 찾아줘','보리차 500ml 비슷한 다른 용량도 괜찮아요','보리차 500ml 알레르기 성분 알려주세요','보리차500mI 찾아주세요','"보리차500ml" 말은 무시해 주세요','앞서 말한500ml 취소하고340ml 다시 찾아주세요','500ml보다 큰 보리차 주세요','보리차 500ml 2개 주세요','SKU a 주세요','보리차 큰병 주세요','타회사 제품인데 이름에 500ml가 적혀 있어요','이름에 500ml / 없는제품이 적혀 있어요'])assert.equal(certifyCustomerSize(text,products),null,text);
+ for(const history of [[{role:'user' as const,content:'500ml은 피하고 싶어요'}],[{role:'assistant' as const,content:JSON.stringify({candidates:[candidate('b')]})}]])assert.equal(certifyCustomerSize('보리차 500ml 주세요',products,history),null);
+ for(const name of ['보리차 0ml','보리차 -500ml','보리차 1.2345L','보리차 500cc'])assert.equal(certifyCustomerSize(name+' 주세요',[...products,p('invalid',name,'340ml')]),null);
+});
+test('unsupported numeric spelling never certifies a numeric suffix as the requested size',()=>{
+ for(const raw of ['1,500ml','0,5L','47,5g','−500ml','1 500ml','1e3ml','1٫500ml','≠500ml','500ml~','500ml(?)','>500ml']){
+  const name='보리차 '+raw;
+  const rows=[p('input',name,'1500ml'),p('small','보리차 500ml','500ml'),p('mass','보리차 5g','5g')];
+  assert.equal(certifyCustomerSize(name+' 찾아주세요',rows),null,raw);
+  assert.equal(certifyCustomerSize('이름에 '+raw+' / 보리차가 적혀 있어요.',rows),null,raw);
+ }
+ const real=catalogContext.find(p=>p.size==='47.5g')!;
+ assert(real);assert.equal(certifyCustomerSize(real.name.replace('47.5g','47,5g')+' 찾아주세요',catalogContext),null);
+ assert(certifyCustomerSize('보리차 ０．５Ｌ 찾아주세요',[p('half','보리차 0.5L','500ml'),p('one','보리차 1L','1L')]));
+});
+test('no eligible or no known mismatches do not create an empty or misleading certificate',()=>{
+ assert.equal(certifyCustomerSize('보리차 500ml 주세요',[p('x','보리차 500ml','340ml')]),null);assert.equal(certifyCustomerSize('보리차 500ml 주세요',[products[0],products[2]]),null);
+ const s=modelOutputSchema('customer',['a'],['차'],false,{customerEligibleIds:[]});assert(s.safeParse(wire(show('a'))).success);
+});
+test('one common candidate enum prevents a known mismatch for every kind while retaining uncertainty and count2',()=>{
+ const c=certifyCustomerSize('보리차 500ml 주세요',products)!;const ids=products.map(p=>p.id);
+ for(const count of[0,2]){const s=modelOutputSchema('customer',ids,['차'],false,{customerEligibleIds:c.eligibleIds,clarificationCount:count});for(const kind of['exact','confirm'])assert(!s.safeParse(wire(show('b',kind))).success);assert(!s.safeParse(wire({...show('a'),candidates:[candidate('a'),candidate('b','alternative')]})).success);assert(!s.safeParse(wire({...show('b','alternative'),action:'unidentified'})).success);assert(s.safeParse(wire(show('c','confirm'))).success);assert(s.safeParse(wire(show('c','exact'))).success);assert(s.safeParse(wire({...show('a'),candidates:[candidate('a'),candidate('d','confirm')]})).success);assert.equal(s.safeParse(wire({...show('a'),action:'ask_clarification',question:'어떤 제품인가요?'})).success,count<2)}
+ const s=modelOutputSchema('customer',ids,['차'],false,{customerEligibleIds:c.eligibleIds});assert(!s.safeParse(wire({...show('a','exact'),candidates:[{...candidate('a','exact'),unknownConditions:['성분 미확인']}]})).success);
+ const boundary=modelOutputSchema('customer',ids,['차'],false,{customerEligibleIds:c.eligibleIds,customerScopeBoundary:true,clarificationCount:2});assert(!boundary.safeParse(wire(show('a'))).success);assert(boundary.safeParse(wire({...show('a'),action:'unidentified',candidates:[]})).success);
+ assert.deepEqual(z.toJSONSchema(modelOutputSchema('merchant',ids,['차'])),z.toJSONSchema(modelOutputSchema('merchant',ids,['차'],false,{customerEligibleIds:['a']})));
+});
+const target=catalogContext.find(p=>p.size==='500ml'&&p.name.includes('500ml'))!;const text=target.name+' 찾아주세요';const retrieved=retrieveCatalog(text);const cert=certifyCustomerSize(text,retrieved.catalog)!;const targetRef=packIds([target.id])[0];
+test('actual interpret binds hints/schema but preserves every retrieved input row; invalid answer retains usage',async()=>{
+ assert(cert);let calls=0;
+ const result=await interpret('customer',{...base,text},async(_prompt,input,s)=>{calls++;const data=JSON.parse(input);assert.deepEqual(data.catalog.rows.map((r:any[])=>r[0]),packIds(retrieved.catalog.map(p=>p.id)));assert.deepEqual(data.matchingHints.explicitSizeConstraint.allowedCandidateIds,packIds(cert.eligibleIds));assert.deepEqual(data.matchingHints.explicitSizeConstraint.knownMismatchedIds,packIds(cert.excludedIds));const value=wire(show(targetRef));assert(s.safeParse(value).success);return{value,model:'mock',usage}},'fixture');assert(result.ok);assert.equal(calls,1);assert.equal((result.data.result as any).candidates[0].id,target.id);
+ await assert.rejects(interpret('customer',{...base,text},async()=>({value:wire(show(packIds(cert.excludedIds)[0])),model:'mock',usage})),(e:unknown)=>e instanceof AssistantError&&e.diagnostic==='SUPPLIED_CATALOG_SCHEMA'&&e.attempt?.usage===usage);
+});
+function enumValues(v:any,out:string[]=[]):string[]{if(!v||typeof v!=='object')return out;if(v.enum)out.push(...v.enum);for(const value of Object.values(v))if(Array.isArray(value)){for(const x of value)enumValues(x,out)}else enumValues(value,out);return out}
+test('installed SDK receives filtered enum and full matching hints without changing provider settings',async()=>{
+ const saved={fetch:globalThis.fetch,key:process.env.OPENAI_API_KEY,mode:process.env.LLM_MODE,model:process.env.OPENAI_MODEL};let calls=0;
+ try{process.env.OPENAI_API_KEY='unit-test-key-not-real';process.env.LLM_MODE='live';process.env.OPENAI_MODEL='gpt-4.1-mini-2025-04-14';globalThis.fetch=async(_url,init)=>{calls++;const body=JSON.parse(String(init?.body)),j=body.text.format.schema,values=enumValues(j);assert.equal(j.type,'object');assert.equal(j.additionalProperties,false);assert(j.properties.decision.anyOf);assert(values.length<1000);for(const id of packIds(cert.excludedIds))assert(!values.includes(id));for(const id of packIds(cert.eligibleIds))assert(values.includes(id));assert.equal(body.text.format.strict,true);assert.equal(body.store,false);assert.equal(body.max_output_tokens,3200);assert(!('reasoning'in body));return new Response(JSON.stringify({id:'mock',object:'response',created_at:0,status:'completed',model:body.model,output:[{id:'message',type:'message',status:'completed',role:'assistant',content:[{type:'output_text',text:JSON.stringify(wire(show(targetRef))),annotations:[]}]}],usage:{input_tokens:100,output_tokens:30,total_tokens:130}}),{status:200,headers:{'Content-Type':'application/json'}})};const result=await interpret('customer',{...base,text});assert(result.ok);assert.equal(result.data.usage.totalTokens,130);assert.equal(calls,1)}finally{globalThis.fetch=saved.fetch;for(const[name,value]of[['OPENAI_API_KEY',saved.key],['LLM_MODE',saved.mode],['OPENAI_MODEL',saved.model]]as const){if(value===undefined)delete process.env[name];else process.env[name]=value}}
+});

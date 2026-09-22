@@ -1,0 +1,10 @@
+{
+  "schema": "schema-v2",
+  "seed": "seed-248-v2",
+  "catalog": "catalog-248-v1",
+  "policy": "ADR002+004+005",
+  "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "seedHash": "4cb10e899c9706bb0a9278b458bd7b70d3c34bf28f649b62ffae0894794a2b45",
+  "productCount": 248,
+  "storeCount": 9
+}

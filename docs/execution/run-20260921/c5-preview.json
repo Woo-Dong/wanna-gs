@@ -1,0 +1,14 @@
+{
+  "id": "dpl_Hs5h9zTibohSAfLtxzChBdEHTe8o",
+  "url": "wanna-6wu2ij16y-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n06-stale-candidate",
+    "sha": "4fc3e1e4e4f55c76b68eb34ba9b89991ab69fbd3"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

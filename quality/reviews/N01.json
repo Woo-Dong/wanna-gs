@@ -1,0 +1,28 @@
+{
+  "task": "N01",
+  "reviewer": "method_auditor",
+  "status": "PASS",
+  "fingerprint": "ef8c2a8af96d66405a1681f536d1b6b4c4ad76b02b55f0d6c941f3cb000dfb99",
+  "context_manifest": "docs/execution/run-20260921/context-app-v4.json",
+  "consumed_context_hash": "0788c0e5ed96f22adc527f3cd30dc4830a5e43138cd5da992a734e0b06559997",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-03",
+    "CORE-05",
+    "CORE-11",
+    "CORE-15",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "docs/execution/run-20260921/n01-independent.md: independent source/SDK failure injection + bounded four live calls; two merchant failures retained then normal policy-copy recovery PASS",
+    "Node22 independent actual server tests 9/9 PASS and typecheck PASS",
+    "Independent actual SDK/global-fetch fault harness 13 mocked requests: incomplete/refusal/malformed,400/401/403/404/rate/quota/timeout/invalid usage plus normal success and late response envelope PASS, liveCalls0",
+    "python3 scripts/test_runner.py: actual68 tests/0fail/0error/0skip; E01 scorer authored by this evaluator has separate research independent review in eval-independent.md",
+    "python3 scripts/run_node_tests.py server-tests tests/server/*.test.ts: actual TAP9/0fail/0error/0skip; independent8TAP count assertions PASS",
+    "context-app-v4 actual20 source file hashes verified, stale0; missing tests/server and public eval source fingerprint patterns reported and corrected"
+  ],
+  "scope": "assistant-foundation N01 technical boundary only; formal NL baseline/holdout and application G3-G6 not_run. Server does not authorize transactions. Unsigned local review metadata is not cryptographic identity.",
+  "checked_at": "2026-09-21T09:14:53.670082+00:00"
+}

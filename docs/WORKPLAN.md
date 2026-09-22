@@ -1,6 +1,19 @@
 # 실행 Workplan
 
-상태: 구현 전 계획 기준선. 이 파일은 상세 task DAG와 증거 계약을 정의한다. preflight, 조사, Preview, PLAN-READY, SEED-READY, G0~G6 중 어느 것도 아직 실행·통과하지 않았다. 실행 시 관측한 저장소·도구·외부 근거에 맞춰 task를 구체화하되 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 사용자 결정, [14번 게이트](14-agent-development-loop.md)의 권위를 바꾸지 않는다.
+상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-n15-v22.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
+
+| 실행 묶음 | 상태 | 실제 증거·남은 의존성 |
+|---|---|---|
+| P01~P04·초기 조사 | 완료 | preflight-independent.md, method-audit.md, PR #2/CI, Preview shell; 배포 사고와 복구는 deployment-recovery.md에 보존 |
+| D01~D05·자료/seed/eval | 완료 | 248상품·9점포·실제 SQLite, data-independent.md 및 eval-independent.md; 보호84 내용은 평가자만 보유 |
+| F00/FS·모델 서버 | 통합 완료 | PR #3, 통합 e612cd9 CI PASS, n01-preview-smoke.json 실제 두 역할 호출 |
+| FC/FM/FO/FR·I01/I02·U01/U02 | I01 통합·Preview 완료 | PR4/CI, i01-preview-browser.json 및 고객/경영주 독립 SQLite/live QA; 최종 후보 역할 QA는 별도 필수 |
+| N01~N03·자연어 | ADR008 공개 oracle 무결성 복구 | C5~C11 원본 실패 보존. C11 앱 불변, 공개 정답 두 위치의 대칭 교정·23개 과거 run 파생 채점 기구 독립 검증 중. 새 보호v3의 실제 실행0, 예산·최소기준 유지·출시best아직없음 |
+| UX v3·편의성 비교 | 기구 독립 PASS·실제 미실행 | Python189/Node92/type/build 및 독립SQLite fixture56/56 PASS; 옛48 실패보존. 최종 best 후 동일8×7 양 arm·best56/56→비교, 실제 새 실행0 |
+| Q01/Q02·최종 정책/운영 | 준비 | 최종 live 두 역할 QA는 적격 NL best 후 진행. 정책 두 관점·운영 감사는 현재 runtime와 최종 증거로 재확인 |
+| G5·L01~L03 | 최종 미완료·중간 Production 유지 | C11 Production READY는 D49 중간 배포다. 자연어/UX 기준 충족→두 관점 정책·G5→main PR/CI·병합→exact-main Production/G6가 남음 |
+
+실행 묶음 식별자 B01/N01/I01은 위 WP 세부 작업을 묶은 실제 계약 이름이다. 모델 서버 작업 N01과 계획의 WP-N01 자연어 baseline은 구분한다. 앱 단위/로컬 실제 SQLite·브라우저 PASS가 전체 자연어 평가나 G5/G6 완료를 대신하지 않는다.
 
 ## 목표와 종료 상태
 
@@ -261,7 +274,7 @@ U01/U02는 독립 QA가 평가할 실행 가능한 흐름을 준비한다. Q01/Q
 
 | 상태 | 현재 | PASS에 필요한 실제 산출물 |
 |---|---|---|
-| PREFLIGHT-CURRENT | NOT_RUN | 현재 repo/auth/integration 증거 |
+| PREFLIGHT-CURRENT | IN_PROGRESS (local model/auth/checkers 확인) | 현재 repo/auth/integration 증거 |
 | PREVIEW-SHELL | NOT_RUN | immutable Preview URL/deployment/source SHA와 browser 기본 동작 검사 |
 | PLAN-READY | NOT_RUN | 실행 시점 조사+구체 DAG+소유권+검증/중단/릴리스 경로 |
 | GATE-BOOTSTRAP | NOT_RUN | runner/CI와 실패 반례 거절 |

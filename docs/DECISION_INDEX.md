@@ -1,12 +1,14 @@
 # 현재 유효한 결정과 변경 추적
 
-최초 구현 기준. 사용자 정의는 02번과 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 위임 정책 본문은 개별 ADR이다. 이 인덱스는 현재 유효한 정책을 빠르게 찾아 다음 결정 전에 반드시 확인하기 위한 것이다. 앱 구현은 아직 시작하지 않았다. ADR-001은 개발 의존성 설계에 채택됐으며 실행 검증은 남아 있다.
+최초 구현 기준. 사용자 정의는 02번과 [CORE_REQUIREMENTS](CORE_REQUIREMENTS.md), 위임 정책 본문은 개별 ADR이다. 이 인덱스는 현재 유효한 정책을 빠르게 찾아 다음 결정 전에 반드시 확인하기 위한 것이다. 앱 구현·통합과 단계별 CI/Preview 검증을 진행했다. 현재 실행 판정은 [PROGRESS](PROGRESS.md)와 각 보고서에서 확인하며, 채택된 정책이 최종 G5/G6 통과를 뜻하지 않는다.
 
 ## 원장
 
 | 결정 ID | 구분 | 상태 | 유효 범위/기준 revision | 관련 CORE·상위 결정 | 대체/충돌 관계 | 구현·테스트·PR | 담당 |
 |---|---|---|---|---|---|---|---|
-| [ADR-001](decisions/ADR-001-minimal-seed-development.md) | user-delegated 운영 | adopted, 실행 미검증 | 2026-09-21 설계·후속 구현 | CORE-14/17/18/22, D-21/25/26/28/30 | 기존 D02→D03·D05→F00 대체, 최종 요구 유지 | WORKPLAN DAG·독립 검토, 앱 테스트/PR 미실행 | 조정자·DBA |
+| [ADR-001](decisions/ADR-001-minimal-seed-development.md) | user-delegated 운영 | adopted, seed/통합 실행됨 | 2026-09-21 설계·후속 구현 | CORE-14/17/18/22, D-21/25/26/28/30 | 기존 D02→D03·D05→F00 대체, 최종 요구 유지 | [실행 DAG](execution/run-20260921/plan.md)·PR2~8; 최종 G5/G6 미완료 | 조정자·DBA |
+| [ADR-002](decisions/ADR-002-demo-domain-policies.md) | user-delegated 제품 | adopted, I01 SQL/브라우저 검증 | 최초 앱 구현 후보에만 한정 | CORE-01~26, D-21/41~45 | 기존 제안 O/R의 구체화; 확정 요구 대체 없음 | [독립 SQL](execution/run-20260921/d02-independent.md)·I01 역할 QA, 최종 G5/G6 미완료 | coordinator |
+| [ADR-003](decisions/ADR-003-evaluation-and-demo-boundaries.md) | user-delegated 평가/시연 | adopted, 측정 실행/미달 보존 | 최초 제품 후보 | CORE-14/17~26, D-21/27/29 | 결과 전 기준 고정 | [B0 NL 실패](execution/run-20260921/n02-baseline-report.md)·[UX 미완료](execution/run-20260921/ux-baseline-recovery-results.md), C1/C2/C3 기각, C4 검증 반복 미달·C5 기술 복구 중 | coordinator |
 
 실행 중 위 표에 실제 항목을 추가한다. 빈 양식은 검토·채택 증거가 아니다. 사용자 결정 D-01~최신 항목은 [02번](02-decisions-and-open-questions.md)에서 읽고, 새 위임 ADR을 이 표에 연결한다.
 
@@ -51,3 +53,39 @@ D-41/42/43은 경영주 자료 재검토와 후속 요청 중 사용자가 직�
 D-44는 사용자 직접 결정이다. [29번](29-browser-sqlite-demo.md)을 현재 DB 실행 계약으로 읽는다. Neon/PostgreSQL/서버 공동 DB·다중 사용자 충돌 시험은 대체/제외됐으며 sql.js·SQLite snapshot·한 탭 역할 전환으로 구현한다. 28번은 과거 설정 안내다. ADR-001의 최소 seed 선행 개발 순서는 유지하되 실행 DB는 SQLite로 바뀌며 과거 PostgreSQL 증거를 재사용하지 않는다.
 
 D-45: 앱 LLM은 OpenAI API 직접 호출이다. 사용자 키를 루트 `.env.local`과 Vercel 서버 환경변수에 입력하고 25번으로 검사한다. D-31의 Gateway/Gemini 준비·전환 계약은 대체됐으며 키/모델 설정 존재만으로 실제 연결·품질 성공을 주장하지 않는다.
+
+## ADR-004 — 공급 capacity
+
+[ADR-004](decisions/ADR-004-supplier-capacity.md)는 두 독립 제품/상태 검토 후 위임 채택했다. 추가 접수 가능한 모의 공급량을 승인 시 소비하고 부족 확정 때 자동 복원하지 않는다. 명시 조건 변경으로 보충하며 고객의 부족 수요와 정상 재발주를 보존한다. 사용자 직접 결정과 구분하며 실행 검증은 D02에서 진행한다.
+
+## ADR-005 — 지속 수량 상한
+
+[ADR-005](decisions/ADR-005-persistent-quantity-cap.md)는 제품/상태 두 독립 검토 후 위임 채택했다. SKU별 검토 한 번의 수량 상한과 명시 해제, 새 검토 이벤트와 재전송을 구분한다. 일/주 누적 상한으로 해석하지 않으며 정책 변경은 경영주 확인을 요구한다. 사용량을 알 수 없는 모델 실패는 null로 보존한다. 구현·독립 재검증 증거는 I01에서 연결한다.
+
+## ADR-006 — UX 중단 측정의 출처 보존 복구
+
+[ADR-006](decisions/ADR-006-ux-baseline-recovery.md)은 N02 B0 UX 전체24의 사전 지정 재측정 한 번만 위임 채택했다. 최초 실패/미실행 분모와 누적48을 보존하며 기존 UX/자연어/출시 기준은 불변이다. 제품·상태 두 독립 검토 후 추가 재측정도11PASS/1FAIL/12미실행으로 중단했다. [원본·누적 분모](execution/run-20260921/ux-baseline-recovery-results.md)를 보존하며 전체 비교 NOT_READY다. 추가 자동 실행은 허용하지 않는다.
+
+## D-46 — 사용자 승인에 따른 평가 재개
+
+사용자가 API 추정비용 상한$20과 실패기록/최종제품품질기준을 유지하는 UX 비교 절차의 두 독립 재설계를 직접 승인했다. 채택된 변경은 goal 비용상한과 ADR007 새 비교 절차이며 호출2400·과거장부·최소품질·G5/G6는 불변이다. [ADR-007](decisions/ADR-007-ux-comparison-recovery.md)은 두 독립 검토 후 위임 채택했다. 새 8×7 양 arm·baseline workload별 정상≥3·best56/56·모든 실패분모·STOP 우선과 조건부 편의성 비교를 적용한다. 실행기 독립 검증 전 실제 실행하지 않는다. ADR006의 두 실패와 과거 비교 NOT_READY는 남긴다.
+
+## D-47 — 사용자 승인 고객 복구 후보 한 번 추가
+
+[02번](02-decisions-and-open-questions.md)의 직접 사용자 결정으로 고객7/경영주6·총13을 허용한다. C6 실패와 최소품질·$20/2400·동일 평가·새 holdout 최초1·UX/G5/G6를 유지하며 다시 미달하면 자동 추가하지 않는다. 경영주 동작 및 공통 모델/packing/검색/catalog/도메인 변경은 이 추가 후보의 범위가 아니다. 두 독립 재개 제안 검토는 사용자 승인을 대체한 ADR이 아니며 실제 승인 답변을 근거로 한다.
+
+## D-48 — 잔여 구현·복구·배포 자율 판단 재위임
+
+사용자의 2026-09-22 직접 지시로 D47의 추가 후보 실패 후 자동 추가 금지 조건을 대체한다. [02번](02-decisions-and-open-questions.md)과 [C8 계약](execution/run-20260921/c8-customer-contract.md)에 따라 구체 실패의 수리·독립 검증·기존 예산 내 후속 판단을 조정자가 수행한다. 후보/비용/실패 이력과 제품 최소 기준은 유지하며 목표 완료는 실제 G6 이후다.
+
+## D49 — Production 운영 유지
+
+[사용자 직접 결정 D49](02-decisions-and-open-questions.md): 사용자가 이미 전환한 Production을 유지하며 후속 수정도 Production으로 배포하고 최종 main 병합을 수행한다. Preview 전용 개발 배포 순서만 대체하며 필수 검증·실패 이력·최종 완료 기준과 비용 상한은 유지한다.
+
+## ADR-008 — 공개 상품 후보 정답 동등 조건 복구
+
+[ADR-008](decisions/ADR-008-public-oracle-equivalence.md)은 같은 발화에 부합하는 두500ml 상품에 대한 공개 정답 두 위치의 과소포함을 복구하는 위임 채택이다. 제품/출처와 두 독립 관점의 검토 후 원본·실패·분모·합격선·앱 입력을 유지하는 별도 버전과 대칭 파생 재채점을 허용한다. 기술 독립 검증 전 파생 증거 채택·후속 유료 실행은 하지 않는다.
+
+## 최신 직접 결정 D-50
+
+[기능 기준 최종 출시](decisions/D50-functional-release.md)는 추가 품질 최적화를 종료한 사용자 직접 결정이다. 원래 G5/NL/UX 성공을 주장하지 않으며, 실제 두 역할 기능 QA·주요 기능 문제0·최종 main/Production 검증을 유지한다. 충돌하는 이전 높은 품질 완료 조건보다 우선한다.

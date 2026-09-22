@@ -1,0 +1,90 @@
+{
+  "role": "root own integration smoke",
+  "liveCalls": 1,
+  "errors": [],
+  "model": {
+    "ok": true,
+    "data": {
+      "sessionId": "DEMO-SESSION-001",
+      "generation": 1,
+      "actorId": "DEMO-CUSTOMER-001",
+      "roleEpoch": 0,
+      "requestId": "390643f1-f6f2-4afa-95ea-cd08d1be7da6",
+      "conversationId": "5128180b-cd6f-486d-b74f-f1e9e238493d",
+      "inputRevision": 2,
+      "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+      "mode": "live",
+      "model": "gpt-5-mini-2025-08-07",
+      "promptVersion": "baseline-v1",
+      "catalogVersion": "catalog-248-v1",
+      "result": {
+        "action": "show_candidates",
+        "candidates": [
+          {
+            "id": "DEMO-00BDFF29BB32",
+            "kind": "exact",
+            "sharedEvidence": [
+              "name: 짜슐랭 145g",
+              "brand: 오뚜기",
+              "category: 라면·면류",
+              "size: 145g"
+            ],
+            "differences": [],
+            "unknownConditions": []
+          }
+        ],
+        "question": null,
+        "reason": "요청하신 명칭과 정확히 일치하는 SKU가 카탈로그에 있습니다: '짜슐랭 145g' (오뚜기, 라면·면류). 확인해 주세요.",
+        "confirmationRequired": true
+      },
+      "usage": {
+        "inputTokens": 16628,
+        "outputTokens": 154,
+        "totalTokens": 16782,
+        "estimatedCostUsd": 0.004465
+      },
+      "latencyMs": 2132
+    }
+  },
+  "finalText": "한 PC 모의 시연 · 실제 거래 없음\n\n시연 고객 1\n\n경영주 화면으로 전환\n합성 고객·시연 점포 선택\n원하GS\n‘원하지쓰’라고 읽어요.\n알림 2\n\n고객 · 시연 고객 1\n모의 GS 데이터 · 실제 청구 없음 · 한 PC 데모\n\n내 픽업\n\n확보·결제·입고·픽업은 각각 다른 단계예요.\n\n여기 있GS · 픽업 가능\n짜슐랭 145g\n\n1개 · GS25광진파크\n\n점포 경영주에게 아래 모의 예약번호를 보여주세요.\n\n1,500원 · 모의 결제\n\n상세 접기\n접수 순번\n1번\n점포 주소\n서울특별시 광진구 동일로30길 28\n동의한 단가\n1,500원\n구매 동의 시각\n2026년 9월 21일 18:39 (KST)\n구매 동의 유효기한\n2026년 9월 28일 18:39 (KST)\n미결제 건에 적용되는 7일 기한\n마지막 갱신\n2026년 9월 21일 18:39 (KST)\n요청 접수 · 2026년 9월 21일 18:39 (KST)\n발주 연결 이력 있음\n공급 배정 이력 있음\n모의 결제 성공\n입고 후 픽업 안내 생성\n모의 예약번호 RES-07161e3f-fb4f-47b7-b255-30603e189c81\n\n픽업 마감 2026년 9월 23일 18:39 (KST)\n\n48시간 0분 남음 · 픽업 알림부터 48시간\n\n⌂\n원하기\n▤\n내 요청\n▱\n픽업\n시연 도구\n모의 조건·시간 조절",
+  "refreshPreserved": true,
+  "status": "PASS",
+  "buildId": "bxh_JHrpTuQF-CXQSB0CW",
+  "versions": {
+    "schema": "schema-v2",
+    "seed": "seed-248-v2",
+    "catalog": "catalog-248-v1",
+    "policy": "ADR002+004+005",
+    "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+    "seedHash": "4cb10e899c9706bb0a9278b458bd7b70d3c34bf28f649b62ffae0894794a2b45",
+    "productCount": 248,
+    "storeCount": 9
+  },
+  "sourceFiles": {
+    "src/demo/scenarios.ts": "040513c0644ff657ab7960033db0127f4c8fd22774816cf382b4143617a4f520",
+    "src/contracts/assistant.ts": "a482963843722dcd469d220ed41b391c3bc776eab5a79983adb8c1016b59815b",
+    "src/contracts/domain.ts": "fc06aec7bf7b089ebfbf379ad7daf1df9b003f907413aea38818beae8183bd4a",
+    "src/server/schemas.ts": "f5196ab691f73d69dc08ed038e356b06c362c3ad6319445770b244d014f117c7",
+    "src/server/prompts.ts": "62242b67db9a9f3d6f2297e1c54fa349809c5fc305526564e83532f5bf2775b0",
+    "src/server/assistant.ts": "47a0b113a4dbb97781398f7cb28c7ed52e8e4a0fbdda999b690c504f9cc430c4",
+    "src/server/provider.ts": "3f742ed158ba17bf2764e10465c150c584ac0020777e48822a59aadfcc502b2b",
+    "src/server/catalog.ts": "6956ab9d275ae29263d5b4cdc2338dd2519160eed1b0fd3f1b2b9003a1f4f9fb",
+    "src/components/brand.tsx": "31504527a346e41731a2daf0aaf227921c55b425a67787f6a15966435a10f644",
+    "src/db/runtime.ts": "b567984ecef5504f6d091c30ab518dffbef767e69e06c4c8ee8d7f7ae1ecf631",
+    "src/db/client.ts": "e95f598ec94cb5e5a8fceb4a73b08f1f775b6f03cea96eee1f03e2fdb56d9810",
+    "src/db/worker.ts": "bd77f036336dcb6aa54ef7512ef6b6b10b031a9b64b058e04b62de3a062cbc3a",
+    "src/domain/engine.ts": "b9ea21cd344c7467cf6d34fb7fa3abfb21a02c9cbcf3bb46d977cf7ed684cff4",
+    "src/components/demo/demo.module.css": "711b43aa319ed7d71ee93c7340e0deeda4c1a26242aaa8d2037c85a375150203",
+    "src/components/demo/AppShell.tsx": "116404f640343e106dd954bc8aa470a569d2abe529c833dcdd339f7588db52fb",
+    "src/components/demo/DemoControls.tsx": "77ed26af08614b64720a44a1a581095c9f3fc430fb0f79b9283294f1ac832c43",
+    "src/components/demo/AppShell.module.css": "75c348ef67d20d5e2b390c7fee5542f74d744ad0c72fb0180a1313b8f9fef856",
+    "src/components/customer/model.ts": "d1d2495de2d65c7d2f43bda81afb565f71963f4afdcb0544c8ad5da33a4125a6",
+    "src/components/customer/customer.module.css": "b368adbf133958186e3a2ff9fff9451735d01f4900ee31c56733856c6bed4e90",
+    "src/components/customer/CustomerView.tsx": "3a3d388341186ebbd65fb420aa581ba1cdfd836787b874f26f907b913799985a",
+    "src/components/customer/StoreMap.tsx": "e8b1c7d95bc940b3f0e1a9a5007f4c40ece4b846ba6d8d6e69b22d91916cce38",
+    "src/components/merchant/MerchantView.tsx": "1352bf1ea64bd0f30e5c3acc6352e89a538069427b52c471517544694ac1153f",
+    "src/components/merchant/model.ts": "641867ba22c50048601e744d66908b1b262544d3dbd67ce20c00800566262ca4",
+    "src/components/merchant/merchant.module.css": "15c484517d97cd1fa46f775b5b212a8e9b54a1af9595b7d2a436e19bef16ff85"
+  },
+  "scope": "Root own end-to-end smoke, independent role QA in separate reports; local build, not deployed G6"
+}

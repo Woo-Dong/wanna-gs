@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-09-21",
+  "scope": "source_candidates_only",
+  "result": "PASS",
+  "product_count": 414,
+  "store_count": 9,
+  "categories": {
+    "밥·죽·누룽지": 19,
+    "라면·면류": 36,
+    "간편조리·냉동식": 226,
+    "스낵·과자·초콜릿": 29,
+    "디저트·아이스크림": 36,
+    "샌드위치·버거·빵": 19,
+    "커피·우유·요거트": 26,
+    "음료·생수·차": 23
+  },
+  "source_count": 144,
+  "store_source_count": 11,
+  "file_sha256": {
+    "catalog-candidates.json": "0a148016ae38dd23d2dadf9e1757b8125e6e992eadc36caae493064aec6c1dd0",
+    "stores-candidates.json": "f421e2a650b432066b708b0afd3851d173f6e91fea3535b28541f0a0037d4c85",
+    "sources-metadata.json": "e180f37c251573341830498aeed49287f1f643cb644d03ff277fd96ae399f159",
+    "stores-sources-metadata.json": "e519af1b9bd40c90c282bf44e410a0ac84f00ab0341c844cadbbd1ac40b0f62b"
+  },
+  "checks": [
+    "at_least_200_observed_product_candidates",
+    "unique_internal_sku_and_normalized_key",
+    "at_least_7_categories",
+    "source_id_reference_integrity",
+    "simulation_and_unverified_trend_labels",
+    "no_alias_or_holdout_injection",
+    "8_to_12_unique_store_addresses",
+    "lat_lng_order_and_local_bbox",
+    "reported_operation_status_unverified"
+  ],
+  "not_verified": [
+    "independent_source_review",
+    "current_store_operations",
+    "GS25_product_availability",
+    "20_to_30_recent_trend_products",
+    "balanced_final_seed_categories",
+    "SQLite_seed_dryrun_and_rollback",
+    "application_or_live_model_gates"
+  ]
+}

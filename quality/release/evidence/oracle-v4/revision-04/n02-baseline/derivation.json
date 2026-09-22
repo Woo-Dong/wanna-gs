@@ -1,0 +1,37 @@
+{
+  "original": {
+    "report": {
+      "path": "quality/release/evidence/baseline/report.json",
+      "sha256": "dcb9485f6c70292148575463d35a245d08f72195fb7518e8f9f35f336c9ca272"
+    },
+    "execution": {
+      "path": "quality/release/evidence/baseline/execution.json",
+      "sha256": "4609589d0a06107efad6f5eafaabbb85e18a5de6cd659c924c942eb956fef0cb"
+    },
+    "binding": {
+      "path": "quality/release/evidence/baseline/binding.json",
+      "sha256": "1817a4d2692c7c72e27624ce7620406b953d875aef3d0c89a69cf63953421300"
+    }
+  },
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "normalized": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n02-baseline/normalized.json",
+    "sha256": "8e9310d23f447e2bd5abf5346e80e1293076122db1cdae7823abcb7f5bf8b2a5"
+  },
+  "report": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n02-baseline/report.json",
+    "sha256": "329ceb79298feae5d7bc57c70e174c761286531321a5e8ab101a792c26dd05ef"
+  },
+  "actual_new_calls": 0,
+  "original_observations_sha256": "6c364b0df7d7f8679984921d8ab4a5c4e3db07e76afd11811b268da9cfdde438",
+  "evaluation_source_hashes": {
+    "scripts/check_release_evidence.py": "af7744bceaa8634a5396a2a0ce95e0c992244ff0cb4e3821a68f4f35441e9a98",
+    "scripts/run_nl_eval.py": "c819eb21e6511bf7a6fc41e081a635bbd95b93aed8fa8ac87eecd799f0ab2de3"
+  },
+  "scorer_sha256": "92caabf7aefbdc68e7d36e34772d8034a0b2260f1ce3ac1ade43ae475cc82f74",
+  "adapter_sha256": "68f1158551e094a8f6494aed525ed35aaafda4ba8cd6166ce099c63a0c30e690",
+  "tool_sha256": "cb1583a1b90a39699a338d9ea4ff85a662cde5209f10f269cf075d764b2e5797"
+}

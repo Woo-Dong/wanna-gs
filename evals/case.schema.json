@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Independent WANNA GS evaluation case",
+  "type": "object",
+  "required": [
+    "id",
+    "role",
+    "category",
+    "split",
+    "family_id",
+    "origin",
+    "research_ids",
+    "scenario_id",
+    "catalog_hash",
+    "binding_status",
+    "label",
+    "turns",
+    "max_model_turns",
+    "expected"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "enum": [
+        "customer",
+        "merchant"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[CM]0[1-9]$"
+    },
+    "split": {
+      "enum": [
+        "dev",
+        "validation",
+        "holdout"
+      ]
+    },
+    "family_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "origin": {
+      "enum": [
+        "evidence_backed",
+        "synthetic_expansion"
+      ]
+    },
+    "research_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "catalog_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "binding_status": {
+      "enum": [
+        "verified",
+        "pending"
+      ]
+    },
+    "label": {
+      "enum": [
+        "clear",
+        "ambiguous",
+        "unidentified",
+        "out_of_scope",
+        "injection"
+      ]
+    },
+    "turns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "text"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "user",
+              "assistant"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "max_model_turns": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "expected": {
+      "type": "object",
+      "required": [
+        "allowed_actions"
+      ],
+      "properties": {
+        "allowed_actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "candidates",
+              "clarify",
+              "unidentified",
+              "reject",
+              "propose"
+            ]
+          }
+        },
+        "required_any_skus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "candidate_pool": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "minimum_candidates": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "command": {
+          "type": "object"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_prior": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

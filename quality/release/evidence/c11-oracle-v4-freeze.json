@@ -1,0 +1,68 @@
+{
+  "kind": "C11-derived-oracle-v4-freeze",
+  "candidate": {
+    "id": "C11",
+    "sourceSha": "e727b99a640743c744082f8a3cf754260f0d755a",
+    "runtimeHash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "promptVersion": "customer-classification-v11",
+    "promptHash": "16e967e7f0adf1cfff7ff16e994a0e82e6ff09cf09ac6cc2e5fc0303f51a6d5a",
+    "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+    "frozenAt": "2026-09-22T04:24:34.496707+00:00"
+  },
+  "originalValidationRunIds": [
+    "729d6477-6db9-4fd7-a9d0-960de3286b69",
+    "3acf1e6a-caee-4275-8c88-a1abc1a9f2c9"
+  ],
+  "validationPassedCases": [
+    84,
+    84
+  ],
+  "validationCasesEach": 84,
+  "originalSecondValidationPassed": 83,
+  "originalFailurePreserved": true,
+  "actualNewValidationCalls": 0,
+  "maxAttempts": 1,
+  "oracleRevision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "derivedValidationBundles": [
+    {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n14-c11-validation-01/bundle.json",
+      "sha256": "1ec2b5a02a94073c0a2640b96b63ea4ab5a6f4009739fd0507693e04cf7a6d43"
+    },
+    {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n14-c11-validation-02/bundle.json",
+      "sha256": "1e731ef43a62d2b94c9d11572e4ee38a1e86a3ade5669deff9e9f73086df5372"
+    }
+  ],
+  "paired": {
+    "n02-baseline": {
+      "passed": 59,
+      "cases": 84,
+      "C11_regressions": 0
+    },
+    "n06-c5-validation-01": {
+      "passed": 84,
+      "cases": 84,
+      "C11_regressions": 0
+    },
+    "n06-c5-validation-02": {
+      "passed": 83,
+      "cases": 84,
+      "C11_regressions": 0
+    },
+    "n13-c10-validation-01": {
+      "passed": 84,
+      "cases": 84,
+      "C11_regressions": 0
+    },
+    "n13-c10-validation-02": {
+      "passed": 84,
+      "cases": 84,
+      "C11_regressions": 0
+    }
+  },
+  "scope": "Candidate freeze only; holdout, role QA, UX, G5 and G6 still pending"
+}

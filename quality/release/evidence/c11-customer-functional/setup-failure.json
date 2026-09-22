@@ -1,0 +1,49 @@
+{
+  "status": "FAIL",
+  "mode": "live",
+  "sourceSha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "origin": "https://wanna-o08huc5in-beatrain-4635s-projects.vercel.app",
+  "configHash": "d3e0b8b40c6f7e6e5cb8cc741fd6033f9433abe2d354ff4a860a2db4644c3e4e",
+  "plannedChecks": 6,
+  "budgetAttempts": 0,
+  "budgetStopped": "QA_ROUTE_FAILED",
+  "results": [
+    {
+      "name": "브랜드·모의·모바일·예시 입력만/복구",
+      "status": "NOT_RUN",
+      "reason": "SETUP_OR_PRIOR_FAILURE"
+    },
+    {
+      "name": "실제 모델 정확명→후보·usage SQLite 저장",
+      "status": "NOT_RUN",
+      "reason": "SETUP_OR_PRIOR_FAILURE"
+    },
+    {
+      "name": "지도 장애 목록 fallback·명시 동의·수량변경 재확인·연타1접수",
+      "status": "NOT_RUN",
+      "reason": "SETUP_OR_PRIOR_FAILURE"
+    },
+    {
+      "name": "refresh·한탭 경영주 승인→공급→고객 예약·48h 아직없음",
+      "status": "NOT_RUN",
+      "reason": "SETUP_OR_PRIOR_FAILURE"
+    },
+    {
+      "name": "입고 후 알림+48h·고객/경영주 상태 일치·refresh",
+      "status": "NOT_RUN",
+      "reason": "SETUP_OR_PRIOR_FAILURE"
+    },
+    {
+      "name": "fresh 실제 모호입력·후속정정 history와 사용자 확인 보존",
+      "status": "NOT_RUN",
+      "reason": "SETUP_OR_PRIOR_FAILURE"
+    }
+  ],
+  "errors": [
+    "QA_ROUTE_FAILED",
+    "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '상품 찾기', exact: true }) to be visible\u001b[22m\n"
+  ],
+  "original_private_report_sha256": "8fd0cd2e4efbb450f56341d71121f2f886761517f09d47554e3b9e1885edb5a2",
+  "recovery": "Exact injected Vercel feedback script blocked without network; fixed test plan and application unchanged.",
+  "harness_delta_independent_review_sha256": "dc49c2e0a1af16b54f20fa245229359d7040a1a2a866709b9f9f294c0c268233"
+}

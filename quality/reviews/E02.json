@@ -1,0 +1,24 @@
+{
+  "task": "E02",
+  "reviewer": "preflight_builder",
+  "status": "PASS",
+  "fingerprint": "6ab487de4e1e7bc69cc3b1805ed01e35a897c30787351d5f737811a3734a92f3",
+  "context_manifest": "docs/execution/run-20260921/context-app-v5.json",
+  "consumed_context_hash": "10701ed7619c86fe94cec16a31b6ac8b02a1afa9f2843ffdcce4ec446e952234",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-15",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23"
+  ],
+  "evidence": [
+    "docs/execution/run-20260921/e02-independent.md: independent transport11/11 PASS after preserving and correcting 2 counterexamples; actual-history/oracle separation, retry3, denominator, pending no-replay, 2400/$15 and nullable unknown usage verified with localhost fake HTTP only",
+    "scripts/build-eval-state.mts independently regenerated all96 public merchant states with matching hash d1a0845a4f45f44af9698963c700e9dfa24d13bb3a4b8b729b9b15e8a15278e1; poison expected/text/labels did not change output; synthetic protected split rejected",
+    "CI delta independent6/6 PASS plus empty Node glob nonzero; source CSS/SQL/WASM/Worker/mts/html mutation invalidates fingerprint; required5task/check/selfreview/context/skip/stale evidence fail-closed",
+    "Normal collection regression: Python91=18+18+32+23, Node44, zero failures/errors/skips. Node product tests are collection evidence, not independent product approval of the reviewer-authored domain/AppShell.",
+    "Final source delta: customer.module.css differs only by trailing whitespace removal, independently normalized content equality checked; no E02/CI implementation changes. Final integration fingerprint refreshed after this nonfunctional delta."
+  ],
+  "scope": "E02 transport/state generator and I01 CI delta only. Independent reviewer did not write these implementations. Actual model calls0 and protected holdout content access0 in this review. Formal NL/UX live baseline/best/holdout, G5/G6 and final deployment remain outside this approval. UX benchmark files remain isolated in DOMAIN worktree and are not included here.",
+  "checked_at": "2026-09-21T10:01:25.403466+00:00"
+}

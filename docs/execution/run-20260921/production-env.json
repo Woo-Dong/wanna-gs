@@ -1,0 +1,9 @@
+{
+  "status": "configured",
+  "variable": "OPENAI_API_KEY",
+  "target": "Production",
+  "type": "secret",
+  "valuePrinted": false,
+  "deploymentTriggered": false,
+  "actualProductionCall": "not_run"
+}

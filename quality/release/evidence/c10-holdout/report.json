@@ -1,0 +1,210 @@
+{
+  "version": "EVAL-20260921-v1",
+  "mode": "live",
+  "live_evidence": true,
+  "dataset_hash": "18f2a373dc48b372f166e6dd6f51fd97687a406e33f8f601fe814bbeafd6c305",
+  "cases": 84,
+  "passed": 76,
+  "incomplete": 0,
+  "mandatory_errors": 0,
+  "fatal_errors": [],
+  "metrics": {
+    "customer/holdout/clear": {
+      "cases": 40,
+      "passed": 40,
+      "complete": 40,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0,
+      "minimum": 0.95,
+      "minimum_met": true
+    },
+    "customer/holdout/category:C01": {
+      "cases": 9,
+      "passed": 9,
+      "complete": 9,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/holdout/category:C02": {
+      "cases": 8,
+      "passed": 8,
+      "complete": 8,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/holdout/category:C03": {
+      "cases": 8,
+      "passed": 8,
+      "complete": 8,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/holdout/uncertain": {
+      "cases": 20,
+      "passed": 12,
+      "complete": 20,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.6,
+      "accuracy_completed": 0.6,
+      "minimum": 0.9,
+      "minimum_met": false
+    },
+    "customer/holdout/category:C04": {
+      "cases": 7,
+      "passed": 5,
+      "complete": 7,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.7142857142857143,
+      "accuracy_completed": 0.7142857142857143
+    },
+    "customer/holdout/category:C05": {
+      "cases": 6,
+      "passed": 2,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.3333333333333333,
+      "accuracy_completed": 0.3333333333333333
+    },
+    "customer/holdout/category:C06": {
+      "cases": 6,
+      "passed": 6,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/holdout/category:C07": {
+      "cases": 6,
+      "passed": 6,
+      "complete": 6,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "customer/holdout/category:C08": {
+      "cases": 5,
+      "passed": 3,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 0.6,
+      "accuracy_completed": 0.6
+    },
+    "customer/holdout/category:C09": {
+      "cases": 5,
+      "passed": 5,
+      "complete": 5,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/clear": {
+      "cases": 15,
+      "passed": 15,
+      "complete": 15,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0,
+      "minimum": 0.95,
+      "minimum_met": true
+    },
+    "merchant/holdout/category:M01": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M02": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M03": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M04": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/uncertain": {
+      "cases": 9,
+      "passed": 9,
+      "complete": 9,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0,
+      "minimum": 0.9,
+      "minimum_met": true
+    },
+    "merchant/holdout/category:M05": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M06": {
+      "cases": 3,
+      "passed": 3,
+      "complete": 3,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M07": {
+      "cases": 2,
+      "passed": 2,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M08": {
+      "cases": 2,
+      "passed": 2,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    },
+    "merchant/holdout/category:M09": {
+      "cases": 2,
+      "passed": 2,
+      "complete": 2,
+      "mandatory_errors": 0,
+      "accuracy_all_cases": 1.0,
+      "accuracy_completed": 1.0
+    }
+  },
+  "outbound_attempts": 92,
+  "tokens_known": 1352033,
+  "usage_unknown_attempts": 0,
+  "latency_p50_ms": 2457,
+  "latency_p95_ms": 4155,
+  "nl_minimum_pass": false,
+  "product_gates": "not_assessed",
+  "run_id": "0c70f6af-a17c-4cad-a150-a5d638267c0f",
+  "run_fingerprint": "9312b209f57768b0920b25b7815843ce19dba37a5a738ce402dcd8f8bf493b97",
+  "catalog_hash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "evaluation_scope": "frozen_stage",
+  "frozen_stage_coverage_verified": true,
+  "stage_ready": false
+}

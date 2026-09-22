@@ -1,0 +1,18 @@
+{
+  "scripts/check_release_evidence.py": "5e2a09d291d8224d1b629cb46bcc4c70359dba175156761187e7529a8849bb23",
+  "tests/release/README.md": "e7591ebf767857eaecf8df1e34c52a91e5583c0c080ec34a15b364786c7b6284",
+  "tests/release/test_release_v3.py": "dd058aadf52f89438c9e2d4dfa7ec34931b06e7f1d40c2cd224a30caf21a0d5a",
+  "tests/ux-benchmark/v3/README.md": "bd595903f17e3dd877f0feb308c55e19da519d760b16a08e221be0f94bca0af1",
+  "tests/ux-benchmark/v3/SELF-REVIEW.md": "7ad136924da949ee1cb0494becb4ac16af1c4788220c28c8a16692750fc43cc0",
+  "tests/ux-benchmark/v3/binding.mjs": "9b2aad4585121345bd6784fd9e3013232891f1e7787fd91aaaed0b6c45bc128d",
+  "tests/ux-benchmark/v3/binding.test.mjs": "4696cbb57ddf0a9bcd29f8dd27e4b16a38996d581a0a99486a046e26efb7d4a1",
+  "tests/ux-benchmark/v3/budget_bridge.py": "dd70b3a510ea46e23ca2b4fdf410cc69e44ce6772f328f17d9e2459da5844671",
+  "tests/ux-benchmark/v3/live.mts": "971a3996220e272f151271a6d6a8d22dddbe1c40c097eedef1020ce98ffc54a5",
+  "tests/ux-benchmark/v3/live.test.mts": "fa50a25c9f075ae85fe8a9869de1fee806c1d335457fd76089098cf0e78b2b74",
+  "tests/ux-benchmark/v3/metrics.mjs": "906bd0aeb07fd156d484c295f70f651d27e80beb7ff13c60e026419e06c2bce7",
+  "tests/ux-benchmark/v3/metrics.test.mjs": "50250e595cdad69f8acb022b5f95fdcab44eee6d91d506115f1376a6ac172517",
+  "tests/ux-benchmark/v3/plan.mjs": "ca42cdc42bccbec9131c86e994b01865b69a4fe29818890e3bdccb433e1979f6",
+  "tests/ux-benchmark/v3/prepare.mts": "31495bc08af822bc197a9416e04f97f4c3bc2f80f35f08a7b5c2a8d422258db1",
+  "tests/ux-benchmark/v3/run.mts": "42d7fc186b34c6398143317e0179aa07c4e20b61500825c6cb5aa0cde659cdcb",
+  "tests/ux-benchmark/v3/test_bridge.py": "2b049ac3e99140708b95337971dd302e55a5d1145407aedc195564042754917b"
+}

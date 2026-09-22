@@ -1,0 +1,55 @@
+{
+  "id": "CTX-20260921-APP-v2",
+  "base_sha": "3ef1ee3447ab3943527c4685949da4116bcf0566",
+  "phase": "PLAN review then B01/D01/E01",
+  "files": {
+    "AGENTS.md": "07845a308711b944829fb61b756f765dd1c01e4f13434587d2e7cc5a76e56f6f",
+    "card.md": "62fae686c1967902ac443a0a315f4c7f59f76df9e6de3a3568e4355d6e334e03",
+    "docs/GOAL.md": "45a5d7f533b319739db20dbc9f6e8983a40235fe35a0e5277015803dc4dcabe8",
+    "docs/CORE_REQUIREMENTS.md": "65c7541d3549bf49b715da687aa5af060fce9a48e774a4130d9ac350349d8114",
+    "docs/DECISION_INDEX.md": "1011c3a9db2a8590f010bd44251e4f9fb0675b96adb11f0e2093575ff6187cd4",
+    "docs/02-decisions-and-open-questions.md": "80844f9d28df5b260ec2a8eceba7e137220b159868e5b4de2bea31bccc857a72",
+    "docs/20-agent-roles-and-context.md": "73706b34d40155b35190a32ce6b69eabd3da0ad519fb18f95e7464eb38d2e238",
+    "docs/29-browser-sqlite-demo.md": "b1227e140b61fa60e100b346d345267548222115bfd188d9138e8a4b8df7f4e5",
+    "docs/decisions/ADR-002-demo-domain-policies.md": "c54ebe16cba63a319b82194aca73723652f8ee0737c5b93a0147d8abf85062ec",
+    "docs/decisions/ADR-003-evaluation-and-demo-boundaries.md": "d5c4072537a4d42e8812b29b030c7f59d7f8af77ae4adcc36628a549a98ef212",
+    "docs/execution/run-20260921/plan.md": "556f651f0f09741e05e01eb84f83550f4d0da145990de4428009521d3b0ff9a0",
+    "docs/execution/run-20260921/research.md": "a1ab2edf8e4cd796039760c9c62fbae05ceaad268fbfa930761d36f292d5ecde"
+  },
+  "purpose": "고객 자연어→확인·동의→수요→보수적 발주→공급·모의결제→입고 알림 후 48시간 픽업",
+  "excluded": [
+    "본부",
+    "실결제",
+    "외부 DB",
+    "다중 사용자 경합",
+    "D40 미채택 팀원 제안"
+  ],
+  "versions": {
+    "schema": "not_implemented",
+    "seed": "not_implemented",
+    "prompt": "not_implemented",
+    "model": "gpt-5-mini configured, access unverified",
+    "eval": "not_implemented"
+  },
+  "ownership": {
+    "coordinator": "Git 통합/외부 인증/PROGRESS/WORKPLAN/공통 manifest",
+    "research": "docs/execution/run-20260921/research.md",
+    "preflight_builder": "isolated preflight worktree only",
+    "method_auditor": "docs/execution/run-20260921/method-audit.md"
+  },
+  "gates": "P00-P11 only; 제품 G1-G6 미실행",
+  "normal_case": "정상 상품 요청을 보존하고 실제 모델·브라우저 SQLite로 두 역할 연결",
+  "forbidden": "fixture/live 혼동, 테스트 완화, 사용자 변경 제거, 키 노출",
+  "runtime_agents": "provided collaboration tools; up to 4 active incl coordinator; inherited model unless explicit override",
+  "branch": "codex/bootstrap",
+  "previous": "CTX-20260921-BOOT-v1",
+  "adrs": [
+    "ADR-001 adopted",
+    "ADR-002 adopted execution unverified",
+    "ADR-003 adopted execution unverified"
+  ],
+  "ownership_contract": "docs/execution/run-20260921/plan.md",
+  "preflight_source": "dc81df9005170cde0f48862fac302ae97b7fd202",
+  "preflight_pr_head": "9e0f12f4eaf6bd7813cd2514e3422bea6f8764b5",
+  "stale": "BOOT index hash superseded by adopted ADR002/003; unrelated preflight runtime PASS valid"
+}

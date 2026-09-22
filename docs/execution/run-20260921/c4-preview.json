@@ -1,0 +1,14 @@
+{
+  "id": "dpl_4MmYgaDCps4s6ECYsCA5cYLPMfe9",
+  "url": "wanna-gw30pjecw-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n05-scope-candidate",
+    "sha": "48bdb4f18f6c769806fbfa9399ea2cf6af2b5f6f"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}
