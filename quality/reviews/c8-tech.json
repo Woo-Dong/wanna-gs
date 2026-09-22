@@ -1,0 +1,27 @@
+{
+  "task": "C8-TECH",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+  "context_manifest": "docs/execution/run-20260921/context-n11-v18.json",
+  "consumed_context_hash": "b2d55452e0dd9b4efe9f72082f7e5c41618c486ecc4e710de640de3a3217644f",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-11",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-25"
+  ],
+  "evidence": [
+    "D48 and C8 contract/card/CORE/AC read; all68 final context file hashes and aggregate fingerprint directly verified; builder e0b078b production/tests equal root bytes.",
+    "Independent baseline synthetic repro3 and normal2; final independent12 contract/normal/error groups PASS. Customer exact/confirm/multiple/clarify/unidentified/alternatives/count2/scope/ID/evidence sequence preserved, existing verifyCustomer body unchanged.",
+    "Independent server48 PASS with fail/skip/cancel0. Actual installed SDK via fake fetch customer5+merchant2 mock requests verifies strict nested schema, API canonical mapping, unchanged merchant payload and known/null usage/error accounting; real model/HTTP0.",
+    "Prior merchant literal and normal/stale/SKU-only schemas byte/semantic equality, provider/model/packing/retrieval/catalog/domain/UI source unchanged. Existing fixture edits only change wire shape, no expected-answer relaxation.",
+    "docs/execution/run-20260921/c8-customer-independent.md and private c8-independent scripts/results/logs/context ACK preserve provenance and limits."
+  ],
+  "scope": "C8 customer server technical contract and purpose-preservation only. Actual NL quality, role browser QA, UX/G5/G6 not assessed. No protected raw/generator, real model/HTTP/deployment/shared ledger access. Reviewer customer UI authorship is not counted as independent customer QA. Unsigned identity not cryptographic proof.",
+  "checked_at": "2026-09-22T00:32:32.439485+00:00"
+}

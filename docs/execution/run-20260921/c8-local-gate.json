@@ -1,0 +1,101 @@
+{
+  "phase": "n11-c8-customer-contract",
+  "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+  "context_manifest": "docs/execution/run-20260921/context-n11-v18.json",
+  "started_at": "2026-09-22T00:29:12.103793+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "D48 authorized customer generation contract repair; unchanged product minima/budget/merchant/catalog/domain. Live quality and final release pending.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 198,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 30,
+        "tests/ux-benchmark": 7,
+        "tests/ux-benchmark/v3": 12,
+        "tests/release": 81
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "d12d41220c759bd6482c6eefab714b89ad23226e56dd34b78279b7e881ce1079",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "review_joined_at": "2026-09-22T00:33:12.319153+00:00",
+  "execution_note": "Original unchanged 8 executed checks joined with newly completed independent review; no test result replacement or rerun. Initial missing-review FAIL preserved privately."
+}

@@ -1,6 +1,6 @@
 {
-  "phase": "merchant-cap-repair",
-  "scope": "Separate correction of existing UI-to-domain explicit per-SKU quantity cap loss for deferred items. C7 customer NL candidate, model/schema/search/catalog/domain policies unchanged. Actual final quality remains pending.",
+  "phase": "n11-c8-customer-contract",
+  "scope": "D48 authorized customer generation contract repair; unchanged product minima/budget/merchant/catalog/domain. Live quality and final release pending.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -91,7 +91,10 @@
     "docs/execution/run-20260921/c7-customer-contract.md",
     "docs/execution/run-20260921/context-merchant-cap-v17.json",
     "docs/execution/run-20260921/merchant-cap-repair-contract.md",
-    "docs/execution/run-20260921/c7-policy-state-audit.md"
+    "docs/execution/run-20260921/c7-policy-state-audit.md",
+    "docs/execution/run-20260921/context-n11-v18.json",
+    "docs/execution/run-20260921/c8-customer-contract.md",
+    "tests/server/*.fixture.ts"
   ],
   "checks": [
     {
@@ -173,19 +176,21 @@
   ],
   "tasks": [
     {
-      "id": "MERCHANT-CAP-REPAIR",
+      "id": "C8-TECH",
       "implementers": [
         "preflight_builder",
         "root"
       ],
       "requirements": [
-        "CORE-05",
-        "CORE-06",
-        "CORE-07",
+        "CORE-02",
+        "CORE-03",
+        "CORE-11",
         "CORE-17",
+        "CORE-18",
+        "CORE-21",
         "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-merchant-cap-v17.json"
+  "context_manifest": "docs/execution/run-20260921/context-n11-v18.json"
 }

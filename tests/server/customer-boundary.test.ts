@@ -1,3 +1,4 @@
+import {customerWireFixture as wire} from './customer-wire.fixture';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {z} from 'zod';
@@ -18,19 +19,20 @@ test('normal lookup, negation, quotation, correction, conditions and reported in
 });
 test('generation boundary excludes primary candidates and a third clarification without changing normal schema',()=>{
  const normal=modelOutputSchema('customer',['p0'],['음료']);
- assert.deepEqual(z.toJSONSchema(normal),z.toJSONSchema(modelOutputSchema('customer',['p0'],['음료'],false,{customerScopeBoundary:false,clarificationCount:2})));
+ const atLimit=modelOutputSchema('customer',['p0'],['음료'],false,{customerScopeBoundary:false,clarificationCount:2});
+ const ask=wire({action:'ask_clarification',candidates:[],question:'어떤 맛인가요?',reason:'확인',confirmationRequired:true});assert(normal.safeParse(ask).success);assert(!atLimit.safeParse(ask).success);
  for(const count of [0,1,2]){
   const schema=modelOutputSchema('customer',['p0'],['음료'],false,{customerScopeBoundary:true,clarificationCount:count});
   const unidentified={action:'unidentified',candidates:[],question:null,reason:'이 시연에서는 실제 거래를 실행하지 않아요.',confirmationRequired:true};
-  assert(schema.safeParse(unidentified).success);
-  assert.equal(schema.safeParse({...unidentified,action:'ask_clarification',question:'찾을 상품을 알려주세요.'}).success,count<2);
-  assert(!schema.safeParse({...unidentified,action:'show_candidates',candidates:[{id:'p0',kind:'exact',sharedEvidence:[],differences:[],unknownConditions:[]}]}).success);
+  assert(schema.safeParse(wire(unidentified)).success);
+  assert.equal(schema.safeParse(wire({...unidentified,action:'ask_clarification',question:'찾을 상품을 알려주세요.'})).success,count<2);
+  assert(!schema.safeParse(wire({...unidentified,action:'show_candidates',candidates:[{id:'p0',kind:'exact',sharedEvidence:[],differences:[],unknownConditions:[]}]})).success);
  }
 });
 test('live-shaped invalid response is rejected with original paid usage and never converted into scope success',async()=>{
- const provider:ModelProvider=async()=>({value:{action:'show_candidates',candidates:[],question:null,reason:'검색 결과',confirmationRequired:true},model:'test-provider',usage});
+ const provider:ModelProvider=async()=>({value:wire({action:'show_candidates',candidates:[],question:null,reason:'검색 결과',confirmationRequired:true}),model:'test-provider',usage});
  await assert.rejects(interpret('customer',base,provider),(error:unknown)=>error instanceof AssistantError&&error.code==='INVALID_MODEL_RESPONSE'&&error.diagnostic==='SUPPLIED_CATALOG_SCHEMA'&&error.attempt?.providerCalled===true&&error.attempt.usage?.totalTokens===170);
  let called=0;
- const allowed:ModelProvider=async(_prompt,_input,schema)=>{called++;const value={action:'unidentified',candidates:[],question:null,reason:'모의 서비스에서 실제 결제는 지원하지 않아요.',confirmationRequired:true};assert(schema.safeParse(value).success);return {value,model:'test-provider',usage}};
+ const allowed:ModelProvider=async(_prompt,_input,schema)=>{called++;const value={action:'unidentified',candidates:[],question:null,reason:'모의 서비스에서 실제 결제는 지원하지 않아요.',confirmationRequired:true};assert(schema.safeParse(wire(value)).success);return {value:wire(value),model:'test-provider',usage}};
  const response=await interpret('customer',{...base,clarificationCount:2},allowed);assert(response.ok);assert.equal(called,1);assert.deepEqual(response.data.usage,usage);assert.equal(response.data.result.question,null);
 });
