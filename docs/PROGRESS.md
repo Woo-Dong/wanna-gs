@@ -1,3 +1,22 @@
+C9 기술검증: 서버53/domainUI51/UX기구19/Python198/type/build 및 독립12그룹·SDKmock6/문맥72 결속 PASS. 실제품질은 아직미평가다. [독립 검토](execution/run-20260921/c9-action-independent.md)·[기술게이트](execution/run-20260921/c9-local-gate.json).
+
+# 2026-09-22 개발 재개 — Production 유지·C9 복구
+
+사용자 D49로 개발을 재개한다. 현재 Production dpl_DXBCqN4fZ4CWK4B79Y5roswcD5kE/sourcebb2ab805/READY, 제출alias wanna-gs-sepia.vercel.app를 확인했다. main3ef1ee3은 아직 이전버전이다. [C9 계약](execution/run-20260921/c9-action-contract.md)에 따라 구현·독립검증 후 Production배포/고정평가·최종main병합/G6를 진행한다. C8 validation79/84 FAIL과 예산·필수출시기준은 그대로 유지한다. 제출로그는 주요원본과 사용자가선택한추가5개원본ZIP 준비·검증/Finder표시 완료, 업로드는사용자직접이며원본은변경하지않았다.
+
+# 2026-09-22 사용자 우선순위 변경 — 제출 로그 먼저
+
+사용자 지시로 구현/평가 담당을 중단하고 Codex 제출 로그 선택을 먼저 진행한다. 원본 코드·로그·worktree·장부를 보존했다. C8 validation01은79/84 FAIL(customer36/40·20/20, merchant14/15·9/9), incomplete1/mandatory0,92calls/$0.485232. 누적upper1350/$8.6217717, pending0이며 validation02/새holdout/UX/실제역할QA/G5/G6는 미실행이다. 정확한 실패 원본은 private `n11-c8-validation-01-analysis/`에 있다.
+
+C9는 고객 추가후보 기본빈배열 문구 및 경영주 행동별 생성 계약의 국소 복구안으로 준비했지만 실제 구현을 시작하기 전에 사용자 로그 우선 지시를 받았다. root `codex/n12-c9-recovery`/HEAD92cfb4bb, C9 worktree `../2026-ralphton-c9-contract`/동일HEAD·tracked변경없음. 재개 시 이 실패와 비용/필수예약을 다시 확인한다. G5/G6예약은 실제QA3+3/G6두호출과 복구여유를 근거로 재산정 검토 중이며 아직 실행승인 config로 고정하지 않았다. 현재 작업 로그는 활성 상태이므로 이미지 제거 변환을 하지 않는다.
+
+# 2026-09-22 C8 검증 진행 — 최신 포인터
+
+- C8 source `bb2ab8056716c6d32669c1f8c6103a4a2ca397dd`, [PR19](https://github.com/Woo-Dong/wanna-gs/pull/19) CI35672436354/35672452291 PASS 후 integration `92cfb4bb5e80b0834f514182f6269f3007613039`로 병합. 병합 CI35672957222도 PASS다.
+- [C8 Preview](execution/run-20260921/c8-preview.json)는 정확한 source로 READY. 고객 생성 계약만 변경했고 경영주/거래·카탈로그·기준은 보존한다. 고정 dev30/30 PASS, 실제34calls/$0.1787624, incomplete/mandatory/회귀/새unknown/retry0. 독립 평가자가 동일 설정으로 validation84 두 회를 진행 중이다. 실패 시 후속 단계를 통과 처리하지 않는다.
+- 최종 best freeze·새 holdout·ADR007 양 arm UX 비교·실제 두 역할 QA·G5·제출 URL G6는 아직 미완료다. B0/C8 로컬 runtime과 Preview QA 준비는 실행 결과와 구분한다. D48 위임을 적용하며 과거 D47 재승인 대기는 현재 지시가 아니다.
+- 사용자 후속 요청: **최종 검증·배포 후** 이번 GS 해커톤과 연결된 Codex 세션만 식별하고 주요 JSONL/추가 JSONL 선택 및 원본/이미지 제거 사본 여부를 사용자에게 확인한다. 현재 실행 중인 작업 로그는 변환하지 않는다. 제출은 사용자가 직접 수행한다. 상세 안전·크기·검증 조건은 private 요청 기록에 보존했으며 현재 로그 검색/변환/ZIP/업로드는 실행하지 않았다.
+
 # 2026-09-22 D48 위임 반영 — 구현·최종 검증 재개
 
 D48에 따라 후보 실패 후 자동 추가 금지를 포함한 잔여 판단을 조정자가 수행한다. C8 고객 생성 응답 계약을 수리 중이며 기존 품질·정답·실패 기록·$20/2400 예산은 유지한다. [실행 계약](execution/run-20260921/c8-customer-contract.md). 구현 builder, 독립 서버검증 research, 독립 live평가 method_auditor, 통합/배포 root로 분리한다.

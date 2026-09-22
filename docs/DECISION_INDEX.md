@@ -77,3 +77,7 @@ D-45: 앱 LLM은 OpenAI API 직접 호출이다. 사용자 키를 루트 `.env.l
 ## D-48 — 잔여 구현·복구·배포 자율 판단 재위임
 
 사용자의 2026-09-22 직접 지시로 D47의 추가 후보 실패 후 자동 추가 금지 조건을 대체한다. [02번](02-decisions-and-open-questions.md)과 [C8 계약](execution/run-20260921/c8-customer-contract.md)에 따라 구체 실패의 수리·독립 검증·기존 예산 내 후속 판단을 조정자가 수행한다. 후보/비용/실패 이력과 제품 최소 기준은 유지하며 목표 완료는 실제 G6 이후다.
+
+## D49 — Production 운영 유지
+
+[사용자 직접 결정 D49](02-decisions-and-open-questions.md): 사용자가 이미 전환한 Production을 유지하며 후속 수정도 Production으로 배포하고 최종 main 병합을 수행한다. Preview 전용 개발 배포 순서만 대체하며 필수 검증·실패 이력·최종 완료 기준과 비용 상한은 유지한다.
