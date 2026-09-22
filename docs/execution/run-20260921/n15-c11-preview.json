@@ -1,0 +1,14 @@
+{
+  "id": "dpl_HrUL1N35GXdFVfGG95fCgxMBKJRn",
+  "url": "wanna-o08huc5in-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n15-oracle-integrity",
+    "sha": "e727b99a640743c744082f8a3cf754260f0d755a"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

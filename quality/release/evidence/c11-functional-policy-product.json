@@ -1,0 +1,34 @@
+{
+  "scope": "D50-functional-release",
+  "status": "PASS",
+  "unresolved_major": 0,
+  "candidate_id": "C11",
+  "runtime_hash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "source_sha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "reviewer": "research",
+  "perspective": "product-consent",
+  "original_quality_status": "NOT_READY",
+  "g6_status": "pending",
+  "evidence": [
+    {
+      "path": "docs/execution/run-20260921/n16-functional-policy-product.md",
+      "sha256": "636b899bf67c4d3dede8d22c635042b4614a4c79ccfa83ff771bb51177a77e20"
+    },
+    {
+      "path": "quality/release/evidence/c11-customer-functional/qa.json",
+      "sha256": "ecb52402aa17e75dc76e13366be34013d410d88acf6ca500c943433a5e2a2d8d"
+    },
+    {
+      "path": "quality/release/evidence/c11-merchant-functional/qa.json",
+      "sha256": "bc33dc5e8c7d97ca2c2f7ee75de995002d2bcbd13138593a0d034df0e3047772"
+    },
+    {
+      "path": "docs/execution/run-20260921/c11-need-independent.md",
+      "sha256": "71d3f1e9af476f1136d8389397f5b1fd9aecc2f71528c51649224fb9b6221c7b"
+    },
+    {
+      "path": "docs/execution/run-20260921/n16-known-limitations.md",
+      "sha256": "4fd006b5438a6829dbb0d10ccd51ff5719bac93b80fe4df82c2da77907b29b69"
+    }
+  ]
+}

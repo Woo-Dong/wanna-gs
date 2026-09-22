@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "runId": "c11-merchant-qa-02",
+  "checkedAt": "2026-09-22T04:59:04.065Z",
+  "origin": "https://wanna-o08huc5in-beatrain-4635s-projects.vercel.app",
+  "deploymentId": "dpl_HrUL1N35GXdFVfGG95fCgxMBKJRn",
+  "sourceSha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "promptVersion": "customer-classification-v11",
+  "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "seedHash": "4cb10e899c9706bb0a9278b458bd7b70d3c34bf28f649b62ffae0894794a2b45",
+  "configHash": "49783b0d83682366347c8ff5e4894aa89237abce2cc7667fd206ec8fe327ce35",
+  "casePlanHash": "2181708ceb9903278a871ad321324b16f0e29734b948bc6f77079c04f191bfdd",
+  "plannedCases": 11,
+  "plannedLiveCalls": 3,
+  "attemptedUiCalls": 3,
+  "budgetAttempts": 3,
+  "budgetStopped": null,
+  "budgetFinal": {
+    "budget": {
+      "accounted_calls_upper_bound": 2105,
+      "known_provider_calls": 2055,
+      "unknown_provider_calls": 0,
+      "cost_upper_estimate_usd": 12.7993473,
+      "known_cost_usd": 10.2493473
+    },
+    "pending": false
+  },
+  "results": [
+    {
+      "name": "실제 SQLite 준비·브랜드·10SKU 집계↔고객 상세",
+      "status": "PASS"
+    },
+    {
+      "name": "한 탭 점포 역할 전환은 타점포 요청 상세 격리",
+      "status": "PASS"
+    },
+    {
+      "name": "current candidate 실제 NL 현재 변경·미승인 정책복사·undo3회",
+      "status": "PASS"
+    },
+    {
+      "name": "10SKU 한 묶음 승인·금액·한탭중복·refresh 복원",
+      "status": "PASS"
+    },
+    {
+      "name": "공급 확정·결제·입고·48h 생성·수령 SQL/event 대조",
+      "status": "PASS"
+    },
+    {
+      "name": "공급 부족 잔여요청·coverage 보존·중복발주 없음",
+      "status": "PASS"
+    },
+    {
+      "name": "승인 자동정책·검토당 cap·변화없는 검토 중복0",
+      "status": "PASS"
+    },
+    {
+      "name": "모의 결제 실패 성공오표시0·고객 명시 재시도·역할복귀",
+      "status": "PASS"
+    },
+    {
+      "name": "48h 지난 수령 차단·초기화 generation/거래 소거",
+      "status": "PASS"
+    },
+    {
+      "name": "UI 시연 도구 최소발주 미달은 수요 보존·발주0",
+      "status": "PASS"
+    },
+    {
+      "name": "실제 shell 360/390/768/1280/1440·font200·keyboard·브랜드",
+      "status": "PASS"
+    }
+  ],
+  "consoleErrors": [],
+  "runtimeErrors": [],
+  "mode": "live",
+  "runtimeHash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "scope": "merchant actual browser/SQLite component; D50 functional release, not original G5 quality or G6",
+  "network": [
+    {
+      "index": 1,
+      "http_status": 200,
+      "mode": "live",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "prompt_version": "customer-classification-v11",
+      "usage": {
+        "inputTokens": 13177,
+        "outputTokens": 109,
+        "totalTokens": 13286,
+        "estimatedCostUsd": 0.0054452
+      },
+      "original_sha256": "3c47b3dc5e6908f662d6cde704755cdc531acfb12aea04783e337ded74ff3ec4"
+    },
+    {
+      "index": 2,
+      "http_status": 200,
+      "mode": "live",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "prompt_version": "customer-classification-v11",
+      "usage": {
+        "inputTokens": 13336,
+        "outputTokens": 93,
+        "totalTokens": 13429,
+        "estimatedCostUsd": 0.005483200000000001
+      },
+      "original_sha256": "9ef1e8e2d7673e0c78d04e8b3298ac8fe3caae23bb6ff2ca3dca93deb8b42257"
+    },
+    {
+      "index": 3,
+      "http_status": 200,
+      "mode": "live",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "prompt_version": "customer-classification-v11",
+      "usage": {
+        "inputTokens": 13455,
+        "outputTokens": 83,
+        "totalTokens": 13538,
+        "estimatedCostUsd": 0.0055148
+      },
+      "original_sha256": "6f83965ceb83e9f38d1b530ebabb2c4cb60b2c91fa1f744017e2068f4f5bf000"
+    }
+  ],
+  "original_private_sha256": "92e9775a5c802898428b0209b30ffdea840e7bcdf024644b81f0ad85d4a5b893"
+}

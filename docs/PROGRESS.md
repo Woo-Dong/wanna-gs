@@ -1,3 +1,27 @@
+# 2026-09-22 N16 기능 릴리스 로컬 게이트 PASS
+
+D50 기능 릴리스의 [전체9검사](execution/run-20260921/n16-local-gate.json)와 [독립 검토](execution/run-20260921/n16-functional-checker-independent.md)가 통과했다. source fingerprint0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12, context107개 직접 ACK, 고객6live+12fixture/경영주11live 및 두 관점 기능정책의 공개 증거21개를 결속했다. 이제 PR/CI→integration→main→정확mainProduction 최종검증을 진행한다. 원래품질G5NOT_READY·NL75/84FAIL은 불변이며 최종배포검증은 아직대기다.
+
+# 2026-09-22 N16 두 역할 실제 기능 QA PASS
+
+고객 actual6/6·fixture12/12, 경영주 actual11/11이 통과했다. 실제 브라우저·OpenAI·SQLite의 동의/요청/발주/공급/모의결제/입고/48시간/복원을 확인했다. 경영주 첫시도7PASS·1FAIL·3NOT_RUN과 고객 초기접속6NOT_RUN은 그대로 보존했다. Preview toolbar차단과 요청상세진입 누락은 검증기구만 좁게 수정하고 독립검토 후 새 실행에서 확인했으며 앱 runtime은 바꾸지 않았다.
+
+누적upper2105회/$12.7993473, pending/새unknown0. 추가품질최적화는 종료했고, 기능정책종결·기능게이트/CI·main병합·exactmainProduction 익명 최종2call을 진행한다. 원래NL75/84FAIL·UX비교미실행·G5NOT_READY는 D50에 따라 알려진 한계로 보존한다.
+
+# 2026-09-22 N16 — 사용자 D50 기능 출시로 전환
+
+사용자가 추가 고품질 목표를 종료하고 큰 기능 문제가 없으면 최종 배포와 main 병합을 마무리하도록 직접 지시했다. [D50](decisions/D50-functional-release.md)에 따라 추가 후보/holdout/UX 비교는 종료하며, 보호75/84 FAIL·원래 G5 미충족은 그대로 남긴다. 별도 기능 릴리스 검증기, 독립 두 역할 실제 QA, 두 관점 주요 기능 검토와 exact main/Production 최종 검증을 진행한다. 기능 판정과 원래 품질 판정을 구분한다.
+
+현재 고객 실제 QA 최대3회에 착수하며 경영주3회·최종2회 및 여유4회를 예약했다. API $20/2400과 단일 장부는 유지한다. Preview/Production의 C11 runtime은 동일하며 추가 앱/프롬프트 수정은 없다. 아직 main 병합 또는 최종 기능 완료는 아니다.
+
+# 2026-09-22 N15 Production 유지 · C11 보호 v3 FAIL
+
+[PR23](https://github.com/Woo-Dong/wanna-gs/pull/23)는 exact e727b99a640743c744082f8a3cf754260f0d755a의 push/PR CI35686384465/35686396723 PASS 후 integration b330f8b5671773134611c7c34aac620d656e8c44로 병합했다. integration CI35686580620도 PASS다. [Production](execution/run-20260921/n15-c11-production.json)과 [Preview](execution/run-20260921/n15-c11-preview.json)는 READY다. 제출 alias의 익명 health200/live configured를 확인했다. 앱 runtime50은 기존 C11과 동일하다.
+
+공개 oracle-v4의 두 독립 실제 validation 파생 점수84/84와 대응 정상회귀0을 검증해 C11을 고정한 후, 보호 v3를 최초 한 번 실행했다. [결과](../quality/release/evidence/c11-holdout-v3/report.json)는75/84 FAIL이다. 고객 clear36/40·uncertain17/20, 경영주 clear13/15·uncertain9/9로 세 최소기준 미달이다. 92턴/92호출 완료, incomplete/mandatory/retry/새unknown/pending0이며 원문과 실패를 보존한다. 실행과 품질 실패를 구분하며 보호셋 재호출은 금지한다.
+
+누적 upper2096회/$12.7565577, 한도2400/$20 유지. 남은304회는 새 후보의 기존 전체 복구 경로406회에 부족하다. evaluator와 독립 검토자가 노모델 실패 진단을 수행한다. 역할 QA/UX 새 초안의 source/runtime/가드 검증은 통과했으나 실제 QA/UX·G5·main 최종 병합·G6는 미완료이며 추가 모델 호출은 중단했다. 현재 Production을 유지하고 실패 원인 및 자원 경계를 정리한다. 목표 완료를 선언하지 않는다.
+
 # 2026-09-22 N15 기술·독립 무결성 PASS
 
 [전체8검사](execution/run-20260921/n15-local-gate.json) PASS(Python244/server62/domainUI53/UX기구19/type/build 포함), [독립 검토](execution/run-20260921/oracle-v4-independent.md)의 신규33·freeze15반례와23run목록/12run원본↔정규화전수대조 PASS다. 미완료호출을허용하던기구초기반례를수리했고모든초안/최초FAIL을보존했다. exact source지문44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4와context102를결속했다.

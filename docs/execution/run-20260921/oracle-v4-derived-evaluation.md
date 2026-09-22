@@ -42,3 +42,9 @@ final_ux_state는23run/12derived의1,260행을 별도로 전수 재현해 데이
 verify_holdout_freeze가 기존 Checker.nl(original,best=False)를 재사용하도록 수리했다. 원래83/84 FAIL 점수는 그대로 인정하되 원 실행의 pending/전체분모/provider/시각/정합성을 검사한다. runner_complete, 실제92턴, unknown0, 원관측 attempt/사용량/비용 합계도 대조한다. pending1·사례누락·음수token·unknownprovider·미완료·턴누락·음수비용·unknownusage의8변형 모두 거절하는 자체 시험과 정상 인접 경로가 통과했다. 신규 시험은33개다.
 
 코드 해시 갱신에 따라 revision02와 중간03을 보존하고 revision04에 동일23run 결과를 새로 산출했다. 새 정답/원본 관측/실제 호출은 바뀌지 않았으며 점수 변화도0이다. 최종 독립 검토 대상은 `quality/release/evidence/oracle-v4/revision-04`와 private `n15-oracle-v4-local-audit-revision-04.json`이다. 독립 재검토와 최종 감사ref 발급은 여전히 선행조건이다.
+
+## 독립 검증 완료
+
+정식 `oracle-v4-independent-audit.json`(SHA6378b27c97b42c6c711a0f093576c8298c57351fd570fec6aa3f0a6e610cc5b0)이 revision04/cohort23/derivation12와 결속됐다. final_ux_state는1,260행의 원래·새 정답/원관측·normalized 전수 동등성, 신규33시험 및별도freeze15그룹을독립검증해PASS로판정했다. pending반례는차단됐으며정상84/84파생경로와원본84/83분리는유지됐다. 발급된 실제auditref를연결한12bundle전수검사도독립PASS다.
+
+실제원관측·원본29·runtime50·장부불변,추가모델0을유지한다. 이로써파생평가기구기술검토는완료됐으나최종bundle신규발급은새commit/source계보후이며, 최종rootfreeze/미실행보호v3/QA/UX/G5/G6를대체하지않는다.

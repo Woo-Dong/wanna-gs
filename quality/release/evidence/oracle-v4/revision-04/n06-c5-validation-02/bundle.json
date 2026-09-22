@@ -1,0 +1,49 @@
+{
+  "kind": "derived_public_oracle_rescore",
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "original": {
+    "report": {
+      "path": "quality/release/evidence/c5-validation-02/report.json",
+      "sha256": "2605118ce644dd57dc20445ca8dcf972c08600ce3356b04f31457ceb74c67bf8"
+    },
+    "execution": {
+      "path": "quality/release/evidence/c5-validation-02/execution.json",
+      "sha256": "2e10a4a10d22af451722680ae68dbe59de0f784c0f19b4770ba7277831026071"
+    },
+    "binding": {
+      "path": "quality/release/evidence/c5-validation-02/binding.json",
+      "sha256": "5757ace2484663d0775ffc8ab0dbdd7495c9d34df84d25d8141e7b90876550d2"
+    }
+  },
+  "binding": {
+    "path": "quality/release/evidence/c5-validation-02/binding.json",
+    "sha256": "5757ace2484663d0775ffc8ab0dbdd7495c9d34df84d25d8141e7b90876550d2"
+  },
+  "report": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n06-c5-validation-02/report.json",
+    "sha256": "1688fba1b080ecad5efe57800198c127db113dcbca55cd22042761ab46ca9984"
+  },
+  "execution": {
+    "path": "quality/release/evidence/c5-validation-02/execution.json",
+    "sha256": "2e10a4a10d22af451722680ae68dbe59de0f784c0f19b4770ba7277831026071"
+  },
+  "normalized": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n06-c5-validation-02/normalized.json",
+    "sha256": "f1c20a5ca790098e41a2d313a86096f66bc139f3b5fd94e7906e837d9cd0d785"
+  },
+  "derivation": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n06-c5-validation-02/derivation.json",
+    "sha256": "16af44b1b9c123f69070887e874c4d412379bb4aa6d86c772ee3f2219e13fa28"
+  },
+  "cohort": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/inventory.json",
+    "sha256": "4a8f468ca279de1dc0296a2d2653e8380ff809b3b2ae5512607b367ae0134f17"
+  },
+  "independent_review": {
+    "path": "docs/execution/run-20260921/oracle-v4-independent-audit.json",
+    "sha256": "6378b27c97b42c6c711a0f093576c8298c57351fd570fec6aa3f0a6e610cc5b0"
+  }
+}

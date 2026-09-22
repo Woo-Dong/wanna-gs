@@ -1,0 +1,19 @@
+{
+  "id": "dpl_38tqWijj9QiCzEHUWQotY85v2phy",
+  "url": "wanna-2lrfh4jpe-beatrain-4635s-projects.vercel.app",
+  "target": "production",
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n15-oracle-integrity",
+    "sha": "e727b99a640743c744082f8a3cf754260f0d755a"
+  },
+  "alias": [
+    "wanna-gs-sepia.vercel.app",
+    "wanna-gs-beatrain-4635s-projects.vercel.app",
+    "wanna-gs-git-codex-n15-oracle-integrity-beatrain-4635s-projects.vercel.app"
+  ],
+  "errorCode": null,
+  "errorMessage": null
+}

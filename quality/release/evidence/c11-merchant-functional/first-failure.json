@@ -1,0 +1,71 @@
+{
+  "status": "FAIL",
+  "runId": "c11-merchant-qa-01",
+  "sourceSha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "plannedCases": 11,
+  "plannedLiveCalls": 3,
+  "budgetAttempts": 3,
+  "results": [
+    {
+      "name": "실제 SQLite 준비·브랜드·10SKU 집계↔고객 상세",
+      "status": "PASS"
+    },
+    {
+      "name": "한 탭 점포 역할 전환은 타점포 요청 상세 격리",
+      "status": "PASS"
+    },
+    {
+      "name": "current candidate 실제 NL 현재 변경·미승인 정책복사·undo3회",
+      "status": "PASS"
+    },
+    {
+      "name": "10SKU 한 묶음 승인·금액·한탭중복·refresh 복원",
+      "status": "PASS"
+    },
+    {
+      "name": "공급 확정·결제·입고·48h 생성·수령 SQL/event 대조",
+      "status": "PASS"
+    },
+    {
+      "name": "공급 부족 잔여요청·coverage 보존·중복발주 없음",
+      "status": "PASS"
+    },
+    {
+      "name": "승인 자동정책·검토당 cap·변화없는 검토 중복0",
+      "status": "PASS"
+    },
+    {
+      "name": "모의 결제 실패 성공오표시0·고객 명시 재시도·역할복귀",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '모의 결제 다시 시도', exact: true })\u001b[22m\n"
+    },
+    {
+      "name": "48h 지난 수령 차단·초기화 generation/거래 소거",
+      "status": "NOT_RUN",
+      "reason": "PRIOR_FAILURE_OR_STOP"
+    },
+    {
+      "name": "UI 시연 도구 최소발주 미달은 수요 보존·발주0",
+      "status": "NOT_RUN",
+      "reason": "PRIOR_FAILURE_OR_STOP"
+    },
+    {
+      "name": "실제 shell 360/390/768/1280/1440·font200·keyboard·브랜드",
+      "status": "NOT_RUN",
+      "reason": "PRIOR_FAILURE_OR_STOP"
+    }
+  ],
+  "budgetFinal": {
+    "budget": {
+      "accounted_calls_upper_bound": 2102,
+      "known_provider_calls": 2052,
+      "unknown_provider_calls": 0,
+      "cost_upper_estimate_usd": 12.7829041,
+      "known_cost_usd": 10.2329041
+    },
+    "pending": false
+  },
+  "original_private_sha256": "0f94dda94e8096731884b9e6ab6a04294b5821a0f6ab7702987c355926e09a62",
+  "recovery": "Harness omitted request-detail navigation before payment retry. Added one UI click; no app/assertion/plan/denominator change. Original 7PASS/1FAIL/3NOT_RUN and3 calls preserved.",
+  "peer_review_sha256": "87fa56fb2ecd8cfbffc16b5d6ea2b553fc968f5c5e3ec065ace4492d82adc490"
+}

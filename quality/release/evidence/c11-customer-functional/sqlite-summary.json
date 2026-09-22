@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "actual_sql": true,
+  "integrity_checks": "SQLite integrity_check=ok and foreign_key_check empty in live harness snapshots",
+  "same_source": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "snapshots": {
+    "requested": {
+      "metadata_sha256": "b530555cdbe4c3ec31249f5a50fff426619d45dee0683acd546f5d1faa422b19",
+      "sqlite_sha256": "5c2d192ffe8e356e8c7ca0d55816794d20fa3db066c53375557d7596ad7a12a0",
+      "snapshot_bytes_match": true,
+      "generation": 1,
+      "table_counts": {
+        "purchase_requests": 1,
+        "need_records": 1,
+        "recommendation_events": 2,
+        "orders": 0,
+        "order_lines": 0,
+        "reservations": 0,
+        "mock_payments": 0,
+        "consent_revisions": 1,
+        "notifications": 0,
+        "agent_runs": 1,
+        "events": 1,
+        "conditions": 578
+      },
+      "request_quantity_total": 2,
+      "reservation_status_counts": {},
+      "pickup_window_ms": []
+    },
+    "confirmed": {
+      "metadata_sha256": "d7f6e02d0a4769f9daa5a7a53c528ade580f59971b570ffc0e3ecf5d61fc2223",
+      "sqlite_sha256": "322a6598f3162a68a08a234d7c99c4638ee5ae152a71bfc5f3f2eed6d4e4040c",
+      "snapshot_bytes_match": true,
+      "generation": 1,
+      "table_counts": {
+        "purchase_requests": 1,
+        "need_records": 1,
+        "recommendation_events": 2,
+        "orders": 1,
+        "order_lines": 1,
+        "reservations": 1,
+        "mock_payments": 1,
+        "consent_revisions": 1,
+        "notifications": 1,
+        "agent_runs": 1,
+        "events": 4,
+        "conditions": 578
+      },
+      "request_quantity_total": 2,
+      "reservation_status_counts": {
+        "confirmed": 1
+      },
+      "pickup_window_ms": []
+    },
+    "received": {
+      "metadata_sha256": "7f4c05246899e3a3ec318f05e2e7eb6b0270bf4f079457d5be4ae5d93d9ee5fe",
+      "sqlite_sha256": "1d5a650b5fc6a58c8473ffff3524bbe63040a9c3ee774dabce1539278c9e06c8",
+      "snapshot_bytes_match": true,
+      "generation": 1,
+      "table_counts": {
+        "purchase_requests": 1,
+        "need_records": 1,
+        "recommendation_events": 2,
+        "orders": 1,
+        "order_lines": 1,
+        "reservations": 1,
+        "mock_payments": 1,
+        "consent_revisions": 1,
+        "notifications": 2,
+        "agent_runs": 1,
+        "events": 6,
+        "conditions": 578
+      },
+      "request_quantity_total": 2,
+      "reservation_status_counts": {
+        "pickup_ready": 1
+      },
+      "pickup_window_ms": [
+        172800000
+      ]
+    },
+    "pickup-refreshed": {
+      "metadata_sha256": "141c6f5eed464bfc4b5a79b97e8d40587ee334b6c9eb5fa06862282703cb206c",
+      "sqlite_sha256": "1d5a650b5fc6a58c8473ffff3524bbe63040a9c3ee774dabce1539278c9e06c8",
+      "snapshot_bytes_match": true,
+      "generation": 1,
+      "table_counts": {
+        "purchase_requests": 1,
+        "need_records": 1,
+        "recommendation_events": 2,
+        "orders": 1,
+        "order_lines": 1,
+        "reservations": 1,
+        "mock_payments": 1,
+        "consent_revisions": 1,
+        "notifications": 2,
+        "agent_runs": 1,
+        "events": 6,
+        "conditions": 578
+      },
+      "request_quantity_total": 2,
+      "reservation_status_counts": {
+        "pickup_ready": 1
+      },
+      "pickup_window_ms": [
+        172800000
+      ]
+    },
+    "collected": {
+      "metadata_sha256": "43b8796d194e8b532ad03782f9494fc02b9aed4924b7fdc2b1bbb92c2d932e82",
+      "sqlite_sha256": "74d7eccff17b5d073892b625db0dc28d6d41431b2f4df0aed7d292f2cc69f9f5",
+      "snapshot_bytes_match": true,
+      "generation": 1,
+      "table_counts": {
+        "purchase_requests": 1,
+        "need_records": 1,
+        "recommendation_events": 2,
+        "orders": 1,
+        "order_lines": 1,
+        "reservations": 1,
+        "mock_payments": 1,
+        "consent_revisions": 1,
+        "notifications": 2,
+        "agent_runs": 1,
+        "events": 7,
+        "conditions": 578
+      },
+      "request_quantity_total": 2,
+      "reservation_status_counts": {
+        "collected": 1
+      },
+      "pickup_window_ms": [
+        172800000
+      ]
+    },
+    "dialogue-unconfirmed": {
+      "metadata_sha256": "8f0f52456e23c8c472401e60c7102c2f4c1c4e2bfb2836e0df1b2f6f8300c138",
+      "sqlite_sha256": "92586edfdd399ae975ff5d12d57558e80f553a85f5dd0c2c3cb46d1d3d747fd0",
+      "snapshot_bytes_match": true,
+      "generation": 1,
+      "table_counts": {
+        "purchase_requests": 0,
+        "need_records": 0,
+        "recommendation_events": 0,
+        "orders": 0,
+        "order_lines": 0,
+        "reservations": 0,
+        "mock_payments": 0,
+        "consent_revisions": 0,
+        "notifications": 0,
+        "agent_runs": 2,
+        "events": 0,
+        "conditions": 578
+      },
+      "request_quantity_total": 0,
+      "reservation_status_counts": {},
+      "pickup_window_ms": []
+    }
+  },
+  "fixture_seed_requested_received_hash_verified": true,
+  "fixture_write_abort_reset_expiry_payment_reconsent_checked": true
+}
