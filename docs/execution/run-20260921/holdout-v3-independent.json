@@ -1,0 +1,71 @@
+{
+  "reviewer": "/root/final_ux_state",
+  "implementers": [
+    "method_auditor"
+  ],
+  "status": "PASS",
+  "review_revision": "revision-03",
+  "dataset_hash": "5854b370a954fee49bfedf1834d24427267adc79499cd7ecc5e62925ba75518d",
+  "dataset_bytes_sha256": "3c0ce0039cbbaace6dde8c4052ed46b7578b3c599ac7bce0f9542642210ec6c0",
+  "previous_dataset_hash": "18f2a373dc48b372f166e6dd6f51fd97687a406e33f8f601fe814bbeafd6c305",
+  "semantic_family_overlap": 0,
+  "semantic_family_overlap_count_kind": "independent_semantic_review_of_public_both_retired_and_fixed_demo_corpus",
+  "difficulty_equivalent": true,
+  "difficulty_basis": "Prospective content/structure/operative-context audit, not empirical model equivalence or paired performance improvement",
+  "thresholds_unchanged": true,
+  "protected_content_not_published": true,
+  "case_count": 84,
+  "role_counts": {
+    "customer": 60,
+    "merchant": 24
+  },
+  "clear_counts": {
+    "customer": 40,
+    "merchant": 15
+  },
+  "uncertain_counts": {
+    "customer": 20,
+    "merchant": 9
+  },
+  "category_count": 18,
+  "single_turn_cases": 76,
+  "multi_turn_cases": 8,
+  "user_turns": 92,
+  "catalog_size": 248,
+  "data_structure_counts_pass": true,
+  "oracle_review_complete": true,
+  "strict_jsonschema_pass": true,
+  "all_case_texts_read": true,
+  "all_case_adjudications": 84,
+  "merchant_constraint_count_distribution": {
+    "1": 6,
+    "2": 4,
+    "3": 5
+  },
+  "rechecked_changed_semantic_rows": 1,
+  "unchanged_semantic_rows_from_revision02": 83,
+  "failures": [],
+  "scorer_unchanged": true,
+  "public_dev_validation_unchanged": true,
+  "previous_dataset_preserved": true,
+  "both_retired_datasets_preserved": true,
+  "model_calls": 0,
+  "ledger_reads": 0,
+  "ledger_mutations": 0,
+  "release_authorized": false,
+  "product_quality": "NOT_ASSESSED",
+  "runner_compatibility": "OFFLINE_ALLOWLIST_STATE_ASSEMBLY_ONLY",
+  "consumed_context_hash": "4287578f43ed6e954706ba22ea04520a2a7872eb42535266a19fd30ca995583d",
+  "prior_reviews": [
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-01/public-metadata.json",
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-02/public-metadata.json"
+  ],
+  "evidence": {
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-03/findings.md": "c202d745c0e30de1c627d1a57a9c859556afca4b486a93a6500e9ac63a51124b",
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-03/final-sanity.json": "6535ad1974546431aefeedf6f0819019e356c7849fabb8707f44c765f247d0e0",
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-03/per-case-adjudications.json": "c23b29cb6c4da412cde3833a7a9211733363aa78b456f78b6fede31d24c731fc",
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-03/input-hashes.json": "01adfb4e144d47b3d5cec2ca9fdee5e29577c5cdc2b16bf2b47e02822bfe29f9",
+    "artifacts/private/run-20260921/holdout-v3-independent/revision-03/changed-ids.json": "4875455b8de69cad6974854eb451e34f97bca318b6f4d8b663531d7a39230889",
+    "artifacts/private/run-20260921/holdout-v3-independent/context-ack.json": "4287578f43ed6e954706ba22ea04520a2a7872eb42535266a19fd30ca995583d"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "runId": "ux-baseline-b0-v2-recovery-01",
+  "originalSha256": "2b9839efff2d118b48751642e7382b41d6e41fa49b837ccb4beff56fd1433c4b",
+  "mode": "live",
+  "complete": false,
+  "planned": 24,
+  "attempted": 12,
+  "passed": 11,
+  "failed": 1,
+  "notRun": 12,
+  "runs": [
+    {
+      "workload": "clear-1",
+      "repetition": 1,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-1",
+      "repetition": 2,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-1",
+      "repetition": 3,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-2",
+      "repetition": 1,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-2",
+      "repetition": 2,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-2",
+      "repetition": 3,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-3",
+      "repetition": 1,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-3",
+      "repetition": 2,
+      "status": "PASS"
+    },
+    {
+      "workload": "clear-3",
+      "repetition": 3,
+      "status": "PASS"
+    },
+    {
+      "workload": "ambiguous",
+      "repetition": 1,
+      "status": "PASS"
+    },
+    {
+      "workload": "ambiguous",
+      "repetition": 2,
+      "status": "PASS"
+    },
+    {
+      "workload": "ambiguous",
+      "repetition": 3,
+      "status": "FAIL"
+    }
+  ]
+}

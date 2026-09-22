@@ -1,0 +1,26 @@
+{
+  "task": "C11-CUSTOMER",
+  "reviewer": "final_ux_state",
+  "status": "PASS",
+  "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+  "context_manifest": "docs/execution/run-20260921/context-n14-v21.json",
+  "consumed_context_hash": "e6512b02cac714b66845dda8be5648094d8967155c624016003b7c6b6ed136b0",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-11",
+    "CORE-17",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "CTX-20260922-N14-v21 원본87개 hash 직접 대조 ACK, aggregate fingerprint 재계산 일치.",
+    "docs/execution/run-20260921/c11-customer-independent.md: 고객 prompt/action 판단 순서 직접 검토와 C10 공통13파일/경영주 prompt 바이트 보존 확인.",
+    "독립 Node22 서버62/62 PASS, fail/skip0. 주입 provider/SDK mock이며 실제 모델 해석 품질을 뜻하지 않음.",
+    "artifacts/private/run-20260921/c11-customer-need-independent/source-bindings.json 및 server-suite.log; 모든 반례는 공개 카탈로그/계약의 합성 사례."
+  ],
+  "scope": "기술/오프라인 데이터 검토만 PASS. 실제 모델 호출·공유장부 읽기/쓰기0. live NL/브라우저 QA/UX/G5/G6·최종배포 완료를 대신하지 않는다. 역할별 소유권은 서로 다른 작성자이며 reviewer의 앱/평가코드/보호데이터 작성0. unsigned JSON은 암호학적 신원 증명이 아니다.",
+  "checked_at": "2026-09-22T03:13:16.790575+00:00"
+}

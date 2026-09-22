@@ -105,6 +105,17 @@ class ReleaseTests(unittest.TestCase):
         a,b=self.p.m['nl']['validation'];rid=self.p.read(a['report'])['run_id'];self.p.mutate(b['report'],lambda r:r.update(run_id=rid));self.p.mutate(b['execution'],lambda r:r.update(run_id=rid));self.reject('VALIDATION_REPEAT')
     def test_best_quality_cannot_trust_stage_ready_flag(self):
         ref=self.p.m['nl']['validation'][0]['report'];self.p.mutate(ref,lambda r:r['metrics']['customer/validation/clear'].update(passed=0,accuracy_all_cases=0));self.reject('NL_MINIMUM_FAILED')
+    def test_holdout_cannot_change_precommitted_attempt_allowance(self):
+        ref=self.p.m['nl']['holdout']['binding']
+        for value in [1,0,4,True,None,'3']:
+            self.p.mutate(ref,lambda b:b['config'].update(max_attempts=value))
+            self.reject('NL_ATTEMPT_ALLOWANCE_MISMATCH')
+    def test_explicit_default_attempt_allowance_is_compatible(self):
+        for bundle in [*self.p.m['nl']['validation'],self.p.m['nl']['holdout']]:
+            self.p.mutate(bundle['binding'],lambda b:b['config'].update(max_attempts=3))
+            fp=gate.fingerprint(self.p.read(bundle['binding']))
+            for key in ['report','execution']:self.p.mutate(bundle[key],lambda b:b.update(run_fingerprint=fp))
+        self.p.check()
     def test_best_changed_config_cannot_keep_run_fingerprint(self):
         self.p.mutate(self.p.m['nl']['validation'][0]['binding'],lambda b:b['config'].update(model='other'));self.reject('CANDIDATE_BINDING')
     def test_required_eval_source_removed(self):

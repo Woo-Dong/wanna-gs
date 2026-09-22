@@ -51,6 +51,14 @@ def load_json(path): return json.loads(Path(path).read_text())
 def integer(value, minimum=0): return type(value) is int and value>=minimum
 
 
+def attempt_limit(config):
+    # ADR-003 permits at most three attempts. A precommitted smaller allowance
+    # keeps every failed case in its original denominator, without replay.
+    value=config.get('max_attempts',3)
+    if type(value) is not int or not 1<=value<=3:raise RunnerError('INVALID_MAX_ATTEMPTS')
+    return value
+
+
 def origin_url(value):
     parsed=urllib.parse.urlsplit(value)
     if parsed.username or parsed.password or parsed.query or parsed.fragment or parsed.path not in ('','/'):
@@ -260,6 +268,7 @@ def parse_attempt(http,body,role,config,catalog):
 def check_inputs(cases,config,coverage,catalog_path,state_fixtures,holdout=False,frozen_best=None):
     required={'mode','origin','model','prompt_version','prompt_hash','catalog_version','catalog_hash','source_sha','api_version','source_files','mandatory_reserve'}
     if not required<=config.keys() or config['mode'] not in {'live','fixture'}:raise RunnerError('INVALID_RUN_CONFIG')
+    attempt_limit(config)
     config=dict(config);config['origin']=origin_url(config['origin'])
     if config['mode']=='fixture' and urllib.parse.urlsplit(config['origin']).hostname not in {'localhost','127.0.0.1','::1'}:raise RunnerError('FIXTURE_REQUIRES_LOCAL_MOCK_HTTP')
     if not REQUIRED_SOURCES<=config['source_files'].keys():raise RunnerError('SOURCE_BINDING_REQUIRED')
@@ -303,7 +312,7 @@ def check_inputs(cases,config,coverage,catalog_path,state_fixtures,holdout=False
             if not isinstance(proof,dict) or not proof.get('path') or file_hash(ROOT/proof['path'])!=proof.get('sha256'):raise RunnerError('VALIDATION_BINDING_ARTIFACT_REQUIRED')
             bound.append(load_json(ROOT/proof['path']))
         validation_config,validation_states=bound
-        if any(validation_config.get(key)!=config.get(key) for key in CANDIDATE_KEYS):raise RunnerError('VALIDATION_CANDIDATE_MISMATCH')
+        if attempt_limit(validation_config)!=attempt_limit(config) or any(validation_config.get(key)!=config.get(key) for key in CANDIDATE_KEYS):raise RunnerError('VALIDATION_CANDIDATE_MISMATCH')
         expected_validation_fp=fingerprint({'runner':VERSION,'config':validation_config,'state_fixtures_hash':fingerprint(validation_states)})
         expected_validation_dataset=load_json(ROOT/'evals/validation-coverage.json')['dataset_hash']
         if any(report.get('run_fingerprint')!=expected_validation_fp or report.get('dataset_hash')!=expected_validation_dataset for report in reports):raise RunnerError('VALIDATION_CANDIDATE_PROOF_MISMATCH')
@@ -321,6 +330,7 @@ def check_inputs(cases,config,coverage,catalog_path,state_fixtures,holdout=False
 
 class Runner:
     def __init__(self,cases,config,output,budget,transport,state_fixtures=None,run_id=None):
+        self.max_attempts=attempt_limit(config)
         self.cases=cases;self.config=config;self.out=Path(output);self.budget=budget;self.transport=transport;self.states=state_fixtures or {}
         self.run_id=run_id or str(uuid.uuid4());self.run_fingerprint=fingerprint({'runner':VERSION,'config':config,'state_fixtures_hash':fingerprint(self.states)})
         self.checkpoint=self.out/'checkpoint.json';self.state=None
@@ -365,9 +375,9 @@ class Runner:
                     previous_code=attempts[-1].get('code') if attempts else None
                     should_retry=not attempts or previous_code in TRANSIENT
                     if previous_code in STOP_CODES or previous_code in {'REDIRECT_BLOCKED','STALE_RESPONSE_ENVELOPE','RESPONSE_VERSION_MISMATCH','REMOTE_ATTESTATION_MISMATCH'}:stop=previous_code
-                    retry_range=range(len(attempts),3) if raw is None and should_retry and not stop else []
+                    retry_range=range(len(attempts),self.max_attempts) if raw is None and should_retry and not stop else []
                     for retry in retry_range:
-                        mandatory=sum(self.config['mandatory_reserve'].values())+max(0,remaining*3-len(attempts)-1)
+                        mandatory=sum(self.config['mandatory_reserve'].values())+max(0,remaining*self.max_attempts-len(attempts)-1)
                         cost_reserve=self.config.get('mandatory_cost_reserve_usd',sum(self.config['mandatory_reserve'].values())*.01)
                         try:aid=self.budget.reserve(self.run_id,mandatory,cost_reserve)
                         except RunnerError as error:self.state['stop_code']=str(error);self.save();return self.summary()
@@ -380,7 +390,7 @@ class Runner:
                         if raw is not None:break
                         code=attempt.get('code','UNKNOWN_FAILURE')
                         if code in STOP_CODES or code in {'REDIRECT_BLOCKED','STALE_RESPONSE_ENVELOPE','RESPONSE_VERSION_MISMATCH','REMOTE_ATTESTATION_MISMATCH'}:stop=code;break
-                        if code not in TRANSIENT or retry==2:break
+                        if code not in TRANSIENT or retry==self.max_attempts-1:break
                         sleep(min(2**retry,4))
                     turn={'case_id':case['id'],'role':case['role'],'transport':'ok' if raw is not None else 'error','schema_valid':raw is not None,'attempts':attempts,
                           'response':(product_response(raw) if case['role']=='customer' else merchant_response(raw)) if raw is not None else None,'raw_response':raw}

@@ -1,6 +1,6 @@
 {
-  "phase": "n13-c10-size-grounding",
-  "scope": "D48 explicit customer size grounding; data/oracle/quality preserved; D49 Production maintained. Live quality and G5/G6 required.",
+  "phase": "n14-c11-customer-classification",
+  "scope": "D48 customer classification before candidates; max1 precommitted NL attempts with full quality gates; retired failed holdouts preserved; D49 Production maintained.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -99,7 +99,12 @@
     "docs/execution/run-20260921/c9-action-contract.md",
     "docs/execution/run-20260921/c10-size-contract.md",
     "docs/execution/run-20260921/c10-reservation-evaluator-review.md",
-    "docs/execution/run-20260921/context-n13-v20.json"
+    "docs/execution/run-20260921/context-n13-v20.json",
+    "docs/execution/run-20260921/c11-recovery-contract.md",
+    "docs/execution/run-20260921/c11-retry-reservation-evaluator-review.md",
+    "docs/execution/run-20260921/c11-retry-reservation-state-review.md",
+    "docs/execution/run-20260921/context-n14-v21.json",
+    "docs/execution/run-20260921/holdout-v3-independent.json"
   ],
   "checks": [
     {
@@ -181,22 +186,54 @@
   ],
   "tasks": [
     {
-      "id": "C10-TECH",
+      "id": "C11-CUSTOMER",
       "implementers": [
-        "preflight_builder",
-        "root"
+        "research"
       ],
       "requirements": [
         "CORE-02",
         "CORE-03",
         "CORE-11",
         "CORE-17",
-        "CORE-18",
         "CORE-21",
         "CORE-23",
         "CORE-25"
       ]
+    },
+    {
+      "id": "C11-EVAL",
+      "implementers": [
+        "root"
+      ],
+      "requirements": [
+        "CORE-17",
+        "CORE-18",
+        "CORE-21",
+        "CORE-23"
+      ]
+    },
+    {
+      "id": "C11-HOLDOUT",
+      "implementers": [
+        "method_auditor"
+      ],
+      "requirements": [
+        "CORE-17",
+        "CORE-21"
+      ]
+    },
+    {
+      "id": "C11-NEED",
+      "implementers": [
+        "research"
+      ],
+      "requirements": [
+        "CORE-03",
+        "CORE-11",
+        "CORE-17",
+        "CORE-25"
+      ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n13-v20.json"
+  "context_manifest": "docs/execution/run-20260921/context-n14-v21.json"
 }

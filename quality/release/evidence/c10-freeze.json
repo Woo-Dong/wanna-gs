@@ -1,0 +1,22 @@
+{
+  "id": "C10",
+  "sourceSha": "a7adafc0381e9ad069030b1cd13b181790763e89",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "promptVersion": "customer-size-grounded-v10",
+  "promptHash": "39459d129b6769417659a891c61d3898ca0e16b215126dbaa7c53f534a0229e3",
+  "catalogHash": "f2696abe92521e3ff8f9ab43cb36a1d297a6fd23d272e239605b49fab4343b1e",
+  "runtimeHash": "c66d01832a9f86a63d86ff4ab0ed616cb46f267d74ecb8a2cc0018d0c041cdec",
+  "frozenAt": "2026-09-22T02:21:20.770504+00:00",
+  "validationRunIds": [
+    "a56deb49-aa47-4581-8554-1abc3ce06c2c",
+    "aa50fbab-c7de-408c-b66c-fb98f190e2e9"
+  ],
+  "validationBothStageReady": true,
+  "validationPassedCases": [
+    84,
+    84
+  ],
+  "validationCasesEach": 84,
+  "mandatoryErrors": 0,
+  "scope": "Selected best for once-only protected evaluation; holdout/UX/G5/G6 pending"
+}
