@@ -1,3 +1,9 @@
+# 2026-09-22 D48 위임 반영 — 구현·최종 검증 재개
+
+D48에 따라 후보 실패 후 자동 추가 금지를 포함한 잔여 판단을 조정자가 수행한다. C8 고객 생성 응답 계약을 수리 중이며 기존 품질·정답·실패 기록·$20/2400 예산은 유지한다. [실행 계약](execution/run-20260921/c8-customer-contract.md). 구현 builder, 독립 서버검증 research, 독립 live평가 method_auditor, 통합/배포 root로 분리한다.
+
+root `codex/n11-customer-contract`, builder worktree `../2026-ralphton-c8-contract`, 기반 integration d485447. PR18/CI 완료·main3ef1ee3 유지. 과거 승인대기/blocked 기록은 이전 상태이며 더 이상 후보 승인 질문을 반복하지 않는다. C8 독립 서버48/별도12검사그룹·경영주 SDK2 및 root Python198/Node118/type/build PASS. [독립 검토](execution/run-20260921/c8-customer-independent.md)·[전체 기술 게이트](execution/run-20260921/c8-local-gate.json). C7 83/84 FAIL과 최종 미완료는 보존한다. 다음: PR/CI·Preview→고정live평가·UX·G5/G6.
+
 # 2026-09-22 재개 진단 — 추가 후보 승인 전
 
 C7 실패와 D47 한도는 유지한다. 새 goal 재개 후 로컬 합성 probe로 생성 schema/서버 검증의 구조적 차이를 확인했고 독립 읽기 검토와 비용 guard 대조를 마쳤다. 고객 행동별 응답 구조를 제한하는 [C8 한 후보 복구 제안](execution/run-20260921/c8-contract-recovery-proposal.md)을 준비했으며 아직 미승인이다. 실제 C7 provider 원문이 없어 오류의 세부 분기는 미확정이다. 제품 소스 수정·새 모델 호출·평가·배포는 0이다.
