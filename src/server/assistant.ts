@@ -1,6 +1,7 @@
 import type { z } from 'zod';
 import {canonicalCustomer,type CustomerWire} from './customer-wire';
 import {canonicalMerchant,type MerchantWire} from './merchant-wire';
+import {certifyCustomerSize} from './customer-size-grounding';
 import { customerInputSchema,customerOutputSchema,merchantInputSchema,merchantOutputSchema,modelOutputSchema } from './schemas';
 import { catalogContext,catalogHash,catalogVersion,categories,productById } from './catalog';
 import { retrieveCatalog } from './retrieval';
@@ -44,10 +45,11 @@ export async function interpret(role:'customer'|'merchant',body:unknown,provider
  const {text,history,...context}=request;
  const retrieved=retrieveCatalog(text,history);
  const suppliedCatalog=role==='customer'?retrieved.catalog:retrieved.fullCatalog;
- const matchingHints=role==='customer'?retrieved.matchingHints:{...retrieved.matchingHints,scope:'complete-catalog-ranked'};
+ const sizeCertificate=role==='customer'?certifyCustomerSize(text,suppliedCatalog,history):null;
+ const matchingHints=role==='customer'?{...retrieved.matchingHints,...(sizeCertificate?{explicitSizeConstraint:{dimension:sizeCertificate.dimension,amount:sizeCertificate.amount,unit:sizeCertificate.unit,allowedCandidateIds:packIds(sizeCertificate.eligibleIds),knownMismatchedIds:packIds(sizeCertificate.excludedIds)}}:{})}:{...retrieved.matchingHints,scope:'complete-catalog-ranked'};
  const input=JSON.stringify({catalog:packCatalog(suppliedCatalog),literalSkuReferences:literalSkuReferences(text,history),categories,matchingHints:{...matchingHints,exactNameIds:packIds(matchingHints.exactNameIds)},context:packContext(context),history:packHistory(history),text});
  const staleMerchant='state' in request&&(request.state.stale===true||(request.state.proposalVersion!==null&&request.state.currentProposalVersion!=null&&request.state.proposalVersion!==request.state.currentProposalVersion));
- const grounding=role==='customer'?{customerScopeBoundary:explicitExternalOperation(text,catalogContext,stores.map(store=>store.name)),clarificationCount:'clarificationCount' in request?request.clarificationCount:0}:{skuOnlyExclusions:certifySkuOnlyExclusions(text,catalogContext,stores.map(store=>store.name))!==null};
+ const grounding=role==='customer'?{customerScopeBoundary:explicitExternalOperation(text,catalogContext,stores.map(store=>store.name)),clarificationCount:'clarificationCount' in request?request.clarificationCount:0,...(sizeCertificate?{customerEligibleIds:packIds(sizeCertificate.eligibleIds)}:{})}:{skuOnlyExclusions:certifySkuOnlyExclusions(text,catalogContext,stores.map(store=>store.name))!==null};
  const outputSchema=modelOutputSchema(role,packIds(suppliedCatalog.map(product=>product.id)),categories,staleMerchant,grounding);
  const response=await provider(role==='customer'?CUSTOMER_PROMPT:MERCHANT_PROMPT,input,outputSchema,role+'_interpretation');
  let result:CustomerInterpretation|MerchantInterpretation;
