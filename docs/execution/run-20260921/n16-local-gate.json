@@ -1,0 +1,106 @@
+{
+  "phase": "n16-functional-release",
+  "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+  "context_manifest": "docs/execution/run-20260921/context-n16-v23.json",
+  "started_at": "2026-09-22T05:05:38.834055+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "D50 user-directed functional release; preserve original NL FAIL and G5 NOT_READY. Stop optimization; require independent actual role QA, major functional issues zero, technical CI and final main Production verification.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 262,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 35,
+        "tests/ux-benchmark": 7,
+        "tests/ux-benchmark/v3": 12,
+        "tests/release": 140
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "functional-release",
+      "fingerprint": "0560f91dda5b256e0c74c07d17cfe076adb1a996a302d70a5d0072248b111a12",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

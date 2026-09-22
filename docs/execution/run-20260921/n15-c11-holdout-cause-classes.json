@@ -1,0 +1,46 @@
+{
+  "status": "FAIL",
+  "cases": 84,
+  "passed": 75,
+  "failed": 9,
+  "incomplete": 0,
+  "mandatory_errors": 0,
+  "mutually_exclusive_failure_classes": {
+    "wrong_primary_identification": 1,
+    "unnecessary_clarification_on_clear_input": 1,
+    "unsupported_candidate_action_instead_of_clarify_or_unidentified": 3,
+    "prior_turn_action_error_final_turn_passes": 2,
+    "merchant_undo_or_recovery_command_mismatch": 2
+  },
+  "merchant_field_mismatch_counts_overlapping": {
+    "scope": 0,
+    "intent": 1,
+    "maxQuantity": 1,
+    "restorePrevious": 1,
+    "budgetLimitKrw": 1,
+    "excludeProductIds": 1
+  },
+  "search_retrieval_miss_causally_verified": false,
+  "multiple_catalog_entries_causally_verified": false,
+  "dataset_defect_causally_verified": false,
+  "cause_limit": "Observable action/command mismatches only. No model-internal causal proof and no new source-grounded oracle defect established. No protected text, case IDs, product IDs or expected values disclosed.",
+  "http_schema_failures": 0,
+  "raw_reason_counts_overlapping": {
+    "correct_sku_missing": 2,
+    "incorrect_candidate": 1,
+    "wrong_action": 4,
+    "unnecessary_clarification": 1,
+    "earlier_turn_oracle_failure": 2,
+    "command_composite_mismatch": 2
+  },
+  "raw_reason_counts_note": "One failed case can have several scoring reasons; these must not be summed as independent cases.",
+  "actual_new_diagnostic_calls": 0,
+  "independent_followup": {
+    "report": "docs/execution/run-20260921/n15-holdout-state-closure.md",
+    "sha256": "4365077afdab9b0d6c5dca02e646ed0c09ab634e4e0c042de7b377905bcd5c86",
+    "confirmed_semantic_errors": 7,
+    "oracle_expression_limitations": 2,
+    "original_score_unchanged": true,
+    "minimum_failure_unchanged_even_if_limitations_favor_candidate": true
+  }
+}

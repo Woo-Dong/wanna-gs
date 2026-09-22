@@ -1,0 +1,49 @@
+{
+  "kind": "derived_public_oracle_rescore",
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "original": {
+    "report": {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/original-report.json",
+      "sha256": "fe9a2039f23b79a5071233c989e1a3e68ca787851a7c8d7d49d3654a8b9b4ae3"
+    },
+    "execution": {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/original-execution.json",
+      "sha256": "2f2c2e2da69e7c5aaf33240af7419f50a55cf0ab5e22e44f447c48b35f1984b8"
+    },
+    "binding": {
+      "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/original-binding.json",
+      "sha256": "21e51c03c621efb9a5312815f2f5be72392f67ae2111fef3761bb962463706ce"
+    }
+  },
+  "binding": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/original-binding.json",
+    "sha256": "21e51c03c621efb9a5312815f2f5be72392f67ae2111fef3761bb962463706ce"
+  },
+  "report": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/report.json",
+    "sha256": "f800f55134bfc5855b5dc0051e7a78d0f27f3d5fa626634d8dbba2fc7cf13b40"
+  },
+  "execution": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/original-execution.json",
+    "sha256": "2f2c2e2da69e7c5aaf33240af7419f50a55cf0ab5e22e44f447c48b35f1984b8"
+  },
+  "normalized": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/normalized.json",
+    "sha256": "5863742004961239561357d4aa033531b1b4e2d9d488a118a18e2de2c000e61b"
+  },
+  "derivation": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n09-c7-validation-01/derivation.json",
+    "sha256": "71ec6999803140b5f3ca3cf11931809a0819cf472af129c59ac5f2571f382b49"
+  },
+  "cohort": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/inventory.json",
+    "sha256": "4a8f468ca279de1dc0296a2d2653e8380ff809b3b2ae5512607b367ae0134f17"
+  },
+  "independent_review": {
+    "path": "docs/execution/run-20260921/oracle-v4-independent-audit.json",
+    "sha256": "6378b27c97b42c6c711a0f093576c8298c57351fd570fec6aa3f0a6e610cc5b0"
+  }
+}

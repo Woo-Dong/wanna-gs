@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "mode": "fixture-boundaries",
+  "candidateId": "C11",
+  "sourceSha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "origin": "https://wanna-o08huc5in-beatrain-4635s-projects.vercel.app",
+  "runtimeHash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "configHash": "807cd79a4c85a7ab70c2a151af3d3b79334896b7e6321341bb320246a2b0287e",
+  "plannedChecks": 12,
+  "results": [
+    {
+      "name": "HTTP 실패는 니즈가 아님·입력 보존·fixture 정상복구",
+      "status": "PASS"
+    },
+    {
+      "name": "모호 질문의 실제 history/count·2회 한도 보존",
+      "status": "PASS"
+    },
+    {
+      "name": "미식별 명시 니즈 저장·확약 오염0",
+      "status": "PASS"
+    },
+    {
+      "name": "허구 SKU 응답 거절·거래0·오류후 정상회복",
+      "status": "PASS"
+    },
+    {
+      "name": "늦은 응답 input revision/역할 변경 차단",
+      "status": "PASS"
+    },
+    {
+      "name": "대체 후보 거절/전환 취소는 원요청·동의 유지",
+      "status": "PASS"
+    },
+    {
+      "name": "모의 결제 2회 실패→풀해제→재동의 정상복귀·새발주0",
+      "status": "PASS"
+    },
+    {
+      "name": "다른 합성고객 내역 격리·360px/200% 글자 핵심조작",
+      "status": "PASS"
+    },
+    {
+      "name": "손상 snapshot 유지→명시확인 복구·generation 증가",
+      "status": "PASS"
+    },
+    {
+      "name": "실제 IndexedDB write abort·요청 미생성·동일화면 정상재시도",
+      "status": "PASS"
+    },
+    {
+      "name": "고객 48h 정각 종료·명시 reset 후 refresh 보존",
+      "status": "PASS"
+    },
+    {
+      "name": "후속 정정에 실제 후보 SKU·순서·차이 history 보존",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "fixtureCalls": 14,
+  "blockedOutbound": 0,
+  "actualLiveCalls": 0,
+  "seedRun": {
+    "path": "artifacts/private/run-20260921/c11-customer-qa-02/result.json",
+    "sha256": "27ad344d8c5ff605ab990d623faf7ce370e61951a7bf5fe5f6e3fe31f9e442ee"
+  },
+  "original_private_report_sha256": "da141d433b956a1d767e314d8aa80bd333bd86b7522c2cd573484201c67ed2d7",
+  "fixture_actual_model_calls": 0
+}

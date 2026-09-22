@@ -1,6 +1,6 @@
 {
-  "phase": "n15-public-oracle-integrity",
-  "scope": "ADR008 source-grounded public oracle correction; immutable C11 app/runtime and original failures; derived evaluation integrity before fresh holdout and G5.",
+  "phase": "n16-functional-release",
+  "scope": "D50 user-directed functional release; preserve original NL FAIL and G5 NOT_READY. Stop optimization; require independent actual role QA, major functional issues zero, technical CI and final main Production verification.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -111,7 +111,10 @@
     "docs/execution/run-20260921/oracle-v4-evaluator-review.md",
     "docs/execution/run-20260921/context-n15-v22.json",
     "evals/revisions/**/*.json",
-    "evals/revisions/**/*.jsonl"
+    "evals/revisions/**/*.jsonl",
+    "docs/decisions/D50-functional-release.md",
+    "docs/execution/run-20260921/context-n16-v23.json",
+    "quality/release/functional-manifest.json"
   ],
   "checks": [
     {
@@ -189,37 +192,51 @@
         "run",
         "build"
       ]
+    },
+    {
+      "id": "functional-release",
+      "command": [
+        "python3",
+        "scripts/check_functional_release.py"
+      ]
     }
   ],
   "tasks": [
     {
-      "id": "ORACLE-V4",
-      "implementers": [
-        "method_auditor"
-      ],
-      "requirements": [
-        "CORE-03",
-        "CORE-17",
-        "CORE-18",
-        "CORE-21",
-        "CORE-23",
-        "CORE-25"
-      ]
-    },
-    {
-      "id": "C11-RUNTIME-LINEAGE",
+      "id": "FUNCTIONAL-RELEASE",
       "implementers": [
         "root",
         "research"
       ],
       "requirements": [
+        "CORE-01",
+        "CORE-02",
         "CORE-03",
+        "CORE-04",
+        "CORE-05",
+        "CORE-06",
+        "CORE-07",
+        "CORE-08",
+        "CORE-09",
+        "CORE-10",
         "CORE-11",
+        "CORE-12",
+        "CORE-13",
+        "CORE-14",
+        "CORE-15",
+        "CORE-16",
         "CORE-17",
         "CORE-18",
-        "CORE-25"
+        "CORE-19",
+        "CORE-20",
+        "CORE-21",
+        "CORE-22",
+        "CORE-23",
+        "CORE-24",
+        "CORE-25",
+        "CORE-26"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n15-v22.json"
+  "context_manifest": "docs/execution/run-20260921/context-n16-v23.json"
 }

@@ -1,0 +1,65 @@
+{
+  "scope": "D50-functional-release",
+  "status": "PASS",
+  "reviewer": "final_ux_state",
+  "implementers": [
+    "root",
+    "research",
+    "preflight_builder"
+  ],
+  "perspective": "state-safety",
+  "unresolved_major": 0,
+  "candidate_id": "C11",
+  "source_sha": "e727b99a640743c744082f8a3cf754260f0d755a",
+  "runtime_hash": "d49c13dcbe3f5b358b8f7fb80d4316a68fd738c9f83a0e6395ec6f56a5dfbb9d",
+  "original_quality_status": "NOT_READY",
+  "protected_holdout_status": "FAIL_75_OF_84_UNCHANGED",
+  "ux_comparison_status": "not_run_stopped_by_user",
+  "g6_status": "pending",
+  "purpose_preserved": true,
+  "actual_sql_snapshots_independently_checked": 26,
+  "independent_review_model_calls": 0,
+  "ledger_access": 0,
+  "evidence": [
+    {
+      "path": "quality/release/evidence/c11-customer-functional/qa.json",
+      "sha256": "ecb52402aa17e75dc76e13366be34013d410d88acf6ca500c943433a5e2a2d8d"
+    },
+    {
+      "path": "quality/release/evidence/c11-merchant-functional/qa.json",
+      "sha256": "bc33dc5e8c7d97ca2c2f7ee75de995002d2bcbd13138593a0d034df0e3047772"
+    },
+    {
+      "path": "docs/execution/run-20260921/n16-known-limitations.md",
+      "sha256": "4fd006b5438a6829dbb0d10ccd51ff5719bac93b80fe4df82c2da77907b29b69"
+    },
+    {
+      "path": "docs/execution/run-20260921/c11-n15-application-lineage.json",
+      "sha256": "c6799c39b4dc27dae53ea2fa4d0728e98e33bd8d62ba0c190e776e8378f843a5"
+    },
+    {
+      "path": "docs/execution/run-20260921/n15-holdout-state-closure.md",
+      "sha256": "4365077afdab9b0d6c5dca02e646ed0c09ab634e4e0c042de7b377905bcd5c86"
+    },
+    {
+      "path": "docs/execution/run-20260921/n16-functional-checker-independent.md",
+      "sha256": "4e9adf167ab29db459701d955381dc0f43b2beb84c1a98b863dec4665769514b"
+    },
+    {
+      "path": "quality/release/evidence/c11-customer-functional/sqlite-summary.json",
+      "sha256": "848416e74d6661a5ceb8dba48978459367a405276edec8fe2c080505c7641993"
+    },
+    {
+      "path": "quality/release/evidence/c11-merchant-functional/sqlite-summary.json",
+      "sha256": "9ac9bf60dd1e8468bd7958807c86c47597c0c14196be65d30b5e51ba6d6a4e45"
+    },
+    {
+      "path": "docs/execution/run-20260921/n16-functional-state-policy.md",
+      "sha256": "1a3bb9f47316064e8a7490eef0641492722148e5140c56fca606881b5bfd3a6a"
+    }
+  ],
+  "user_authority": {
+    "path": "docs/decisions/D50-functional-release.md",
+    "sha256": "8c0ea80d9e4d1390047e1d31897e1da844c85fed9b394fbcf17dcf2ae8a30358"
+  }
+}
