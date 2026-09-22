@@ -31,7 +31,11 @@ export function modelOutputSchema(role:'customer'|'merchant',ids:string[],catego
   // The provider requires an object root; action-dependent anyOf stays nested.
   return z.object({decision}).strict();
  }
- // A known stale proposal can only request a fresh review, never draft an edit or undo.
- if(staleMerchant)return merchantOutputSchema.extend({intent:z.literal('clarify'),scope:z.null(),constraints:z.object({budgetLimitKrw:z.null(),excludeCategories:z.array(z.string()).max(0),excludeProductIds:z.array(z.string()).max(0),maxQuantity:z.null(),restorePrevious:z.literal(false)}).strict(),question:z.string().min(1).max(300)});
- return merchantOutputSchema.extend({constraints:constraintsSchema.extend({excludeProductIds:z.array(sku).max(60),excludeCategories:z.array(z.enum(categoryNames as [string,...string[]])).max(grounding.skuOnlyExclusions?0:30)})});
+ // Generate action-dependent contracts before canonical verification; no output repair.
+ const defaults={budgetLimitKrw:z.null(),excludeCategories:z.array(z.string()).max(0),excludeProductIds:z.array(z.string()).max(0),maxQuantity:z.null()};
+ const clarify=z.object({intent:z.literal('clarify'),scope:z.null(),constraints:z.object({...defaults,restorePrevious:z.literal(false)}).strict(),question:z.string().min(1).max(300).regex(/\S/),reason:z.string()}).strict();
+ const restore=z.object({intent:z.literal('restore'),scope:z.literal('current_proposal'),constraints:z.object({...defaults,restorePrevious:z.literal(true)}).strict(),question:z.null(),reason:z.string()}).strict();
+ const modify=z.object({intent:z.literal('modify'),scope:z.enum(['current_proposal','policy']),constraints:constraintsSchema.extend({restorePrevious:z.literal(false),excludeProductIds:z.array(sku).max(60),excludeCategories:z.array(z.enum(categoryNames as [string,...string[]])).max(grounding.skuOnlyExclusions?0:30)}),question:z.null(),reason:z.string()}).strict();
+ // Stale proposals still only permit a request for a fresh review.
+ return z.object({decision:staleMerchant?clarify:z.union([modify,restore,clarify])}).strict();
 }

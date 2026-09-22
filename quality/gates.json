@@ -1,6 +1,6 @@
 {
-  "phase": "n11-c8-customer-contract",
-  "scope": "D48 authorized customer generation contract repair; unchanged product minima/budget/merchant/catalog/domain. Live quality and final release pending.",
+  "phase": "n12-c9-action-contract",
+  "scope": "D48 bounded customer extra-candidate and merchant generation contract repair; D49 Production operation. Live quality and G5/G6 remain required.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -94,7 +94,9 @@
     "docs/execution/run-20260921/c7-policy-state-audit.md",
     "docs/execution/run-20260921/context-n11-v18.json",
     "docs/execution/run-20260921/c8-customer-contract.md",
-    "tests/server/*.fixture.ts"
+    "tests/server/*.fixture.ts",
+    "docs/execution/run-20260921/context-n12-v19.json",
+    "docs/execution/run-20260921/c9-action-contract.md"
   ],
   "checks": [
     {
@@ -176,7 +178,7 @@
   ],
   "tasks": [
     {
-      "id": "C8-TECH",
+      "id": "C9-TECH",
       "implementers": [
         "preflight_builder",
         "root"
@@ -184,13 +186,15 @@
       "requirements": [
         "CORE-02",
         "CORE-03",
+        "CORE-05",
         "CORE-11",
         "CORE-17",
         "CORE-18",
         "CORE-21",
+        "CORE-23",
         "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n11-v18.json"
+  "context_manifest": "docs/execution/run-20260921/context-n12-v19.json"
 }

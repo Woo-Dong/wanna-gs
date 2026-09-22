@@ -1,0 +1,14 @@
+{
+  "id": "dpl_ALPxiLtpYPN3xSLMb1bKsri5cLe9",
+  "url": "wanna-ee7w1ldd1-beatrain-4635s-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n11-customer-contract",
+    "sha": "bb2ab8056716c6d32669c1f8c6103a4a2ca397dd"
+  },
+  "errorCode": null,
+  "errorMessage": null
+}

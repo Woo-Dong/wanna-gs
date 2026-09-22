@@ -1,3 +1,4 @@
+import {merchantWireFixture as merchantWire} from './merchant-wire.fixture';
 import {customerWireFixture as wire} from './customer-wire.fixture';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -38,7 +39,7 @@ test('customer model reference returns canonical SKU; unknown refs fail before d
 test('merchant retains full catalog and returns original exclusion IDs without changing scope/budget',async()=>{
  const input={...base,text:`${catalogContext[2].name} 제외`,history:[],state:{storeId:'store',proposalId:'proposal',proposalVersion:1,dailyBudgetKrw:50000,currentConstraints:empty,previousConstraints:null,groups:[{sku:catalogContext[2].id,requestedQty:2,orderableQty:2,purchaseCostKrw:1000}]}};
  const output={intent:'modify',scope:'current_proposal',constraints:{...empty,excludeProductIds:['p2']},question:null,reason:'제외해요'};
- const result=await interpret('merchant',input,async(_p,raw)=>{const data=JSON.parse(raw);assert.equal(data.catalog.rows.length,248);assert.equal(data.context.state.groups[0].sku,'p2');return {value:output,model:'test',usage}},'fixture');assert(result.ok);assert.deepEqual(result.data.result,{...output,constraints:{...empty,excludeProductIds:[catalogContext[2].id]}});
+ const result=await interpret('merchant',input,async(_p,raw)=>{const data=JSON.parse(raw);assert.equal(data.catalog.rows.length,248);assert.equal(data.context.state.groups[0].sku,'p2');return {value:merchantWire(output),model:'test',usage}},'fixture');assert(result.ok);assert.deepEqual(result.data.result,{...output,constraints:{...empty,excludeProductIds:[catalogContext[2].id]}});
  assert.deepEqual(unpackResult('merchant',output),result.data.result);assert.deepEqual(output.constraints.excludeProductIds,['p2']);
 });
 

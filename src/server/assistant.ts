@@ -1,5 +1,6 @@
 import type { z } from 'zod';
 import {canonicalCustomer,type CustomerWire} from './customer-wire';
+import {canonicalMerchant,type MerchantWire} from './merchant-wire';
 import { customerInputSchema,customerOutputSchema,merchantInputSchema,merchantOutputSchema,modelOutputSchema } from './schemas';
 import { catalogContext,catalogHash,catalogVersion,categories,productById } from './catalog';
 import { retrieveCatalog } from './retrieval';
@@ -52,7 +53,7 @@ export async function interpret(role:'customer'|'merchant',body:unknown,provider
  let result:CustomerInterpretation|MerchantInterpretation;
  try{
   if(!outputSchema.safeParse(response.value).success)throw invalid('SUPPLIED_CATALOG_SCHEMA');
-  const unpacked=unpackResult(role,role==='customer'?canonicalCustomer(response.value as CustomerWire):response.value);
+  const unpacked=unpackResult(role,role==='customer'?canonicalCustomer(response.value as CustomerWire):canonicalMerchant(response.value as MerchantWire));
   result=role==='customer'?verifyCustomer(unpacked,'clarificationCount' in request?request.clarificationCount:0):verifyMerchant(unpacked);
   if(role==='merchant'&&'state' in request&&(result as MerchantInterpretation).intent==='restore'&&!request.state.previousConstraints)throw invalid();
  }catch(error){
