@@ -1,6 +1,6 @@
 {
-  "phase": "n12-c9-action-contract",
-  "scope": "D48 bounded customer extra-candidate and merchant generation contract repair; D49 Production operation. Live quality and G5/G6 remain required.",
+  "phase": "n13-c10-size-grounding",
+  "scope": "D48 explicit customer size grounding; data/oracle/quality preserved; D49 Production maintained. Live quality and G5/G6 required.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -96,7 +96,10 @@
     "docs/execution/run-20260921/c8-customer-contract.md",
     "tests/server/*.fixture.ts",
     "docs/execution/run-20260921/context-n12-v19.json",
-    "docs/execution/run-20260921/c9-action-contract.md"
+    "docs/execution/run-20260921/c9-action-contract.md",
+    "docs/execution/run-20260921/c10-size-contract.md",
+    "docs/execution/run-20260921/c10-reservation-evaluator-review.md",
+    "docs/execution/run-20260921/context-n13-v20.json"
   ],
   "checks": [
     {
@@ -178,7 +181,7 @@
   ],
   "tasks": [
     {
-      "id": "C9-TECH",
+      "id": "C10-TECH",
       "implementers": [
         "preflight_builder",
         "root"
@@ -186,7 +189,6 @@
       "requirements": [
         "CORE-02",
         "CORE-03",
-        "CORE-05",
         "CORE-11",
         "CORE-17",
         "CORE-18",
@@ -196,5 +198,5 @@
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n12-v19.json"
+  "context_manifest": "docs/execution/run-20260921/context-n13-v20.json"
 }

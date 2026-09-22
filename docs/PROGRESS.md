@@ -1,3 +1,15 @@
+# 2026-09-22 C10 기술 복구 검증
+
+[C10 계약](execution/run-20260921/c10-size-contract.md)에 따라 고객의 명확한 긍정 규격만 생성 enum에 반영한다. 원래 catalog/정답/회귀 기준과 두500ml의 모호성 한계를 보존한다. 경영주·거래·UI는 변경하지 않았다. 독립 검토 G01에서 쉼표/Unicode minus 숫자의 잘못된 suffix 해석을 발견하고 root가 보수적 fallback으로 수정했다. 최초 실패와 정상/경계 회귀를 함께 보존한다.
+
+root 실제 Python198·서버60·domainUI51·UX기구19·type/build 검사 모두 PASS, 독립 검토 최종 결속 대기다. 실제 C10 모델 평가는 아직0이며, 원장 upper1476/$9.2915701과648/464/96 후속 예약을 유지한다. Production은 C9 READY를 유지하고 C10 기술CI 완료 후 업데이트한다. main 최종 병합/G5/G6는 미완료다.
+
+# 2026-09-22 C9 Production 배포·최종 검증 진행
+
+C9 exact source `8b52a2e8395e94c5f9b76df9e232ff2f37f70e6c`의 PR20 CI35675635493/35675619863 PASS, integration merge `51240e85041d026862595f1b11123072ee3e1a40` 및 merge CI35676067857 PASS를 확인했다. [Production](execution/run-20260921/c9-production.json)은 READY이며 제출 alias https://wanna-gs-sepia.vercel.app 에 연결됐다. 익명 HTTP200/브랜드 확인은 했으나 실제 G6 완료는 아니다. 같은 source의 [QA Preview](execution/run-20260921/c9-preview.json)도 READY다.
+
+C9 실제 dev30/30 PASS, incomplete/mandatory/retry/새unknown0,34calls/$0.1807756. 고정 validation01은83/84, incomplete/mandatory0로 역할별 최소는 PASS지만 C5 정상 핵심범주 C02 회귀1로 채택 FAIL이다. validation02·holdout·UX는 실행하지 않았다. [독립 결과](execution/run-20260921/n12-c9-validation-evaluation.md)를 보존하고, 명시 규격과 중복 이름의 후보 생성을 다루는 C10의 범위를 검토한다. 장부 upper1476/$9.2915701이다. 다음 후보의 평가/QA/G5/G6 전체 기준은 유지한다. main은 아직 최종 병합 전이며 실패 이력·$20/2400 단일 장부·원본 로그·작업공간을 보존한다.
+
 C9 기술검증: 서버53/domainUI51/UX기구19/Python198/type/build 및 독립12그룹·SDKmock6/문맥72 결속 PASS. 실제품질은 아직미평가다. [독립 검토](execution/run-20260921/c9-action-independent.md)·[기술게이트](execution/run-20260921/c9-local-gate.json).
 
 # 2026-09-22 개발 재개 — Production 유지·C9 복구

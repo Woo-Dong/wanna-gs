@@ -10,10 +10,12 @@ export const customerOutputSchema=z.object({action:z.enum(['show_candidates','as
 export const merchantOutputSchema=z.object({intent:z.enum(['modify','restore','clarify']),scope:z.enum(['current_proposal','policy']).nullable(),constraints:constraintsSchema,question:z.string().nullable(),reason:z.string()}).strict();
 
 // Constrain opaque identifiers at generation time as well as in server verification.
-export function modelOutputSchema(role:'customer'|'merchant',ids:string[],categoryNames:string[],staleMerchant=false,grounding:{skuOnlyExclusions?:boolean;customerScopeBoundary?:boolean;clarificationCount?:number}={}){
+export function modelOutputSchema(role:'customer'|'merchant',ids:string[],categoryNames:string[],staleMerchant=false,grounding:{skuOnlyExclusions?:boolean;customerScopeBoundary?:boolean;clarificationCount?:number;customerEligibleIds?:string[]}={}){
  if(!ids.length||!categoryNames.length)throw new Error('EMPTY_MODEL_CATALOG');
  const sku=z.enum(ids as [string,...string[]]);
  if(role==='customer'){
+  const eligible=grounding.customerEligibleIds?ids.filter(id=>grounding.customerEligibleIds!.includes(id)):ids;
+  const sku=z.enum((eligible.length?eligible:ids) as [string,...string[]]);
   // Factor the ID outside assessment unions: the full 248-SKU schema stays
   // below Structured Outputs' 1,000 total enum-value limit without losing IDs.
   const assessment=customerOutputSchema.shape.candidates.element.omit({id:true});

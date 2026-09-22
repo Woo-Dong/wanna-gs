@@ -1,0 +1,29 @@
+{
+  "task": "C10-TECH",
+  "reviewer": "research",
+  "status": "PASS",
+  "fingerprint": "244d63c5331bf31454d4840067d364ca1bbdf0d3fab5b8082e0f9b7cde8e6216",
+  "context_manifest": "docs/execution/run-20260921/context-n13-v20.json",
+  "consumed_context_hash": "6fffa1419a57a7c12e5b641251a0cec741e31dccad0369fee447f21533ba3e31",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-02",
+    "CORE-03",
+    "CORE-11",
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23",
+    "CORE-25"
+  ],
+  "evidence": [
+    "Direct context76 hashes and final aggregate fingerprint ACK; final root helper/test delta identified separately from builder56c9ae19 source.",
+    "Independent G01 FAIL reproduced numeric suffix miscertification including actual47.5g catalog; adjacent inequality/range/uncertainty FAIL preserved. Final positive-character/whole-number delta passes original and adjacent cases without changing expected outcomes.",
+    "Final independent10 groups PASS with actual installed SDK fake fetch4: full248 catalog/context preserved, restricted all-kind enums, correct canonical ID, HTTP502 known usage and unknown usage null, history fallback. Actual model/HTTP0.",
+    "Independent original server59 and first-G01 server60 all PASS; final affected suite7 plus10 groups PASS. No unrelated full retest claimed after last helper-only delta.",
+    "C9 provider/model/packing/retrieval/catalog/wire/domain/UI/data/eval unchanged; verify bodies and merchant prompt bytes identical, merchant schemas identical across stale/SKU-only cases. No global differences deletion, ID special-casing or oracle edit.",
+    "docs/execution/run-20260921/c10-size-independent.md and private c10-independent evidence preserve initial failures, final provenance, source ambiguity and actual quality limits."
+  ],
+  "scope": "C10 server technical contract only; actual NL/role browser QA/UX/G5/G6 NOT_RUN. No real model/HTTP/deployment/shared ledger/protected raw access. Past customer UI authorship is not independent customer UI QA. Unsigned review identity is not cryptographic proof.",
+  "checked_at": "2026-09-22T02:03:02.498454+00:00"
+}
