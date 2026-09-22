@@ -1,0 +1,100 @@
+{
+  "phase": "n14-c11-customer-classification",
+  "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+  "context_manifest": "docs/execution/run-20260921/context-n14-v21.json",
+  "started_at": "2026-09-22T03:07:40.037262+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "D48 customer classification before candidates; max1 precommitted NL attempts with full quality gates; retired failed holdouts preserved; D49 Production maintained.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 211,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 35,
+        "tests/ux-benchmark": 7,
+        "tests/ux-benchmark/v3": 12,
+        "tests/release": 89
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "independent_review_join": "Original executed checks preserved; independently completed reviews joined without source change. Initial pending-review FAIL retained privately."
+}

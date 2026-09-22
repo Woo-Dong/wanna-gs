@@ -1,0 +1,19 @@
+{
+  "role": "holdout_aggregate",
+  "report": {
+    "path": "quality/release/evidence/c10-holdout/report.json",
+    "sha256": "c7d5bd159dd6946effad7130b1b2af55faecda96b0c42c8e22f46838d4213079"
+  },
+  "execution": {
+    "path": "quality/release/evidence/c10-holdout/execution.json",
+    "sha256": "c14d9b19fc055879edf4da7536b3c2e06e730f713faeeea35087a6ec5e0d9aa1"
+  },
+  "binding": {
+    "path": "quality/release/evidence/c10-holdout/binding.json",
+    "sha256": "6a4d2bd2cdedb44edd35e752087a01006a7a1d70e2bfa35f4bbbad0e018b02bc"
+  },
+  "independent_report": {
+    "path": "quality/release/evidence/c10-holdout/independent-report.json",
+    "sha256": "73f0fc59e588b57ca6f4be49e673a6fb7ac107bb87f769f9f568291e33f4467c"
+  }
+}

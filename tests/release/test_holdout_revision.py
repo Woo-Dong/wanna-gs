@@ -56,4 +56,44 @@ class HoldoutRevisionTests(unittest.TestCase):
         for ref in [{'path':'artifacts/private/fake.json','sha256':H('fake')},{'path':self.path,'sha256':'bad'}]:
             with self.assertRaisesRegex(gate.EvidenceError,'REFERENCE'):gate.Checker(self.p.root).eval_manifest(ref,self.p.catalog)
 
+class HoldoutThirdRevisionTests(unittest.TestCase):
+    def setUp(self):
+        self.base=HoldoutRevisionTests();self.base.setUp();self.addCleanup(self.base.tmp.cleanup)
+        self.base.check();self.p=self.base.p;self.path='evals/manifest-v3.json'
+        previous=copy.deepcopy(self.base.value);self.previous=previous
+        report=self.p.art('second-retired-report',{'dataset_hash':previous['splits']['holdout']['dataset_hash'],'cases':84,'nl_minimum_pass':False})
+        bundle=self.p.art('second-retired-bundle',{'role':'holdout_aggregate','report':report})
+        new=copy.deepcopy(previous);new['splits']['holdout'].update(dataset_hash=H('third-holdout'),family_hashes=[H('third-family')])
+        review=self.p.art('third-data-review',dict(status='PASS',reviewer='independent-third-reviewer',implementers=['third-dataset-author'],dataset_hash=H('third-holdout'),previous_dataset_hash=previous['splits']['holdout']['dataset_hash'],semantic_family_overlap=0,difficulty_equivalent=True,thresholds_unchanged=True,protected_content_not_published=True))
+        new.update(version='EVAL-20260922-v3',revision='holdout-v3-c11',archived_cases=168,predecessor_manifest={'path':'evals/manifest-v2.json','sha256':gate.digest((self.p.root/'evals/manifest-v2.json').read_bytes())},independent_data_review=review)
+        new['retired_holdouts'].append(dict(revision='holdout-v2-c6',dataset_hash=previous['splits']['holdout']['dataset_hash'],file_sha256=H('second-private-file'),status='FAIL',replay_authorized=False,retired_reason='Failed uncertainty gate; no replay',execution_evidence=bundle))
+        self.value=new
+    def check(self):
+        self.p.write(self.path,self.value)
+        return gate.Checker(self.p.root).eval_manifest({'path':self.path,'sha256':gate.digest((self.p.root/self.path).read_bytes())},self.p.catalog)
+    def test_both_failures_and_original_public_splits_preserved(self):
+        value=self.check();self.assertEqual(len(value['retired_holdouts']),2);self.assertEqual(value['splits']['validation'],self.base.old['splits']['validation'])
+    def test_either_prior_family_overlap_rejected(self):
+        for family in ['retired-family','fresh-family','validation-family','dev-family']:
+            self.value['splits']['holdout']['family_hashes']=[H(family)]
+            with self.assertRaisesRegex(gate.EvidenceError,'FAMILY'):self.check()
+    def test_cannot_remove_or_rewrite_first_failure(self):
+        original=copy.deepcopy(self.value['retired_holdouts'])
+        for history in [original[1:],[{**original[0],'replay_authorized':True},original[1]]]:
+            self.value['retired_holdouts']=history
+            with self.assertRaisesRegex(gate.EvidenceError,'HISTORY'):self.check()
+    def test_second_failure_must_remain_failed(self):
+        ref=self.value['retired_holdouts'][1]['execution_evidence'];bundle=self.p.read(ref)
+        self.p.mutate(bundle['report'],lambda r:r.update(nl_minimum_pass=True));self.p.mutate(ref,lambda r:r.update(report=bundle['report']))
+        with self.assertRaisesRegex(gate.EvidenceError,'FAILURE_NOT_PRESERVED'):self.check()
+    def test_predecessor_chain_is_verified_not_only_hash_linked(self):
+        prior=copy.deepcopy(self.previous);prior['status']='review_pending';self.p.write('evals/manifest-v2.json',prior)
+        self.value['predecessor_manifest']['sha256']=gate.digest((self.p.root/'evals/manifest-v2.json').read_bytes())
+        with self.assertRaisesRegex(gate.EvidenceError,'NOT_FROZEN'):self.check()
+    def test_cannot_reuse_first_dataset_or_reduce_archived_denominator(self):
+        self.value['splits']['holdout']['dataset_hash']=self.base.old['splits']['holdout']['dataset_hash']
+        with self.assertRaisesRegex(gate.EvidenceError,'COVERAGE'):self.check()
+        self.value['splits']['holdout']['dataset_hash']=H('third-holdout');self.value['archived_cases']=84
+        with self.assertRaisesRegex(gate.EvidenceError,'SCOPE'):self.check()
+
 if __name__=='__main__':unittest.main()

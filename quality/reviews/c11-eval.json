@@ -1,0 +1,23 @@
+{
+  "task": "C11-EVAL",
+  "reviewer": "final_ux_state",
+  "status": "PASS",
+  "fingerprint": "9a995eeb881b1906c7f746f43d782e5534349326d9d1e314320d3a712f5db0c4",
+  "context_manifest": "docs/execution/run-20260921/context-n14-v21.json",
+  "consumed_context_hash": "e6512b02cac714b66845dda8be5648094d8967155c624016003b7c6b6ed136b0",
+  "purpose_preserved": true,
+  "requirements": [
+    "CORE-17",
+    "CORE-18",
+    "CORE-21",
+    "CORE-23"
+  ],
+  "evidence": [
+    "CTX-20260922-N14-v21 원본87개 hash 직접 대조 ACK, aggregate fingerprint 재계산 일치.",
+    "docs/execution/run-20260921/c11-eval-independent.md 및 artifacts/private/run-20260921/c11-eval-independent/review.md. runner35/release89 독립 PASS, 별도17반례그룹 PASS.",
+    "max1/2/default3, invalid cap/bool, same-config/resume/validation-holdout/package cap binding, current/future reserve, incomplete/STOP 보존을 mock로 검증.",
+    "v3 strict manifest/이전v2 chaining/두 retired 실패 원본 및 순서/두 family 집합/재실행 금지 반례. 검토5소스 hash가 현재 context와 그대로 일치."
+  ],
+  "scope": "기술/오프라인 데이터 검토만 PASS. 실제 모델 호출·공유장부 읽기/쓰기0. live NL/브라우저 QA/UX/G5/G6·최종배포 완료를 대신하지 않는다. 역할별 소유권은 서로 다른 작성자이며 reviewer의 앱/평가코드/보호데이터 작성0. unsigned JSON은 암호학적 신원 증명이 아니다.",
+  "checked_at": "2026-09-22T03:13:16.790881+00:00"
+}

@@ -4,7 +4,7 @@ import type {DemoSnapshot,DemoClient,DemoCommand,CommandContext,CommandReceipt,R
 import type {AssistantEnvelope,AssistantResponse,CustomerInput,CustomerInterpretation,DialogueTurn,Candidate} from '../../contracts/assistant';
 import {Brand} from '../brand';
 import {StoreMap} from './StoreMap';
-import {TERMS_VERSION,scopeOf,sameScope,currentEnvelope,money,date,remaining,requestState,conditionText,canConfirmCondition,canRetryPayment,distanceKm} from './model';
+import {TERMS_VERSION,needCandidateClues,scopeOf,sameScope,currentEnvelope,money,date,remaining,requestState,conditionText,canConfirmCondition,canRetryPayment,distanceKm} from './model';
 import styles from './customer.module.css';
 export interface CustomerViewProps {snapshot:DemoSnapshot;client:DemoClient;onSnapshot:(s:DemoSnapshot)=>void}
 type Page='wish'|'requests'|'pickup'|'notifications';
@@ -84,7 +84,7 @@ export function CustomerView({snapshot,client,onSnapshot}:CustomerViewProps){
  async function saveNeed():Promise<string|null>{
   if(needId)return needId;
   if(!interpretation||!searchEnvelope||!storeId||!currentEnvelope(searchEnvelope,searchEnvelope,live.current,conversation.current,revision.current)){setError('상품 찾기 결과와 선택한 점포를 다시 확인해주세요.');return null;}
-  const rec=await dispatch({type:'need.record',storeId,originalText:original||input,dialogue:displayHistory.map(h=>`${h.role}: ${h.content}`),extractedClues:[],candidateSkus:interpretation.candidates.map(c=>c.id),identificationStatus:interpretation.action,reason:interpretation.reason,observedAt:live.current.clock.now,sourceRefs:interpretation.candidates.flatMap(c=>live.current.products.find(p=>p.sku===c.id)?.sourceOrigin.sourceIds??[])});
+  const rec=await dispatch({type:'need.record',storeId,originalText:original||input,dialogue:displayHistory.map(h=>`${h.role}: ${h.content}`),extractedClues:needCandidateClues(interpretation.candidates),candidateSkus:interpretation.candidates.map(c=>c.id),identificationStatus:interpretation.action,reason:interpretation.reason,observedAt:live.current.clock.now,sourceRefs:interpretation.candidates.flatMap(c=>live.current.products.find(p=>p.sku===c.id)?.sourceOrigin.sourceIds??[])});
   const nid=rec?.entityIds[0];if(!nid)return null;setNeedId(nid);
   for(const candidate of interpretation.candidates){if(!await dispatch({type:'recommendation.record',needId:nid,candidateSku:candidate.id,kind:candidate.kind==='alternative'?'alternative':'exact',action:'shown'}))return null;if(rejected.includes(candidate.id)&&!await dispatch({type:'recommendation.record',needId:nid,candidateSku:candidate.id,kind:candidate.kind==='alternative'?'alternative':'exact',action:'rejected'}))return null;}
   return nid;

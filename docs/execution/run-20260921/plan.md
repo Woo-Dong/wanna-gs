@@ -38,3 +38,19 @@
 고객이 정상 상품을 확인·동의하면 수요로 남고, 경영주가 최신수요/예산을 한 번 판단하여 모의 공급→자동결제→입고후48시간 수령으로 이어져야 한다. stale/위조/과잉을 막는 코드가 정상성공을 없애면 FAIL. GATE-BOOTSTRAP에서 과거PASS/누락/자기검증을 기계거절하되 의미상 품질은 독립검토/브라우저로 확인한다.
 
 현재 미실행 task를 후속계획이라는 이유로 면제하지 않는다. 사전점검과 제품 게이트는 별도다. 최종 완료는 docs/GOAL 전체와 L02 증거 후만 선언한다. 실제 외부 권한/비용장벽은 공개하고 독립작업 계속. optional 최적화는 ADR003 한도에서 끝내지만 mandatory/최소기준은 남는다.
+
+## 2026-09-22 C11 복구·최종 의존성
+
+C10 공개 dev30 및 validation84 두 회 PASS 뒤 보호 v2 76/84 FAIL로 출시 채택을 보류했다. D48/D49와 [C11 계약](c11-recovery-contract.md)을 현재 추가 DAG로 적용한다.
+
+| 작업 | 선행 | 소유/독립 검토 | 현재 상태·증거 |
+|---|---|---|---|
+| C11-CUSTOMER | C10 오류 집계 | research prompt-only / final_ux_state | 구현·자체 서버62/type PASS, 독립 검토 대기 |
+| C11-NEED | 제품 감사의 저장 누락 재현 | research customer/model·saveNeed / final_ux_state | 기존 필드에 모델근거/차이/미확인 보존, 자체 고객7·실제SQL roundtrip PASS, 독립 대기 |
+| C11-EVAL | 두 자원 검토 | root runner/checker / final_ux_state | 자체35+89·독립17그룹 PASS, 최종 context 결속 대기 |
+| C11-HOLDOUT | v1/v2 은퇴 보존 | method_auditor private 데이터 / final_ux_state | 보호 v3 84/92 작성·독립 검토 중, 모델0 |
+| C11-NL | 위4개 기술 통합·CI·정확 배포 | method_auditor 평가 / root 단계 GO | max1 고정 dev→validation 동일2회→freeze→새holdout 최초1, 아직0 |
+| C11-QA/UX | 적격 NL best | customer method / merchant research / UX final_ux_state | 새 runtime/source 결속 필요, 실제0 |
+| C11-G5/G6 | 실제 QA/UX·두 정책관점·증거 감사 | root 통합 / 독립 검토자 | main 전 G5, 정확 main Production 후 익명 G6; 아직 미완료 |
+
+C10 Production READY를 유지하며 새 source CI 후 Production을 갱신한다. 미실행을 PASS로 바꾸지 않고 현재 상한 $20/2400·실패 이력·작업공간을 보존한다.

@@ -121,3 +121,7 @@ fixture G4 이후 중간 Production을 허용하자는 외부 제안은 [검토 
 작업 전과 게시 직전에 `git fetch origin`으로 최신 원격을 확인한다. 로컬 변경은 관련 파일만 검토·검증해 작업 브랜치에 커밋하고, 원격 main을 일반 merge로 통합한다. 같은 문장/결정 ID 충돌은 한쪽 전체를 선택하지 않고 사용자 결정·원격 추가 기능을 함께 대조한다. 이미 게시된 결정 ID는 유지하고 미게시 결정의 번호·참조를 조정해 매핑을 PROGRESS에 기록한다.
 
 통합 뒤 링크·ID·관련 테스트와 의미상 회귀를 검증한다. main에는 검증한 작업 브랜치만 fast-forward한다. push의 non-fast-forward 거절은 원격이 다시 바뀌었다는 뜻이므로 fetch→차이 검토→merge→재검증을 반복한다. 공유 main에 force push하거나 원격 커밋을 reset으로 제거하지 않는다. 여러 환경의 main 쓰기를 동시에 진행하면 재충돌할 수 있으므로 통합/게시 담당을 한 명으로 정한다.
+
+## D49의 Production 유지 지시
+
+2026-09-22 사용자가 최신 배포를 Production으로 전환했으며 이후 수정도 Production으로 배포하고 최종 main 병합을 요청했다. 이 직접 지시는 위 Preview 전용 중간 배포 순서를 대체한다. 기술·독립 검토와 CI를 통과한 수정은 정확한 source SHA로 Production을 갱신하고 배포 ID·READY·제출 alias·잔여 검증을 기록한다. 최종 G5의 Preview 증거와 최종 main→Production→G6는 그대로 필요하다. 중간 Production READY나 fixture 성공을 최종 제품 완료로 바꾸지 않는다.

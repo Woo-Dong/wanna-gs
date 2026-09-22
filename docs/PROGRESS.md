@@ -1,3 +1,25 @@
+# 2026-09-22 C11 기술 통합 PASS
+
+[기술 게이트](execution/run-20260921/c11-local-gate.json)의8검사 PASS(Python211/server62/domainUI53/UX기구19/type/build 포함)와 C11-CUSTOMER·NEED·EVAL·HOLDOUT 네 독립 검토를 동일 source fingerprint에 결속했다. 최초 review대기 FAIL도 보존했다. [고객 검토](execution/run-20260921/c11-customer-independent.md)·[니즈 검토](execution/run-20260921/c11-need-independent.md), context87 직접 ACK와 보호 v3 최종 DATA PASS를 확인했다. 실제 C11 모델·QA/UX·G5/main/G6는 아직0/미완료이며 다음은 commit/PR/CI→정확 Production 배포→고정 실제평가다.
+
+# 2026-09-22 C11 구현·기구 검증
+
+고객 프롬프트를 행동 판단→후보 생성 순으로 정리했다(research8877360→root8508b58). 서버 자체62/type PASS이며 실제 의미 품질은 아직 미평가다. 최종 제품 감사에서 니즈 저장의 후보 근거/미확인 조건 누락을 실제 SQLite roundtrip으로 발견하고, 기존 string[] 필드에 모델 해석·SKU·종류·근거·차이·미확인 라벨을 보존했다(research91ef87d→roote67d7bf). 자체 고객7/type·SQLite 복원 PASS, 독립 앱 검토는 대기다.
+
+[자원 계약](execution/run-20260921/c11-recovery-contract.md)에 따라 max_attempts=1을 신규 NL에 사전 고정한다. 기존 default3와 2400/$20·모든 분모/품질은 유지한다. runner35/release89 자체 및 독립 실행, 추가 독립17그룹 PASS([기구 검토](execution/run-20260921/c11-eval-independent.md)). 새 보호 v3 revision01의 독립 전수검토는 FAIL/NOT_READY이며17행의 의미 독립성/난도만 보완 중이다. 84/92·역할/범주 분모·과거 실패/입력은 보존한다. C11 모델 호출0, 공유장부 불변이며 G5/main/G6 미완료다.
+
+# 2026-09-22 C10 비공개 평가 실패·C11 한정 복구
+
+C10의 고정 dev30/30와 동일 설정 validation 두 회84/84는 PASS다. 이후 best를 고정하고 새 보호 holdout v2를 최초 한 번 실행했으나76/84로 FAIL했다. 명확 고객40/40·경영주24/24는 통과했고 고객 모호/미식별12/20이 최소90%에 미달했다. 오류8건은 모호함2·미등록4·범위밖/잡음2에서 부적절한 후보를 제시한 wrong_action이다. transport/schema/incomplete/mandatory/retry/새unknown은0이다. [독립 결과](execution/run-20260921/n13-c10-holdout-evaluation.md)와 모든 실패 증거를 보존하며 이 보호셋은 재실행하지 않는다.
+
+누적 upper1786calls/$11.0094737, 잔여614calls·약$8.99다. D48에 따라 C11의 고객 행동 분류 복구와 재시도 선택권을 줄이는 사전 자원 계획을 독립 검토한다. 기존 공개 평가·품질 기준·장부·실패·경영주 동작은 유지한다. C10 Production READY를 유지하며 실제 역할QA·UX·G5·main 최종 병합·G6는 아직 미완료다.
+
+# 2026-09-22 C10 Production·실제 품질 검증
+
+C10 source `a7adafc0381e9ad069030b1cd13b181790763e89`, PR21의 CI35678079901/35678073862 PASS 후 integration `f90f25e22257b083ff6200ad2d33ad336c333abf`로 병합했다. 병합CI35678227688도 PASS다. [Production](execution/run-20260921/c10-production.json)은 READY이며 제출 alias https://wanna-gs-sepia.vercel.app 에 연결됐다. 동일소스 [Preview](execution/run-20260921/c10-preview.json)도 READY다.
+
+실제 dev30/30 및 validation01 84/84 PASS, incomplete/mandatory/retry/새unknown0·C5 대응 첫 반복 핵심/필수회귀0. 동일설정 validation02를 진행 중이며 holdout은 아직 실행하지 않았다. 누적 upper1602/$9.9623889, 후속464 예약을 유지한다. 최종 freeze·보호셋·UX·두 역할 QA·G5·main·최종G6 완료는 아직 아니다.
+
 # 2026-09-22 C10 기술 복구 검증
 
 [C10 계약](execution/run-20260921/c10-size-contract.md)에 따라 고객의 명확한 긍정 규격만 생성 enum에 반영한다. 원래 catalog/정답/회귀 기준과 두500ml의 모호성 한계를 보존한다. 경영주·거래·UI는 변경하지 않았다. 독립 검토 G01에서 쉼표/Unicode minus 숫자의 잘못된 suffix 해석을 발견하고 root가 보수적 fallback으로 수정했다. 최초 실패와 정상/경계 회귀를 함께 보존한다.

@@ -78,6 +78,39 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(len(server.requests),3);obs=r.read_jsonl(runner.out/'observations.jsonl')[0];self.assertEqual(len(obs['attempts']),3);self.assertEqual(obs['attempts'][0]['usage'],None);self.assertEqual(result['budget']['known_provider_calls'],3)
     def test_retry_limit_not_reset_on_resume(self):
         runner,server=self.runner([case()],lambda b,n,c:(429,failure('RATE_LIMITED'),{}));runner.initialize();runner.state['cases'][case()['id']]={'turns':[],'observation':None,'current_attempts':[{'status':'failed','code':'RATE_LIMITED','provider_called':True}]*2,'current_raw':None};runner.save();runner.run({'SKU1'},resume=True,sleep=lambda _:None);self.assertEqual(len(server.requests),1)
+    def limited_runner(self,cases,limit,callback):
+        conf=config(mode='live');conf['max_attempts']=limit
+        server=self.server(lambda body,n:callback(body,n,conf));conf['origin']=server.origin
+        return r.Runner(cases,conf,self.path/'limited',r.Budget(self.path/'ledger'),r.HttpTransport(server.origin)),server
+    def test_one_attempt_failure_retains_denominator_and_adjacent_success(self):
+        runner,server=self.limited_runner([case(),case('C01-dev-002')],1,lambda b,n,c:(429,failure('RATE_LIMITED'),{}) if n==1 else (200,success(b,c),{}))
+        result=runner.run({'SKU1'},sleep=lambda _:self.fail('retry sleep forbidden'))
+        self.assertEqual(len(server.requests),2);self.assertTrue(result['complete']);self.assertEqual(result['failed_cases'],1)
+        obs=r.read_jsonl(runner.out/'observations.jsonl');self.assertEqual(len(obs),2);self.assertEqual(len(obs[0]['attempts']),1);self.assertEqual(obs[0]['transport'],'error')
+        runner.run({'SKU1'},resume=True);self.assertEqual(len(server.requests),2)
+    def test_one_attempt_received_failure_cannot_retry_after_resume(self):
+        runner,server=self.limited_runner([case()],1,lambda b,n,c:(200,success(b,c),{}))
+        runner.initialize();runner.state['cases'][case()['id']]={'turns':[],'observation':None,'current_attempts':[{'status':'failed','code':'RATE_LIMITED','provider_called':True}],'current_raw':None};runner.save()
+        result=runner.run({'SKU1'},resume=True);self.assertEqual(len(server.requests),0);self.assertEqual(result['failed_cases'],1)
+    def test_configured_attempt_cap_is_strict_and_defaults_to_three(self):
+        self.assertEqual(r.attempt_limit({}),3)
+        for value in [1,2,3]:self.assertEqual(r.attempt_limit({'max_attempts':value}),value)
+        for value in [True,False,0,4,-1,1.0,'1',None,[],{}]:
+            with self.subTest(value=value):
+                cases,conf,coverage,path=self.valid_inputs();conf['max_attempts']=value
+                with self.assertRaisesRegex(r.RunnerError,'INVALID_MAX_ATTEMPTS'):r.check_inputs(cases,conf,coverage,path,{})
+                with self.assertRaisesRegex(r.RunnerError,'INVALID_MAX_ATTEMPTS'):r.Runner(cases,conf,self.path/'bad',None,None)
+    def test_current_stage_reservation_uses_configured_cap(self):
+        runner,server=self.limited_runner([case(),case('C01-dev-002')],1,lambda b,n,c:(200,success(b,c),{}))
+        reservations=[];reserve=runner.budget.reserve
+        def record(run_id,mandatory,cost):
+            reservations.append(mandatory);return reserve(run_id,mandatory,cost)
+        runner.budget.reserve=record;runner.run({'SKU1'});self.assertEqual(reservations,[1,0]);self.assertEqual(len(server.requests),2)
+    def test_changing_attempt_allowance_cannot_resume_existing_run(self):
+        runner,server=self.limited_runner([case()],1,lambda b,n,c:(200,success(b,c),{}));runner.initialize()
+        changed=r.Runner(runner.cases,{**runner.config,'max_attempts':3},runner.out,runner.budget,runner.transport)
+        with self.assertRaisesRegex(r.RunnerError,'RESUME_FINGERPRINT_MISMATCH'):changed.run({'SKU1'},resume=True)
+        self.assertEqual(len(server.requests),0)
     def test_auth_quota_config_stop_every_next_case(self):
         for code in ['LLM_AUTH_ERROR','LLM_QUOTA','LLM_CONFIGURATION','LLM_MODEL_UNAVAILABLE']:
             with self.subTest(code=code):
@@ -185,6 +218,11 @@ class RunnerTests(unittest.TestCase):
         for rid in ['v1','v2']:
             p=self.path/(rid+'.json');p.write_text(json.dumps({'stage_ready':True,'run_id':rid,'mode':'live','catalog_hash':conf['catalog_hash'],'run_fingerprint':validation_fp,'dataset_hash':r.load_json(ROOT/'evals/validation-coverage.json')['dataset_hash']}));proofs.append({'path':str(p),'sha256':r.file_hash(p)})
         best['validation_reports']=proofs;self.assertTrue(r.check_inputs(cases,conf,coverage,path,{},True,best)[2])
+        conf['max_attempts']=1
+        with self.assertRaisesRegex(r.RunnerError,'CANDIDATE_MISMATCH'):r.check_inputs(cases,conf,coverage,path,{},True,best)
+        conf['max_attempts']=3
+        self.assertTrue(r.check_inputs(cases,conf,coverage,path,{},True,best)[2])
+        del conf['max_attempts']
         old=dict(conf);old['model']='wrong-model';vc.write_text(json.dumps(old));best['validation_binding']['config']['sha256']=r.file_hash(vc)
         with self.assertRaisesRegex(r.RunnerError,'CANDIDATE_MISMATCH'):r.check_inputs(cases,conf,coverage,path,{},True,best)
         vc.write_text(json.dumps(conf));best['validation_binding']['config']['sha256']=r.file_hash(vc)
