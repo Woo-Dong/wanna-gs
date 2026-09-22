@@ -1,3 +1,4 @@
+import {customerWireFixture as wire} from './customer-wire.fixture';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {catalogContext,catalogHash} from '../../src/server/catalog';
@@ -30,9 +31,9 @@ test('customer model reference returns canonical SKU; unknown refs fail before d
  const input={...base,text:catalogContext[0].name,history:[],clarificationCount:0};
  const result=await interpret('customer',input,async(_p,raw)=>{
   const data=JSON.parse(raw);assert(data.catalog.columns.includes('id'));assert(data.catalog.rows.some((r:unknown[])=>r[0]==='p0'));
-  return {value:output,model:'test',usage};
+  return {value:wire(output),model:'test',usage};
  },'fixture');assert(result.ok);assert.equal((result.data.result as any).candidates[0].id,catalogContext[0].id);
- await assert.rejects(interpret('customer',input,async()=>({value:{...output,candidates:[{...output.candidates[0],id:'p999999'}]},model:'test',usage})),/INVALID_MODEL_RESPONSE/);
+ await assert.rejects(interpret('customer',input,async()=>({value:wire({...output,candidates:[{...output.candidates[0],id:'p999999'}]}),model:'test',usage})),/INVALID_MODEL_RESPONSE/);
 });
 test('merchant retains full catalog and returns original exclusion IDs without changing scope/budget',async()=>{
  const input={...base,text:`${catalogContext[2].name} 제외`,history:[],state:{storeId:'store',proposalId:'proposal',proposalVersion:1,dailyBudgetKrw:50000,currentConstraints:empty,previousConstraints:null,groups:[{sku:catalogContext[2].id,requestedQty:2,orderableQty:2,purchaseCostKrw:1000}]}};
@@ -45,5 +46,5 @@ test('generation schema enforces existing exact-vs-unknown contract without reje
  const s=modelOutputSchema('customer',['p0'],['빵']);
  const c={id:'p0',kind:'exact',sharedEvidence:[],differences:[],unknownConditions:['미확인 원재료']};
  const output={action:'show_candidates',candidates:[c],question:null,reason:'확인',confirmationRequired:true};
- assert(!s.safeParse(output).success);assert(s.safeParse({...output,candidates:[{...c,kind:'confirm'}]}).success);
+ assert(!s.safeParse(wire(output)).success);assert(s.safeParse(wire({...output,candidates:[{...c,kind:'confirm'}]})).success);
 });

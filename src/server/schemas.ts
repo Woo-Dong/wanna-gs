@@ -14,12 +14,22 @@ export function modelOutputSchema(role:'customer'|'merchant',ids:string[],catego
  if(!ids.length||!categoryNames.length)throw new Error('EMPTY_MODEL_CATALOG');
  const sku=z.enum(ids as [string,...string[]]);
  if(role==='customer'){
-  if(grounding.customerScopeBoundary){
-   return customerOutputSchema.extend({action:grounding.clarificationCount===2?z.literal('unidentified'):z.enum(['ask_clarification','unidentified']),candidates:z.array(customerOutputSchema.shape.candidates.element.extend({id:sku})).max(0),question:grounding.clarificationCount===2?z.null():z.string().nullable()});
-  }
-  const candidate=customerOutputSchema.shape.candidates.element.extend({id:sku});
-  const grounded=z.union([candidate.extend({kind:z.literal('exact'),unknownConditions:z.array(z.string()).max(0)}),candidate.extend({kind:z.enum(['confirm','alternative'])})]);
-  return customerOutputSchema.extend({candidates:z.array(grounded).max(6)});
+  // Factor the ID outside assessment unions: the full 248-SKU schema stays
+  // below Structured Outputs' 1,000 total enum-value limit without losing IDs.
+  const assessment=customerOutputSchema.shape.candidates.element.omit({id:true});
+  const exact=assessment.extend({kind:z.literal('exact'),unknownConditions:z.array(z.string()).max(0)});
+  const primary=z.object({id:sku,assessment:z.union([exact,assessment.extend({kind:z.literal('confirm')})])}).strict();
+  const candidate=z.object({id:sku,assessment:z.union([exact,assessment.extend({kind:z.enum(['confirm','alternative'])})])}).strict();
+  const alternative=z.object({id:sku,assessment:assessment.extend({kind:z.literal('alternative')})}).strict();
+  const common={reason:z.string(),confirmationRequired:z.literal(true)};
+  const show=z.object({action:z.literal('show_candidates'),primaryCandidate:primary,additionalCandidates:z.array(candidate).max(5),question:z.null(),...common}).strict();
+  const clarify=z.object({action:z.literal('ask_clarification'),candidates:z.array(candidate).max(grounding.customerScopeBoundary?0:6),question:z.string().min(1).max(300).regex(/\S/),...common}).strict();
+  const unidentified=z.object({action:z.literal('unidentified'),candidates:z.array(alternative).max(grounding.customerScopeBoundary?0:6),question:z.null(),...common}).strict();
+  const decision=grounding.customerScopeBoundary
+   ?(grounding.clarificationCount===2?unidentified:z.union([clarify,unidentified]))
+   :(grounding.clarificationCount===2?z.union([show,unidentified]):z.union([show,clarify,unidentified]));
+  // The provider requires an object root; action-dependent anyOf stays nested.
+  return z.object({decision}).strict();
  }
  // A known stale proposal can only request a fresh review, never draft an edit or undo.
  if(staleMerchant)return merchantOutputSchema.extend({intent:z.literal('clarify'),scope:z.null(),constraints:z.object({budgetLimitKrw:z.null(),excludeCategories:z.array(z.string()).max(0),excludeProductIds:z.array(z.string()).max(0),maxQuantity:z.null(),restorePrevious:z.literal(false)}).strict(),question:z.string().min(1).max(300)});
