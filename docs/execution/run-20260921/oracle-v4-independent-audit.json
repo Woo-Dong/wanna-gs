@@ -1,0 +1,107 @@
+{
+  "version": "oracle-v4-independent-audit-v1",
+  "status": "PASS",
+  "reviewer": "final_ux_state",
+  "implementers": [
+    "method_auditor",
+    "root"
+  ],
+  "private_full_replay_verified": true,
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "cohort": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/inventory.json",
+    "sha256": "4a8f468ca279de1dc0296a2d2653e8380ff809b3b2ae5512607b367ae0134f17"
+  },
+  "derivation_sha256": [
+    "bc145a448ee785b8f84417e8a5be7755c4a0b006a9b1dcde3b052a2aeec30cbc",
+    "81365b6ce1297dcfd8747fff409fc719d01329caf47dc26e31170057881f0abf",
+    "59daba2f034b47d97e53b102c6bd05582ee0008ac76a9a1454e8aefd65baac83",
+    "03cc88392dcaa9f5e73060dea93d271056e827a6f7d93a004a675ac599ed5954",
+    "16af44b1b9c123f69070887e874c4d412379bb4aa6d86c772ee3f2219e13fa28",
+    "71ec6999803140b5f3ca3cf11931809a0819cf472af129c59ac5f2571f382b49",
+    "7bc92487774feae1e4adbd72351740b2bdb0716bdf24471141c08d281018d993",
+    "d9ee70d277f71599b92ac5f8c4f439589d618f308335e4f7c78e0a468717943e",
+    "e11278e7fa1de7c2d460350d0182779311fb62fc237a72d6a0405e1cacca98af",
+    "e397da11dd8168a4b668e21faa34e58b23da9ff57507719873e39c1d90da0ae8",
+    "2460538c23e70a6803caabd66f454544f82f50c35fe9ad31f87e18fe91eed925",
+    "adb5d84c20910f512021f1c481a6c6e40e6f4d8cb4e4442851581e8428e1bd5e"
+  ],
+  "reviewed_source_hashes": {
+    "scripts/rescore_public_oracle.py": "cb1583a1b90a39699a338d9ea4ff85a662cde5209f10f269cf075d764b2e5797",
+    "scripts/check_release_evidence.py": "af7744bceaa8634a5396a2a0ce95e0c992244ff0cb4e3821a68f4f35441e9a98",
+    "scripts/run_nl_eval.py": "c819eb21e6511bf7a6fc41e081a635bbd95b93aed8fa8ac87eecd799f0ab2de3",
+    "tests/release/test_oracle_v4.py": "b3c1aa4db557f49879b06dd491b79c3019f30888db5e5dcb29a7c22d6eb28dc0",
+    "evals/scorer.py": "92caabf7aefbdc68e7d36e34772d8034a0b2260f1ce3ac1ade43ae475cc82f74",
+    "evals/adapter.py": "68f1158551e094a8f6494aed525ed35aaafda4ba8cd6166ce099c63a0c30e690"
+  },
+  "public_run_inventory": {
+    "runs": 23,
+    "unchanged_dev_runs": 11,
+    "derived_runs": 12,
+    "case_rows_per_old_new_raw_normalized_arm": 1260,
+    "all_candidates_included": true
+  },
+  "replay": {
+    "private_raw_old_new_equal_normalized": true,
+    "original_scores_exactly_reproduced": true,
+    "changed_runs": 3,
+    "changed_case_results": 3,
+    "unrelated_case_results_unchanged": true,
+    "wrong_340ml_still_fails": true,
+    "original_failures_preserved": true,
+    "original_files_unchanged": 29,
+    "raw_and_normalized_bytes_unchanged_revision02_to04": true,
+    "score_objects_unchanged_revision02_to04": true,
+    "serialization_only_report_changes": true
+  },
+  "independent_checks": {
+    "release_suite_revision02": 121,
+    "runner_suite_revision02": 35,
+    "oracle_suite_revision04": 33,
+    "typed_and_path_probe_groups": 18,
+    "freeze_guard_probe_groups": 15,
+    "all_passed": true,
+    "initial_pending_counterexample_preserved_and_now_rejected": true
+  },
+  "private_evidence": [
+    {
+      "path": "artifacts/private/run-20260921/n15-oracle-v4-independent/private-full-replay-revision-02.json",
+      "sha256": "c80d75e81bdb127c008207fb497c0d8a3f23073b141f756abb77e0e3a9cedff0"
+    },
+    {
+      "path": "artifacts/private/run-20260921/n15-oracle-v4-independent/revision-04-differential-and-guard-check.json",
+      "sha256": "c2d54289d4901d681cbf89c6ff0085c118569b83e026834e56f9156db6fbe60e"
+    },
+    {
+      "path": "artifacts/private/run-20260921/n15-oracle-v4-independent/typed-path-probes-revision-02.json",
+      "sha256": "50d81f7430a6a647e21265670d8c542c82fde45386658901f3694f5316fb67e3"
+    },
+    {
+      "path": "artifacts/private/run-20260921/n15-oracle-v4-independent/freeze-pending-counterexample.json",
+      "sha256": "0d78ee6eb485834d51808aeba878a09dab6da094638d48f2cbd3a671ff6652bc"
+    }
+  ],
+  "protected_independence": {
+    "path": "docs/execution/run-20260921/holdout-v3-oracle-v4-impact-independent.json",
+    "sha256": "2993fc4790116f4306eb14b071d53d2e8a58a2f9e556a434bcbce1e75952870e"
+  },
+  "runtime_preparation": {
+    "path": "docs/execution/run-20260921/c11-runtime-lineage-preparation.json",
+    "sha256": "b1446fe90d38e4ea0678708266d40f39082b3c854fd979dd7ac6f3915325bf75"
+  },
+  "normalization_scope": "Only strict typed scorer inputs, SKU/command/numeric/usage fields and question truthiness/nonempty flags; no utterances, question text, diagnostic or code strings. This is not anonymization or cryptographic proof of provider execution.",
+  "model_calls": 0,
+  "ledger_access": 0,
+  "protected_raw_access_this_technical_review": 0,
+  "new_source_lineage_verified": false,
+  "live_final_gate_claim": false,
+  "limitations": [
+    "Original execution/report FAIL artifacts remain unchanged; derived scores are explicitly new oracle judgments of existing actual observations.",
+    "New deployment source still requires independent exact runtime lineage binding after commit.",
+    "Fresh protected holdout, independent role QA, UX comparison, G5 and G6 remain mandatory and unexecuted by this review."
+  ],
+  "checked_at": "2026-09-22T04:17:14.534600+00:00"
+}

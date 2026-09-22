@@ -1,0 +1,15 @@
+{
+  "version": "historical-public-execution-snapshot-v1",
+  "mode": "live",
+  "run_id": "740c1f22-f0fb-49a5-91a2-f741436f15c3",
+  "run_fingerprint": "6c636045248f3c8a2e83622ffb996f5a8ee6ed14bbf91039d7f723ba65c28c12",
+  "dataset_hash": "180e1ef3890bbde535e4be29a75698b5fa42d9e77a915da9d3d3646c9e486f46",
+  "source_sha": "bb2ab8056716c6d32669c1f8c6103a4a2ca397dd",
+  "source_artifact_hashes": {
+    "n11-c8-validation-01/observations.jsonl": "a40a91dbba552a5d82f8b923646962ab8b45d44b98da2a7d22ecd83fcc2d8561",
+    "n11-c8-validation-01/checkpoint.json": "4af63a368474bbdabd326e88017c60610578a5cd97992d1320cdf725b1857804",
+    "private-original-report": "535313a5ef36d4c2b78ca88400db7a623a42120ebecc621f27e2d3fec4bb7a2f",
+    "private-original-config": "091b56c38acbbee03cc3ee0761e725c1dcbef098ab6f8d304465df3217b74441"
+  },
+  "new_calls": 0
+}

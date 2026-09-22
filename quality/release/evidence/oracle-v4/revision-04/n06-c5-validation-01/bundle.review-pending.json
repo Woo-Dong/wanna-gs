@@ -1,0 +1,45 @@
+{
+  "kind": "derived_public_oracle_rescore",
+  "revision": {
+    "path": "evals/manifest-v4.json",
+    "sha256": "8b26997e03cb3e01d8fe493f6ccf0cdfd9eccee41e3b484ba3e97d1a7b9004b4"
+  },
+  "original": {
+    "report": {
+      "path": "quality/release/evidence/c5-validation-01/report.json",
+      "sha256": "a41a918741156d91c525129422e5c24e3ad8d766312c6b7a8b6bb6bfa766e3f0"
+    },
+    "execution": {
+      "path": "quality/release/evidence/c5-validation-01/execution.json",
+      "sha256": "602166187817fc68da86a9a533c37506ae084327d56c7ca248272a5906670b40"
+    },
+    "binding": {
+      "path": "quality/release/evidence/c5-validation-01/binding.json",
+      "sha256": "5757ace2484663d0775ffc8ab0dbdd7495c9d34df84d25d8141e7b90876550d2"
+    }
+  },
+  "binding": {
+    "path": "quality/release/evidence/c5-validation-01/binding.json",
+    "sha256": "5757ace2484663d0775ffc8ab0dbdd7495c9d34df84d25d8141e7b90876550d2"
+  },
+  "report": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n06-c5-validation-01/report.json",
+    "sha256": "5982bb95b64c26bcd0adf7b8605e03ddfcdd08424b0190b04e9cffbf072d1078"
+  },
+  "execution": {
+    "path": "quality/release/evidence/c5-validation-01/execution.json",
+    "sha256": "602166187817fc68da86a9a533c37506ae084327d56c7ca248272a5906670b40"
+  },
+  "normalized": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n06-c5-validation-01/normalized.json",
+    "sha256": "b8b6082f5e06eb3c342c5234a31c908d0369f1007bd566362c96b0e7cc90dc32"
+  },
+  "derivation": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/n06-c5-validation-01/derivation.json",
+    "sha256": "03cc88392dcaa9f5e73060dea93d271056e827a6f7d93a004a675ac599ed5954"
+  },
+  "cohort": {
+    "path": "quality/release/evidence/oracle-v4/revision-04/inventory.json",
+    "sha256": "4a8f468ca279de1dc0296a2d2653e8380ff809b3b2ae5512607b367ae0134f17"
+  }
+}

@@ -1,6 +1,6 @@
 # 실행 Workplan
 
-상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-n14-v21.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
+상태: 2026-09-21 goal 실행 중. [현재 포인터](PROGRESS.md)·[실제 task 계약과 소유권](execution/run-20260921/plan.md)·[자원 ledger](execution/run-20260921/resource-ledger.json)·[현재 context](execution/run-20260921/context-n15-v22.json)를 함께 확인한다. 아래 DAG는 구현 계획이며 실제 통과 범위는 다음 표와 개별 증거에 한정한다.
 
 | 실행 묶음 | 상태 | 실제 증거·남은 의존성 |
 |---|---|---|
@@ -8,10 +8,10 @@
 | D01~D05·자료/seed/eval | 완료 | 248상품·9점포·실제 SQLite, data-independent.md 및 eval-independent.md; 보호84 내용은 평가자만 보유 |
 | F00/FS·모델 서버 | 통합 완료 | PR #3, 통합 e612cd9 CI PASS, n01-preview-smoke.json 실제 두 역할 호출 |
 | FC/FM/FO/FR·I01/I02·U01/U02 | I01 통합·Preview 완료 | PR4/CI, i01-preview-browser.json 및 고객/경영주 독립 SQLite/live QA; 최종 후보 역할 QA는 별도 필수 |
-| N01~N03·자연어 | D48 C11 고객 분류 복구 진행 | C5~C10 실패 보존. C10 공개validation84/84 두 회 PASS 뒤 보호76/84 FAIL. C11 prompt 분류 순서·max1 예약 기구·새 보호셋을 독립 검증 중. 기존 예산·최소기준 유지·출시best아직없음 |
+| N01~N03·자연어 | ADR008 공개 oracle 무결성 복구 | C5~C11 원본 실패 보존. C11 앱 불변, 공개 정답 두 위치의 대칭 교정·23개 과거 run 파생 채점 기구 독립 검증 중. 새 보호v3의 실제 실행0, 예산·최소기준 유지·출시best아직없음 |
 | UX v3·편의성 비교 | 기구 독립 PASS·실제 미실행 | Python189/Node92/type/build 및 독립SQLite fixture56/56 PASS; 옛48 실패보존. 최종 best 후 동일8×7 양 arm·best56/56→비교, 실제 새 실행0 |
 | Q01/Q02·최종 정책/운영 | 준비 | 최종 live 두 역할 QA는 적격 NL best 후 진행. 정책 두 관점·운영 감사는 현재 runtime와 최종 증거로 재확인 |
-| G5·L01~L03 | 미실행 | 자연어/UX 기준 충족→두 관점 최종 정책 검토→릴리스 PR/CI→Production/G6 순서 유지 |
+| G5·L01~L03 | 최종 미완료·중간 Production 유지 | C11 Production READY는 D49 중간 배포다. 자연어/UX 기준 충족→두 관점 정책·G5→main PR/CI·병합→exact-main Production/G6가 남음 |
 
 실행 묶음 식별자 B01/N01/I01은 위 WP 세부 작업을 묶은 실제 계약 이름이다. 모델 서버 작업 N01과 계획의 WP-N01 자연어 baseline은 구분한다. 앱 단위/로컬 실제 SQLite·브라우저 PASS가 전체 자연어 평가나 G5/G6 완료를 대신하지 않는다.
 

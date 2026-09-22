@@ -1,0 +1,100 @@
+{
+  "phase": "n15-public-oracle-integrity",
+  "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+  "context_manifest": "docs/execution/run-20260921/context-n15-v22.json",
+  "started_at": "2026-09-22T04:09:10.922646+00:00",
+  "purpose": "Preserve customer consent → conservative order → mock payment → 48-hour pickup while refusing invalid evidence.",
+  "normal_case": "ADR008 source-grounded public oracle correction; immutable C11 app/runtime and original failures; derived evaluation integrity before fresh holdout and G5.",
+  "adjacent_regressions": [
+    "OpenAI configuration parsing",
+    "Next production build",
+    "source freshness and child coverage"
+  ],
+  "checks": [
+    {
+      "id": "contracts",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "catalog-source",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "gate-and-env-tests",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 244,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "collection": {
+        "scripts": 18,
+        "tests/gates": 18,
+        "evals/tests": 32,
+        "tests/eval-runner": 35,
+        "tests/ux-benchmark": 7,
+        "tests/ux-benchmark/v3": 12,
+        "tests/release": 122
+      },
+      "missing_suites": []
+    },
+    {
+      "id": "server-tests",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "domain-ui-tests",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "ux-instrument-tests",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "typecheck",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    },
+    {
+      "id": "build",
+      "fingerprint": "44ea1287ea5bc4736300200b8b3553246270a2f2dc7a6fa281211e52a7c1b3a4",
+      "exit_code": 0,
+      "status": "PASS",
+      "mode": "local"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "review_binding": "Original eight executed checks, unchanged source fingerprint, independent reviews subsequently completed; initial aggregate failure preserved."
+}

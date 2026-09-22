@@ -1,6 +1,6 @@
 {
-  "phase": "n14-c11-customer-classification",
-  "scope": "D48 customer classification before candidates; max1 precommitted NL attempts with full quality gates; retired failed holdouts preserved; D49 Production maintained.",
+  "phase": "n15-public-oracle-integrity",
+  "scope": "ADR008 source-grounded public oracle correction; immutable C11 app/runtime and original failures; derived evaluation integrity before fresh holdout and G5.",
   "source_patterns": [
     "app/**/*.ts",
     "app/**/*.tsx",
@@ -104,7 +104,14 @@
     "docs/execution/run-20260921/c11-retry-reservation-evaluator-review.md",
     "docs/execution/run-20260921/c11-retry-reservation-state-review.md",
     "docs/execution/run-20260921/context-n14-v21.json",
-    "docs/execution/run-20260921/holdout-v3-independent.json"
+    "docs/execution/run-20260921/holdout-v3-independent.json",
+    "docs/decisions/ADR-008-public-oracle-equivalence.md",
+    "docs/execution/run-20260921/adr008-product-review.md",
+    "docs/execution/run-20260921/adr008-state-review.md",
+    "docs/execution/run-20260921/oracle-v4-evaluator-review.md",
+    "docs/execution/run-20260921/context-n15-v22.json",
+    "evals/revisions/**/*.json",
+    "evals/revisions/**/*.jsonl"
   ],
   "checks": [
     {
@@ -186,54 +193,33 @@
   ],
   "tasks": [
     {
-      "id": "C11-CUSTOMER",
+      "id": "ORACLE-V4",
       "implementers": [
-        "research"
+        "method_auditor"
       ],
       "requirements": [
-        "CORE-02",
         "CORE-03",
-        "CORE-11",
         "CORE-17",
+        "CORE-18",
         "CORE-21",
         "CORE-23",
         "CORE-25"
       ]
     },
     {
-      "id": "C11-EVAL",
+      "id": "C11-RUNTIME-LINEAGE",
       "implementers": [
-        "root"
-      ],
-      "requirements": [
-        "CORE-17",
-        "CORE-18",
-        "CORE-21",
-        "CORE-23"
-      ]
-    },
-    {
-      "id": "C11-HOLDOUT",
-      "implementers": [
-        "method_auditor"
-      ],
-      "requirements": [
-        "CORE-17",
-        "CORE-21"
-      ]
-    },
-    {
-      "id": "C11-NEED",
-      "implementers": [
+        "root",
         "research"
       ],
       "requirements": [
         "CORE-03",
         "CORE-11",
         "CORE-17",
+        "CORE-18",
         "CORE-25"
       ]
     }
   ],
-  "context_manifest": "docs/execution/run-20260921/context-n14-v21.json"
+  "context_manifest": "docs/execution/run-20260921/context-n15-v22.json"
 }

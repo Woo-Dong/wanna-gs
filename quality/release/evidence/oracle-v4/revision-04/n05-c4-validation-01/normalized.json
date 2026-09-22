@@ -1,0 +1,3412 @@
+[
+  {
+    "case_id": "C01-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3276,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2327,
+          "output_tokens": 101,
+          "total_tokens": 2428
+        },
+        "cost_usd": 0.0010924
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D16555CEE16C"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1987,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2349,
+          "output_tokens": 122,
+          "total_tokens": 2471
+        },
+        "cost_usd": 0.0011348
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-C7EB0510AEF7"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2056,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2398,
+          "output_tokens": 137,
+          "total_tokens": 2535
+        },
+        "cost_usd": 0.0011784
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-577A8F30EB6D"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2940,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12537,
+          "output_tokens": 94,
+          "total_tokens": 12631
+        },
+        "cost_usd": 0.0051652
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-B7F86C827E91"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2951,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2367,
+          "output_tokens": 101,
+          "total_tokens": 2468
+        },
+        "cost_usd": 0.0011084
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-5FFD7D418418"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1771,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2329,
+          "output_tokens": 105,
+          "total_tokens": 2434
+        },
+        "cost_usd": 0.0010995999999999998
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-29AE7B2313C3"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-007",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2437,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2330,
+          "output_tokens": 86,
+          "total_tokens": 2416
+        },
+        "cost_usd": 0.0010696
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-46C32CD8D82B"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-008",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1661,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2366,
+          "output_tokens": 105,
+          "total_tokens": 2471
+        },
+        "cost_usd": 0.0011144
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-F2153CE9420A"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C01-validation-009",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2740,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 2493,
+          "output_tokens": 106,
+          "total_tokens": 2599
+        },
+        "cost_usd": 0.0011668000000000002
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-28C88C36074B"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2301,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12554,
+          "output_tokens": 96,
+          "total_tokens": 12650
+        },
+        "cost_usd": 0.0051752000000000005
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-713EE2E8EA59"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2089,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 93,
+          "total_tokens": 12645
+        },
+        "cost_usd": 0.005169600000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-1804B46B7888"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2736,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12563,
+          "output_tokens": 119,
+          "total_tokens": 12682
+        },
+        "cost_usd": 0.005215600000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D2EF65D34DE6"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1812,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12554,
+          "output_tokens": 100,
+          "total_tokens": 12654
+        },
+        "cost_usd": 0.005181600000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-261E00A2E168"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2211,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12553,
+          "output_tokens": 94,
+          "total_tokens": 12647
+        },
+        "cost_usd": 0.0051716
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-FDD6509C59A6"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2079,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12551,
+          "output_tokens": 94,
+          "total_tokens": 12645
+        },
+        "cost_usd": 0.005170800000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-4A343E70C4B6"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-007",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2587,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12553,
+          "output_tokens": 88,
+          "total_tokens": 12641
+        },
+        "cost_usd": 0.005162000000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-778B67C87CCC"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C02-validation-008",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2383,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12545,
+          "output_tokens": 114,
+          "total_tokens": 12659
+        },
+        "cost_usd": 0.0052004
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-ACB6253CC455"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2367,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12538,
+          "output_tokens": 120,
+          "total_tokens": 12658
+        },
+        "cost_usd": 0.0052072
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-96411D2EBE0B"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2308,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12539,
+          "output_tokens": 104,
+          "total_tokens": 12643
+        },
+        "cost_usd": 0.005182
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-5518531FF212"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2570,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12540,
+          "output_tokens": 76,
+          "total_tokens": 12616
+        },
+        "cost_usd": 0.0051376
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-06DEC25F68E9"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2411,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12536,
+          "output_tokens": 89,
+          "total_tokens": 12625
+        },
+        "cost_usd": 0.0051568000000000004
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-DD54ADA4D367"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1807,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12537,
+          "output_tokens": 83,
+          "total_tokens": 12620
+        },
+        "cost_usd": 0.0051476000000000004
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-7211A0FDF06D"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3254,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12541,
+          "output_tokens": 80,
+          "total_tokens": 12621
+        },
+        "cost_usd": 0.0051444
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D16AB98EE739"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-007",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1879,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12536,
+          "output_tokens": 81,
+          "total_tokens": 12617
+        },
+        "cost_usd": 0.005144000000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-841181F6E62F"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C03-validation-008",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2942,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12537,
+          "output_tokens": 107,
+          "total_tokens": 12644
+        },
+        "cost_usd": 0.005186
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-FC898A5A972B"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3354,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12574,
+          "output_tokens": 213,
+          "total_tokens": 12787
+        },
+        "cost_usd": 0.005370400000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-C159E88E83B2",
+        "DEMO-30CC69E10C08"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3003,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12573,
+          "output_tokens": 233,
+          "total_tokens": 12806
+        },
+        "cost_usd": 0.0054020000000000006
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-30CC69E10C08",
+        "DEMO-D1477B5A4CBB"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 4925,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12567,
+          "output_tokens": 261,
+          "total_tokens": 12828
+        },
+        "cost_usd": 0.0054444
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D1477B5A4CBB",
+        "DEMO-EECA3B554655"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2543,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12566,
+          "output_tokens": 179,
+          "total_tokens": 12745
+        },
+        "cost_usd": 0.0053128
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-EECA3B554655",
+        "DEMO-4C1799DA6DDA"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 4125,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12570,
+          "output_tokens": 201,
+          "total_tokens": 12771
+        },
+        "cost_usd": 0.0053496
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-4C1799DA6DDA",
+        "DEMO-6CEF237C2A52"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 4075,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12568,
+          "output_tokens": 195,
+          "total_tokens": 12763
+        },
+        "cost_usd": 0.0053392000000000005
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-6CEF237C2A52",
+        "DEMO-7AB01D31CB33"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C04-validation-007",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3710,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12574,
+          "output_tokens": 195,
+          "total_tokens": 12769
+        },
+        "cost_usd": 0.0053416
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-7AB01D31CB33",
+        "DEMO-4E26B4410B4E"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C05-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1856,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 71,
+          "total_tokens": 12623
+        },
+        "cost_usd": 0.005134400000000001
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C05-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2450,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 80,
+          "total_tokens": 12632
+        },
+        "cost_usd": 0.0051488
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C05-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2045,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 67,
+          "total_tokens": 12619
+        },
+        "cost_usd": 0.005128
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C05-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2859,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 63,
+          "total_tokens": 12615
+        },
+        "cost_usd": 0.0051216000000000005
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C05-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1794,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 83,
+          "total_tokens": 12635
+        },
+        "cost_usd": 0.0051536
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C05-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1692,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12552,
+          "output_tokens": 79,
+          "total_tokens": 12631
+        },
+        "cost_usd": 0.0051472
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C06-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2288,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12682,
+          "output_tokens": 93,
+          "total_tokens": 12775
+        },
+        "cost_usd": 0.005221600000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-713EE2E8EA59"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "C06-validation-001",
+        "role": "customer",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 1684,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 2411,
+              "output_tokens": 87,
+              "total_tokens": 2498
+            },
+            "cost_usd": 0.0011036000000000002
+          }
+        ],
+        "response": {
+          "action": "candidates",
+          "candidate_ids": [
+            "DEMO-1804B46B7888"
+          ],
+          "alternative_ids": [],
+          "confirmed_sku": null,
+          "confirmation_required": true,
+          "raw_kind_valid": true,
+          "question_shape": {
+            "truthy": false,
+            "nonempty": false
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "C06-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1755,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12686,
+          "output_tokens": 83,
+          "total_tokens": 12769
+        },
+        "cost_usd": 0.0052072
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-1804B46B7888"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "C06-validation-002",
+        "role": "customer",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 1738,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 2656,
+              "output_tokens": 85,
+              "total_tokens": 2741
+            },
+            "cost_usd": 0.0011984
+          }
+        ],
+        "response": {
+          "action": "candidates",
+          "candidate_ids": [
+            "DEMO-D2EF65D34DE6"
+          ],
+          "alternative_ids": [],
+          "confirmed_sku": null,
+          "confirmation_required": true,
+          "raw_kind_valid": true,
+          "question_shape": {
+            "truthy": false,
+            "nonempty": false
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "C06-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3842,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12703,
+          "output_tokens": 115,
+          "total_tokens": 12818
+        },
+        "cost_usd": 0.005265200000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D2EF65D34DE6"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "C06-validation-003",
+        "role": "customer",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 3467,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 2345,
+              "output_tokens": 100,
+              "total_tokens": 2445
+            },
+            "cost_usd": 0.001098
+          }
+        ],
+        "response": {
+          "action": "candidates",
+          "candidate_ids": [
+            "DEMO-261E00A2E168"
+          ],
+          "alternative_ids": [],
+          "confirmed_sku": null,
+          "confirmation_required": true,
+          "raw_kind_valid": true,
+          "question_shape": {
+            "truthy": false,
+            "nonempty": false
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "C06-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2135,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12697,
+          "output_tokens": 101,
+          "total_tokens": 12798
+        },
+        "cost_usd": 0.005240400000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-261E00A2E168"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "C06-validation-004",
+        "role": "customer",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 1883,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 2304,
+              "output_tokens": 100,
+              "total_tokens": 2404
+            },
+            "cost_usd": 0.0010815999999999998
+          }
+        ],
+        "response": {
+          "action": "candidates",
+          "candidate_ids": [
+            "DEMO-FDD6509C59A6"
+          ],
+          "alternative_ids": [],
+          "confirmed_sku": null,
+          "confirmation_required": true,
+          "raw_kind_valid": true,
+          "question_shape": {
+            "truthy": false,
+            "nonempty": false
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "C06-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1947,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12677,
+          "output_tokens": 92,
+          "total_tokens": 12769
+        },
+        "cost_usd": 0.005218
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-FDD6509C59A6"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "C06-validation-005",
+        "role": "customer",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 4643,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 12539,
+              "output_tokens": 86,
+              "total_tokens": 12625
+            },
+            "cost_usd": 0.005153200000000001
+          }
+        ],
+        "response": {
+          "action": "candidates",
+          "candidate_ids": [
+            "DEMO-4A343E70C4B6"
+          ],
+          "alternative_ids": [],
+          "confirmed_sku": null,
+          "confirmation_required": true,
+          "raw_kind_valid": true,
+          "question_shape": {
+            "truthy": false,
+            "nonempty": false
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "C06-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2441,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12717,
+          "output_tokens": 109,
+          "total_tokens": 12826
+        },
+        "cost_usd": 0.0052612
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-4A343E70C4B6"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "C06-validation-006",
+        "role": "customer",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 2105,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 2372,
+              "output_tokens": 123,
+              "total_tokens": 2495
+            },
+            "cost_usd": 0.0011456
+          }
+        ],
+        "response": {
+          "action": "candidates",
+          "candidate_ids": [
+            "DEMO-778B67C87CCC"
+          ],
+          "alternative_ids": [],
+          "confirmed_sku": null,
+          "confirmation_required": true,
+          "raw_kind_valid": true,
+          "question_shape": {
+            "truthy": false,
+            "nonempty": false
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "C07-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 4389,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12558,
+          "output_tokens": 92,
+          "total_tokens": 12650
+        },
+        "cost_usd": 0.0051704
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-96411D2EBE0B"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C07-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 7274,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12560,
+          "output_tokens": 105,
+          "total_tokens": 12665
+        },
+        "cost_usd": 0.005192
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-5518531FF212"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C07-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2157,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12556,
+          "output_tokens": 106,
+          "total_tokens": 12662
+        },
+        "cost_usd": 0.005192000000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-06DEC25F68E9"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C07-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2567,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12559,
+          "output_tokens": 102,
+          "total_tokens": 12661
+        },
+        "cost_usd": 0.0051868
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-DD54ADA4D367"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C07-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1938,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12555,
+          "output_tokens": 77,
+          "total_tokens": 12632
+        },
+        "cost_usd": 0.0051452
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-7211A0FDF06D"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C07-validation-006",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3780,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12553,
+          "output_tokens": 80,
+          "total_tokens": 12633
+        },
+        "cost_usd": 0.0051492000000000005
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D16AB98EE739"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C08-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2295,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12584,
+          "output_tokens": 141,
+          "total_tokens": 12725
+        },
+        "cost_usd": 0.0052592
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-C159E88E83B2"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C08-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2510,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12566,
+          "output_tokens": 131,
+          "total_tokens": 12697
+        },
+        "cost_usd": 0.005236000000000001
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C08-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2663,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12585,
+          "output_tokens": 98,
+          "total_tokens": 12683
+        },
+        "cost_usd": 0.0051908
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D1477B5A4CBB"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C08-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1963,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12563,
+          "output_tokens": 68,
+          "total_tokens": 12631
+        },
+        "cost_usd": 0.0051340000000000005
+      }
+    ],
+    "response": {
+      "action": "unidentified",
+      "candidate_ids": [],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C08-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 8955,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12581,
+          "output_tokens": 96,
+          "total_tokens": 12677
+        },
+        "cost_usd": 0.0051860000000000005
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-4C1799DA6DDA"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C09-validation-001",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2015,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12588,
+          "output_tokens": 101,
+          "total_tokens": 12689
+        },
+        "cost_usd": 0.005196800000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-D16555CEE16C"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C09-validation-002",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3203,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12591,
+          "output_tokens": 112,
+          "total_tokens": 12703
+        },
+        "cost_usd": 0.005215600000000001
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-C7EB0510AEF7"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C09-validation-003",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2124,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12594,
+          "output_tokens": 97,
+          "total_tokens": 12691
+        },
+        "cost_usd": 0.0051928
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-577A8F30EB6D"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C09-validation-004",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2873,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12593,
+          "output_tokens": 93,
+          "total_tokens": 12686
+        },
+        "cost_usd": 0.0051860000000000005
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-B7F86C827E91"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "C09-validation-005",
+    "role": "customer",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2949,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12592,
+          "output_tokens": 136,
+          "total_tokens": 12728
+        },
+        "cost_usd": 0.0052544
+      }
+    ],
+    "response": {
+      "action": "candidates",
+      "candidate_ids": [
+        "DEMO-5FFD7D418418"
+      ],
+      "alternative_ids": [],
+      "confirmed_sku": null,
+      "confirmation_required": true,
+      "raw_kind_valid": true,
+      "question_shape": {
+        "truthy": false,
+        "nonempty": false
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M01-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2039,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12684,
+          "output_tokens": 82,
+          "total_tokens": 12766
+        },
+        "cost_usd": 0.0052048
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "excludeProductIds": [
+            "DEMO-D16555CEE16C"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M01-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2154,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12687,
+          "output_tokens": 80,
+          "total_tokens": 12767
+        },
+        "cost_usd": 0.0052028000000000005
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "excludeProductIds": [
+            "DEMO-C7EB0510AEF7"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M01-validation-003",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1900,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12690,
+          "output_tokens": 79,
+          "total_tokens": 12769
+        },
+        "cost_usd": 0.005202399999999999
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "excludeProductIds": [
+            "DEMO-577A8F30EB6D"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M02-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2488,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12707,
+          "output_tokens": 98,
+          "total_tokens": 12805
+        },
+        "cost_usd": 0.0052396000000000005
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 21000,
+          "excludeProductIds": [
+            "DEMO-713EE2E8EA59"
+          ],
+          "maxQuantity": 2
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M02-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2618,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12704,
+          "output_tokens": 98,
+          "total_tokens": 12802
+        },
+        "cost_usd": 0.005238400000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 22000,
+          "excludeProductIds": [
+            "DEMO-1804B46B7888"
+          ],
+          "maxQuantity": 3
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M02-validation-003",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3146,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12715,
+          "output_tokens": 98,
+          "total_tokens": 12813
+        },
+        "cost_usd": 0.005242800000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 23000,
+          "excludeProductIds": [
+            "DEMO-D2EF65D34DE6"
+          ],
+          "maxQuantity": 4
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M03-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2555,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12692,
+          "output_tokens": 91,
+          "total_tokens": 12783
+        },
+        "cost_usd": 0.0052224
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 21000,
+          "excludeProductIds": [
+            "DEMO-96411D2EBE0B"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M03-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2206,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12698,
+          "output_tokens": 93,
+          "total_tokens": 12791
+        },
+        "cost_usd": 0.005228000000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "policy",
+        "constraints": {
+          "budgetLimitKrw": 22000,
+          "excludeProductIds": [
+            "DEMO-5518531FF212"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M03-validation-003",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 4080,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12688,
+          "output_tokens": 84,
+          "total_tokens": 12772
+        },
+        "cost_usd": 0.0052096
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 23000,
+          "excludeProductIds": [
+            "DEMO-06DEC25F68E9"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M04-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1863,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12694,
+          "output_tokens": 91,
+          "total_tokens": 12785
+        },
+        "cost_usd": 0.005223200000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "restore",
+        "scope": "current_proposal",
+        "constraints": {
+          "restorePrevious": true
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M04-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2799,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12694,
+          "output_tokens": 91,
+          "total_tokens": 12785
+        },
+        "cost_usd": 0.005223200000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "restore",
+        "scope": "current_proposal",
+        "constraints": {
+          "restorePrevious": true
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M04-validation-003",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1810,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12693,
+          "output_tokens": 78,
+          "total_tokens": 12771
+        },
+        "cost_usd": 0.005202000000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "restore",
+        "scope": "current_proposal",
+        "constraints": {
+          "restorePrevious": true
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M05-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3384,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12702,
+          "output_tokens": 139,
+          "total_tokens": 12841
+        },
+        "cost_usd": 0.0053032
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M05-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3463,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12705,
+          "output_tokens": 135,
+          "total_tokens": 12840
+        },
+        "cost_usd": 0.005298
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M05-validation-003",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2808,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12708,
+          "output_tokens": 167,
+          "total_tokens": 12875
+        },
+        "cost_usd": 0.005350400000000001
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M06-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2111,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12688,
+          "output_tokens": 124,
+          "total_tokens": 12812
+        },
+        "cost_usd": 0.005273600000000001
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M06-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2905,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12686,
+          "output_tokens": 126,
+          "total_tokens": 12812
+        },
+        "cost_usd": 0.005276000000000001
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M06-validation-003",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2832,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12694,
+          "output_tokens": 114,
+          "total_tokens": 12808
+        },
+        "cost_usd": 0.00526
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M07-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2556,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12708,
+          "output_tokens": 108,
+          "total_tokens": 12816
+        },
+        "cost_usd": 0.005256000000000001
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M07-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1978,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12711,
+          "output_tokens": 109,
+          "total_tokens": 12820
+        },
+        "cost_usd": 0.0052588
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M08-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1955,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12738,
+          "output_tokens": 93,
+          "total_tokens": 12831
+        },
+        "cost_usd": 0.005244000000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 21000,
+          "excludeProductIds": [
+            "DEMO-C159E88E83B2"
+          ]
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M08-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 3132,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12704,
+          "output_tokens": 135,
+          "total_tokens": 12839
+        },
+        "cost_usd": 0.0052976
+      }
+    ],
+    "response": {
+      "action": "clarify",
+      "confirmation_required": true,
+      "question_shape": {
+        "truthy": true,
+        "nonempty": true
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": []
+  },
+  {
+    "case_id": "M09-validation-001",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 2352,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12820,
+          "output_tokens": 82,
+          "total_tokens": 12902
+        },
+        "cost_usd": 0.0052591999999999995
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 21000,
+          "excludeProductIds": [
+            "DEMO-D16555CEE16C"
+          ],
+          "maxQuantity": 2
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "M09-validation-001",
+        "role": "merchant",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 2032,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 12682,
+              "output_tokens": 81,
+              "total_tokens": 12763
+            },
+            "cost_usd": 0.0052024
+          }
+        ],
+        "response": {
+          "action": "propose",
+          "confirmation_required": true,
+          "command": {
+            "intent": "modify",
+            "scope": "current_proposal",
+            "constraints": {
+              "budgetLimitKrw": 21000,
+              "excludeProductIds": [
+                "DEMO-D16555CEE16C"
+              ]
+            }
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  },
+  {
+    "case_id": "M09-validation-002",
+    "role": "merchant",
+    "transport": "ok",
+    "schema_valid": true,
+    "attempts": [
+      {
+        "http_status": 200,
+        "latency_ms": 1853,
+        "provider_called": true,
+        "status": "ok",
+        "usage": {
+          "input_tokens": 12833,
+          "output_tokens": 88,
+          "total_tokens": 12921
+        },
+        "cost_usd": 0.005274000000000001
+      }
+    ],
+    "response": {
+      "action": "propose",
+      "confirmation_required": true,
+      "command": {
+        "intent": "modify",
+        "scope": "current_proposal",
+        "constraints": {
+          "budgetLimitKrw": 22000,
+          "excludeProductIds": [
+            "DEMO-C7EB0510AEF7"
+          ],
+          "maxQuantity": 3
+        }
+      }
+    },
+    "mode": "live",
+    "run_id": "41e43c20-9e09-480b-8c04-511c95718e08",
+    "run_fingerprint": "d64cea5c5afb5dcced42b310b27c5baeb6198ded4cca7c66385756111459158f",
+    "prior_observations": [
+      {
+        "case_id": "M09-validation-002",
+        "role": "merchant",
+        "transport": "ok",
+        "schema_valid": true,
+        "attempts": [
+          {
+            "http_status": 200,
+            "latency_ms": 2695,
+            "provider_called": true,
+            "status": "ok",
+            "usage": {
+              "input_tokens": 12685,
+              "output_tokens": 88,
+              "total_tokens": 12773
+            },
+            "cost_usd": 0.0052148
+          }
+        ],
+        "response": {
+          "action": "propose",
+          "confirmation_required": true,
+          "command": {
+            "intent": "modify",
+            "scope": "current_proposal",
+            "constraints": {
+              "budgetLimitKrw": 22000,
+              "excludeProductIds": [
+                "DEMO-C7EB0510AEF7"
+              ]
+            }
+          }
+        },
+        "prior_observations": []
+      }
+    ]
+  }
+]
