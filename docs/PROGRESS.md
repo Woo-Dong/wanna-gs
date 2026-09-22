@@ -1,3 +1,9 @@
+# 2026-09-22 재개 진단 — 추가 후보 승인 전
+
+C7 실패와 D47 한도는 유지한다. 새 goal 재개 후 로컬 합성 probe로 생성 schema/서버 검증의 구조적 차이를 확인했고 독립 읽기 검토와 비용 guard 대조를 마쳤다. 고객 행동별 응답 구조를 제한하는 [C8 한 후보 복구 제안](execution/run-20260921/c8-contract-recovery-proposal.md)을 준비했으며 아직 미승인이다. 실제 C7 provider 원문이 없어 오류의 세부 분기는 미확정이다. 제품 소스 수정·새 모델 호출·평가·배포는 0이다.
+
+PR17 head28895ca/통합92c69de, PR CI35607470805·35607487321와 통합CI35607682644 PASS를 확인했다. 이전 문서의 PR/CI 마무리 예정은 완료됐다. 작업 공간·실패/비공개 원본·장부를 유지하며 아래 C7 최종 결과를 변경하지 않는다. 기록 브랜치는 `codex/n10-recovery-proposal`이며 문서만 보존한다. 다음 행동은 사용자가 허용한 추가 복구 범위를 확정하는 것이다.
+
 # 2026-09-21 goal 미완료 — C7 검증 실패·자동 추가 종료
 
 - **현재 C7 전체 validation 첫 반복83/84 FAIL, 출시 적격 best 없음.** 고객 C04-validation-001의 HTTP502 INVALID_MODEL_RESPONSE/CANDIDATE_ACTION_CONTRACT 1건으로 incomplete1. 역할별40/40·19/20·15/15·9/9 정확도 기준은 충족했지만 완료/스키마오류0 조건을 위반해 nl_minimum_pass=false/stage_ready=false다. [독립 평가](execution/run-20260921/n09-c7-validation-evaluation.md).
