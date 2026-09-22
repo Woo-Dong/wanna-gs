@@ -1,0 +1,19 @@
+{
+  "id": "dpl_A3BiNBoshJK7QTgxLC47V5jjNLc4",
+  "url": "wanna-4r7aqsimm-beatrain-4635s-projects.vercel.app",
+  "target": "production",
+  "readyState": "READY",
+  "gitSource": {
+    "type": "github",
+    "repoId": 1378860812,
+    "ref": "codex/n12-c9-recovery",
+    "sha": "8b52a2e8395e94c5f9b76df9e232ff2f37f70e6c"
+  },
+  "alias": [
+    "wanna-gs-sepia.vercel.app",
+    "wanna-gs-beatrain-4635s-projects.vercel.app",
+    "wanna-gs-git-codex-n12-c9-recovery-beatrain-4635s-projects.vercel.app"
+  ],
+  "errorCode": null,
+  "errorMessage": null
+}

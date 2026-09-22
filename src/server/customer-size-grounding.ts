@@ -10,8 +10,13 @@ function quantity(number:string,unit:string):Quantity|null{
  return {dimension:u==='ml'||u==='l'?'volume':'mass',minorAmount,amount:minorAmount/1000,unit:u==='ml'||u==='l'?'ml':'g'};
 }
 function singleMention(text:string):Quantity|null{
+ // Unsupported separators/signs must not turn a suffix into a different size.
+ if(!/^[\p{L}\p{N}\s./]+$/u.test(text))return null;
  const matches=[...text.matchAll(/(?<![\d.+-])(\d+(?:\.\d{1,3})?)\s*(ml|kg|g|l)(?![a-z\d])/gi)];
- return matches.length===1?quantity(matches[0][1],matches[0][2]):null;
+ if(matches.length!==1)return null;
+ const match=matches[0],outside=text.slice(0,match.index)+text.slice(match.index!+match[0].length);
+ if(/\p{N}/u.test(outside))return null;
+ return quantity(match[1],match[2]);
 }
 function knownSize(text:string|null):Quantity|null{
  // Multipacks, ranges, extra quantities and unknown units are not asserted to be comparable.

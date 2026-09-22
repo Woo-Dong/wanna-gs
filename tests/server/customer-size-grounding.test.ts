@@ -14,6 +14,17 @@ test('unknown grammar, negation, correction, alternative permission, size ambigu
  for(const history of [[{role:'user' as const,content:'500ml은 피하고 싶어요'}],[{role:'assistant' as const,content:JSON.stringify({candidates:[candidate('b')]})}]])assert.equal(certifyCustomerSize('보리차 500ml 주세요',products,history),null);
  for(const name of ['보리차 0ml','보리차 -500ml','보리차 1.2345L','보리차 500cc'])assert.equal(certifyCustomerSize(name+' 주세요',[...products,p('invalid',name,'340ml')]),null);
 });
+test('unsupported numeric spelling never certifies a numeric suffix as the requested size',()=>{
+ for(const raw of ['1,500ml','0,5L','47,5g','−500ml','1 500ml','1e3ml','1٫500ml','≠500ml','500ml~','500ml(?)','>500ml']){
+  const name='보리차 '+raw;
+  const rows=[p('input',name,'1500ml'),p('small','보리차 500ml','500ml'),p('mass','보리차 5g','5g')];
+  assert.equal(certifyCustomerSize(name+' 찾아주세요',rows),null,raw);
+  assert.equal(certifyCustomerSize('이름에 '+raw+' / 보리차가 적혀 있어요.',rows),null,raw);
+ }
+ const real=catalogContext.find(p=>p.size==='47.5g')!;
+ assert(real);assert.equal(certifyCustomerSize(real.name.replace('47.5g','47,5g')+' 찾아주세요',catalogContext),null);
+ assert(certifyCustomerSize('보리차 ０．５Ｌ 찾아주세요',[p('half','보리차 0.5L','500ml'),p('one','보리차 1L','1L')]));
+});
 test('no eligible or no known mismatches do not create an empty or misleading certificate',()=>{
  assert.equal(certifyCustomerSize('보리차 500ml 주세요',[p('x','보리차 500ml','340ml')]),null);assert.equal(certifyCustomerSize('보리차 500ml 주세요',[products[0],products[2]]),null);
  const s=modelOutputSchema('customer',['a'],['차'],false,{customerEligibleIds:[]});assert(s.safeParse(wire(show('a'))).success);
