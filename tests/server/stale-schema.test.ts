@@ -1,3 +1,4 @@
+import {merchantWireFixture as wire} from './merchant-wire.fixture';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {z} from 'zod';
@@ -14,7 +15,7 @@ const base={sessionId:'test-session',generation:1,actorId:'merchant',roleEpoch:1
 test('stale metadata restricts generation to clarification with no editable constraints',async()=>{
  for(const delta of [{stale:true},{currentProposalVersion:8},{stale:true,proposalVersion:null,currentProposalVersion:null},{stale:true,currentProposalVersion:7}]){
   let called=0;
-  const provider:ModelProvider=async(_prompt,_input,schema)=>{called++;assert(schema.safeParse(clarify).success);assert(!schema.safeParse(restore).success);assert(!schema.safeParse(modify).success);for(const constraints of [{...empty,budgetLimitKrw:1},{...empty,maxQuantity:1},{...empty,excludeCategories:['음료']},{...empty,excludeProductIds:['p0']},{...empty,restorePrevious:true}])assert(!schema.safeParse({...clarify,constraints}).success);return {value:clarify,model:'test-live-provider',usage}};
+  const provider:ModelProvider=async(_prompt,_input,schema)=>{called++;assert(schema.safeParse(wire(clarify)).success);assert(!schema.safeParse(wire(restore)).success);assert(!schema.safeParse(wire(modify)).success);for(const constraints of [{...empty,budgetLimitKrw:1},{...empty,maxQuantity:1},{...empty,excludeCategories:['음료']},{...empty,excludeProductIds:['p0']},{...empty,restorePrevious:true}])assert(!schema.safeParse(wire({...clarify,constraints})).success);return {value:wire(clarify),model:'test-live-provider',usage}};
   const response=await interpret('merchant',{...base,state:{...base.state,...delta}},provider);
   assert(response.ok);assert.deepEqual(response.data.result,clarify);assert.deepEqual(response.data.usage,usage);assert.equal(called,1);
  }
@@ -22,18 +23,18 @@ test('stale metadata restricts generation to clarification with no editable cons
 test('fresh and unspecified versions preserve normal undo and edits',async()=>{
  for(const delta of [{},{stale:false},{currentProposalVersion:undefined},{proposalVersion:null,currentProposalVersion:8},{currentProposalVersion:null}]){
   for(const value of [restore,modify]){
-   const provider:ModelProvider=async(_prompt,_input,schema)=>{assert(schema.safeParse(restore).success);assert(schema.safeParse(modify).success);return {value,model:'test-live-provider',usage}};
+   const provider:ModelProvider=async(_prompt,_input,schema)=>{assert(schema.safeParse(wire(restore)).success);assert(schema.safeParse(wire(modify)).success);return {value:wire(value),model:'test-live-provider',usage}};
    const response=await interpret('merchant',{...base,state:{...base.state,...delta}},provider);assert(response.ok);assert.deepEqual(response.data.result,value);
   }
  }
 });
 test('a nonconforming stale model answer is rejected with its paid usage, never silently rewritten',async()=>{
- const provider:ModelProvider=async()=>({value:restore,model:'test-live-provider',usage});
+ const provider:ModelProvider=async()=>({value:wire(restore),model:'test-live-provider',usage});
  await assert.rejects(interpret('merchant',{...base,state:{...base.state,stale:true}},provider),(e:unknown)=>e instanceof AssistantError&&e.code==='INVALID_MODEL_RESPONSE'&&e.diagnostic==='SUPPLIED_CATALOG_SCHEMA'&&e.attempt?.providerCalled===true&&e.attempt.usage?.totalTokens===168);
 });
 test('stale merchant schema is strict JSON schema; customer generation is unchanged',()=>{
- const s=modelOutputSchema('merchant',['p0'],['음료'],true);const j=z.toJSONSchema(s) as any;
+ const s=modelOutputSchema('merchant',['p0'],['음료'],true);const root=z.toJSONSchema(s) as any;assert.equal(root.type,'object');assert.deepEqual(root.required,['decision']);const j=root.properties.decision;
  assert.equal(j.properties.intent.const,'clarify');assert.equal(j.properties.scope.type,'null');assert.equal(j.properties.constraints.properties.restorePrevious.const,false);assert.equal(j.properties.constraints.additionalProperties,false);assert.deepEqual(j.required,['intent','scope','constraints','question','reason']);
- assert(!s.safeParse({...clarify,question:null}).success);assert(!s.safeParse({...clarify,question:''}).success);
+ assert(!s.safeParse(wire({...clarify,question:null})).success);assert(!s.safeParse(wire({...clarify,question:''})).success);
  assert.deepEqual(z.toJSONSchema(modelOutputSchema('customer',['p0'],['음료'],false)),z.toJSONSchema(modelOutputSchema('customer',['p0'],['음료'],true)));
 });

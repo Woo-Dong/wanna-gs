@@ -1,3 +1,4 @@
+import {merchantWireFixture as merchantWire} from './merchant-wire.fixture';
 import {customerWireFixture as wire} from './customer-wire.fixture';
 import test from 'node:test';import assert from 'node:assert/strict';import {z} from 'zod';
 import {retrieveCatalog,normalizeCatalogText} from '../../src/server/retrieval';
@@ -19,7 +20,7 @@ test('generated schema admits only supplied SKU IDs; empty unidentified remains 
  const ids=catalogContext.slice(0,2).map(p=>p.id),schema=modelOutputSchema('customer',ids,categories);const value={action:'show_candidates',candidates:[{id:ids[0],kind:'exact',sharedEvidence:[],differences:[],unknownConditions:[]}],question:null,reason:'확인',confirmationRequired:true};assert(schema.safeParse(wire(value)).success);assert(!schema.safeParse(wire({...value,candidates:[{...value.candidates[0],id:catalogContext[2].id}]})).success);assert(schema.safeParse(wire({...value,action:'unidentified',candidates:[]})).success);assert(JSON.stringify(z.toJSONSchema(schema)).includes(ids[0]));
 });
 test('merchant SKU and category enums preserve budget-only and policy changes',()=>{
- const schema=modelOutputSchema('merchant',catalogContext.map(p=>p.id),categories);const value={intent:'modify',scope:'policy',constraints:{budgetLimitKrw:50000,excludeCategories:[],excludeProductIds:[],maxQuantity:null,restorePrevious:false},question:null,reason:'제안'};assert(schema.safeParse(value).success);assert(!schema.safeParse({...value,constraints:{...value.constraints,excludeProductIds:['invented']}}).success);assert(!schema.safeParse({...value,constraints:{...value.constraints,excludeCategories:['invented-category']}}).success);
+ const schema=modelOutputSchema('merchant',catalogContext.map(p=>p.id),categories);const value={intent:'modify',scope:'policy',constraints:{budgetLimitKrw:50000,excludeCategories:[],excludeProductIds:[],maxQuantity:null,restorePrevious:false},question:null,reason:'제안'};assert(schema.safeParse(merchantWire(value)).success);assert(!schema.safeParse(merchantWire({...value,constraints:{...value.constraints,excludeProductIds:['invented']}})).success);assert(!schema.safeParse(merchantWire({...value,constraints:{...value.constraints,excludeCategories:['invented-category']}})).success);
 });
 test('failure diagnostic identifies a rule without recording model content',()=>{
  const value={action:'show_candidates',candidates:[{id:'invented',kind:'exact',sharedEvidence:[],differences:[],unknownConditions:[]}],question:null,reason:'private input must not become a diagnostic',confirmationRequired:true};assert.throws(()=>verifyCustomer(value,0),error=>error instanceof AssistantError&&error.diagnostic==='CANDIDATE_UNKNOWN_ID'&&!error.message.includes('private'));

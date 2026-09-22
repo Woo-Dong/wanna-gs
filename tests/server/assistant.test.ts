@@ -1,3 +1,4 @@
+import {merchantWireFixture as merchantWire} from './merchant-wire.fixture';
 import {customerWireFixture as wire} from './customer-wire.fixture';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -45,7 +46,7 @@ test('restore needs prior history and cannot sneak extra restrictions',async()=>
  const restore={intent:'restore',scope:'current_proposal',constraints:{...empty,restorePrevious:true},question:null,reason:'이전 변경을 되돌려요.'};
  assert.throws(()=>verifyMerchant({...restore,constraints:{...restore.constraints,budgetLimitKrw:1}}));
  const state={storeId:'store',proposalId:'proposal',proposalVersion:1,dailyBudgetKrw:100000,currentConstraints:empty,previousConstraints:null,groups:[]};
- await assert.rejects(interpret('merchant',{...envelope,text:'아까 뺀 것 다시',history:[],state},async()=>({...(await fixture('','',{} as never,'')),value:restore})),AssistantError);
+ await assert.rejects(interpret('merchant',{...envelope,text:'아까 뺀 것 다시',history:[],state},async()=>({...(await fixture('','',{} as never,'')),value:merchantWire(restore)})),AssistantError);
 });
 test('HTTP malformed/oversized input fails with sanitized errors and no model',async()=>{
  for(const [body,status] of [['{',400],['x'.repeat(70000),413]] as const){const r=await handleAssistant('customer',new Request('http://localhost/api/product-assistant',{method:'POST',body}));assert.equal(r.status,status);assert.equal(r.headers.get('cache-control'),'no-store');const data=await r.json();assert.equal(data.ok,false);assert(!JSON.stringify(data).includes('OPENAI_API_KEY'))}
